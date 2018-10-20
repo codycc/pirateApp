@@ -11,6 +11,7 @@ import UIKit
 class PirateCell: UITableViewCell {
 
     @IBOutlet weak var pirateNameLbl: UILabel!
+    @IBOutlet weak var pirateImg: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -18,8 +19,10 @@ class PirateCell: UITableViewCell {
     }
 
     func configureCell(pirate: Pirate) {
-        print("pirate name\(pirate.name)")
+        
         self.pirateNameLbl.text = pirate.name
+        
+        var imgArray = [UIImage]()
         
     }
 }

@@ -14,6 +14,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     
     var pirates = [Pirate]()
+    var sortedPirates = [Pirate]()
     
     
     
@@ -41,21 +42,25 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 }
             }
         } catch {
-            
+            // handle error
         }
         
+        sortPirates()
+    }
+    
+    func sortPirates() {
+        sortedPirates = pirates.sorted(by: { $0.id < $1.id})
     }
     
     
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("pirate count\(pirates.count)")
-        return pirates.count
+        print("pirate count\(sortedPirates.count)")
+        return sortedPirates.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let pirate = pirates[indexPath.row]
+        let pirate = sortedPirates[indexPath.row]
         if let cell = tableView.dequeueReusableCell(withIdentifier: "PirateCell") as? PirateCell {
             cell.configureCell(pirate: pirate)
             
