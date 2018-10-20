@@ -28,12 +28,27 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="124.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2D_ISLAND_BEACH-Sky" translatesAutoresizingMaskIntoConstraints="NO" id="Evw-6v-y49">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="124.5"/>
+                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vgZ-F1-pMQ">
                                                     <rect key="frame" x="166.5" y="52" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2D_ISLAND_BEACH-Middle_Layer" translatesAutoresizingMaskIntoConstraints="NO" id="viQ-c3-hgO">
+                                                    <rect key="frame" x="0.0" y="4.5" width="375" height="120"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="120" id="K6q-dH-E0V"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ground1" translatesAutoresizingMaskIntoConstraints="NO" id="Kii-u5-MKQ">
+                                                    <rect key="frame" x="0.0" y="96.5" width="375" height="28"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="28" id="5IR-qq-ZCS"/>
+                                                    </constraints>
+                                                </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pirate0idle0" translatesAutoresizingMaskIntoConstraints="NO" id="jeH-bO-E3k">
                                                     <rect key="frame" x="-15" y="2.5" width="120" height="120"/>
                                                     <constraints>
@@ -44,12 +59,23 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="jeH-bO-E3k" firstAttribute="leading" secondItem="V3m-hu-j5m" secondAttribute="leading" constant="-15" id="73t-ey-ode"/>
+                                                <constraint firstItem="viQ-c3-hgO" firstAttribute="leading" secondItem="V3m-hu-j5m" secondAttribute="leading" id="9tV-tS-9ln"/>
                                                 <constraint firstItem="vgZ-F1-pMQ" firstAttribute="centerX" secondItem="V3m-hu-j5m" secondAttribute="centerX" id="BYH-2A-5J4"/>
+                                                <constraint firstAttribute="bottom" secondItem="Evw-6v-y49" secondAttribute="bottom" id="Dm1-r3-RMD"/>
                                                 <constraint firstItem="vgZ-F1-pMQ" firstAttribute="centerY" secondItem="V3m-hu-j5m" secondAttribute="centerY" id="N3D-ED-Ug5"/>
+                                                <constraint firstItem="Evw-6v-y49" firstAttribute="top" secondItem="V3m-hu-j5m" secondAttribute="top" id="SR3-DE-w2K"/>
+                                                <constraint firstAttribute="trailing" secondItem="viQ-c3-hgO" secondAttribute="trailing" id="Vm7-rB-7aZ"/>
+                                                <constraint firstAttribute="bottom" secondItem="viQ-c3-hgO" secondAttribute="bottom" id="Xh0-SO-Zrm"/>
                                                 <constraint firstItem="jeH-bO-E3k" firstAttribute="centerY" secondItem="V3m-hu-j5m" secondAttribute="centerY" id="aU9-xV-E6D"/>
+                                                <constraint firstItem="Kii-u5-MKQ" firstAttribute="leading" secondItem="V3m-hu-j5m" secondAttribute="leading" id="gQn-ca-tsK"/>
+                                                <constraint firstAttribute="trailing" secondItem="Kii-u5-MKQ" secondAttribute="trailing" id="hVc-bH-m0Z"/>
+                                                <constraint firstAttribute="trailing" secondItem="Evw-6v-y49" secondAttribute="trailing" id="jOc-Ya-pqu"/>
+                                                <constraint firstItem="Evw-6v-y49" firstAttribute="leading" secondItem="V3m-hu-j5m" secondAttribute="leading" id="qDg-ad-afX"/>
+                                                <constraint firstAttribute="bottom" secondItem="Kii-u5-MKQ" secondAttribute="bottom" id="ywG-1D-TnG"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="groundImg" destination="Kii-u5-MKQ" id="49n-22-uua"/>
                                             <outlet property="pirateImg" destination="jeH-bO-E3k" id="amr-kL-ePc"/>
                                             <outlet property="pirateNameLbl" destination="vgZ-F1-pMQ" id="T4a-69-UeZ"/>
                                         </connections>
@@ -86,6 +112,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="2D_ISLAND_BEACH-Middle_Layer" width="1920" height="1080"/>
+        <image name="2D_ISLAND_BEACH-Sky" width="1920" height="1080"/>
+        <image name="ground1" width="1920" height="237"/>
         <image name="pirate0idle0" width="811" height="712"/>
     </resources>
 </document>

@@ -56,6 +56,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             skollywag.setValue(1, forKey: "level")
             skollywag.setValue(false, forKey: "isAnimating")
             skollywag.setValue(true, forKey: "isUnlocked")
+            skollywag.setValue(11, forKey: "numberOfImages")
+            skollywag.setValue(1, forKey: "groundNumber")
             
             cutler.setValue(1, forKey: "id")
             cutler.setValue("cutler", forKey: "name")
@@ -64,6 +66,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             cutler.setValue(1, forKey: "level")
             cutler.setValue(false, forKey: "isAnimating")
             cutler.setValue(false, forKey: "isUnlocked")
+            cutler.setValue(15, forKey: "numberOfImages")
+            cutler.setValue(1, forKey: "groundNumber")
             
             bucaneer.setValue(2, forKey: "id")
             bucaneer.setValue("Bucaneer", forKey: "name")
@@ -72,6 +76,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             bucaneer.setValue(1, forKey: "level")
             bucaneer.setValue(false, forKey: "isAnimating")
             bucaneer.setValue(false, forKey: "isUnlocked")
+            bucaneer.setValue(11, forKey: "numberOfImages")
+            bucaneer.setValue(2, forKey: "groundNumber")
             
             thief.setValue(3, forKey: "id")
             thief.setValue("Thief", forKey: "name")
@@ -80,6 +86,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             thief.setValue(1, forKey: "level")
             thief.setValue(false, forKey: "isAnimating")
             thief.setValue(false, forKey: "isUnlocked")
+            thief.setValue(11, forKey: "numberOfImages")
+            thief.setValue(2, forKey: "groundNumber")
             
             gunna.setValue(4, forKey: "id")
             gunna.setValue("Gunna", forKey: "name")
@@ -88,6 +96,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             gunna.setValue(1, forKey: "level")
             gunna.setValue(false, forKey: "isAnimating")
             gunna.setValue(false, forKey: "isUnlocked")
+            gunna.setValue(11, forKey: "numberOfImages")
+            gunna.setValue(2, forKey: "groundNumber")
             
             bluebeard.setValue(5, forKey: "id")
             bluebeard.setValue("Bluebeard", forKey: "name")
@@ -96,6 +106,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             bluebeard.setValue(1, forKey: "level")
             bluebeard.setValue(false, forKey: "isAnimating")
             bluebeard.setValue(false, forKey: "isUnlocked")
+            bluebeard.setValue(24, forKey: "numberOfImages")
+            bluebeard.setValue(3, forKey: "groundNumber")
             
             redbeard.setValue(6, forKey: "id")
             redbeard.setValue("Redbeard", forKey: "name")
@@ -104,14 +116,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             redbeard.setValue(1, forKey: "level")
             redbeard.setValue(false, forKey: "isAnimating")
             redbeard.setValue(false, forKey: "isUnlocked")
+            redbeard.setValue(24, forKey: "numberOfImages")
+            redbeard.setValue(3, forKey: "groundNumber")
             
-            blackbeard.setValue(6, forKey: "id")
+            blackbeard.setValue(7, forKey: "id")
             blackbeard.setValue("Blackbeard", forKey: "name")
             blackbeard.setValue(75000, forKey: "lootTime")
             blackbeard.setValue(1250, forKey: "lootAmount")
             blackbeard.setValue(1, forKey: "level")
             blackbeard.setValue(false, forKey: "isAnimating")
             blackbeard.setValue(false, forKey: "isUnlocked")
+            blackbeard.setValue(24, forKey: "numberOfImages")
+            blackbeard.setValue(3, forKey: "groundNumber")
             
             
             do {

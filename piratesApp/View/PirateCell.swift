@@ -12,6 +12,9 @@ class PirateCell: UITableViewCell {
 
     @IBOutlet weak var pirateNameLbl: UILabel!
     @IBOutlet weak var pirateImg: UIImageView!
+   
+    @IBOutlet var groundImg: UIImageView!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,10 +22,27 @@ class PirateCell: UITableViewCell {
     }
 
     func configureCell(pirate: Pirate) {
+       
+        self.pirateNameLbl.text =  String(describing: pirate.name!)
+        let image: UIImage = UIImage(named: "ground\(pirate.groundNumber)")!
+        groundImg.image = image
         
-        self.pirateNameLbl.text = pirate.name
-        
+        addImagesForAnimation(pirate: pirate)
+    }
+    
+    func addImagesForAnimation(pirate: Pirate) {
         var imgArray = [UIImage]()
-        
+        for x in 0...pirate.numberOfImages {
+            let img = UIImage(named:"pirate\(pirate.id)idle\(x)")
+            imgArray.append(img!)
+        }
+        setPirateImages(imgArray: imgArray)
+    }
+    
+    func setPirateImages(imgArray: Array<UIImage>) {
+        pirateImg.animationImages = imgArray
+        pirateImg.animationDuration = 0.8
+        pirateImg.animationRepeatCount = 0
+        pirateImg.startAnimating()
     }
 }
