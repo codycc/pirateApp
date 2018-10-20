@@ -13,10 +13,119 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+        
+        if launchedBefore {
+            print("not first launch")
+        } else {
+            print("first launch")
+            
+            UserDefaults.standard.set(true, forKey: "launchedBefore")
+            
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            
+            let context = appDelegate.persistentContainer.viewContext
+            
+            let skollywag = NSEntityDescription.insertNewObject(forEntityName: "Pirate", into: context)
+            let cutler = NSEntityDescription.insertNewObject(forEntityName: "Pirate", into: context)
+            let bucaneer = NSEntityDescription.insertNewObject(forEntityName: "Pirate", into: context)
+            let thief = NSEntityDescription.insertNewObject(forEntityName: "Pirate", into: context)
+            let gunna = NSEntityDescription.insertNewObject(forEntityName: "Pirate", into: context)
+            let bluebeard = NSEntityDescription.insertNewObject(forEntityName: "Pirate", into: context)
+            let redbeard = NSEntityDescription.insertNewObject(forEntityName: "Pirate", into: context)
+            let blackbeard = NSEntityDescription.insertNewObject(forEntityName: "Pirate", into: context)
+            
+            
+            //set up wallet
+            let wallet = NSEntityDescription.insertNewObject(forEntityName: "Wallet", into: context)
+            
+            wallet.setValue(0, forKey: "totalLootAmount")
+            wallet.setValue(0, forKey: "totalGemsAmount")
+            
+            skollywag.setValue(0, forKey: "id")
+            skollywag.setValue("Scollywag", forKey: "name")
+            skollywag.setValue(6000, forKey: "lootTime")
+            skollywag.setValue(25, forKey: "lootAmount")
+            skollywag.setValue(1, forKey: "level")
+            skollywag.setValue(false, forKey: "isAnimating")
+            skollywag.setValue(true, forKey: "isUnlocked")
+            
+            cutler.setValue(1, forKey: "id")
+            cutler.setValue("cutler", forKey: "name")
+            cutler.setValue(15000, forKey: "lootTime")
+            cutler.setValue(100, forKey: "lootAmount")
+            cutler.setValue(1, forKey: "level")
+            cutler.setValue(false, forKey: "isAnimating")
+            cutler.setValue(false, forKey: "isUnlocked")
+            
+            bucaneer.setValue(2, forKey: "id")
+            bucaneer.setValue("Bucaneer", forKey: "name")
+            bucaneer.setValue(25000, forKey: "lootTime")
+            bucaneer.setValue(200, forKey: "lootAmount")
+            bucaneer.setValue(1, forKey: "level")
+            bucaneer.setValue(false, forKey: "isAnimating")
+            bucaneer.setValue(false, forKey: "isUnlocked")
+            
+            thief.setValue(3, forKey: "id")
+            thief.setValue("Thief", forKey: "name")
+            thief.setValue(35000, forKey: "lootTime")
+            thief.setValue(500, forKey: "lootAmount")
+            thief.setValue(1, forKey: "level")
+            thief.setValue(false, forKey: "isAnimating")
+            thief.setValue(false, forKey: "isUnlocked")
+            
+            gunna.setValue(4, forKey: "id")
+            gunna.setValue("Gunna", forKey: "name")
+            gunna.setValue(45000, forKey: "lootTime")
+            gunna.setValue(600, forKey: "lootAmount")
+            gunna.setValue(1, forKey: "level")
+            gunna.setValue(false, forKey: "isAnimating")
+            gunna.setValue(false, forKey: "isUnlocked")
+            
+            bluebeard.setValue(5, forKey: "id")
+            bluebeard.setValue("Bluebeard", forKey: "name")
+            bluebeard.setValue(55000, forKey: "lootTime")
+            bluebeard.setValue(750, forKey: "lootAmount")
+            bluebeard.setValue(1, forKey: "level")
+            bluebeard.setValue(false, forKey: "isAnimating")
+            bluebeard.setValue(false, forKey: "isUnlocked")
+            
+            redbeard.setValue(6, forKey: "id")
+            redbeard.setValue("Redbeard", forKey: "name")
+            redbeard.setValue(65000, forKey: "lootTime")
+            redbeard.setValue(1000, forKey: "lootAmount")
+            redbeard.setValue(1, forKey: "level")
+            redbeard.setValue(false, forKey: "isAnimating")
+            redbeard.setValue(false, forKey: "isUnlocked")
+            
+            blackbeard.setValue(6, forKey: "id")
+            blackbeard.setValue("Blackbeard", forKey: "name")
+            blackbeard.setValue(75000, forKey: "lootTime")
+            blackbeard.setValue(1250, forKey: "lootAmount")
+            blackbeard.setValue(1, forKey: "level")
+            blackbeard.setValue(false, forKey: "isAnimating")
+            blackbeard.setValue(false, forKey: "isUnlocked")
+            
+            
+            do {
+                try context.save()
+                print("saved")
+            } catch {
+                // process error
+            }
+            
+            
+            
+            
+            
+        }
         return true
     }
 

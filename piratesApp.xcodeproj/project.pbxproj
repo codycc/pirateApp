@@ -8,13 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		0B6A4A6A2177B6B500495663 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6A4A692177B6B500495663 /* AppDelegate.swift */; };
-		0B6A4A6C2177B6B500495663 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6A4A6B2177B6B500495663 /* ViewController.swift */; };
+		0B6A4A6C2177B6B500495663 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6A4A6B2177B6B500495663 /* MainVC.swift */; };
 		0B6A4A6F2177B6B500495663 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B6A4A6D2177B6B500495663 /* Main.storyboard */; };
 		0B6A4A722177B6B500495663 /* piratesApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0B6A4A702177B6B500495663 /* piratesApp.xcdatamodeld */; };
 		0B6A4A742177B6B600495663 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B6A4A732177B6B600495663 /* Assets.xcassets */; };
 		0B6A4A772177B6B600495663 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B6A4A752177B6B600495663 /* LaunchScreen.storyboard */; };
 		0B6A4A822177B6B600495663 /* piratesAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6A4A812177B6B600495663 /* piratesAppTests.swift */; };
 		0B6A4A8D2177B6B700495663 /* piratesAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6A4A8C2177B6B700495663 /* piratesAppUITests.swift */; };
+		0B6A4A9E217BAF0500495663 /* PirateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6A4A9D217BAF0500495663 /* PirateCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +38,7 @@
 /* Begin PBXFileReference section */
 		0B6A4A662177B6B400495663 /* piratesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = piratesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B6A4A692177B6B500495663 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0B6A4A6B2177B6B500495663 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0B6A4A6B2177B6B500495663 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		0B6A4A6E2177B6B500495663 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0B6A4A712177B6B500495663 /* piratesApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = piratesApp.xcdatamodel; sourceTree = "<group>"; };
 		0B6A4A732177B6B600495663 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +50,7 @@
 		0B6A4A882177B6B700495663 /* piratesAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = piratesAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B6A4A8C2177B6B700495663 /* piratesAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = piratesAppUITests.swift; sourceTree = "<group>"; };
 		0B6A4A8E2177B6B700495663 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0B6A4A9D217BAF0500495663 /* PirateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PirateCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,8 +101,10 @@
 		0B6A4A682177B6B500495663 /* piratesApp */ = {
 			isa = PBXGroup;
 			children = (
+				0B6A4A9C2177B7D800495663 /* Model */,
+				0B6A4A9B2177B7CC00495663 /* View */,
+				0B6A4A9A2177B7C300495663 /* Controller */,
 				0B6A4A692177B6B500495663 /* AppDelegate.swift */,
-				0B6A4A6B2177B6B500495663 /* ViewController.swift */,
 				0B6A4A6D2177B6B500495663 /* Main.storyboard */,
 				0B6A4A732177B6B600495663 /* Assets.xcassets */,
 				0B6A4A752177B6B600495663 /* LaunchScreen.storyboard */,
@@ -126,6 +130,29 @@
 				0B6A4A8E2177B6B700495663 /* Info.plist */,
 			);
 			path = piratesAppUITests;
+			sourceTree = "<group>";
+		};
+		0B6A4A9A2177B7C300495663 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0B6A4A6B2177B6B500495663 /* MainVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		0B6A4A9B2177B7CC00495663 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0B6A4A9D217BAF0500495663 /* PirateCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0B6A4A9C2177B7D800495663 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,8 +286,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B6A4A9E217BAF0500495663 /* PirateCell.swift in Sources */,
 				0B6A4A722177B6B500495663 /* piratesApp.xcdatamodeld in Sources */,
-				0B6A4A6C2177B6B500495663 /* ViewController.swift in Sources */,
+				0B6A4A6C2177B6B500495663 /* MainVC.swift in Sources */,
 				0B6A4A6A2177B6B500495663 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
