@@ -14,6 +14,8 @@ class PirateCell: UITableViewCell {
     @IBOutlet weak var pirateImg: UIImageView!
    
     @IBOutlet var groundImg: UIImageView!
+
+    @IBOutlet var backgroundImg: UIImageView!
     
     
     override func awakeFromNib() {
@@ -24,10 +26,23 @@ class PirateCell: UITableViewCell {
     func configureCell(pirate: Pirate) {
        
         self.pirateNameLbl.text =  String(describing: pirate.name!)
-        let image: UIImage = UIImage(named: "ground\(pirate.groundNumber)")!
-        groundImg.image = image
         
+        
+        UIView.animate(withDuration: 5, animations: {
+            
+            self.pirateImg.frame.origin.x += 200
+        }, completion: nil)
+        setUpDynamicBackgrounds(pirate: pirate)
         addImagesForAnimation(pirate: pirate)
+    }
+    
+    func setUpDynamicBackgrounds(pirate: Pirate) {
+        let groundImage: UIImage = UIImage(named: "ground\(pirate.groundNumber)")!
+        groundImg.image = groundImage
+        
+       let backgroundImage: UIImage = UIImage(named: "background2")!
+        backgroundImg.image = backgroundImage
+        
     }
     
     func addImagesForAnimation(pirate: Pirate) {

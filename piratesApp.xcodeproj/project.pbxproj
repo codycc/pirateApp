@@ -16,6 +16,7 @@
 		0B6A4A822177B6B600495663 /* piratesAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6A4A812177B6B600495663 /* piratesAppTests.swift */; };
 		0B6A4A8D2177B6B700495663 /* piratesAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6A4A8C2177B6B700495663 /* piratesAppUITests.swift */; };
 		0B6A4A9E217BAF0500495663 /* PirateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6A4A9D217BAF0500495663 /* PirateCell.swift */; };
+		0B6A4AA0217BEB5700495663 /* piratesmusic.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0B6A4A9F217BEB5700495663 /* piratesmusic.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		0B6A4A8C2177B6B700495663 /* piratesAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = piratesAppUITests.swift; sourceTree = "<group>"; };
 		0B6A4A8E2177B6B700495663 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0B6A4A9D217BAF0500495663 /* PirateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PirateCell.swift; sourceTree = "<group>"; };
+		0B6A4A9F217BEB5700495663 /* piratesmusic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = piratesmusic.wav; path = ../../../Downloads/bb57e4dbbb1e64d7a4bd71a515f64e6cca4ec5bb/piratesmusic.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 		0B6A4A682177B6B500495663 /* piratesApp */ = {
 			isa = PBXGroup;
 			children = (
+				0B6A4A9F217BEB5700495663 /* piratesmusic.wav */,
 				0B6A4A9C2177B7D800495663 /* Model */,
 				0B6A4A9B2177B7CC00495663 /* View */,
 				0B6A4A9A2177B7C300495663 /* Controller */,
@@ -260,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B6A4A772177B6B600495663 /* LaunchScreen.storyboard in Resources */,
+				0B6A4AA0217BEB5700495663 /* piratesmusic.wav in Resources */,
 				0B6A4A742177B6B600495663 /* Assets.xcassets in Resources */,
 				0B6A4A6F2177B6B500495663 /* Main.storyboard in Resources */,
 			);

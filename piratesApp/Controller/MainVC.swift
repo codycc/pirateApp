@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import AVFoundation
 
 class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
    
@@ -16,9 +17,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var pirates = [Pirate]()
     var sortedPirates = [Pirate]()
     
-    
-    
-    
+    var musicPlayer: AVAudioPlayer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +44,21 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             // handle error
         }
         
+        playMusic()
         sortPirates()
+    }
+    
+    func playMusic() {
+        let path = Bundle.main.path(forResource: "piratesmusic", ofType: "wav")
+        let soundUrl = NSURL(fileURLWithPath: path!)
+        
+        do {
+            try musicPlayer = AVAudioPlayer(contentsOf: soundUrl as URL)
+            musicPlayer.prepareToPlay()
+            musicPlayer.play()
+        } catch let err as NSError {
+            print(err.debugDescription)
+        }
     }
     
     func sortPirates() {
