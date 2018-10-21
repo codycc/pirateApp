@@ -14,6 +14,10 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
    
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet var plank1: UIImageView!
+    @IBOutlet var plank2: UIImageView!
+    @IBOutlet var leadingPlankConstraint: NSLayoutConstraint!
+    
     var pirates = [Pirate]()
     var sortedPirates = [Pirate]()
     
@@ -23,6 +27,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
@@ -44,8 +49,24 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             // handle error
         }
         
+        animatePlanks()
         playMusic()
         sortPirates()
+    }
+    
+    func animatePlanks() {
+        UIView.animate(withDuration: 2, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 4, animations: {
+            self.plank1.center.x += 100
+            
+        }, completion: nil)
+        
+        UIView.animate(withDuration: 2, delay: 0.3, usingSpringWithDamping: 0.5, initialSpringVelocity: 4, animations: {
+             self.plank2.center.x += 100
+            
+        }, completion: nil)
+        
+        
+       
     }
     
     func playMusic() {
