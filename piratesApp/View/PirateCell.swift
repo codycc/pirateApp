@@ -11,27 +11,48 @@ import UIKit
 class PirateCell: UITableViewCell {
 
     @IBOutlet weak var pirateNameLbl: UILabel!
-    @IBOutlet weak var pirateImg: UIImageView!
+
     @IBOutlet var plankImg: UIImageView!
     @IBOutlet var groundImg: UIImageView!
     @IBOutlet var backgroundImg: UIImageView!
+    @IBOutlet var upgradePlankImg: UIImageView!
+    @IBOutlet var upgradePlankLbl: UILabel!
+    @IBOutlet var pirateImg: UIImageView!
+    @IBOutlet var pirateBtn: UIButton!
     
-
     func configureCell(pirate: Pirate) {
         self.pirateNameLbl.text =  String(describing: pirate.name!)
-        setPlank(pirate:pirate)
+        setPlankUnlock(pirate:pirate)
+        setUpDynamicPlanks(pirate:pirate)
         setUpDynamicBackgrounds(pirate: pirate)
         addImagesForAnimation(pirate: pirate)
     }
     
-    func setPlank(pirate: Pirate) {
+    func setPlankUnlock(pirate: Pirate) {
         if pirate.isUnlocked {
             self.plankImg.isHidden = true
             self.pirateNameLbl.isHidden = true
+            self.upgradePlankImg.isHidden = false
+            self.upgradePlankLbl.isHidden = false
         } else {
             self.plankImg.isHidden = false
             self.pirateNameLbl.isHidden = false
+            self.upgradePlankImg.isHidden = true
+            self.upgradePlankLbl.isHidden = true
         }
+    }
+    
+    func checkIfPirateIsAnimating(pirate: Pirate) {
+        if pirate.isAnimating {
+            pirateBtn.isEnabled = false
+        } else {
+            pirateBtn.isEnabled = true
+        }
+    }
+    
+    func setUpDynamicPlanks(pirate: Pirate) {
+        let plankImage: UIImage = UIImage(named: "plank\(pirate.plankNumber)")!
+        plankImg.image = plankImage
     }
     
     func setUpDynamicBackgrounds(pirate: Pirate) {

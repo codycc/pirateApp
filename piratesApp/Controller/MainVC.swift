@@ -25,6 +25,8 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var wallet = [Wallet]()
     
     var musicPlayer: AVAudioPlayer!
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,9 +35,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.bounces = false
         tableView.alwaysBounceVertical = false
         
-        
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+       
         let context = appDelegate.persistentContainer.viewContext
+        
         let requestPirate = NSFetchRequest<NSFetchRequestResult>(entityName: "Pirate")
         let requestWallet = NSFetchRequest<NSFetchRequestResult>(entityName: "Wallet")
         
@@ -155,5 +157,24 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             return PirateCell()
         }
     }
+    
+    @IBAction func pirateBtnPressed(_ sender: Any) {
+        let context = appDelegate.persistentContainer.viewContext
+        
+        
+        
+        guard let cell = (sender as AnyObject).superview?.superview as? PirateCell else {
+            return // or fatalError() or whatever
+        }
+        
+        let indexPath = tableView.indexPath(for: cell)
+        print("\(indexPath?.row)here is index path")
+        
+        var pirate = pirates[(indexPath?.row)!]
+        print("here is pirate\(pirate)")
+        
+    }
+    
+    
 }
 
