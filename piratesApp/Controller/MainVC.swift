@@ -13,20 +13,22 @@ import AVFoundation
 class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
    
     @IBOutlet weak var tableView: UITableView!
-    
     @IBOutlet var plank1: UIImageView!
     @IBOutlet var plank2: UIImageView!
     @IBOutlet var leadingPlankConstraint: NSLayoutConstraint!
+    @IBOutlet var pirateShipImg: UIImageView!
+    @IBOutlet var parrotImg: UIImageView!
     
     var pirates = [Pirate]()
     var sortedPirates = [Pirate]()
-    
     var musicPlayer: AVAudioPlayer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.bounces = false
+        tableView.alwaysBounceVertical = false
         
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -48,10 +50,43 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         } catch {
             // handle error
         }
-        
+        addParrotImagesForAnimation()
+        addShipImagesForAnimation()
         animatePlanks()
         playMusic()
         sortPirates()
+    }
+    
+    func addParrotImagesForAnimation() {
+        var imgArray = [UIImage]()
+        for x in 0...8 {
+            let img = UIImage(named:"yellowParrot\(x)")
+            imgArray.append(img!)
+        }
+        setParrotImages(imgArray: imgArray)
+    }
+    
+    func setParrotImages(imgArray: Array<UIImage>) {
+        parrotImg.animationImages = imgArray
+        parrotImg.animationDuration = 1.0
+        parrotImg.animationRepeatCount = 0
+        parrotImg.startAnimating()
+    }
+    
+    func addShipImagesForAnimation() {
+        var imgArray = [UIImage]()
+        for x in 0...24 {
+            let img = UIImage(named:"whiteShip\(x)")
+            imgArray.append(img!)
+        }
+        setShipImages(imgArray: imgArray)
+    }
+    
+    func setShipImages(imgArray: Array<UIImage>) {
+        pirateShipImg.animationImages = imgArray
+        pirateShipImg.animationDuration = 3.0
+        pirateShipImg.animationRepeatCount = 0
+        pirateShipImg.startAnimating()
     }
     
     func animatePlanks() {
@@ -62,11 +97,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         UIView.animate(withDuration: 2, delay: 0.3, usingSpringWithDamping: 0.5, initialSpringVelocity: 4, animations: {
              self.plank2.center.x += 100
-            
         }, completion: nil)
-        
-        
-       
     }
     
     func playMusic() {
@@ -103,11 +134,5 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             return PirateCell()
         }
     }
-    
-    
-    
-    
-
-
 }
 
