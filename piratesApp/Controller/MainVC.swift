@@ -18,9 +18,12 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet var leadingPlankConstraint: NSLayoutConstraint!
     @IBOutlet var pirateShipImg: UIImageView!
     @IBOutlet var parrotImg: UIImageView!
+    @IBOutlet var walletLootLbl: UILabel!
     
     var pirates = [Pirate]()
     var sortedPirates = [Pirate]()
+    var wallet = [Wallet]()
+    
     var musicPlayer: AVAudioPlayer!
     
     override func viewDidLoad() {
@@ -33,28 +36,46 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Pirate")
+        let requestPirate = NSFetchRequest<NSFetchRequestResult>(entityName: "Pirate")
+        let requestWallet = NSFetchRequest<NSFetchRequestResult>(entityName: "Wallet")
         
-        request.returnsObjectsAsFaults = false
+        requestPirate.returnsObjectsAsFaults = false
+        requestWallet.returnsObjectsAsFaults = false
         
-        //fetching coredata
+        //fetching Pirate Entity from CoreData
         do {
-            let results = try context.fetch(request)
-            print("HERE IS RESULTS\(results)")
+            let results = try context.fetch(requestPirate)
             if results.count > 0 {
                 for result in results {
-                    print("HERE IS INDIVIDUAL\(result)")
                     pirates.append(result as! Pirate)
                 }
             }
         } catch {
             // handle error
         }
+        
+        // fetching Wallet Entity from CoreData
+        do {
+            let results = try context.fetch(requestWallet)
+            if results.count > 0 {
+                for result in results {
+                    wallet.append(result as! Wallet)
+                }
+            }
+        } catch {
+            // handle error 
+        }
+        
+        updateWalletLoot()
         addParrotImagesForAnimation()
         addShipImagesForAnimation()
         animatePlanks()
         playMusic()
         sortPirates()
+    }
+    
+    func updateWalletLoot() {
+        walletLootLbl.text = "\(wallet[0].totalLootAmount)"
     }
     
     func addParrotImagesForAnimation() {

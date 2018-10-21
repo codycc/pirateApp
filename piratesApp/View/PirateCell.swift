@@ -27,8 +27,10 @@ class PirateCell: UITableViewCell {
     func setPlank(pirate: Pirate) {
         if pirate.isUnlocked {
             self.plankImg.isHidden = true
+            self.pirateNameLbl.isHidden = true
         } else {
-            self.plankImg.isHidden = false 
+            self.plankImg.isHidden = false
+            self.pirateNameLbl.isHidden = false
         }
     }
     

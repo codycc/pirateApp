@@ -206,6 +206,7 @@
                         <outlet property="plank1" destination="MYt-P4-gik" id="l5g-4D-uxD"/>
                         <outlet property="plank2" destination="Bnw-fI-mhr" id="k1H-cI-GRf"/>
                         <outlet property="tableView" destination="85r-OI-m6b" id="uj0-Nv-dTN"/>
+                        <outlet property="walletLootLbl" destination="G0q-bj-ZiS" id="RYp-HV-zRy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
