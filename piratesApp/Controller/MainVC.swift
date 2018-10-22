@@ -29,6 +29,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var musicPlayer: AVAudioPlayer!
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +48,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         requestPirate.returnsObjectsAsFaults = false
         requestWallet.returnsObjectsAsFaults = false
+        
+        NotificationCenter.default.addObserver(self, selector:#selector(MainVC.alertTimers), name:
+            UIApplication.willEnterForegroundNotification, object: nil)
         
         //fetching Pirate Entity from CoreData
         do {
@@ -79,6 +83,13 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         animatePlanks()
         playMusic()
         sortPirates()
+        startTimers()
+    }
+    
+    
+    @objc func alertTimers() {
+        print("alert tIMERS CALLED")
+        startTimers()
     }
     
     func updateWalletLoot() {
@@ -145,6 +156,17 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         sortedPirates = pirates.sorted(by: { $0.id < $1.id})
     }
     
+    func startTimers() {
+        for pirate in sortedPirates {
+            if pirate.isAnimating == true {
+                
+                var timer = Timer()
+                timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(MainVC.updateCoreDataFromTimer), userInfo: pirate, repeats: true)
+  
+            }
+        }
+    }
+    
     @objc func updateCoreDataFromTimer(timer: Timer) {
         let pirate = timer.userInfo as! Pirate
         
@@ -160,9 +182,14 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         do {
            try context.save()
+            print("\(pirate.currentTime)current")
         } catch {
             //handle error 
         }
+        
+        if UserDefaults.standard.bool(forKey: "appClosed") == true {
+            timer.invalidate()
+        } 
     }
     
    
@@ -202,6 +229,8 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 try context.save()
                 var timer = Timer()
                 timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(MainVC.updateCoreDataFromTimer), userInfo: pirate, repeats: true)
+                
+                
   
             } catch {
                 //handle error

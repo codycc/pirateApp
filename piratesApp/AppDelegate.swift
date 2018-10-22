@@ -68,7 +68,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             cutler.setValue(100, forKey: "lootAmount")
             cutler.setValue(1, forKey: "level")
             cutler.setValue(false, forKey: "isAnimating")
-            cutler.setValue(false, forKey: "isUnlocked")
+            cutler.setValue(true, forKey: "isUnlocked")
             cutler.setValue(15, forKey: "numberOfImages")
             cutler.setValue(1, forKey: "groundNumber")
             cutler.setValue(2, forKey: "backgroundNumber")
@@ -173,7 +173,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _ = UserDefaults.standard.double(forKey: "timeClosed")
     
         UserDefaults.standard.set(date, forKey: "timeClosed")
-
+        
+        _ = UserDefaults.standard.bool(forKey: "appClosed")
+        UserDefaults.standard.set(true, forKey: "appClosed")
+        
     
 }
 
@@ -184,16 +187,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        
+        
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-        
         let date = NSDate().timeIntervalSince1970
         let time = UserDefaults.standard.double(forKey: "timeClosed")
         
         var timeSince = date - time
         
+        print("enter foreground")
+        _ = UserDefaults.standard.bool(forKey: "appClosed")
+        UserDefaults.standard.set(false, forKey: "appClosed")
+        
+       
+        
+  
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
