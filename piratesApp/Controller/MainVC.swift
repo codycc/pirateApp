@@ -151,7 +151,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         pirate.currentTime = pirate.currentTime - 1000
         print("\(pirate.currentTime)")
         if pirate.currentTime == Int32(0) {
+            wallet[0].totalLootAmount += pirate.lootAmount
             pirate.currentTime = pirate.lootTime
+            updateWalletLoot()
         }
         
         do {
@@ -187,26 +189,23 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
         
         let indexPath = tableView.indexPath(for: cell)
-        let pirate = pirates[(indexPath?.row)!]
-        if pirate.isUnlocked && !pirate.isAnimating {
+        let pirate = sortedPirates[(indexPath?.row)!]
+        print("\(pirate.name)")
+        if pirate.isUnlocked && !pirate.isAnimating  {
             do {
+                print("called")
                 pirate.setValue(true, forKey: "isAnimating")
                 try context.save()
                 var timer = Timer()
                 timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(MainVC.updateCoreDataFromTimer), userInfo: pirate, repeats: true)
-                
-                
+  
             } catch {
                 //handle error
             }
             
             print("here is pirate\(pirate)")
         }
-       
-        
 
-        
-        
     }
     
     
