@@ -36,6 +36,8 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.dataSource = self
         tableView.bounces = false
         tableView.alwaysBounceVertical = false
+        let date = NSDate().timeIntervalSince1970
+        print("DATE\(date)")
         
        
         let context = appDelegate.persistentContainer.viewContext
@@ -162,6 +164,8 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             //handle error 
         }
     }
+    
+   
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
