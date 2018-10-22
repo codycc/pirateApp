@@ -159,6 +159,16 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func startTimers() {
         for pirate in sortedPirates {
             if pirate.isAnimating == true {
+                let date = NSDate().timeIntervalSince1970
+                let time = UserDefaults.standard.double(forKey: "timeClosed")
+                
+                let timeSince = date - time
+                let timeSinceInMilliseconds = timeSince * 1000
+                
+                let currentTime = (Int32(timeSinceInMilliseconds) / pirate.lootTime)
+                
+                let amountOfMoneyMade = pirate.lootAmount * currentTime
+                print("\(amountOfMoneyMade) amount of money made")
                 
                 var timer = Timer()
                 timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(MainVC.updateCoreDataFromTimer), userInfo: pirate, repeats: true)
