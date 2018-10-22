@@ -2,6 +2,7 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14315.18" systemVersion="17G65" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Pirate" representedClassName="Pirate" syncable="YES" codeGenerationType="class">
         <attribute name="backgroundNumber" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="currentTime" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="groundNumber" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="isAnimating" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
@@ -18,7 +19,7 @@
         <attribute name="totalLootAmount" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Pirate" positionX="-63" positionY="-18" width="128" height="210"/>
+        <element name="Pirate" positionX="-63" positionY="-18" width="128" height="225"/>
         <element name="Wallet" positionX="-54" positionY="36" width="128" height="75"/>
     </elements>
 </model>

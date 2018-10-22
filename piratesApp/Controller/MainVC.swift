@@ -142,8 +142,21 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     @objc func updateCoreDataFromTimer(timer: Timer) {
-        var pirate = timer.userInfo as! Pirate
-        print("\(pirate.name)")
+        let pirate = timer.userInfo as! Pirate
+        
+        
+        let context = appDelegate.persistentContainer.viewContext
+        pirate.currentTime = pirate.currentTime - 1000
+        print("\(pirate.currentTime)")
+        if pirate.currentTime == Int32(0) {
+            pirate.currentTime = pirate.lootTime
+        }
+        
+        do {
+           try context.save()
+        } catch {
+            //handle error 
+        }
     }
     
     
@@ -174,10 +187,10 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
         
         let indexPath = tableView.indexPath(for: cell)
-        
         let pirate = pirates[(indexPath?.row)!]
-        
         pirate.setValue(true, forKey: "isAnimating")
+        
+        
         
         do {
             try context.save()

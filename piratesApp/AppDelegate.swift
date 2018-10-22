@@ -60,6 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             skollywag.setValue(1, forKey: "groundNumber")
             skollywag.setValue(1, forKey: "backgroundNumber")
             skollywag.setValue(1, forKey: "plankNumber")
+            skollywag.setValue(6000, forKey: "currentTime")
             
             cutler.setValue(1, forKey: "id")
             cutler.setValue("cutler", forKey: "name")
@@ -72,6 +73,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             cutler.setValue(1, forKey: "groundNumber")
             cutler.setValue(2, forKey: "backgroundNumber")
             cutler.setValue(2, forKey: "plankNumber")
+            cutler.setValue(15000, forKey: "currentTime")
             
             bucaneer.setValue(2, forKey: "id")
             bucaneer.setValue("Bucaneer", forKey: "name")
@@ -84,6 +86,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             bucaneer.setValue(2, forKey: "groundNumber")
             bucaneer.setValue(1, forKey: "backgroundNumber")
             bucaneer.setValue(3, forKey: "plankNumber")
+            bucaneer.setValue(25000, forKey: "currentTime")
             
             thief.setValue(3, forKey: "id")
             thief.setValue("Thief", forKey: "name")
@@ -96,6 +99,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             thief.setValue(2, forKey: "groundNumber")
             thief.setValue(2, forKey: "backgroundNumber")
             thief.setValue(4, forKey: "plankNumber")
+            thief.setValue(35000, forKey: "currentTime")
             
             gunna.setValue(4, forKey: "id")
             gunna.setValue("Gunna", forKey: "name")
@@ -108,6 +112,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             gunna.setValue(2, forKey: "groundNumber")
             gunna.setValue(1, forKey: "backgroundNumber")
             gunna.setValue(5, forKey: "plankNumber")
+            gunna.setValue(45000, forKey: "currentTime")
             
             bluebeard.setValue(5, forKey: "id")
             bluebeard.setValue("Bluebeard", forKey: "name")
@@ -120,6 +125,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             bluebeard.setValue(3, forKey: "groundNumber")
             bluebeard.setValue(2, forKey: "backgroundNumber")
             bluebeard.setValue(1, forKey: "plankNumber")
+            bluebeard.setValue(55000, forKey: "currentTime")
             
             redbeard.setValue(6, forKey: "id")
             redbeard.setValue("Redbeard", forKey: "name")
@@ -132,6 +138,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             redbeard.setValue(3, forKey: "groundNumber")
             redbeard.setValue(1, forKey: "backgroundNumber")
             redbeard.setValue(2, forKey: "plankNumber")
+            redbeard.setValue(65000, forKey: "currentTime")
             
             blackbeard.setValue(7, forKey: "id")
             blackbeard.setValue("Blackbeard", forKey: "name")
@@ -144,6 +151,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             blackbeard.setValue(3, forKey: "groundNumber")
             blackbeard.setValue(2, forKey: "backgroundNumber")
             blackbeard.setValue(3, forKey: "plankNumber")
+            blackbeard.setValue(75000, forKey: "currentTime")
             
             
             do {
