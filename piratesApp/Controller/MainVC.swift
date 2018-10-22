@@ -50,6 +50,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             if results.count > 0 {
                 for result in results {
                     pirates.append(result as! Pirate)
+                    print("\(result)animating")
                 }
             }
         } catch {
@@ -140,6 +141,11 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         sortedPirates = pirates.sorted(by: { $0.id < $1.id})
     }
     
+    @objc func updateCoreDataFromTimer(timer: Timer) {
+        var pirate = timer.userInfo as! Pirate
+        print("\(pirate.name)")
+    }
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("pirate count\(sortedPirates.count)")
@@ -168,10 +174,23 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
         
         let indexPath = tableView.indexPath(for: cell)
-        print("\(indexPath?.row)here is index path")
         
-        var pirate = pirates[(indexPath?.row)!]
+        let pirate = pirates[(indexPath?.row)!]
+        
+        pirate.setValue(true, forKey: "isAnimating")
+        
+        do {
+            try context.save()
+            var timer = Timer()
+            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(MainVC.updateCoreDataFromTimer), userInfo: pirate, repeats: true)
+            
+            
+        } catch {
+            //handle error
+        }
+        
         print("here is pirate\(pirate)")
+        
         
     }
     
