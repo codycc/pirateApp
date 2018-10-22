@@ -26,6 +26,24 @@ class PirateCell: UITableViewCell {
         setUpDynamicPlanks(pirate:pirate)
         setUpDynamicBackgrounds(pirate: pirate)
         addImagesForAnimation(pirate: pirate)
+        animatePirate(pirate: pirate)
+    }
+    
+    
+    func animatePirate(pirate: Pirate) {
+        var origin = pirateImg.frame.origin.x
+        if pirate.isAnimating {
+            UIView.animate(withDuration: 3, animations: {
+                self.pirateImg.transform = CGAffineTransform(translationX: 400, y: 0)
+            }, completion: { _ in
+                UIView.animate(withDuration: 3, animations: {
+                self.pirateImg.transform = CGAffineTransform(translationX: 0, y: 0)
+                })
+            })
+        }
+        
+      
+        
     }
     
 

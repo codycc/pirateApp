@@ -159,22 +159,39 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func startTimers() {
         for pirate in sortedPirates {
             if pirate.isAnimating == true {
-                let date = NSDate().timeIntervalSince1970
-                let time = UserDefaults.standard.double(forKey: "timeClosed")
-                
-                let timeSince = date - time
-                let timeSinceInMilliseconds = timeSince * 1000
-                
-                let currentTime = (Int32(timeSinceInMilliseconds) / pirate.lootTime)
-                
-                let amountOfMoneyMade = pirate.lootAmount * currentTime
-                print("\(amountOfMoneyMade) amount of money made")
-                
+                grabPirateOfflineData(pirate: pirate)
                 var timer = Timer()
                 timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(MainVC.updateCoreDataFromTimer), userInfo: pirate, repeats: true)
   
             }
         }
+    }
+    
+    func grabPirateOfflineData(pirate: Pirate) {
+        let date = NSDate().timeIntervalSince1970
+        let time = UserDefaults.standard.double(forKey: "timeClosed")
+        
+        let timeSince = date - time
+        let timeSinceInMilliseconds = timeSince * 1000
+        
+        let currentTime = (timeSinceInMilliseconds / Double(pirate.lootTime))
+        
+        let wholeNumber = floor(currentTime)
+        let decimalNumber = wholeNumber.truncatingRemainder(dividingBy: 1)
+
+        let amountOfMoneyMade = pirate.lootAmount * Int32(wholeNumber)
+        
+        let context = appDelegate.persistentContainer.viewContext
+        wallet[0].totalLootAmount += amountOfMoneyMade
+        updateWalletLoot()
+        
+        do {
+            try context.save()
+        } catch {
+            // handle error
+        }
+        
+        print("\(amountOfMoneyMade) amount of money made")
     }
     
     @objc func updateCoreDataFromTimer(timer: Timer) {
@@ -184,6 +201,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let context = appDelegate.persistentContainer.viewContext
         pirate.currentTime = pirate.currentTime - 1000
         print("\(pirate.currentTime)")
+        
         if pirate.currentTime == Int32(0) {
             wallet[0].totalLootAmount += pirate.lootAmount
             pirate.currentTime = pirate.lootTime
@@ -201,8 +219,6 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             timer.invalidate()
         } 
     }
-    
-   
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -229,6 +245,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             return // or fatalError() or whatever
         }
         
+        
         let indexPath = tableView.indexPath(for: cell)
         let pirate = sortedPirates[(indexPath?.row)!]
         print("\(pirate.name)")
@@ -248,6 +265,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             
             print("here is pirate\(pirate)")
         }
+     
 
     }
     
