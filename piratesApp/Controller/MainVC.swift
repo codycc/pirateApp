@@ -20,6 +20,8 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet var parrotImg: UIImageView!
     @IBOutlet var walletLootLbl: UILabel!
     
+
+    
     var pirates = [Pirate]()
     var sortedPirates = [Pirate]()
     var wallet = [Wallet]()
@@ -178,31 +180,31 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     @IBAction func pirateBtnPressed(_ sender: Any) {
+        
         let context = appDelegate.persistentContainer.viewContext
-        
-        
-        
         guard let cell = (sender as AnyObject).superview?.superview as? PirateCell else {
             return // or fatalError() or whatever
         }
         
         let indexPath = tableView.indexPath(for: cell)
         let pirate = pirates[(indexPath?.row)!]
-        pirate.setValue(true, forKey: "isAnimating")
-        
-        
-        
-        do {
-            try context.save()
-            var timer = Timer()
-            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(MainVC.updateCoreDataFromTimer), userInfo: pirate, repeats: true)
+        if pirate.isUnlocked && !pirate.isAnimating {
+            do {
+                pirate.setValue(true, forKey: "isAnimating")
+                try context.save()
+                var timer = Timer()
+                timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(MainVC.updateCoreDataFromTimer), userInfo: pirate, repeats: true)
+                
+                
+            } catch {
+                //handle error
+            }
             
-            
-        } catch {
-            //handle error
+            print("here is pirate\(pirate)")
         }
+       
         
-        print("here is pirate\(pirate)")
+
         
         
     }

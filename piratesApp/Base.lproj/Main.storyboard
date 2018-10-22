@@ -139,7 +139,6 @@
                                         <connections>
                                             <outlet property="backgroundImg" destination="viQ-c3-hgO" id="1W6-11-eKu"/>
                                             <outlet property="groundImg" destination="Kii-u5-MKQ" id="49n-22-uua"/>
-                                            <outlet property="pirateBtn" destination="UJ1-CZ-a17" id="CFN-P9-8jc"/>
                                             <outlet property="pirateImg" destination="B1u-Pq-a4a" id="2tQ-Dl-xxQ"/>
                                             <outlet property="pirateNameLbl" destination="vgZ-F1-pMQ" id="T4a-69-UeZ"/>
                                             <outlet property="plankImg" destination="03J-EL-QXF" id="ZbY-TJ-oAi"/>
@@ -268,11 +267,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="eHU-Zr-kvZ">
-                    <connections>
-                        <action selector="pirateImgPressed:" destination="BYZ-38-t0r" id="lKO-Zu-t1r"/>
-                    </connections>
-                </tapGestureRecognizer>
+                <tapGestureRecognizer id="eHU-Zr-kvZ"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
         </scene>

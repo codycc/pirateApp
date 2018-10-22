@@ -18,7 +18,7 @@ class PirateCell: UITableViewCell {
     @IBOutlet var upgradePlankImg: UIImageView!
     @IBOutlet var upgradePlankLbl: UILabel!
     @IBOutlet var pirateImg: UIImageView!
-    @IBOutlet var pirateBtn: UIButton!
+  
     
     func configureCell(pirate: Pirate) {
         self.pirateNameLbl.text =  String(describing: pirate.name!)
@@ -27,6 +27,8 @@ class PirateCell: UITableViewCell {
         setUpDynamicBackgrounds(pirate: pirate)
         addImagesForAnimation(pirate: pirate)
     }
+    
+
     
     func setPlankUnlock(pirate: Pirate) {
         if pirate.isUnlocked {
@@ -42,13 +44,6 @@ class PirateCell: UITableViewCell {
         }
     }
     
-    func checkIfPirateIsAnimating(pirate: Pirate) {
-        if pirate.isAnimating {
-            pirateBtn.isEnabled = false
-        } else {
-            pirateBtn.isEnabled = true
-        }
-    }
     
     func setUpDynamicPlanks(pirate: Pirate) {
         let plankImage: UIImage = UIImage(named: "plank\(pirate.plankNumber)")!
