@@ -42,23 +42,23 @@ class PirateCell: UITableViewCell {
 //        }
     }
     
-    func changePirateImageRight(pirate: Pirate) {
-        var imgArray = [UIImage]()
-        for x in 0...pirate.numberOfImagesRun {
-            let img = UIImage(named:"pirate\(pirate.id)run\(x)")
-            imgArray.append(img!)
-        }
-        setPirateImages(imgArray: imgArray)
-    }
-    
-    func changePirateImageLeft(pirate: Pirate) {
-        var imgArray = [UIImage]()
-        for x in 0...pirate.numberOfImagesRun {
-            let img = UIImage(named:"pirate\(pirate.id)runLeft\(x)")
-            imgArray.append(img!)
-        }
-        setPirateImages(imgArray: imgArray)
-    }
+//    func changePirateImageRight(pirate: Pirate) {
+//        var imgArray = [UIImage]()
+//        for x in 0...pirate.numberOfImagesRun {
+//            let img = UIImage(named:"pirate\(pirate.id)run\(x)")
+//            imgArray.append(img!)
+//        }
+//        setPirateImages(imgArray: imgArray)
+//    }
+//    
+//    func changePirateImageLeft(pirate: Pirate) {
+//        var imgArray = [UIImage]()
+//        for x in 0...pirate.numberOfImagesRun {
+//            let img = UIImage(named:"pirate\(pirate.id)runLeft\(x)")
+//            imgArray.append(img!)
+//        }
+//        setPirateImages(imgArray: imgArray)
+//    }
     
     func animatePirate(number: Int32, pirate: Pirate, addOnWord: String) {
         switch number {
@@ -104,7 +104,7 @@ class PirateCell: UITableViewCell {
         case 118 ... 126, 253 ... 261, 388 ... 396:
             let img = UIImage(named:"pirate\(pirate.id)run\(addOnWord)\(13)")
             pirateImg.image = img
-        case 127 ... 135, 262 ... 270, 396 ... 405:
+        case 127 ... 135, 262 ... 270, 396 ... 458:
             let img = UIImage(named:"pirate\(pirate.id)run\(addOnWord)\(14)")
             pirateImg.image = img
         default:
@@ -116,13 +116,10 @@ class PirateCell: UITableViewCell {
         
         if pirate.isAnimating {
             let numberForward = Int32(floor(((6000 - pirate.currentTime) / 10)  * 1.4))
-            let numberBackward = Int32(floor((((pirate.currentTime - 6000) / 10)  * 1.4) + 810))
+            let numberBackward = Int32(floor((((pirate.currentTime - 6000) / 10)  * 1.4) + 830))
             if pirate.currentTime > 3000 {
-
-                print("number\(numberForward)")
                 self.pirateImg.transform = CGAffineTransform(translationX: CGFloat(numberForward), y: 0)
                 animatePirate(number: numberForward, pirate: pirate, addOnWord: "")
-
             } else {
                 self.pirateImg.transform = CGAffineTransform(translationX: CGFloat(numberBackward), y: 0)
                 animatePirate(number: numberBackward, pirate: pirate, addOnWord: "Left")

@@ -212,9 +212,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         pirate.currentTime = pirate.currentTime - 10
         print("\(pirate.currentTime)")
         
-        if pirate.currentTime >= 3000 {
-            pirate.isPirateRight = true
-        }
+//        if pirate.currentTime >= 3000 {
+//            pirate.isPirateRight = true
+//        }
         
         if pirate.currentTime == 0.0 {
             wallet[0].totalLootAmount += pirate.lootAmount
@@ -257,6 +257,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     
+    
     @IBAction func pirateBtnPressed(_ sender: Any) {
         
         let context = appDelegate.persistentContainer.viewContext
@@ -289,7 +290,4 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
 }
 
-extension UITableView {
-    
-}
 
