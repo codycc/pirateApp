@@ -78,7 +78,7 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pirate0idle0" translatesAutoresizingMaskIntoConstraints="NO" id="B1u-Pq-a4a">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="B1u-Pq-a4a">
                                                     <rect key="frame" x="-20" y="2.5" width="120" height="120"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="120" id="X91-ct-GNp"/>
@@ -283,7 +283,6 @@
         <image name="ground1" width="1920" height="237"/>
         <image name="ground2" width="1920" height="289"/>
         <image name="openchestloot" width="665" height="645"/>
-        <image name="pirate0idle0" width="811" height="712"/>
         <image name="plank5" width="1917" height="357"/>
         <image name="redplank" width="1489" height="334"/>
         <image name="singleLoot" width="122" height="118"/>

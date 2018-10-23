@@ -62,6 +62,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             skollywag.setValue(1, forKey: "plankNumber")
             skollywag.setValue(6000, forKey: "currentTime")
             skollywag.setValue(15, forKey: "numberOfImagesRun")
+            skollywag.setValue(false, forKey: "isPirateRight")
             
             cutler.setValue(1, forKey: "id")
             cutler.setValue("cutler", forKey: "name")
@@ -76,6 +77,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             cutler.setValue(2, forKey: "plankNumber")
             cutler.setValue(6000, forKey: "currentTime")
             cutler.setValue(15, forKey: "numberOfImagesRun")
+            cutler.setValue(false, forKey: "isPirateRight")
             
             bucaneer.setValue(2, forKey: "id")
             bucaneer.setValue("Bucaneer", forKey: "name")
@@ -90,6 +92,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             bucaneer.setValue(3, forKey: "plankNumber")
             bucaneer.setValue(6000, forKey: "currentTime")
             bucaneer.setValue(15, forKey: "numberOfImagesRun")
+            bucaneer.setValue(false, forKey: "isPirateRight")
             
             thief.setValue(3, forKey: "id")
             thief.setValue("Thief", forKey: "name")
@@ -104,6 +107,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             thief.setValue(4, forKey: "plankNumber")
             thief.setValue(6000, forKey: "currentTime")
             thief.setValue(15, forKey: "numberOfImagesRun")
+            thief.setValue(false, forKey: "isPirateRight")
             
             gunna.setValue(4, forKey: "id")
             gunna.setValue("Gunna", forKey: "name")
@@ -118,6 +122,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             gunna.setValue(5, forKey: "plankNumber")
             gunna.setValue(6000, forKey: "currentTime")
             gunna.setValue(15, forKey: "numberOfImagesRun")
+            gunna.setValue(false, forKey: "isPirateRight")
             
             bluebeard.setValue(5, forKey: "id")
             bluebeard.setValue("Bluebeard", forKey: "name")
@@ -132,6 +137,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             bluebeard.setValue(1, forKey: "plankNumber")
             bluebeard.setValue(6000, forKey: "currentTime")
             bluebeard.setValue(14, forKey: "numberOfImagesRun")
+            bluebeard.setValue(false, forKey: "isPirateRight")
             
             redbeard.setValue(6, forKey: "id")
             redbeard.setValue("Redbeard", forKey: "name")
@@ -146,6 +152,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             redbeard.setValue(2, forKey: "plankNumber")
             redbeard.setValue(6000, forKey: "currentTime")
             redbeard.setValue(14, forKey: "numberOfImagesRun")
+            redbeard.setValue(false, forKey: "isPirateRight")
             
             blackbeard.setValue(7, forKey: "id")
             blackbeard.setValue("Blackbeard", forKey: "name")
@@ -160,6 +167,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             blackbeard.setValue(3, forKey: "plankNumber")
             blackbeard.setValue(6000, forKey: "currentTime")
             blackbeard.setValue(14, forKey: "numberOfImagesRun")
+            blackbeard.setValue(false, forKey: "isPirateRight")
             
             
             do {

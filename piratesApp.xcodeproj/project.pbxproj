@@ -17,6 +17,8 @@
 		0B6A4A8D2177B6B700495663 /* piratesAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6A4A8C2177B6B700495663 /* piratesAppUITests.swift */; };
 		0B6A4A9E217BAF0500495663 /* PirateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6A4A9D217BAF0500495663 /* PirateCell.swift */; };
 		0B6A4AA0217BEB5700495663 /* piratesmusic.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0B6A4A9F217BEB5700495663 /* piratesmusic.wav */; };
+		0B6A4AA2217F8D2100495663 /* swiftGIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6A4AA1217F8D2100495663 /* swiftGIF.swift */; };
+		0B6A4AA6217F933800495663 /* pirate1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0B6A4AA5217F933800495663 /* pirate1.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		0B6A4A8E2177B6B700495663 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0B6A4A9D217BAF0500495663 /* PirateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PirateCell.swift; sourceTree = "<group>"; };
 		0B6A4A9F217BEB5700495663 /* piratesmusic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = piratesmusic.wav; path = ../../../Downloads/bb57e4dbbb1e64d7a4bd71a515f64e6cca4ec5bb/piratesmusic.wav; sourceTree = "<group>"; };
+		0B6A4AA1217F8D2100495663 /* swiftGIF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swiftGIF.swift; sourceTree = "<group>"; };
+		0B6A4AA5217F933800495663 /* pirate1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = pirate1.gif; path = ../../../Downloads/pirate1.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,7 @@
 		0B6A4A682177B6B500495663 /* piratesApp */ = {
 			isa = PBXGroup;
 			children = (
+				0B6A4AA5217F933800495663 /* pirate1.gif */,
 				0B6A4A9F217BEB5700495663 /* piratesmusic.wav */,
 				0B6A4A9C2177B7D800495663 /* Model */,
 				0B6A4A9B2177B7CC00495663 /* View */,
@@ -113,6 +118,7 @@
 				0B6A4A752177B6B600495663 /* LaunchScreen.storyboard */,
 				0B6A4A782177B6B600495663 /* Info.plist */,
 				0B6A4A702177B6B500495663 /* piratesApp.xcdatamodeld */,
+				0B6A4AA1217F8D2100495663 /* swiftGIF.swift */,
 			);
 			path = piratesApp;
 			sourceTree = "<group>";
@@ -264,6 +270,7 @@
 			files = (
 				0B6A4A772177B6B600495663 /* LaunchScreen.storyboard in Resources */,
 				0B6A4AA0217BEB5700495663 /* piratesmusic.wav in Resources */,
+				0B6A4AA6217F933800495663 /* pirate1.gif in Resources */,
 				0B6A4A742177B6B600495663 /* Assets.xcassets in Resources */,
 				0B6A4A6F2177B6B500495663 /* Main.storyboard in Resources */,
 			);
@@ -292,6 +299,7 @@
 			files = (
 				0B6A4A9E217BAF0500495663 /* PirateCell.swift in Sources */,
 				0B6A4A722177B6B500495663 /* piratesApp.xcdatamodeld in Sources */,
+				0B6A4AA2217F8D2100495663 /* swiftGIF.swift in Sources */,
 				0B6A4A6C2177B6B500495663 /* MainVC.swift in Sources */,
 				0B6A4A6A2177B6B500495663 /* AppDelegate.swift in Sources */,
 			);
