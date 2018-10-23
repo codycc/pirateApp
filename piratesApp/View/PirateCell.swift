@@ -30,23 +30,83 @@ class PirateCell: UITableViewCell {
     }
     
     
-    func animatePirate(pirate: Pirate) {
-        var origin = pirateImg.frame.origin.x
-        if pirate.isAnimating {
-            UIView.animate(withDuration: 3, animations: {
-                self.pirateImg.transform = CGAffineTransform(translationX: 400, y: 0)
-            }, completion: { _ in
-                UIView.animate(withDuration: 3, animations: {
-                self.pirateImg.transform = CGAffineTransform(translationX: 0, y: 0)
-                })
-            })
+    func changePirateImageRight(pirate: Pirate) {
+        var imgArray = [UIImage]()
+        for x in 0...pirate.numberOfImagesRun {
+            var img = UIImage(named:"pirate\(pirate.id)run\(x)")
+            imgArray.append(img!)
         }
-        
-      
-        
+        setPirateImages(imgArray: imgArray)
     }
     
+    func changePirateImageLeft(pirate: Pirate) {
+        var imgArray = [UIImage]()
+        for x in 0...pirate.numberOfImagesRun {
+            var img = UIImage(named:"pirate\(pirate.id)runLeft\(x)")
+            imgArray.append(img!)
+        }
+        setPirateImages(imgArray: imgArray)
+    }
+    
+    func animatePirate(pirate: Pirate) {
+        if pirate.isAnimating {
+            // store the pirates current location when the cell disappears
+            // then reset it here to continue finishing off animation
 
+                
+                self.pirateImg.transform = CGAffineTransform(translationX: CGFloat((6000 - pirate.currentTime) / 10), y: 0)
+                
+            
+            
+//            switch pirate.currentTime {
+//            case 5000:
+//                    self.pirateImg.transform = CGAffineTransform(translationX: 100, y: 0)
+//            case 4000:
+//                UIView.animate(withDuration: 1) {
+//                    self.pirateImg.transform = CGAffineTransform(translationX: 250, y: 0)
+//                }
+//            case 3000:
+//                UIView.animate(withDuration: 1) {
+//                    self.pirateImg.transform = CGAffineTransform(translationX: 400, y: 0)
+//                }
+//            case 2000:
+//                UIView.animate(withDuration: 1) {
+//                    self.pirateImg.transform = CGAffineTransform(translationX: 250, y: 0)
+//                }
+//            case 1000:
+//                UIView.animate(withDuration: 1) {
+//                    self.pirateImg.transform = CGAffineTransform(translationX: 100, y: 0)
+//                }
+//            default:
+//                UIView.animate(withDuration: 1) {
+//                    self.pirateImg.transform = CGAffineTransform(translationX: 20, y: 0)
+//                }
+//            }
+            
+            
+//            func animateLeft() {
+//                UIView.animate(withDuration: 3, animations: {
+//                    self.pirateImg.layer.transform =
+//                    self.changePirateImageRight(pirate:pirate)
+//                }, completion: { _ in
+//                    animateRight()
+//                })
+//            }
+//            
+//            func animateRight() {
+//                UIView.animate(withDuration: 3, animations: {
+//
+//                    self.changePirateImageLeft(pirate:pirate)
+//                }, completion: { _ in
+//                    animateLeft()
+//                })
+//            }
+//           animateLeft()
+            
+        }
+    }
+    
+  
     
     func setPlankUnlock(pirate: Pirate) {
         if pirate.isUnlocked {
@@ -91,4 +151,5 @@ class PirateCell: UITableViewCell {
         pirateImg.animationRepeatCount = 0
         pirateImg.startAnimating()
     }
+
 }

@@ -84,8 +84,11 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         playMusic()
         sortPirates()
         startTimers()
+      
+        
     }
     
+   
     
     @objc func alertTimers() {
         print("alert tIMERS CALLED")
@@ -161,37 +164,44 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             if pirate.isAnimating == true {
                 grabPirateOfflineData(pirate: pirate)
                 var timer = Timer()
-                timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(MainVC.updateCoreDataFromTimer), userInfo: pirate, repeats: true)
+                timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(MainVC.updateCoreDataFromTimer), userInfo: pirate, repeats: true)
   
             }
         }
     }
     
     func grabPirateOfflineData(pirate: Pirate) {
-        let date = NSDate().timeIntervalSince1970
-        let time = UserDefaults.standard.double(forKey: "timeClosed")
-        
-        let timeSince = date - time
-        let timeSinceInMilliseconds = timeSince * 1000
-        
-        let currentTime = (timeSinceInMilliseconds / Double(pirate.lootTime))
-        
-        let wholeNumber = floor(currentTime)
-        let decimalNumber = wholeNumber.truncatingRemainder(dividingBy: 1)
-
-        let amountOfMoneyMade = pirate.lootAmount * Int32(wholeNumber)
-        
-        let context = appDelegate.persistentContainer.viewContext
-        wallet[0].totalLootAmount += amountOfMoneyMade
-        updateWalletLoot()
-        
-        do {
-            try context.save()
-        } catch {
-            // handle error
+        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+        if launchedBefore {
+            let date = NSDate().timeIntervalSince1970
+            let time = UserDefaults.standard.double(forKey: "timeClosed")
+            
+            let timeSince = date - time
+            let timeSinceInMilliseconds = timeSince * 1000
+            
+            let currentTime = (timeSinceInMilliseconds / Double(pirate.lootTime))
+            
+            let wholeNumber = floor(currentTime)
+            // let decimalNumber = wholeNumber.truncatingRemainder(dividingBy: 1)
+            print("\(pirate.lootAmount)")
+            print("\(wholeNumber)")
+            let amountOfMoneyMade = pirate.lootAmount * Int32(wholeNumber)
+            
+            let context = appDelegate.persistentContainer.viewContext
+            wallet[0].totalLootAmount += amountOfMoneyMade
+            updateWalletLoot()
+            
+            do {
+                try context.save()
+            } catch {
+                // handle error
+            }
+            
+            print("\(amountOfMoneyMade) amount of money made")
+        } else {
+            
         }
-        
-        print("\(amountOfMoneyMade) amount of money made")
+      
     }
     
     @objc func updateCoreDataFromTimer(timer: Timer) {
@@ -199,10 +209,10 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         
         let context = appDelegate.persistentContainer.viewContext
-        pirate.currentTime = pirate.currentTime - 1000
+        pirate.currentTime = pirate.currentTime - 10
         print("\(pirate.currentTime)")
         
-        if pirate.currentTime == Int32(0) {
+        if pirate.currentTime == 0.0 {
             wallet[0].totalLootAmount += pirate.lootAmount
             pirate.currentTime = pirate.lootTime
             updateWalletLoot()
@@ -210,10 +220,14 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         do {
            try context.save()
-            print("\(pirate.currentTime)current")
+            //print("\(pirate.currentTime)current")
         } catch {
             //handle error 
         }
+        
+        let indexPath = IndexPath(row: Int(pirate.id), section: 0)
+        print("\(indexPath)INDEXPATH")
+        tableView.reloadRows(at: [indexPath], with: .none)
         
         if UserDefaults.standard.bool(forKey: "appClosed") == true {
             timer.invalidate()
@@ -238,6 +252,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    
     @IBAction func pirateBtnPressed(_ sender: Any) {
         
         let context = appDelegate.persistentContainer.viewContext
@@ -255,9 +270,8 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 pirate.setValue(true, forKey: "isAnimating")
                 try context.save()
                 var timer = Timer()
-                timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(MainVC.updateCoreDataFromTimer), userInfo: pirate, repeats: true)
-                
-                
+                timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(MainVC.updateCoreDataFromTimer), userInfo: pirate, repeats: true)
+
   
             } catch {
                 //handle error
@@ -269,6 +283,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     }
     
+}
+
+extension UITableView {
     
 }
 
