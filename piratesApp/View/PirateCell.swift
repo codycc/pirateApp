@@ -53,8 +53,12 @@ class PirateCell: UITableViewCell {
             // store the pirates current location when the cell disappears
             // then reset it here to continue finishing off animation
 
-                
-                self.pirateImg.transform = CGAffineTransform(translationX: CGFloat((6000 - pirate.currentTime) / 10), y: 0)
+            if pirate.currentTime > 3000 {
+                self.pirateImg.transform = CGAffineTransform(translationX: CGFloat(((6000 - pirate.currentTime) / 10)  * 1.4), y: 0)
+            } else {
+                self.pirateImg.transform = CGAffineTransform(translationX: CGFloat(((( pirate.currentTime - 6000) / 10)  * 1.4)) + 810, y: 0)
+            }
+            
                 
             
             
