@@ -9,18 +9,16 @@
 import UIKit
 import CoreData
 import AVFoundation
+import Spring
 
 class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
    
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet var plank1: UIImageView!
-    @IBOutlet var plank2: UIImageView!
-    @IBOutlet var leadingPlankConstraint: NSLayoutConstraint!
     @IBOutlet var pirateShipImg: UIImageView!
     @IBOutlet var parrotImg: UIImageView!
     @IBOutlet var walletLootLbl: UILabel!
-    
-
+    @IBOutlet var lootImg: SpringImageView!
+    @IBOutlet var gemsImg: SpringImageView!
     
     var pirates = [Pirate]()
     var sortedPirates = [Pirate]()
@@ -40,7 +38,6 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let date = NSDate().timeIntervalSince1970
         print("DATE\(date)")
         
-       
         let context = appDelegate.persistentContainer.viewContext
         
         let requestPirate = NSFetchRequest<NSFetchRequestResult>(entityName: "Pirate")
@@ -80,11 +77,13 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         updateWalletLoot()
         addParrotImagesForAnimation()
         addShipImagesForAnimation()
-        animatePlanks()
+        //animatePlanks()
+        //setLootChest()
         playMusic()
         sortPirates()
         startTimers()
-      
+        startAnimationTimers()
+        
         
     }
     
@@ -95,14 +94,31 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         startTimers()
     }
     
+     func startAnimationTimers() {
+        var chestTimer = Timer()
+        chestTimer = Timer.scheduledTimer(timeInterval: 8, target: self, selector: #selector(MainVC.setLootChest), userInfo: nil, repeats: true)
+        var gemsTimer = Timer()
+        gemsTimer = Timer.scheduledTimer(timeInterval: 11, target: self, selector: #selector(MainVC.setGems), userInfo: nil, repeats: true)
+    }
+    
     func updateWalletLoot() {
         walletLootLbl.text = "\(wallet[0].totalLootAmount)"
+    }
+    
+    @objc func setGems() {
+        gemsImg.animation = "pop"
+        gemsImg.animate()
+    }
+    
+    @objc func setLootChest() {
+        lootImg.animation = "morph"
+        lootImg.animate()
     }
     
     func addParrotImagesForAnimation() {
         var imgArray = [UIImage]()
         for x in 0...8 {
-            let img = UIImage(named:"yellowParrot\(x)")
+            let img = UIImage(named:"parrotLeft\(x)")
             imgArray.append(img!)
         }
         setParrotImages(imgArray: imgArray)
@@ -118,7 +134,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func addShipImagesForAnimation() {
         var imgArray = [UIImage]()
         for x in 0...24 {
-            let img = UIImage(named:"whiteShip\(x)")
+            let img = UIImage(named:"shipRight\(x)")
             imgArray.append(img!)
         }
         setShipImages(imgArray: imgArray)
@@ -131,16 +147,34 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         pirateShipImg.startAnimating()
     }
     
-    func animatePlanks() {
-        UIView.animate(withDuration: 2, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 4, animations: {
-            self.plank1.center.x += 100
-            
-        }, completion: nil)
-        
-        UIView.animate(withDuration: 2, delay: 0.3, usingSpringWithDamping: 0.5, initialSpringVelocity: 4, animations: {
-             self.plank2.center.x += 100
-        }, completion: nil)
+    // replace pirateship with pirates when clicked
+    func addImagesForAnimation(pirate: Pirate) {
+        pirateShipImg.stopAnimating()
+        var imgArray = [UIImage]()
+        for x in 0...pirate.numberOfImages {
+            let img = UIImage(named:"pirate\(pirate.id)idle\(x)")
+            imgArray.append(img!)
+        }
+        setShipImages(imgArray: imgArray)
     }
+    
+    func setImages(imgArray: Array<UIImage>) {
+        pirateShipImg.animationImages = imgArray
+        pirateShipImg.animationDuration = 3.0
+        pirateShipImg.animationRepeatCount = 0
+        pirateShipImg.startAnimating()
+    }
+    
+//    func animatePlanks() {
+//        UIView.animate(withDuration: 2, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 4, animations: {
+//            self.plank1.center.x += 100
+//
+//        }, completion: nil)
+//
+//        UIView.animate(withDuration: 2, delay: 0.3, usingSpringWithDamping: 0.5, initialSpringVelocity: 4, animations: {
+//             self.plank2.center.x += 100
+//        }, completion: nil)
+//    }
     
     func playMusic() {
         let path = Bundle.main.path(forResource: "piratesmusic", ofType: "wav")
@@ -164,7 +198,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             if pirate.isAnimating == true {
                 grabPirateOfflineData(pirate: pirate)
                 var timer = Timer()
-                timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(MainVC.updateCoreDataFromTimer), userInfo: pirate, repeats: true)
+                timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(MainVC.updateCoreDataFromTimer), userInfo: pirate, repeats: true)
   
             }
         }
@@ -209,12 +243,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         
         let context = appDelegate.persistentContainer.viewContext
-        pirate.currentTime = pirate.currentTime - 10
+        pirate.currentTime = pirate.currentTime - 1000
         print("\(pirate.currentTime)")
         
-//        if pirate.currentTime >= 3000 {
-//            pirate.isPirateRight = true
-//        }
         
         if pirate.currentTime == 0.0 {
             wallet[0].totalLootAmount += pirate.lootAmount
@@ -266,26 +297,24 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
         
         
-        
+
         let indexPath = tableView.indexPath(for: cell)
         let pirate = sortedPirates[(indexPath?.row)!]
+        
+        //addImagesForAnimation(pirate: pirate)
+        
         if pirate.isUnlocked && !pirate.isAnimating  {
             do {
                 pirate.setValue(true, forKey: "isAnimating")
-                pirate.setValue(true, forKey: "isPirateRight")
                 try context.save()
                 var timer = Timer()
-                timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(MainVC.updateCoreDataFromTimer), userInfo: pirate, repeats: true)
-
-  
+                timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(MainVC.updateCoreDataFromTimer), userInfo: pirate, repeats: true)
             } catch {
                 //handle error
             }
             
             print("here is pirate\(pirate)")
         }
-     
-
     }
     
 }

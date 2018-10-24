@@ -1,0 +1,6 @@
+framework module Pods_piratesApp {
+  umbrella header "Pods-piratesApp-umbrella.h"
+
+  export *
+  module * { export * }
+}
