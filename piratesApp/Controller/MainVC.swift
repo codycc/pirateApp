@@ -23,7 +23,8 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var pirates = [Pirate]()
     var sortedPirates = [Pirate]()
     var wallet = [Wallet]()
-    
+    var cellHeights: [IndexPath : CGFloat] = [:]
+
     var musicPlayer: AVAudioPlayer!
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
@@ -36,8 +37,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.bounces = false
         tableView.alwaysBounceVertical = false
         let date = NSDate().timeIntervalSince1970
-        print("DATE\(date)")
-        
+
         let context = appDelegate.persistentContainer.viewContext
         
         let requestPirate = NSFetchRequest<NSFetchRequestResult>(entityName: "Pirate")
@@ -45,6 +45,10 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         requestPirate.returnsObjectsAsFaults = false
         requestWallet.returnsObjectsAsFaults = false
+        
+        self.tableView.estimatedRowHeight = 0;
+        
+       
         
         NotificationCenter.default.addObserver(self, selector:#selector(MainVC.alertTimers), name:
             UIApplication.willEnterForegroundNotification, object: nil)
@@ -55,7 +59,6 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             if results.count > 0 {
                 for result in results {
                     pirates.append(result as! Pirate)
-                    print("\(result)animating")
                 }
             }
         } catch {
@@ -98,6 +101,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func updateWalletLoot() {
         walletLootLbl.text = "\(wallet[0].totalLootAmount)"
+        reloadTable()
     }
     
     @objc func setGems() {
@@ -108,6 +112,10 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @objc func setLootChest() {
         lootImg.animation = "morph"
         lootImg.animate()
+    }
+    
+    func reloadTable() {
+        tableView.reloadData()
     }
     
     func addParrotImagesForAnimation() {
@@ -200,9 +208,6 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             let currentTime = (timeSinceInMilliseconds / Double(pirate.lootTime))
             
             let wholeNumber = floor(currentTime)
-            // let decimalNumber = wholeNumber.truncatingRemainder(dividingBy: 1)
-            print("\(pirate.lootAmount)")
-            print("\(wholeNumber)")
             let amountOfMoneyMade = pirate.lootAmount * Int32(wholeNumber)
             
             let context = appDelegate.persistentContainer.viewContext
@@ -214,8 +219,6 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             } catch {
                 // handle error
             }
-            
-            print("\(amountOfMoneyMade) amount of money made")
         } else {
             
         }
@@ -228,8 +231,6 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         let context = appDelegate.persistentContainer.viewContext
         pirate.currentTime = pirate.currentTime - 1000
-        print("\(pirate.currentTime)")
-        
         
         if pirate.currentTime == 0.0 {
             wallet[0].totalLootAmount += pirate.lootAmount
@@ -259,11 +260,15 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         return sortedPirates.count
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cellHeights[indexPath] = cell.frame.size.height
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+        let wallet = self.wallet[0]
         let pirate = sortedPirates[indexPath.row]
         if let cell = tableView.dequeueReusableCell(withIdentifier: "PirateCell") as? PirateCell {
-            cell.configureCell(pirate: pirate)
+            cell.configureCell(pirate: pirate, wallet: wallet)
             
             return cell
         } else {
@@ -296,8 +301,6 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             } catch {
                 //handle error
             }
-            
-            print("here is pirate\(pirate)")
         }
     }
     
