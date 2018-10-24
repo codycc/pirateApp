@@ -53,7 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             skollywag.setValue("Scollywag", forKey: "name")
             skollywag.setValue(6000, forKey: "lootTime")
             skollywag.setValue(25, forKey: "lootAmount")
-            skollywag.setValue(1, forKey: "level")
+            skollywag.setValue(1, forKey: "numberOfPirates")
             skollywag.setValue(false, forKey: "isAnimating")
             skollywag.setValue(true, forKey: "isUnlocked")
             skollywag.setValue(11, forKey: "numberOfImages")
@@ -62,28 +62,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             skollywag.setValue(1, forKey: "plankNumber")
             skollywag.setValue(6000, forKey: "currentTime")
             skollywag.setValue(15, forKey: "numberOfImagesRun")
-            skollywag.setValue(false, forKey: "isPirateRight")
+
             
             cutler.setValue(1, forKey: "id")
             cutler.setValue("cutler", forKey: "name")
             cutler.setValue(6000, forKey: "lootTime")
             cutler.setValue(100, forKey: "lootAmount")
-            cutler.setValue(1, forKey: "level")
+            cutler.setValue(1, forKey: "numberOfPirates")
             cutler.setValue(false, forKey: "isAnimating")
-            cutler.setValue(true, forKey: "isUnlocked")
+            cutler.setValue(false, forKey: "isUnlocked")
             cutler.setValue(15, forKey: "numberOfImages")
             cutler.setValue(1, forKey: "groundNumber")
             cutler.setValue(2, forKey: "backgroundNumber")
             cutler.setValue(2, forKey: "plankNumber")
             cutler.setValue(6000, forKey: "currentTime")
             cutler.setValue(15, forKey: "numberOfImagesRun")
-            cutler.setValue(false, forKey: "isPirateRight")
+
             
             bucaneer.setValue(2, forKey: "id")
             bucaneer.setValue("Bucaneer", forKey: "name")
             bucaneer.setValue(6000, forKey: "lootTime")
             bucaneer.setValue(200, forKey: "lootAmount")
-            bucaneer.setValue(1, forKey: "level")
+            bucaneer.setValue(1, forKey: "numberOfPirates")
             bucaneer.setValue(false, forKey: "isAnimating")
             bucaneer.setValue(false, forKey: "isUnlocked")
             bucaneer.setValue(11, forKey: "numberOfImages")
@@ -92,13 +92,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             bucaneer.setValue(3, forKey: "plankNumber")
             bucaneer.setValue(6000, forKey: "currentTime")
             bucaneer.setValue(15, forKey: "numberOfImagesRun")
-            bucaneer.setValue(false, forKey: "isPirateRight")
+
             
             thief.setValue(3, forKey: "id")
             thief.setValue("Thief", forKey: "name")
             thief.setValue(6000, forKey: "lootTime")
             thief.setValue(500, forKey: "lootAmount")
-            thief.setValue(1, forKey: "level")
+            thief.setValue(1, forKey: "numberOfPirates")
             thief.setValue(false, forKey: "isAnimating")
             thief.setValue(false, forKey: "isUnlocked")
             thief.setValue(11, forKey: "numberOfImages")
@@ -107,13 +107,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             thief.setValue(4, forKey: "plankNumber")
             thief.setValue(6000, forKey: "currentTime")
             thief.setValue(15, forKey: "numberOfImagesRun")
-            thief.setValue(false, forKey: "isPirateRight")
+
             
             gunna.setValue(4, forKey: "id")
             gunna.setValue("Gunna", forKey: "name")
             gunna.setValue(6000, forKey: "lootTime")
             gunna.setValue(600, forKey: "lootAmount")
-            gunna.setValue(1, forKey: "level")
+            gunna.setValue(1, forKey: "numberOfPirates")
             gunna.setValue(false, forKey: "isAnimating")
             gunna.setValue(false, forKey: "isUnlocked")
             gunna.setValue(11, forKey: "numberOfImages")
@@ -122,13 +122,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             gunna.setValue(5, forKey: "plankNumber")
             gunna.setValue(6000, forKey: "currentTime")
             gunna.setValue(15, forKey: "numberOfImagesRun")
-            gunna.setValue(false, forKey: "isPirateRight")
+
             
             bluebeard.setValue(5, forKey: "id")
             bluebeard.setValue("Bluebeard", forKey: "name")
             bluebeard.setValue(6000, forKey: "lootTime")
             bluebeard.setValue(750, forKey: "lootAmount")
-            bluebeard.setValue(1, forKey: "level")
+            bluebeard.setValue(1, forKey: "numberOfPirates")
             bluebeard.setValue(false, forKey: "isAnimating")
             bluebeard.setValue(false, forKey: "isUnlocked")
             bluebeard.setValue(24, forKey: "numberOfImages")
@@ -137,13 +137,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             bluebeard.setValue(1, forKey: "plankNumber")
             bluebeard.setValue(6000, forKey: "currentTime")
             bluebeard.setValue(14, forKey: "numberOfImagesRun")
-            bluebeard.setValue(false, forKey: "isPirateRight")
+
             
             redbeard.setValue(6, forKey: "id")
             redbeard.setValue("Redbeard", forKey: "name")
             redbeard.setValue(6000, forKey: "lootTime")
             redbeard.setValue(1000, forKey: "lootAmount")
-            redbeard.setValue(1, forKey: "level")
+            redbeard.setValue(1, forKey: "numberOfPirates")
             redbeard.setValue(false, forKey: "isAnimating")
             redbeard.setValue(false, forKey: "isUnlocked")
             redbeard.setValue(24, forKey: "numberOfImages")
@@ -152,13 +152,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             redbeard.setValue(2, forKey: "plankNumber")
             redbeard.setValue(6000, forKey: "currentTime")
             redbeard.setValue(14, forKey: "numberOfImagesRun")
-            redbeard.setValue(false, forKey: "isPirateRight")
+
             
             blackbeard.setValue(7, forKey: "id")
             blackbeard.setValue("Blackbeard", forKey: "name")
             blackbeard.setValue(6000, forKey: "lootTime")
             blackbeard.setValue(1250, forKey: "lootAmount")
-            blackbeard.setValue(1, forKey: "level")
+            blackbeard.setValue(1, forKey: "numberOfPirates")
             blackbeard.setValue(false, forKey: "isAnimating")
             blackbeard.setValue(false, forKey: "isUnlocked")
             blackbeard.setValue(24, forKey: "numberOfImages")
@@ -167,7 +167,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             blackbeard.setValue(3, forKey: "plankNumber")
             blackbeard.setValue(6000, forKey: "currentTime")
             blackbeard.setValue(14, forKey: "numberOfImagesRun")
-            blackbeard.setValue(false, forKey: "isPirateRight")
+
             
             
             do {
@@ -187,7 +187,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         let date = NSDate().timeIntervalSince1970
         _ = UserDefaults.standard.double(forKey: "timeClosed")
-    
+        
         UserDefaults.standard.set(date, forKey: "timeClosed")
         
         _ = UserDefaults.standard.bool(forKey: "appClosed")
@@ -199,6 +199,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        
+        let date = NSDate().timeIntervalSince1970
+        _ = UserDefaults.standard.double(forKey: "timeClosed")
+        
+        UserDefaults.standard.set(date, forKey: "timeClosed")
+        
+        _ = UserDefaults.standard.bool(forKey: "appClosed")
+        UserDefaults.standard.set(true, forKey: "appClosed")
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {

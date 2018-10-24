@@ -77,18 +77,13 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         updateWalletLoot()
         addParrotImagesForAnimation()
         addShipImagesForAnimation()
-        //animatePlanks()
-        //setLootChest()
         playMusic()
         sortPirates()
         startTimers()
         startAnimationTimers()
         
-        
     }
-    
-   
-    
+
     @objc func alertTimers() {
         print("alert tIMERS CALLED")
         startTimers()
@@ -164,17 +159,6 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         pirateShipImg.animationRepeatCount = 0
         pirateShipImg.startAnimating()
     }
-    
-//    func animatePlanks() {
-//        UIView.animate(withDuration: 2, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 4, animations: {
-//            self.plank1.center.x += 100
-//
-//        }, completion: nil)
-//
-//        UIView.animate(withDuration: 2, delay: 0.3, usingSpringWithDamping: 0.5, initialSpringVelocity: 4, animations: {
-//             self.plank2.center.x += 100
-//        }, completion: nil)
-//    }
     
     func playMusic() {
         let path = Bundle.main.path(forResource: "piratesmusic", ofType: "wav")
