@@ -19,6 +19,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet var walletLootLbl: UILabel!
     @IBOutlet var lootImg: SpringImageView!
     @IBOutlet var gemsImg: SpringImageView!
+
     
     var pirates = [Pirate]()
     var sortedPirates = [Pirate]()
@@ -231,8 +232,8 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         let context = appDelegate.persistentContainer.viewContext
         pirate.currentTime = pirate.currentTime - 1000
-        
-        if pirate.currentTime == 0.0 {
+        print("\(pirate.currentTime)")
+        if pirate.currentTime <= 0 {
             wallet[0].totalLootAmount += pirate.lootAmount
             pirate.currentTime = pirate.lootTime
             updateWalletLoot()
@@ -269,7 +270,8 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let pirate = sortedPirates[indexPath.row]
         if let cell = tableView.dequeueReusableCell(withIdentifier: "PirateCell") as? PirateCell {
             cell.configureCell(pirate: pirate, wallet: wallet)
-            
+            cell.buyPlankBtn.tag = indexPath.row
+            cell.pirateImg.tag = indexPath.row
             return cell
         } else {
             return PirateCell()
@@ -277,20 +279,28 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        var rowHeight:CGFloat = 0.0
+        
+        if(indexPath.row < 0){
+            rowHeight = 0.0
+        }else{
+            rowHeight = 124.0    //or whatever you like
+        }
+        
+        return rowHeight
+    }
+    
+    
     
     @IBAction func pirateBtnPressed(_ sender: Any) {
         
         let context = appDelegate.persistentContainer.viewContext
-        guard let cell = (sender as AnyObject).superview?.superview as? PirateCell else {
-            return // or fatalError() or whatever
-        }
         
-        
+        let button = sender as! UIButton
+        let index = button.tag
 
-        let indexPath = tableView.indexPath(for: cell)
-        let pirate = sortedPirates[(indexPath?.row)!]
-        
-        //addImagesForAnimation(pirate: pirate)
+        let pirate = sortedPirates[index]
         
         if pirate.isUnlocked && !pirate.isAnimating  {
             do {
@@ -304,6 +314,29 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    
+    @IBAction func buyBtnPressed(_ sender: Any) {
+        let context = appDelegate.persistentContainer.viewContext
+ 
+        let button = sender as! UIButton
+        let index = button.tag
+
+        let pirate = sortedPirates[index]
+        
+        pirate.numberOfPirates += 1
+        wallet[0].totalLootAmount -= Int32(pirate.piratePrice)
+        print("\(pirate.lootTime)LOOT TIME")
+        pirate.piratePrice = (pirate.piratePrice + pirate.piratePrice / 10)
+        pirate.lootTime += pirate.lootTime / 5
+        pirate.lootAmount += (pirate.lootAmount / 10)
+        do {
+            try context.save()
+        } catch {
+            // handle error
+        }
+        updateWalletLoot()
+        reloadTable()
+    }
 }
 
 

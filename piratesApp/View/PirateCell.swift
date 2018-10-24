@@ -22,8 +22,10 @@ class PirateCell: UITableViewCell {
     @IBOutlet var pirateImg: UIImageView!
     @IBOutlet var lootImg: SpringImageView!
     
-    @IBOutlet var buyPlankLbl: UILabel!
+    @IBOutlet var numberOfPiratesLbl: UILabel!
+    @IBOutlet var buyPlankBtn: UIButton!
     @IBOutlet var buyPlankImg: UIImageView!
+    @IBOutlet var piratePriceLbl: UILabel!
     
     func configureCell(pirate: Pirate, wallet: Wallet) {
         self.pirateNameLbl.text =  String(describing: pirate.name!)
@@ -33,6 +35,8 @@ class PirateCell: UITableViewCell {
         addImagesForAnimation(pirate: pirate)
         setLootLbl(pirate: pirate)
         checkIfPiratesAffordable(pirate: pirate, wallet: wallet)
+        setNumberOfPiratesLbl(pirate: pirate)
+        updatePiratePrice(pirate: pirate)
     }
     
     func setPlankUnlock(pirate: Pirate) {
@@ -42,7 +46,7 @@ class PirateCell: UITableViewCell {
             self.upgradePlankImg.isHidden = false
             self.lootLbl.isHidden = false
             self.buyPlankImg.isHidden = false
-            self.buyPlankLbl.isHidden = false
+            self.buyPlankBtn.isHidden = false
             self.lootImg.isHidden = false
         } else {
             self.plankImg.isHidden = false
@@ -50,24 +54,33 @@ class PirateCell: UITableViewCell {
             self.upgradePlankImg.isHidden = true
             self.lootLbl.isHidden = true
             self.buyPlankImg.isHidden = true
-            self.buyPlankLbl.isHidden = true
+            self.buyPlankBtn.isHidden = true
             self.lootImg.isHidden = true
         }
     }
     
     func checkIfPiratesAffordable(pirate: Pirate, wallet: Wallet) {
-        if pirate.isUnlocked && pirate.piratePrice <= wallet.totalLootAmount {
-            self.buyPlankLbl.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-            self.buyPlankLbl.alpha = 1
+        if pirate.isUnlocked && Int32(pirate.piratePrice) <= wallet.totalLootAmount {
+            self.buyPlankBtn.setTitleColor(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), for: .normal)
+            self.buyPlankBtn.alpha = 1
+            self.buyPlankBtn.isEnabled = true
         } else {
-            self.buyPlankLbl.textColor = #colorLiteral(red: 0.3593182173, green: 1, blue: 0.9866703255, alpha: 1)
-            self.buyPlankLbl.alpha = 0.7
-            
+            self.buyPlankBtn.setTitleColor(#colorLiteral(red: 0.3593182173, green: 1, blue: 0.9866703255, alpha: 1), for: .normal)
+            self.buyPlankBtn.alpha = 0.7
+            self.buyPlankBtn.isEnabled = false
         }
     }
     
     func setLootLbl(pirate: Pirate) {
         lootLbl.text = "\(pirate.lootAmount)"
+    }
+    
+    func setNumberOfPiratesLbl(pirate: Pirate) {
+        numberOfPiratesLbl.text = "\(pirate.numberOfPirates)"
+    }
+    
+    func updatePiratePrice(pirate: Pirate) {
+        piratePriceLbl.text = "$\(pirate.piratePrice)"
     }
     
     func setUpDynamicPlanks(pirate: Pirate) {

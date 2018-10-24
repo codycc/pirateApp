@@ -142,7 +142,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             bluebeard.setValue(1, forKey: "plankNumber")
             bluebeard.setValue(6000, forKey: "currentTime")
             bluebeard.setValue(14, forKey: "numberOfImagesRun")
-            bluebeard.setValue(1500, forKey: "piratePlace")
+            bluebeard.setValue(1500, forKey: "piratePrice")
 
             
             redbeard.setValue(6, forKey: "id")
