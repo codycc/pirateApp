@@ -181,6 +181,16 @@
                                                     <color key="textColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <color key="highlightedColor" red="0.56341078367875652" green="0.41342432233129001" blue="0.28372360571108529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9xM-Uv-sdA">
+                                                    <rect key="frame" x="118" y="9" width="100" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="25" id="3T1-iA-vqc"/>
+                                                        <constraint firstAttribute="width" constant="100" id="KBq-q2-8Kz"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="PiratesWriters" family="Pirates Writers" pointSize="25"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <gestureRecognizers/>
                                             <constraints>
@@ -188,6 +198,7 @@
                                                 <constraint firstItem="UJ1-CZ-a17" firstAttribute="centerY" secondItem="V3m-hu-j5m" secondAttribute="centerY" id="3VB-tr-Ggn"/>
                                                 <constraint firstItem="UJ1-CZ-a17" firstAttribute="leading" secondItem="V3m-hu-j5m" secondAttribute="leadingMargin" constant="-20" id="4yX-hc-iVY"/>
                                                 <constraint firstItem="viQ-c3-hgO" firstAttribute="leading" secondItem="V3m-hu-j5m" secondAttribute="leading" id="9tV-tS-9ln"/>
+                                                <constraint firstItem="9xM-Uv-sdA" firstAttribute="leading" secondItem="UJ1-CZ-a17" secondAttribute="trailing" constant="23" id="BMF-6N-Qm1"/>
                                                 <constraint firstItem="vgZ-F1-pMQ" firstAttribute="centerX" secondItem="V3m-hu-j5m" secondAttribute="centerX" id="BYH-2A-5J4"/>
                                                 <constraint firstAttribute="trailing" secondItem="i0f-rR-mEq" secondAttribute="trailing" constant="-27" id="BYy-XS-tR2"/>
                                                 <constraint firstAttribute="bottom" secondItem="mmV-mW-rVA" secondAttribute="bottom" id="CHa-rl-D5e"/>
@@ -231,6 +242,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="LSc-bY-ckV" secondAttribute="trailing" id="sSr-aE-NE1"/>
                                                 <constraint firstAttribute="trailing" secondItem="PeJ-Ys-O1Q" secondAttribute="trailing" constant="-68" id="sqt-gF-ZOs"/>
                                                 <constraint firstItem="6xt-sz-ynD" firstAttribute="leading" secondItem="V3m-hu-j5m" secondAttribute="leading" id="t6r-bb-xdL"/>
+                                                <constraint firstItem="9xM-Uv-sdA" firstAttribute="top" secondItem="V3m-hu-j5m" secondAttribute="top" constant="9" id="u9d-c6-6cr"/>
                                                 <constraint firstAttribute="bottom" secondItem="IPO-wZ-i9o" secondAttribute="bottom" constant="-4" id="wWM-vU-cpL"/>
                                                 <constraint firstItem="M9Z-d8-qcC" firstAttribute="top" secondItem="9gF-tL-K5t" secondAttribute="bottom" constant="1" id="yYo-39-rHC"/>
                                                 <constraint firstAttribute="bottom" secondItem="Kii-u5-MKQ" secondAttribute="bottom" id="ywG-1D-TnG"/>
@@ -251,6 +263,7 @@
                                             <outlet property="pirateImgBtn" destination="UJ1-CZ-a17" id="uKF-4v-RtT"/>
                                             <outlet property="pirateLootTimeLbl" destination="beI-Jh-bRI" id="zH0-aF-qfX"/>
                                             <outlet property="pirateNameLbl" destination="vgZ-F1-pMQ" id="T4a-69-UeZ"/>
+                                            <outlet property="pirateNameLbl2" destination="9xM-Uv-sdA" id="PRV-e1-NA4"/>
                                             <outlet property="piratePriceLbl" destination="l8o-zm-ZlE" id="JHV-VZ-Uic"/>
                                             <outlet property="plankImg" destination="03J-EL-QXF" id="ZbY-TJ-oAi"/>
                                             <outlet property="upgradePlankImg" destination="PeJ-Ys-O1Q" id="LzO-a9-vId"/>

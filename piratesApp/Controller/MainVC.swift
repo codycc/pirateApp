@@ -119,7 +119,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.reloadData()
     }
     
- 
+
     func addParrotImagesForAnimation() {
         var imgArray = [UIImage]()
         changeParrotColor = !changeParrotColor

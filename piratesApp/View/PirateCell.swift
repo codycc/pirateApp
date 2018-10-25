@@ -12,11 +12,13 @@ import Spring
 class PirateCell: UITableViewCell {
 
     @IBOutlet weak var pirateNameLbl: UILabel!
-
+    @IBOutlet var pirateNameLbl2: UILabel!
+    
     @IBOutlet var plankImg: UIImageView!
     @IBOutlet var groundImg: UIImageView!
     @IBOutlet var backgroundImg: UIImageView!
     @IBOutlet var upgradePlankImg: UIImageView!
+    
     
     @IBOutlet var pirateImgBtn: UIButton!
     @IBOutlet var lootLbl: UILabel!
@@ -40,6 +42,7 @@ class PirateCell: UITableViewCell {
         setNumberOfPiratesLbl(pirate: pirate)
         updatePiratePrice(pirate: pirate)
         updatePirateLootTime(pirate: pirate)
+        setPirateNameLbl(pirate: pirate)
     }
     
     func setPlankUnlock(pirate: Pirate) {
@@ -87,6 +90,11 @@ class PirateCell: UITableViewCell {
     func updatePiratePrice(pirate: Pirate) {
         piratePriceLbl.text = "$\(pirate.piratePrice)"
     }
+    
+    func setPirateNameLbl(pirate: Pirate) {
+        self.pirateNameLbl2.text = "\(pirate.name!)"
+    }
+    
     
     func updatePirateLootTime(pirate: Pirate) {
         let pirateLootTimeInSeconds = pirate.currentTime / 1000
