@@ -19,7 +19,9 @@ class PirateCell: UITableViewCell {
     @IBOutlet var backgroundImg: UIImageView!
     @IBOutlet var upgradePlankImg: UIImageView!
     
+    @IBOutlet var buyPlankColorTin: UIImageView!
     
+    @IBOutlet var timePlankImg: UIImageView!
     @IBOutlet var pirateImgBtn: UIButton!
     @IBOutlet var lootLbl: UILabel!
     @IBOutlet var pirateImg: UIImageView!
@@ -55,6 +57,10 @@ class PirateCell: UITableViewCell {
             self.buyPlankBtn.isHidden = false
             self.lootImg.isHidden = false
             self.pirateLootTimeLbl.isHidden = false
+            self.buyPlankColorTin.isHidden = false
+            self.piratePriceLbl.isHidden = false
+            self.pirateNameLbl2.isHidden = false
+            self.timePlankImg.isHidden = false
         } else {
             self.plankImg.isHidden = false
             self.pirateNameLbl.isHidden = false
@@ -64,6 +70,10 @@ class PirateCell: UITableViewCell {
             self.buyPlankBtn.isHidden = true
             self.lootImg.isHidden = true
             self.pirateLootTimeLbl.isHidden = true
+            self.buyPlankColorTin.isHidden = true
+            self.piratePriceLbl.isHidden = true
+            self.pirateNameLbl2.isHidden = true
+            self.timePlankImg.isHidden = true
         }
     }
     

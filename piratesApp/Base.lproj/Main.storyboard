@@ -179,7 +179,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plank5" translatesAutoresizingMaskIntoConstraints="NO" id="03J-EL-QXF">
-                                                    <rect key="frame" x="9" y="-6" width="375" height="123.5"/>
+                                                    <rect key="frame" x="9" y="-6" width="357" height="123.5"/>
                                                 </imageView>
                                                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vgZ-F1-pMQ">
                                                     <rect key="frame" x="148.5" y="42" width="78" height="40"/>
@@ -245,7 +245,7 @@
                                                 <constraint firstAttribute="bottom" secondItem="Atn-Jo-5OW" secondAttribute="bottom" constant="4.5" id="qPS-Aw-d6J"/>
                                                 <constraint firstAttribute="trailing" secondItem="beI-Jh-bRI" secondAttribute="trailing" constant="-17" id="rl6-AD-WXh"/>
                                                 <constraint firstItem="mmV-mW-rVA" firstAttribute="top" secondItem="V3m-hu-j5m" secondAttribute="top" id="roO-5Z-Jw8"/>
-                                                <constraint firstAttribute="trailing" secondItem="03J-EL-QXF" secondAttribute="trailing" constant="-9" id="s1t-tE-fe2"/>
+                                                <constraint firstAttribute="trailing" secondItem="03J-EL-QXF" secondAttribute="trailing" constant="9" id="s1t-tE-fe2"/>
                                                 <constraint firstItem="9gF-tL-K5t" firstAttribute="top" secondItem="V3m-hu-j5m" secondAttribute="top" constant="4" id="s87-Wa-SXl"/>
                                                 <constraint firstAttribute="trailing" secondItem="LSc-bY-ckV" secondAttribute="trailing" id="sSr-aE-NE1"/>
                                                 <constraint firstAttribute="trailing" secondItem="PeJ-Ys-O1Q" secondAttribute="trailing" constant="-68" id="sqt-gF-ZOs"/>
@@ -262,6 +262,7 @@
                                         <connections>
                                             <outlet property="backgroundImg" destination="viQ-c3-hgO" id="1W6-11-eKu"/>
                                             <outlet property="buyPlankBtn" destination="Atn-Jo-5OW" id="FEh-th-eDu"/>
+                                            <outlet property="buyPlankColorTin" destination="GNt-st-mim" id="RC6-Qt-mq3"/>
                                             <outlet property="buyPlankImg" destination="i0f-rR-mEq" id="87h-qW-1oY"/>
                                             <outlet property="groundImg" destination="Kii-u5-MKQ" id="49n-22-uua"/>
                                             <outlet property="lootImg" destination="9gF-tL-K5t" id="Vxr-0I-dQR"/>
@@ -274,6 +275,7 @@
                                             <outlet property="pirateNameLbl2" destination="9xM-Uv-sdA" id="PRV-e1-NA4"/>
                                             <outlet property="piratePriceLbl" destination="l8o-zm-ZlE" id="JHV-VZ-Uic"/>
                                             <outlet property="plankImg" destination="03J-EL-QXF" id="ZbY-TJ-oAi"/>
+                                            <outlet property="timePlankImg" destination="M9Z-d8-qcC" id="vpx-fD-1P8"/>
                                             <outlet property="upgradePlankImg" destination="PeJ-Ys-O1Q" id="LzO-a9-vId"/>
                                         </connections>
                                     </tableViewCell>
