@@ -248,6 +248,8 @@
                                             <outlet property="lootLbl" destination="LJn-T3-lW7" id="Gwe-KJ-Qan"/>
                                             <outlet property="numberOfPiratesLbl" destination="IPO-wZ-i9o" id="YHk-z8-St8"/>
                                             <outlet property="pirateImg" destination="B1u-Pq-a4a" id="2tQ-Dl-xxQ"/>
+                                            <outlet property="pirateImgBtn" destination="UJ1-CZ-a17" id="uKF-4v-RtT"/>
+                                            <outlet property="pirateLootTimeLbl" destination="beI-Jh-bRI" id="zH0-aF-qfX"/>
                                             <outlet property="pirateNameLbl" destination="vgZ-F1-pMQ" id="T4a-69-UeZ"/>
                                             <outlet property="piratePriceLbl" destination="l8o-zm-ZlE" id="JHV-VZ-Uic"/>
                                             <outlet property="plankImg" destination="03J-EL-QXF" id="ZbY-TJ-oAi"/>

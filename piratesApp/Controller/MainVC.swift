@@ -316,7 +316,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "PirateCell") as? PirateCell {
             cell.configureCell(pirate: pirate, wallet: wallet)
             cell.buyPlankBtn.tag = indexPath.row
-            cell.pirateImg.tag = indexPath.row
+            cell.pirateImgBtn.tag = indexPath.row
             return cell
         } else {
             return PirateCell()
@@ -344,7 +344,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         let button = sender as! UIButton
         let index = button.tag
-
+        print("\(button.tag)BUTTON")
         let pirate = sortedPirates[index]
         
         if pirate.isUnlocked && !pirate.isAnimating  {
@@ -373,7 +373,8 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
  
         let button = sender as! UIButton
         let index = button.tag
-
+        
+        print("\(index)BUTTON")
         let pirate = sortedPirates[index]
         
         pirate.numberOfPirates += 1

@@ -18,10 +18,12 @@ class PirateCell: UITableViewCell {
     @IBOutlet var backgroundImg: UIImageView!
     @IBOutlet var upgradePlankImg: UIImageView!
     
+    @IBOutlet var pirateImgBtn: UIButton!
     @IBOutlet var lootLbl: UILabel!
     @IBOutlet var pirateImg: UIImageView!
     @IBOutlet var lootImg: SpringImageView!
     
+    @IBOutlet var pirateLootTimeLbl: UILabel!
     @IBOutlet var numberOfPiratesLbl: UILabel!
     @IBOutlet var buyPlankBtn: UIButton!
     @IBOutlet var buyPlankImg: UIImageView!
@@ -37,6 +39,7 @@ class PirateCell: UITableViewCell {
         checkIfPiratesAffordable(pirate: pirate, wallet: wallet)
         setNumberOfPiratesLbl(pirate: pirate)
         updatePiratePrice(pirate: pirate)
+        updatePirateLootTime(pirate: pirate)
     }
     
     func setPlankUnlock(pirate: Pirate) {
@@ -48,6 +51,7 @@ class PirateCell: UITableViewCell {
             self.buyPlankImg.isHidden = false
             self.buyPlankBtn.isHidden = false
             self.lootImg.isHidden = false
+            self.pirateLootTimeLbl.isHidden = false
         } else {
             self.plankImg.isHidden = false
             self.pirateNameLbl.isHidden = false
@@ -56,6 +60,7 @@ class PirateCell: UITableViewCell {
             self.buyPlankImg.isHidden = true
             self.buyPlankBtn.isHidden = true
             self.lootImg.isHidden = true
+            self.pirateLootTimeLbl.isHidden = true
         }
     }
     
@@ -81,6 +86,10 @@ class PirateCell: UITableViewCell {
     
     func updatePiratePrice(pirate: Pirate) {
         piratePriceLbl.text = "$\(pirate.piratePrice)"
+    }
+    
+    func updatePirateLootTime(pirate: Pirate) {
+        pirateLootTimeLbl.text = "\(pirate.currentTime)"
     }
     
     func setUpDynamicPlanks(pirate: Pirate) {
