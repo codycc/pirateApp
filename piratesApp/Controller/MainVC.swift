@@ -19,7 +19,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet var walletLootLbl: UILabel!
     @IBOutlet var lootImg: SpringImageView!
     @IBOutlet var gemsImg: SpringImageView!
-
+    @IBOutlet var explosionImg: UIImageView!
     
     var pirates = [Pirate]()
     var sortedPirates = [Pirate]()
@@ -27,30 +27,30 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var cellHeights: [IndexPath : CGFloat] = [:]
 
     var musicPlayer: AVAudioPlayer!
+    var parrotPlayer: AVAudioPlayer!
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    
+    var changeParrotColor = true
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        self.tableView.estimatedRowHeight = 0;
         tableView.bounces = false
         tableView.alwaysBounceVertical = false
         let date = NSDate().timeIntervalSince1970
-
         let context = appDelegate.persistentContainer.viewContext
-        
         let requestPirate = NSFetchRequest<NSFetchRequestResult>(entityName: "Pirate")
         let requestWallet = NSFetchRequest<NSFetchRequestResult>(entityName: "Wallet")
+
+        self.parrotImg.isUserInteractionEnabled = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(MainVC.parrotImgTapped(_:)))
+        self.parrotImg.addGestureRecognizer(tapGesture)
         
         requestPirate.returnsObjectsAsFaults = false
         requestWallet.returnsObjectsAsFaults = false
-        
-        self.tableView.estimatedRowHeight = 0;
-        
-       
-        
+
         NotificationCenter.default.addObserver(self, selector:#selector(MainVC.alertTimers), name:
             UIApplication.willEnterForegroundNotification, object: nil)
         
@@ -119,16 +119,29 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.reloadData()
     }
     
+ 
     func addParrotImagesForAnimation() {
         var imgArray = [UIImage]()
-        for x in 0...8 {
-            let img = UIImage(named:"parrotLeft\(x)")
-            imgArray.append(img!)
+        changeParrotColor = !changeParrotColor
+        print("\(changeParrotColor)")
+        if changeParrotColor {
+            for x in 0...11 {
+                let img = UIImage(named:"redParrot\(x)")
+                imgArray.append(img!)
+            }
+        } else {
+            for x in 0...8 {
+                let img = UIImage(named:"yellowParrot\(x)")
+                imgArray.append(img!)
+            }
         }
+        
+        
         setParrotImages(imgArray: imgArray)
     }
     
     func setParrotImages(imgArray: Array<UIImage>) {
+        parrotImg.stopAnimating()
         parrotImg.animationImages = imgArray
         parrotImg.animationDuration = 1.0
         parrotImg.animationRepeatCount = 0
@@ -145,10 +158,28 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func setShipImages(imgArray: Array<UIImage>) {
+        pirateShipImg.stopAnimating()
         pirateShipImg.animationImages = imgArray
         pirateShipImg.animationDuration = 3.0
         pirateShipImg.animationRepeatCount = 0
         pirateShipImg.startAnimating()
+    }
+    
+    func addExplosionImagesForAnimation() {
+        var imgArray = [UIImage]()
+        for x in 1...14 {
+            let img = UIImage(named:"smokeEffect\(x)")
+            imgArray.append(img!)
+        }
+        setExplosionImages(imgArray: imgArray)
+    }
+    
+    func setExplosionImages(imgArray: Array<UIImage>) {
+        explosionImg.isHidden = false
+        explosionImg.animationImages = imgArray
+        explosionImg.animationDuration = 0.5
+        explosionImg.animationRepeatCount = 1
+        explosionImg.startAnimating()
     }
     
     // replace pirateship with pirates when clicked
@@ -163,6 +194,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func setImages(imgArray: Array<UIImage>) {
+        pirateShipImg.stopAnimating()
         pirateShipImg.animationImages = imgArray
         pirateShipImg.animationDuration = 3.0
         pirateShipImg.animationRepeatCount = 0
@@ -180,6 +212,19 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         } catch let err as NSError {
             print(err.debugDescription)
         }
+    }
+    
+    func playParrotSoundEffect() {
+        let path = Bundle.main.path(forResource: "pr3", ofType: "wav")
+        let soundUrl = NSURL(fileURLWithPath: path!)
+        do {
+            try parrotPlayer = AVAudioPlayer(contentsOf: soundUrl as URL)
+            parrotPlayer.prepareToPlay()
+            parrotPlayer.play()
+        } catch let err as NSError {
+            print(err.debugDescription)
+        }
+        
     }
     
     func sortPirates() {
@@ -312,6 +357,14 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 //handle error
             }
         }
+    }
+
+    
+    @IBAction func parrotImgTapped(_ sender: Any) {
+        playParrotSoundEffect()
+        addExplosionImagesForAnimation()
+        addParrotImagesForAnimation()
+        
     }
     
     
