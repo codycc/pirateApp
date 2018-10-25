@@ -20,6 +20,13 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet var lootImg: SpringImageView!
     @IBOutlet var gemsImg: SpringImageView!
     @IBOutlet var explosionImg: UIImageView!
+    @IBOutlet var shipExplosionImg: UIImageView!
+    @IBOutlet var panDownView: UIView!
+    @IBOutlet var editedRope2: UIImageView!
+    @IBOutlet var editedRope1: UIImageView!
+    @IBOutlet var slateGlassView: UIView!
+    @IBOutlet var blackGlass: UIView!
+    @IBOutlet var exitIcon: UIButton!
     
     var pirates = [Pirate]()
     var sortedPirates = [Pirate]()
@@ -28,6 +35,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var musicPlayer: AVAudioPlayer!
     var parrotPlayer: AVAudioPlayer!
+    var shipPlayer: AVAudioPlayer!
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var changeParrotColor = true
     var changeShipColor = true
@@ -46,8 +54,10 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
         self.parrotImg.isUserInteractionEnabled = true
         self.pirateShipImg.isUserInteractionEnabled = true
-        // tap gestures
         
+        
+        // tap gestures
+
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(MainVC.parrotImgTapped(_:)))
         self.parrotImg.addGestureRecognizer(tapGesture)
         
@@ -191,6 +201,23 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         setExplosionImages(imgArray: imgArray)
     }
     
+    func addShipExplosionImagesForAnimation() {
+        var imgArray = [UIImage]()
+        for x in 1...14 {
+            let img = UIImage(named:"smokeEffect\(x)")
+            imgArray.append(img!)
+        }
+        setShipExplosionImages(imgArray: imgArray)
+    }
+    
+    func setShipExplosionImages(imgArray: Array<UIImage>) {
+        shipExplosionImg.isHidden = false
+        shipExplosionImg.animationImages = imgArray
+        shipExplosionImg.animationDuration = 0.5
+        shipExplosionImg.animationRepeatCount = 1
+        shipExplosionImg.startAnimating()
+    }
+    
     func setExplosionImages(imgArray: Array<UIImage>) {
         explosionImg.isHidden = false
         explosionImg.animationImages = imgArray
@@ -241,6 +268,32 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         } catch let err as NSError {
             print(err.debugDescription)
         }
+        
+    }
+    
+    func playAhoySoundEffect() {
+        let path = Bundle.main.path(forResource: "ahoy", ofType: "wav")
+        let soundUrl = NSURL(fileURLWithPath: path!)
+        do {
+            try shipPlayer = AVAudioPlayer(contentsOf: soundUrl as URL)
+            shipPlayer.prepareToPlay()
+            shipPlayer.volume = 0.4
+            shipPlayer.play()
+            
+        } catch let err as NSError {
+            print(err.debugDescription)
+        }
+    }
+    
+    func lowerPanDownView() {
+        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 4, animations: {
+            self.blackGlass.isHidden = false
+            self.exitIcon.isHidden = false
+            self.panDownView.center.y += 440
+            self.editedRope1.center.y += 400
+            self.editedRope2.center.y += 400
+        }, completion: nil)
+        slateGlassView.isHidden = false
         
     }
     
@@ -364,7 +417,10 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         print("\(button.tag)BUTTON")
         let pirate = sortedPirates[index]
         
+        lowerPanDownView()
+        
         if pirate.isUnlocked && !pirate.isAnimating  {
+            
             do {
                 pirate.setValue(true, forKey: "isAnimating")
                 try context.save()
@@ -385,9 +441,23 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     @IBAction func shipImgTapped(_ sender: Any) {
+        playAhoySoundEffect()
+        addShipExplosionImagesForAnimation()
         addShipImagesForAnimation()
     }
     
+    @IBAction func exitIconTapped(_ sender: Any) {
+        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 4, animations: {
+            self.blackGlass.isHidden = true
+            self.exitIcon.isHidden = true
+            self.panDownView.center.y -= 440
+            self.editedRope1.center.y -= 400
+            self.editedRope2.center.y -= 400
+        }, completion: { finished in
+            self.slateGlassView.isHidden = true
+        })
+        
+    }
     
     @IBAction func buyBtnPressed(_ sender: Any) {
         let context = appDelegate.persistentContainer.viewContext

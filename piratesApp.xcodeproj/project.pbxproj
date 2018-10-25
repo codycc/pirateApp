@@ -21,6 +21,7 @@
 		0B78C3DB2180F2AC00D628FB /* JOLLR___.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 0B78C3DA2180F29100D628FB /* JOLLR___.TTF */; };
 		0B78C3DD2180F51C00D628FB /* PiratesWriters.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0B78C3DC2180F51800D628FB /* PiratesWriters.ttf */; };
 		0B78C3E12181365300D628FB /* pr3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0B78C3E02181365300D628FB /* pr3.wav */; };
+		0B78C3E321820B7300D628FB /* ahoy.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0B78C3E221820B7300D628FB /* ahoy.wav */; };
 		616D6631FECA1AE6BFB7C26D /* Pods_piratesApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 836271208CF8FCF0D8DF9160 /* Pods_piratesApp.framework */; };
 		A797B97C002785BC72F2DFD2 /* Pods_piratesAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF4F632F77AB1CE59392C73 /* Pods_piratesAppTests.framework */; };
 		C6B21E896365C1595647FCC1 /* Pods_piratesAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E44A5E8313631BD2B7262985 /* Pods_piratesAppUITests.framework */; };
@@ -64,6 +65,7 @@
 		0B78C3DA2180F29100D628FB /* JOLLR___.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JOLLR___.TTF"; sourceTree = "<group>"; };
 		0B78C3DC2180F51800D628FB /* PiratesWriters.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PiratesWriters.ttf; sourceTree = "<group>"; };
 		0B78C3E02181365300D628FB /* pr3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pr3.wav; sourceTree = "<group>"; };
+		0B78C3E221820B7300D628FB /* ahoy.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ahoy.wav; sourceTree = "<group>"; };
 		1FF4F632F77AB1CE59392C73 /* Pods_piratesAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_piratesAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C098F674FEDDB7F893D64E7 /* Pods-piratesAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-piratesAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-piratesAppTests/Pods-piratesAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5A8E74F24664786BCBFC1FF6 /* Pods-piratesApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-piratesApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-piratesApp/Pods-piratesApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 		0B6A4A682177B6B500495663 /* piratesApp */ = {
 			isa = PBXGroup;
 			children = (
+				0B78C3E221820B7300D628FB /* ahoy.wav */,
 				0B78C3E02181365300D628FB /* pr3.wav */,
 				0B78C3D92180F27300D628FB /* Fonts */,
 				0B6A4A9F217BEB5700495663 /* piratesmusic.wav */,
@@ -331,6 +334,7 @@
 				0B6A4A772177B6B600495663 /* LaunchScreen.storyboard in Resources */,
 				0B6A4AA0217BEB5700495663 /* piratesmusic.wav in Resources */,
 				0B6A4A742177B6B600495663 /* Assets.xcassets in Resources */,
+				0B78C3E321820B7300D628FB /* ahoy.wav in Resources */,
 				0B78C3DB2180F2AC00D628FB /* JOLLR___.TTF in Resources */,
 				0B6A4A6F2177B6B500495663 /* Main.storyboard in Resources */,
 			);
