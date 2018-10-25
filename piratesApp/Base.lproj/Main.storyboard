@@ -98,7 +98,7 @@
                                                         <constraint firstAttribute="height" constant="70" id="zNW-Wz-fbB"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blueboard2" translatesAutoresizingMaskIntoConstraints="NO" id="GNt-st-mim">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blueboard2" translatesAutoresizingMaskIntoConstraints="NO" id="GNt-st-mim" customClass="SpringImageView" customModule="Spring">
                                                     <rect key="frame" x="295" y="68.5" width="100" height="70"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="100" id="Q4l-W2-wrV"/>
@@ -193,7 +193,7 @@
                                                         <constraint firstAttribute="height" constant="25" id="3T1-iA-vqc"/>
                                                         <constraint firstAttribute="width" constant="100" id="KBq-q2-8Kz"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="PiratesWriters" family="Pirates Writers" pointSize="25"/>
+                                                    <fontDescription key="fontDescription" name="PiratesWriters" family="Pirates Writers" pointSize="30"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -262,7 +262,7 @@
                                         <connections>
                                             <outlet property="backgroundImg" destination="viQ-c3-hgO" id="1W6-11-eKu"/>
                                             <outlet property="buyPlankBtn" destination="Atn-Jo-5OW" id="FEh-th-eDu"/>
-                                            <outlet property="buyPlankColorTin" destination="GNt-st-mim" id="RC6-Qt-mq3"/>
+                                            <outlet property="buyPlankColorTin" destination="GNt-st-mim" id="Yls-HN-ZVi"/>
                                             <outlet property="buyPlankImg" destination="i0f-rR-mEq" id="87h-qW-1oY"/>
                                             <outlet property="groundImg" destination="Kii-u5-MKQ" id="49n-22-uua"/>
                                             <outlet property="lootImg" destination="9gF-tL-K5t" id="Vxr-0I-dQR"/>

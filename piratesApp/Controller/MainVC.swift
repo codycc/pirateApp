@@ -30,6 +30,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet var pirateNameInfo: UILabel!
     @IBOutlet var informationStackView: UIStackView!
     
+    
     //stackview elements for overlay
     @IBOutlet var pirateTotalLbl: UILabel!
     @IBOutlet var lootPerSessionLbl: UILabel!
@@ -45,6 +46,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var musicPlayer: AVAudioPlayer!
     var parrotPlayer: AVAudioPlayer!
     var shipPlayer: AVAudioPlayer!
+    var purchasePlayer: AVAudioPlayer!
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var changeParrotColor = true
     var changeShipColor = true
@@ -294,6 +296,20 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    func playPurchaseSoundEffect() {
+        let path = Bundle.main.path(forResource: "purchase", ofType: "wav")
+        let soundUrl = NSURL(fileURLWithPath: path!)
+        
+        do {
+            try purchasePlayer = AVAudioPlayer(contentsOf: soundUrl as URL)
+            purchasePlayer.prepareToPlay()
+            purchasePlayer.volume = 0.4
+            purchasePlayer.play()
+        } catch let err as NSError {
+            print(err.debugDescription)
+        }
+    }
+    
     func lowerPanDownView() {
         
         UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 4, animations: {
@@ -411,7 +427,6 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
         
         let indexPath = IndexPath(row: Int(pirate.id), section: 0)
-        print("\(indexPath)INDEXPATH")
         tableView.reloadRows(at: [indexPath], with: .none)
         
         if UserDefaults.standard.bool(forKey: "appClosed") == true {
@@ -421,7 +436,6 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("pirate count\(sortedPirates.count)")
         return sortedPirates.count
     }
     
@@ -520,13 +534,12 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
  
         let button = sender as! UIButton
         let index = button.tag
-        
-        print("\(index)BUTTON")
+
         let pirate = sortedPirates[index]
+        playPurchaseSoundEffect()
         
         pirate.numberOfPirates += 1
         wallet[0].totalLootAmount -= Int32(pirate.piratePrice)
-        print("\(pirate.lootTime)LOOT TIME")
         pirate.piratePrice = (pirate.piratePrice + pirate.piratePrice / 10)
         pirate.lootTime += pirate.lootTime / 5
         pirate.lootAmount += (pirate.lootAmount / 10)
@@ -535,6 +548,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         } catch {
             // handle error
         }
+        
         updateWalletLoot()
         reloadTable()
     }

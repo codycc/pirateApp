@@ -19,7 +19,8 @@ class PirateCell: UITableViewCell {
     @IBOutlet var backgroundImg: UIImageView!
     @IBOutlet var upgradePlankImg: UIImageView!
     
-    @IBOutlet var buyPlankColorTin: UIImageView!
+    @IBOutlet var buyPlankColorTin: SpringImageView!
+    
     
     @IBOutlet var timePlankImg: UIImageView!
     @IBOutlet var pirateImgBtn: UIButton!
@@ -82,11 +83,16 @@ class PirateCell: UITableViewCell {
             self.buyPlankBtn.setTitleColor(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), for: .normal)
             self.buyPlankBtn.alpha = 1
             self.buyPlankBtn.isEnabled = true
+//            self.buyPlankColorTin.animation = "morph"
+//            self.buyPlankColorTin.repeatCount = 1
+//            self.buyPlankColorTin.animate()
         } else {
             self.buyPlankBtn.setTitleColor(#colorLiteral(red: 0.3593182173, green: 1, blue: 0.9866703255, alpha: 1), for: .normal)
             self.buyPlankBtn.alpha = 0.7
             self.buyPlankBtn.isEnabled = false
         }
+        
+        
     }
     
     func setLootLbl(pirate: Pirate) {
@@ -107,7 +113,7 @@ class PirateCell: UITableViewCell {
     
     
     func updatePirateLootTime(pirate: Pirate) {
-        let pirateLootTimeInSeconds = pirate.currentTime / 1000
+        let pirateLootTimeInSeconds = pirate.currentTime
         var extraVariable = ""
         if pirateLootTimeInSeconds == 1 {
             extraVariable = " second"
