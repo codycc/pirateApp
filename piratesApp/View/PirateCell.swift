@@ -88,7 +88,7 @@ class PirateCell: UITableViewCell {
     }
     
     func updatePiratePrice(pirate: Pirate) {
-        piratePriceLbl.text = "$\(pirate.piratePrice)"
+        piratePriceLbl.text = String(format: "$%.2f", pirate.piratePrice)
     }
     
     func setPirateNameLbl(pirate: Pirate) {

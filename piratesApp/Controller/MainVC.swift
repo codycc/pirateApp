@@ -322,7 +322,8 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         self.pirateNameInfo.text = pirate.name
         self.pirateTotalLbl.text = "\(pirate.numberOfPirates)"
         self.lootPerSessionLbl.text = "\(pirate.lootAmount)"
-        self.piratePriceLbl.text = "$\(pirate.piratePrice)"
+        self.piratePriceLbl.text = String(format: "$%.2f", pirate.piratePrice)
+        
         self.lootingTimeLbl.text = "\(pirate.lootTime)"
 
     }
