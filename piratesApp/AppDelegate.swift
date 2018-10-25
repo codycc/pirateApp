@@ -51,7 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             skollywag.setValue(0, forKey: "id")
             skollywag.setValue("Scollywag", forKey: "name")
-            skollywag.setValue(6000, forKey: "lootTime")
+            skollywag.setValue(80000, forKey: "lootTime")
             skollywag.setValue(25, forKey: "lootAmount")
             skollywag.setValue(1, forKey: "numberOfPirates")
             skollywag.setValue(false, forKey: "isAnimating")
@@ -60,7 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             skollywag.setValue(1, forKey: "groundNumber")
             skollywag.setValue(1, forKey: "backgroundNumber")
             skollywag.setValue(1, forKey: "plankNumber")
-            skollywag.setValue(6000, forKey: "currentTime")
+            skollywag.setValue(80000, forKey: "currentTime")
             skollywag.setValue(15, forKey: "numberOfImagesRun")
             skollywag.setValue(50, forKey: "piratePrice")
 
