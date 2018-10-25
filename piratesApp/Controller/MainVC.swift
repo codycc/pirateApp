@@ -324,8 +324,25 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         self.lootPerSessionLbl.text = "\(pirate.lootAmount)"
         self.piratePriceLbl.text = "$\(pirate.piratePrice)"
         self.lootingTimeLbl.text = "\(pirate.lootTime)"
-        
-        
+
+    }
+    
+    func updatePirateFightingImage(pirate: Pirate) {
+        pirateImageOverlay.stopAnimating()
+        var imgArray = [UIImage]()
+        for x in 0...14 {
+            let img = UIImage(named:"pirate\(pirate.id)attack\(x)")
+            imgArray.append(img!)
+        }
+        setPirateOverlayImage(imgArray: imgArray)
+    }
+    
+    func setPirateOverlayImage(imgArray: Array<UIImage>) {
+        pirateImageOverlay.stopAnimating()
+        pirateImageOverlay.animationImages = imgArray
+        pirateImageOverlay.animationDuration = 1.3
+        pirateImageOverlay.animationRepeatCount = 0
+        pirateImageOverlay.startAnimating()
     }
     
     func sortPirates() {
@@ -449,6 +466,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         lowerPanDownView()
         updateStackViewInformation(pirate: pirate)
+        updatePirateFightingImage(pirate: pirate)
         
         if pirate.isUnlocked && !pirate.isAnimating  {
             
