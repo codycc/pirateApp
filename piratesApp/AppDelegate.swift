@@ -66,7 +66,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
             
             cutler.setValue(1, forKey: "id")
-            cutler.setValue("cutler", forKey: "name")
+            cutler.setValue("Cutler", forKey: "name")
             cutler.setValue(12, forKey: "lootTime")
             cutler.setValue(100, forKey: "lootAmount")
             cutler.setValue(1, forKey: "numberOfPirates")

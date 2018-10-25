@@ -27,6 +27,15 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet var slateGlassView: UIView!
     @IBOutlet var blackGlass: UIView!
     @IBOutlet var exitIcon: UIButton!
+    @IBOutlet var pirateNameInfo: UILabel!
+    @IBOutlet var informationStackView: UIStackView!
+    
+    //stackview elements for overlay
+    @IBOutlet var pirateTotalLbl: UILabel!
+    @IBOutlet var lootPerSessionLbl: UILabel!
+    @IBOutlet var piratePriceLbl: UILabel!
+    @IBOutlet var lootingTimeLbl: UILabel!
+    @IBOutlet var pirateImageOverlay: UIImageView!
     
     var pirates = [Pirate]()
     var sortedPirates = [Pirate]()
@@ -286,14 +295,36 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func lowerPanDownView() {
+        
         UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 4, animations: {
             self.blackGlass.isHidden = false
             self.exitIcon.isHidden = false
+
             self.panDownView.center.y += 440
             self.editedRope1.center.y += 400
             self.editedRope2.center.y += 400
-        }, completion: nil)
+        }, completion: { finished in
+            self.informationStackView.isHidden = false
+            self.informationStackView.alpha = 0
+            UIView.animate(withDuration: 1, animations: {
+                self.informationStackView.alpha = 1
+            })
+            let height = self.view.frame.size.height * 0.45
+            self.informationStackView.translatesAutoresizingMaskIntoConstraints = false
+            self.informationStackView.heightAnchor.constraint(equalToConstant: height).isActive = true
+            
+        })
+        
         slateGlassView.isHidden = false
+    }
+    
+    func updateStackViewInformation(pirate:Pirate) {
+        self.pirateNameInfo.text = pirate.name
+        self.pirateTotalLbl.text = "\(pirate.numberOfPirates)"
+        self.lootPerSessionLbl.text = "\(pirate.lootAmount)"
+        self.piratePriceLbl.text = "$\(pirate.piratePrice)"
+        self.lootingTimeLbl.text = "\(pirate.lootTime)"
+        
         
     }
     
@@ -414,10 +445,10 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         let button = sender as! UIButton
         let index = button.tag
-        print("\(button.tag)BUTTON")
         let pirate = sortedPirates[index]
         
         lowerPanDownView()
+        updateStackViewInformation(pirate: pirate)
         
         if pirate.isUnlocked && !pirate.isAnimating  {
             
@@ -453,9 +484,15 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             self.panDownView.center.y -= 440
             self.editedRope1.center.y -= 400
             self.editedRope2.center.y -= 400
+            self.informationStackView.isHidden = true
         }, completion: { finished in
-            self.slateGlassView.isHidden = true
+            let height = self.view.frame.size.height * 0.4
+            self.informationStackView.translatesAutoresizingMaskIntoConstraints = false
+            self.informationStackView.heightAnchor.constraint(equalToConstant: height).isActive = true
+            
         })
+        
+        slateGlassView.isHidden = true
         
     }
     
