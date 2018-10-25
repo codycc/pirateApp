@@ -30,7 +30,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var parrotPlayer: AVAudioPlayer!
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var changeParrotColor = true
-
+    var changeShipColor = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,8 +45,14 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let requestWallet = NSFetchRequest<NSFetchRequestResult>(entityName: "Wallet")
 
         self.parrotImg.isUserInteractionEnabled = true
+        self.pirateShipImg.isUserInteractionEnabled = true
+        // tap gestures
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(MainVC.parrotImgTapped(_:)))
         self.parrotImg.addGestureRecognizer(tapGesture)
+        
+        let tapGestureShip = UITapGestureRecognizer(target: self, action: #selector(MainVC.shipImgTapped(_:)))
+        self.pirateShipImg.addGestureRecognizer(tapGestureShip)
         
         requestPirate.returnsObjectsAsFaults = false
         requestWallet.returnsObjectsAsFaults = false
@@ -119,7 +125,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.reloadData()
     }
     
-
+    
     func addParrotImagesForAnimation() {
         var imgArray = [UIImage]()
         changeParrotColor = !changeParrotColor
@@ -150,10 +156,21 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func addShipImagesForAnimation() {
         var imgArray = [UIImage]()
-        for x in 0...24 {
-            let img = UIImage(named:"shipRight\(x)")
-            imgArray.append(img!)
+        
+        changeShipColor = !changeShipColor
+        
+        if changeShipColor {
+            for x in 0...24 {
+                let img = UIImage(named:"shipRightBlack\(x)")
+                imgArray.append(img!)
+            }
+        } else {
+            for x in 0...24 {
+                let img = UIImage(named:"shipRight\(x)")
+                imgArray.append(img!)
+            }
         }
+        
         setShipImages(imgArray: imgArray)
     }
     
@@ -251,7 +268,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             let timeSince = date - time
             let timeSinceInMilliseconds = timeSince * 1000
             
-            let currentTime = (timeSinceInMilliseconds / Double(pirate.lootTime))
+            let currentTime = (timeSinceInMilliseconds / Double(pirate.lootTime * 1000))
             
             let wholeNumber = floor(currentTime)
             let amountOfMoneyMade = pirate.lootAmount * Int32(wholeNumber)
@@ -276,7 +293,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         
         let context = appDelegate.persistentContainer.viewContext
-        pirate.currentTime = pirate.currentTime - 1000
+        pirate.currentTime = pirate.currentTime - 1
         print("\(pirate.currentTime)")
         if pirate.currentTime <= 0 {
             wallet[0].totalLootAmount += pirate.lootAmount
@@ -365,6 +382,10 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         addExplosionImagesForAnimation()
         addParrotImagesForAnimation()
         
+    }
+    
+    @IBAction func shipImgTapped(_ sender: Any) {
+        addShipImagesForAnimation()
     }
     
     
