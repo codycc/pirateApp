@@ -36,6 +36,7 @@ class PirateCell: UITableViewCell {
     @IBOutlet var buyPlankBtn: UIButton!
     @IBOutlet var buyPlankImg: UIImageView!
     @IBOutlet var piratePriceLbl: UILabel!
+    @IBOutlet var piratePriceLblPlank: UILabel!
     
     func configureCell(pirate: Pirate, wallet: Wallet) {
         self.pirateNameLbl.text =  String(describing: pirate.name!)
@@ -49,6 +50,7 @@ class PirateCell: UITableViewCell {
         updatePiratePrice(pirate: pirate)
         updatePirateLootTime(pirate: pirate)
         setPirateNameLbl(pirate: pirate)
+        setPiratePricePlankLbl(pirate: pirate)
     }
     
     func setPlankUnlock(pirate: Pirate) {
@@ -66,6 +68,7 @@ class PirateCell: UITableViewCell {
             self.pirateNameLbl2.isHidden = false
             self.timePlankImg.isHidden = false
             self.lockImg.isHidden = true
+            self.piratePriceLblPlank.isHidden = true
         } else {
             self.plankImg.isHidden = false
             self.pirateNameLbl.isHidden = false
@@ -80,6 +83,7 @@ class PirateCell: UITableViewCell {
             self.pirateNameLbl2.isHidden = true
             self.timePlankImg.isHidden = true
             self.lockImg.isHidden = false
+            self.piratePriceLblPlank.isHidden = false
         }
     }
     
@@ -93,10 +97,12 @@ class PirateCell: UITableViewCell {
             self.pirateNameLbl.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
             self.plankBtn.isEnabled = true
             self.lockImg.alpha = 1
+            self.piratePriceLblPlank.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         } else {
             self.buyPlankBtn.setTitleColor(#colorLiteral(red: 0.3593182173, green: 1, blue: 0.9866703255, alpha: 1), for: .normal)
             self.buyPlankBtn.alpha = 0.7
             self.buyPlankBtn.isEnabled = false
+            self.pirateNameLbl.textColor = #colorLiteral(red: 0.667081356, green: 0.4763708115, blue: 0.2563533485, alpha: 1)
             self.pirateNameLbl.textColor = #colorLiteral(red: 0.667081356, green: 0.4763708115, blue: 0.2563533485, alpha: 1)
             self.plankBtn.isEnabled = false
             self.lockImg.alpha = 0.7
@@ -121,6 +127,9 @@ class PirateCell: UITableViewCell {
         self.pirateNameLbl2.text = "\(pirate.name!)"
     }
     
+    func setPiratePricePlankLbl(pirate: Pirate) {
+        self.piratePriceLblPlank.text = String(format: "$%.2f", pirate.piratePrice)
+    }
     
     func updatePirateLootTime(pirate: Pirate) {
         let pirateLootTimeInSeconds = pirate.currentTime

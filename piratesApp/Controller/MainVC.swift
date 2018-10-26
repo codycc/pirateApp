@@ -585,10 +585,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         pirate.numberOfPirates += 1
         wallet[0].totalLootAmount -= pirate.piratePrice
-        pirate.piratePrice = (pirate.piratePrice + pirate.piratePrice / 10)
+        pirate.piratePrice = (pirate.piratePrice + pirate.piratePrice / 7)
         pirate.lootTime += pirate.lootTime / 5
-        pirate.lootAmount += (pirate.lootAmount / 10)
-        pirate.isJumping = true
+        pirate.lootAmount += (pirate.lootAmount / 9)
         do {
             try context.save()
             updateWalletLoot()
