@@ -222,6 +222,8 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         setShipExplosionImages(imgArray: imgArray)
     }
     
+   
+    
     func setShipExplosionImages(imgArray: Array<UIImage>) {
         shipExplosionImg.isHidden = false
         shipExplosionImg.animationImages = imgArray
@@ -586,14 +588,17 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         pirate.piratePrice = (pirate.piratePrice + pirate.piratePrice / 10)
         pirate.lootTime += pirate.lootTime / 5
         pirate.lootAmount += (pirate.lootAmount / 10)
+        pirate.isJumping = true
         do {
             try context.save()
+            updateWalletLoot()
+            reloadTable()
+            
         } catch {
             // handle error
         }
         
-        updateWalletLoot()
-        reloadTable()
+        
     }
 }
 
