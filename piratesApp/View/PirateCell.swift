@@ -152,6 +152,8 @@ class PirateCell: UITableViewCell {
         
     }
     
+
+    
     func addImagesForAnimation(pirate: Pirate) {
         var imgArray = [UIImage]()
         for x in 0...pirate.numberOfImages {
@@ -160,6 +162,8 @@ class PirateCell: UITableViewCell {
         }
         setPirateImages(imgArray: imgArray)
     }
+    
+
     
     func setPirateImages(imgArray: Array<UIImage>) {
         pirateImg.stopAnimating()

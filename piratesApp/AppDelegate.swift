@@ -63,14 +63,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             skollywag.setValue(6, forKey: "currentTime")
             skollywag.setValue(15, forKey: "numberOfImagesRun")
             skollywag.setValue(50, forKey: "piratePrice")
-            skollywag.setValue(false, forKey: "isJumping")
+
 
             
             cutler.setValue(1, forKey: "id")
             cutler.setValue("Cutler", forKey: "name")
             cutler.setValue(12, forKey: "lootTime")
             cutler.setValue(100, forKey: "lootAmount")
-            cutler.setValue(1, forKey: "numberOfPirates")
+            cutler.setValue(0, forKey: "numberOfPirates")
             cutler.setValue(false, forKey: "isAnimating")
             cutler.setValue(false, forKey: "isUnlocked")
             cutler.setValue(15, forKey: "numberOfImages")
@@ -80,13 +80,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             cutler.setValue(12, forKey: "currentTime")
             cutler.setValue(15, forKey: "numberOfImagesRun")
             cutler.setValue(200, forKey: "piratePrice")
-            cutler.setValue(false, forKey: "isJumping")
+
             
             bucaneer.setValue(2, forKey: "id")
             bucaneer.setValue("Bucaneer", forKey: "name")
             bucaneer.setValue(18, forKey: "lootTime")
             bucaneer.setValue(200, forKey: "lootAmount")
-            bucaneer.setValue(1, forKey: "numberOfPirates")
+            bucaneer.setValue(0, forKey: "numberOfPirates")
             bucaneer.setValue(false, forKey: "isAnimating")
             bucaneer.setValue(false, forKey: "isUnlocked")
             bucaneer.setValue(11, forKey: "numberOfImages")
@@ -96,13 +96,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             bucaneer.setValue(18, forKey: "currentTime")
             bucaneer.setValue(15, forKey: "numberOfImagesRun")
             bucaneer.setValue(400, forKey: "piratePrice")
-            bucaneer.setValue(false, forKey: "isJumping")
+
             
             thief.setValue(3, forKey: "id")
             thief.setValue("Thief", forKey: "name")
             thief.setValue(27, forKey: "lootTime")
             thief.setValue(500, forKey: "lootAmount")
-            thief.setValue(1, forKey: "numberOfPirates")
+            thief.setValue(0, forKey: "numberOfPirates")
             thief.setValue(false, forKey: "isAnimating")
             thief.setValue(false, forKey: "isUnlocked")
             thief.setValue(11, forKey: "numberOfImages")
@@ -112,13 +112,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             thief.setValue(27, forKey: "currentTime")
             thief.setValue(15, forKey: "numberOfImagesRun")
             thief.setValue(1000, forKey: "piratePrice")
-            thief.setValue(false, forKey: "isJumping")
+
             
             gunna.setValue(4, forKey: "id")
             gunna.setValue("Gunna", forKey: "name")
             gunna.setValue(36, forKey: "lootTime")
             gunna.setValue(600, forKey: "lootAmount")
-            gunna.setValue(1, forKey: "numberOfPirates")
+            gunna.setValue(0, forKey: "numberOfPirates")
             gunna.setValue(false, forKey: "isAnimating")
             gunna.setValue(false, forKey: "isUnlocked")
             gunna.setValue(11, forKey: "numberOfImages")
@@ -128,13 +128,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             gunna.setValue(36, forKey: "currentTime")
             gunna.setValue(15, forKey: "numberOfImagesRun")
             gunna.setValue(1200, forKey: "piratePrice")
-            gunna.setValue(false, forKey: "isJumping")
+
             
             bluebeard.setValue(5, forKey: "id")
             bluebeard.setValue("Bluebeard", forKey: "name")
             bluebeard.setValue(45, forKey: "lootTime")
             bluebeard.setValue(750, forKey: "lootAmount")
-            bluebeard.setValue(1, forKey: "numberOfPirates")
+            bluebeard.setValue(0, forKey: "numberOfPirates")
             bluebeard.setValue(false, forKey: "isAnimating")
             bluebeard.setValue(false, forKey: "isUnlocked")
             bluebeard.setValue(24, forKey: "numberOfImages")
@@ -144,13 +144,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             bluebeard.setValue(45, forKey: "currentTime")
             bluebeard.setValue(14, forKey: "numberOfImagesRun")
             bluebeard.setValue(1500, forKey: "piratePrice")
-            bluebeard.setValue(false, forKey: "isJumping")
+
             
             redbeard.setValue(6, forKey: "id")
             redbeard.setValue("Redbeard", forKey: "name")
             redbeard.setValue(54, forKey: "lootTime")
             redbeard.setValue(1000, forKey: "lootAmount")
-            redbeard.setValue(1, forKey: "numberOfPirates")
+            redbeard.setValue(0, forKey: "numberOfPirates")
             redbeard.setValue(false, forKey: "isAnimating")
             redbeard.setValue(false, forKey: "isUnlocked")
             redbeard.setValue(24, forKey: "numberOfImages")
@@ -160,13 +160,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             redbeard.setValue(54, forKey: "currentTime")
             redbeard.setValue(14, forKey: "numberOfImagesRun")
             redbeard.setValue(2000, forKey: "piratePrice")
-            redbeard.setValue(false, forKey: "isJumping")
+
             
             blackbeard.setValue(7, forKey: "id")
             blackbeard.setValue("Blackbeard", forKey: "name")
             blackbeard.setValue(63, forKey: "lootTime")
             blackbeard.setValue(1250, forKey: "lootAmount")
-            blackbeard.setValue(1, forKey: "numberOfPirates")
+            blackbeard.setValue(0, forKey: "numberOfPirates")
             blackbeard.setValue(false, forKey: "isAnimating")
             blackbeard.setValue(false, forKey: "isUnlocked")
             blackbeard.setValue(24, forKey: "numberOfImages")
@@ -176,7 +176,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             blackbeard.setValue(63, forKey: "currentTime")
             blackbeard.setValue(14, forKey: "numberOfImagesRun")
             blackbeard.setValue(2500, forKey: "piratePrice")
-            blackbeard.setValue(false, forKey: "isJumping")
+
             
             
             do {
