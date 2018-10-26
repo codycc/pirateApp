@@ -75,6 +75,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let tapGestureShip = UITapGestureRecognizer(target: self, action: #selector(MainVC.shipImgTapped(_:)))
         self.pirateShipImg.addGestureRecognizer(tapGestureShip)
         
+        
         requestPirate.returnsObjectsAsFaults = false
         requestWallet.returnsObjectsAsFaults = false
 
@@ -128,7 +129,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func updateWalletLoot() {
-        walletLootLbl.text = "\(wallet[0].totalLootAmount)"
+        walletLootLbl.text = String(format: "$%.2f", wallet[0].totalLootAmount)
         reloadTable()
     }
     
@@ -263,6 +264,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         do {
             try musicPlayer = AVAudioPlayer(contentsOf: soundUrl as URL)
             musicPlayer.prepareToPlay()
+            musicPlayer.numberOfLoops = 0
             musicPlayer.play()
         } catch let err as NSError {
             print(err.debugDescription)
@@ -303,7 +305,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         do {
             try purchasePlayer = AVAudioPlayer(contentsOf: soundUrl as URL)
             purchasePlayer.prepareToPlay()
-            purchasePlayer.volume = 0.4
+            purchasePlayer.volume = 0.7
             purchasePlayer.play()
         } catch let err as NSError {
             print(err.debugDescription)
@@ -314,7 +316,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 4, animations: {
             self.blackGlass.isHidden = false
-            self.exitIcon.isHidden = false
+            
 
             self.panDownView.center.y += 440
             self.editedRope1.center.y += 400
@@ -322,8 +324,10 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }, completion: { finished in
             self.informationStackView.isHidden = false
             self.informationStackView.alpha = 0
-            UIView.animate(withDuration: 1, animations: {
+            UIView.animate(withDuration: 0.5, animations: {
                 self.informationStackView.alpha = 1
+            }, completion: { finished in
+                self.exitIcon.isHidden = false
             })
             let height = self.view.frame.size.height * 0.45
             self.informationStackView.translatesAutoresizingMaskIntoConstraints = false
@@ -368,18 +372,33 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func startTimers() {
         for pirate in sortedPirates {
-            if pirate.isAnimating == true {
+            if pirate.isAnimating {
                 grabPirateOfflineData(pirate: pirate)
+                UserDefaults.standard.set(false, forKey: "launchedStartUp")
                 var timer = Timer()
                 timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(MainVC.updateCoreDataFromTimer), userInfo: pirate, repeats: true)
-  
+                
+            }
+            if pirate.id == 0 {
+                updateFirstPirate(pirate: pirate)
             }
         }
     }
     
+    func updateFirstPirate(pirate: Pirate) {
+        let context = appDelegate.persistentContainer.viewContext
+        pirate.isUnlocked = true
+        do {
+            try context.save()
+        } catch {
+            
+        }
+    }
+    
+    
     func grabPirateOfflineData(pirate: Pirate) {
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
-        if launchedBefore {
+        if launchedBefore && pirate.isUnlocked && pirate.isAnimating {
             let date = NSDate().timeIntervalSince1970
             let time = UserDefaults.standard.double(forKey: "timeClosed")
             
@@ -389,7 +408,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             let currentTime = (timeSinceInMilliseconds / Double(pirate.lootTime * 1000))
             
             let wholeNumber = floor(currentTime)
-            let amountOfMoneyMade = pirate.lootAmount * Int32(wholeNumber)
+            let amountOfMoneyMade = pirate.lootAmount * wholeNumber
             
             let context = appDelegate.persistentContainer.viewContext
             wallet[0].totalLootAmount += amountOfMoneyMade
@@ -450,6 +469,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             cell.configureCell(pirate: pirate, wallet: wallet)
             cell.buyPlankBtn.tag = indexPath.row
             cell.pirateImgBtn.tag = indexPath.row
+            cell.plankBtn.tag = indexPath.row
             return cell
         } else {
             return PirateCell()
@@ -483,17 +503,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         updateStackViewInformation(pirate: pirate)
         updatePirateFightingImage(pirate: pirate)
         
-        if pirate.isUnlocked && !pirate.isAnimating  {
-            
-            do {
-                pirate.setValue(true, forKey: "isAnimating")
-                try context.save()
-                var timer = Timer()
-                timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(MainVC.updateCoreDataFromTimer), userInfo: pirate, repeats: true)
-            } catch {
-                //handle error
-            }
-        }
+
     }
 
     
@@ -528,6 +538,39 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         slateGlassView.isHidden = true
         
     }
+    @IBAction func unlockPiratePressed(_ sender: Any) {
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let button = sender as! UIButton
+        let index = button.tag
+        
+        let pirate = sortedPirates[index]
+        
+        if pirate.piratePrice <= wallet[0].totalLootAmount && !pirate.isUnlocked {
+            pirate.isUnlocked = true
+            pirate.isAnimating = true
+            wallet[0].totalLootAmount -= pirate.piratePrice
+            do {
+                try context.save()
+                do {
+                    pirate.setValue(true, forKey: "isAnimating")
+                    try context.save()
+                    var timer = Timer()
+                    timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(MainVC.updateCoreDataFromTimer), userInfo: pirate, repeats: true)
+                    playPurchaseSoundEffect()
+                    updateWalletLoot()
+                    reloadTable()
+                } catch {
+                    //handle error
+                }
+            } catch {
+                // handle error
+            }
+
+        } else {
+            
+        }
+    }
     
     @IBAction func buyBtnPressed(_ sender: Any) {
         let context = appDelegate.persistentContainer.viewContext
@@ -539,7 +582,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         playPurchaseSoundEffect()
         
         pirate.numberOfPirates += 1
-        wallet[0].totalLootAmount -= Int32(pirate.piratePrice)
+        wallet[0].totalLootAmount -= pirate.piratePrice
         pirate.piratePrice = (pirate.piratePrice + pirate.piratePrice / 10)
         pirate.lootTime += pirate.lootTime / 5
         pirate.lootAmount += (pirate.lootAmount / 10)
