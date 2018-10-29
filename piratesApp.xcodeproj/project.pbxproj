@@ -17,7 +17,6 @@
 		0B6A4A8D2177B6B700495663 /* piratesAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6A4A8C2177B6B700495663 /* piratesAppUITests.swift */; };
 		0B6A4A9E217BAF0500495663 /* PirateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6A4A9D217BAF0500495663 /* PirateCell.swift */; };
 		0B6A4AA0217BEB5700495663 /* piratesmusic.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0B6A4A9F217BEB5700495663 /* piratesmusic.wav */; };
-		0B6A4AA2217F8D2100495663 /* swiftGIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6A4AA1217F8D2100495663 /* swiftGIF.swift */; };
 		0B78C3DB2180F2AC00D628FB /* JOLLR___.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 0B78C3DA2180F29100D628FB /* JOLLR___.TTF */; };
 		0B78C3DD2180F51C00D628FB /* PiratesWriters.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0B78C3DC2180F51800D628FB /* PiratesWriters.ttf */; };
 		0B78C3E12181365300D628FB /* pr3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0B78C3E02181365300D628FB /* pr3.wav */; };
@@ -63,7 +62,6 @@
 		0B6A4A8E2177B6B700495663 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0B6A4A9D217BAF0500495663 /* PirateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PirateCell.swift; sourceTree = "<group>"; };
 		0B6A4A9F217BEB5700495663 /* piratesmusic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = piratesmusic.wav; path = ../../../Downloads/bb57e4dbbb1e64d7a4bd71a515f64e6cca4ec5bb/piratesmusic.wav; sourceTree = "<group>"; };
-		0B6A4AA1217F8D2100495663 /* swiftGIF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swiftGIF.swift; sourceTree = "<group>"; };
 		0B78C3DA2180F29100D628FB /* JOLLR___.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JOLLR___.TTF"; sourceTree = "<group>"; };
 		0B78C3DC2180F51800D628FB /* PiratesWriters.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PiratesWriters.ttf; sourceTree = "<group>"; };
 		0B78C3E02181365300D628FB /* pr3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pr3.wav; sourceTree = "<group>"; };
@@ -149,7 +147,6 @@
 				0B6A4A752177B6B600495663 /* LaunchScreen.storyboard */,
 				0B6A4A782177B6B600495663 /* Info.plist */,
 				0B6A4A702177B6B500495663 /* piratesApp.xcdatamodeld */,
-				0B6A4AA1217F8D2100495663 /* swiftGIF.swift */,
 			);
 			path = piratesApp;
 			sourceTree = "<group>";
@@ -466,7 +463,6 @@
 			files = (
 				0B6A4A9E217BAF0500495663 /* PirateCell.swift in Sources */,
 				0B6A4A722177B6B500495663 /* piratesApp.xcdatamodeld in Sources */,
-				0B6A4AA2217F8D2100495663 /* swiftGIF.swift in Sources */,
 				0B6A4A6C2177B6B500495663 /* MainVC.swift in Sources */,
 				0B6A4A6A2177B6B500495663 /* AppDelegate.swift in Sources */,
 			);

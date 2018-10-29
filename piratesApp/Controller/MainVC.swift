@@ -31,7 +31,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     @IBOutlet var pirateNameInfo: UILabel!
     @IBOutlet var informationStackView: UIStackView!
     
+    @IBOutlet var offlineNonAdLabel: UILabel!
     
+    @IBOutlet var offlineAdLabel: UILabel!
     //stackview elements for overlay
     @IBOutlet var pirateTotalLbl: UILabel!
     @IBOutlet var lootPerSessionLbl: UILabel!
@@ -51,8 +53,10 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var changeParrotColor = true
     var changeShipColor = true
+    var amountOfMoneyMade = 0.0
     
     @IBOutlet var adView: GADBannerView!
+    @IBOutlet var offlineLootView: UIView!
     
     
     override func viewDidLoad() {
@@ -81,6 +85,12 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
 
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(MainVC.parrotImgTapped(_:)))
         self.parrotImg.addGestureRecognizer(tapGesture)
+        
+        let tapGestureNonAd = UITapGestureRecognizer(target: self, action: #selector(MainVC.offlineNonAdLabelPressed(_:)))
+        self.offlineNonAdLabel.addGestureRecognizer(tapGesture)
+        
+        let tapGestureAd = UITapGestureRecognizer(target: self, action: #selector(MainVC.offlineAdLabelPressed(_:)))
+        self.offlineAdLabel.addGestureRecognizer(tapGesture)
         
         let tapGestureShip = UITapGestureRecognizer(target: self, action: #selector(MainVC.shipImgTapped(_:)))
         self.pirateShipImg.addGestureRecognizer(tapGestureShip)
@@ -123,6 +133,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         sortPirates()
         startTimers()
         startAnimationTimers()
+        showOfflineView()
         
     }
 
@@ -176,6 +187,12 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         
         
         setParrotImages(imgArray: imgArray)
+    }
+    
+    func showOfflineView() {
+        offlineLootView.isHidden = false
+        offlineNonAdLabel.text = String(format: "$%.2f", amountOfMoneyMade)
+        offlineAdLabel.text = String(format: "$%.2f", amountOfMoneyMade * 2)
     }
     
     func setParrotImages(imgArray: Array<UIImage>) {
@@ -409,6 +426,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     
     
     func grabPirateOfflineData(pirate: Pirate) {
+        amountOfMoneyMade = 0.0
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
         if launchedBefore && pirate.isUnlocked && pirate.isAnimating {
             let date = NSDate().timeIntervalSince1970
@@ -428,7 +446,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
             print("\(currentTime)CURRENT TIME")
             let wholeNumber = currentTime
             print("\(wholeNumber)whol number")
-            let amountOfMoneyMade = pirate.lootAmount * wholeNumber
+             amountOfMoneyMade = pirate.lootAmount * wholeNumber
             print("\(amountOfMoneyMade) amount of money made")
             
             
@@ -624,9 +642,18 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         } catch {
             // handle error
         }
-        
-        
     }
+    
+    @IBAction func offlineNonAdLabelPressed(_ sender: Any) {
+        offlineLootView.isHidden = true
+    }
+    
+    @IBAction func offlineAdLabelPressed(_ sender: Any) {
+        offlineLootView.isHidden = true
+    }
+    
+    
+    
 }
 
 
