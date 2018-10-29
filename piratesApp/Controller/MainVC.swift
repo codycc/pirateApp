@@ -353,7 +353,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     func updateStackViewInformation(pirate:Pirate) {
         self.pirateNameInfo.text = pirate.name
         self.pirateTotalLbl.text = "\(pirate.numberOfPirates)"
-        self.lootPerSessionLbl.text = "\(pirate.lootAmount)"
+        self.lootPerSessionLbl.text = String(format: "$%.2f", pirate.lootAmount)
         self.piratePriceLbl.text = String(format: "$%.2f", pirate.piratePrice)
         
         self.lootingTimeLbl.text = "\(pirate.lootTime)"
