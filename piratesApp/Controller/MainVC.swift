@@ -414,16 +414,34 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
             let date = NSDate().timeIntervalSince1970
             let time = UserDefaults.standard.double(forKey: "timeClosed")
             
+            
             let timeSince = date - time
             let timeSinceInMilliseconds = timeSince * 1000
             
-            let currentTime = (timeSinceInMilliseconds / Double(pirate.lootTime * 1000))
+          
+            print("\(timeSince)TIME SINCE.... \(timeSinceInMilliseconds)IN MILLISECONDS")
             
-            let wholeNumber = floor(currentTime)
+            
+            
+            
+            let currentTime = (timeSinceInMilliseconds / Double(pirate.lootTime * 1000))
+            print("\(currentTime)CURRENT TIME")
+            let wholeNumber = currentTime
+            print("\(wholeNumber)whol number")
             let amountOfMoneyMade = pirate.lootAmount * wholeNumber
+            print("\(amountOfMoneyMade) amount of money made")
+            
             
             let context = appDelegate.persistentContainer.viewContext
             wallet[0].totalLootAmount += amountOfMoneyMade
+            
+            if Double(pirate.currentTime) > timeSince {
+                pirate.currentTime = pirate.currentTime - Int32(timeSince)
+            } else {
+                pirate.currentTime = Int32(timeSince) % pirate.currentTime
+            }
+            
+            
             updateWalletLoot()
             
             do {
