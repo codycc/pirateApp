@@ -170,7 +170,7 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" alpha="0.65000000000000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$25" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l8o-zm-ZlE">
-                                                    <rect key="frame" x="165" y="77.5" width="130" height="40"/>
+                                                    <rect key="frame" x="165" y="83.5" width="130" height="34"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="130" id="nYm-Qs-HYv"/>
                                                     </constraints>
@@ -199,7 +199,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vgZ-F1-pMQ">
-                                                    <rect key="frame" x="138.5" y="38.5" width="98" height="47"/>
+                                                    <rect key="frame" x="148.5" y="42" width="78" height="40"/>
                                                     <fontDescription key="fontDescription" name="PiratesWriters" family="Pirates Writers" pointSize="40"/>
                                                     <color key="textColor" red="0.66708135604858398" green="0.47637081146240234" blue="0.25635334849357605" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <color key="highlightedColor" red="0.56341078367875652" green="0.41342432233129001" blue="0.28372360571108529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -348,6 +348,14 @@
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6pE-SB-dMZ">
                                 <rect key="frame" x="48" y="30" width="302" height="259"/>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="frJ-An-cjE" customClass="GADBannerView">
+                                <rect key="frame" x="27.5" y="617" width="320" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="M2T-V8-5UQ"/>
+                                    <constraint firstAttribute="width" constant="320" id="NFb-f9-hP0"/>
+                                </constraints>
+                            </view>
                             <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="parrotLeft0" translatesAutoresizingMaskIntoConstraints="NO" id="hXp-gp-h9u">
                                 <rect key="frame" x="254" y="212" width="139" height="143"/>
                                 <gestureRecognizers/>
@@ -587,6 +595,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EDY-5l-OeN" secondAttribute="trailing" constant="100" id="1FQ-E4-ynN"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="frJ-An-cjE" secondAttribute="bottom" id="2jG-vM-cL2"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="G0q-bj-ZiS" secondAttribute="trailing" constant="5" id="34p-k5-mQY"/>
                             <constraint firstItem="G0q-bj-ZiS" firstAttribute="centerY" secondItem="Xsb-XW-B9f" secondAttribute="centerY" id="3tg-kB-wTl"/>
                             <constraint firstItem="cXY-Pc-h1W" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="-22" id="4AS-q2-XjW"/>
@@ -645,6 +654,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Tvq-lg-afS" secondAttribute="trailing" id="uNe-El-xBi"/>
                             <constraint firstItem="ZJX-2f-56r" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="-100" id="wS2-ZF-VWZ"/>
                             <constraint firstItem="Xte-8d-6xj" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="wqL-g0-Lzm"/>
+                            <constraint firstItem="frJ-An-cjE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wyy-Jx-t7k"/>
                             <constraint firstAttribute="trailing" secondItem="Bcg-w1-MXf" secondAttribute="trailing" id="x5l-YH-Crg"/>
                             <constraint firstItem="Cik-yl-QD4" firstAttribute="top" secondItem="6pE-SB-dMZ" secondAttribute="bottom" constant="-28" id="xzT-IU-s5a"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Bcg-w1-MXf" secondAttribute="bottom" id="yQe-LL-FGs"/>
@@ -652,6 +662,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="adView" destination="frJ-An-cjE" id="4f6-N0-7bL"/>
                         <outlet property="blackGlass" destination="vHB-nx-YuU" id="n3D-xQ-4Gh"/>
                         <outlet property="editedRope1" destination="tyr-5W-qat" id="4vh-WH-mfA"/>
                         <outlet property="editedRope2" destination="EK9-o5-UDN" id="Hay-OX-mYg"/>

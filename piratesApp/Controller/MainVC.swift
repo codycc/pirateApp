@@ -10,8 +10,9 @@ import UIKit
 import CoreData
 import AVFoundation
 import Spring
+import GoogleMobileAds
 
-class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADBannerViewDelegate {
    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet var pirateShipImg: UIImageView!
@@ -51,6 +52,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var changeParrotColor = true
     var changeShipColor = true
     
+    @IBOutlet var adView: GADBannerView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -58,6 +62,12 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         self.tableView.estimatedRowHeight = 0;
         tableView.bounces = false
         tableView.alwaysBounceVertical = false
+        
+        adView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        adView.rootViewController = self
+        adView.load(GADRequest())
+        adView.delegate = self
+        
         let date = NSDate().timeIntervalSince1970
         let context = appDelegate.persistentContainer.viewContext
         let requestPirate = NSFetchRequest<NSFetchRequestResult>(entityName: "Pirate")

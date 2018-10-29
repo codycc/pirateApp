@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreData
+import GoogleMobileAds
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,6 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+        
+        FirebaseApp.configure()
+        GADMobileAds.configure(withApplicationID: "ca-app-pub-1067425139660844~7276960926")
         
         if launchedBefore {
             print("not first launch")
