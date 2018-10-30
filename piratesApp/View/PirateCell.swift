@@ -103,7 +103,7 @@ class PirateCell: UITableViewCell {
             self.buyPlankBtn.alpha = 0.7
             self.buyPlankBtn.isEnabled = false
             self.pirateNameLbl.textColor = #colorLiteral(red: 0.667081356, green: 0.4763708115, blue: 0.2563533485, alpha: 1)
-            self.pirateNameLbl.textColor = #colorLiteral(red: 0.667081356, green: 0.4763708115, blue: 0.2563533485, alpha: 1)
+            self.piratePriceLblPlank.textColor = #colorLiteral(red: 0.667081356, green: 0.4763708115, blue: 0.2563533485, alpha: 1)
             self.plankBtn.isEnabled = false
             self.lockImg.alpha = 0.7
         }
@@ -137,13 +137,6 @@ class PirateCell: UITableViewCell {
         let minutes = Int(pirateLootTimeInSeconds) / 60 % 60
         let seconds = Int(pirateLootTimeInSeconds) % 60
         
-//        var extraVariable = ""
-//        if pirateLootTimeInSeconds == 1 {
-//            extraVariable = " second"
-//        }
-//        else if pirateLootTimeInSeconds < 60 {
-//            extraVariable = " seconds"
-//        }
         
         if pirateLootTimeInSeconds > 60000 {
          //(pirateLootTimeInSeconds / 3600, (pirateLootTimeInSeconds % 3600) / 60, (pirateLootTimeInSeconds % 3600) % 60)

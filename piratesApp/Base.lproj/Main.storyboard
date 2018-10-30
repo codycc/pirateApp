@@ -404,10 +404,10 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G0q-bj-ZiS">
-                                <rect key="frame" x="250" y="61.666666666666657" width="120" height="35"/>
+                                <rect key="frame" x="230" y="61.666666666666657" width="140" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="cME-bV-xGN"/>
-                                    <constraint firstAttribute="width" constant="120" id="jas-FV-lss"/>
+                                    <constraint firstAttribute="width" constant="140" id="jas-FV-lss"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="PiratesWriters" family="Pirates Writers" pointSize="29"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -649,7 +649,7 @@
                                             <constraint firstAttribute="height" constant="80" id="8mN-P5-d7q"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="200,000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="fTa-il-94I">
+                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="200,000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="fTa-il-94I">
                                         <rect key="frame" x="230" y="370" width="80" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="80" id="rxC-ld-VSp"/>

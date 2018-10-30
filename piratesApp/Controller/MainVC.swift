@@ -87,10 +87,10 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         self.parrotImg.addGestureRecognizer(tapGesture)
         
         let tapGestureNonAd = UITapGestureRecognizer(target: self, action: #selector(MainVC.offlineNonAdLabelPressed(_:)))
-        self.offlineNonAdLabel.addGestureRecognizer(tapGesture)
+        self.offlineNonAdLabel.addGestureRecognizer(tapGestureNonAd)
         
         let tapGestureAd = UITapGestureRecognizer(target: self, action: #selector(MainVC.offlineAdLabelPressed(_:)))
-        self.offlineAdLabel.addGestureRecognizer(tapGesture)
+        self.offlineAdLabel.addGestureRecognizer(tapGestureAd)
         
         let tapGestureShip = UITapGestureRecognizer(target: self, action: #selector(MainVC.shipImgTapped(_:)))
         self.pirateShipImg.addGestureRecognizer(tapGestureShip)
@@ -190,9 +190,12 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     }
     
     func showOfflineView() {
-        offlineLootView.isHidden = false
-        offlineNonAdLabel.text = String(format: "$%.2f", amountOfMoneyMade)
-        offlineAdLabel.text = String(format: "$%.2f", amountOfMoneyMade * 2)
+         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+        if launchedBefore {
+            offlineLootView.isHidden = false
+            offlineNonAdLabel.text = String(format: "$%.2f", amountOfMoneyMade)
+            offlineAdLabel.text = String(format: "$%.2f", amountOfMoneyMade * 2)
+        }
     }
     
     func setParrotImages(imgArray: Array<UIImage>) {
@@ -633,7 +636,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         wallet[0].totalLootAmount -= pirate.piratePrice
         pirate.piratePrice = (pirate.piratePrice + pirate.piratePrice / 7)
         pirate.lootTime += pirate.lootTime / 5
-        pirate.lootAmount += (pirate.lootAmount / 9)
+        pirate.lootAmount += (pirate.lootAmount / 20)
         do {
             try context.save()
             updateWalletLoot()
@@ -646,10 +649,12 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     
     @IBAction func offlineNonAdLabelPressed(_ sender: Any) {
         offlineLootView.isHidden = true
+        print("touched")
     }
     
     @IBAction func offlineAdLabelPressed(_ sender: Any) {
         offlineLootView.isHidden = true
+        print("touched2")
     }
     
     
