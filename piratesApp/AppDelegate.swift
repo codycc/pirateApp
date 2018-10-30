@@ -27,6 +27,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         GADMobileAds.configure(withApplicationID: "ca-app-pub-1067425139660844~7276960926")
         
+        //LOADING VIDEO AD
+        GADRewardBasedVideoAd.sharedInstance().load(GADRequest(),
+                                                    withAdUnitID: "ca-app-pub-3940256099942544/1712485313")
+        
+        
         if launchedBefore {
             print("not first launch")
         } else {

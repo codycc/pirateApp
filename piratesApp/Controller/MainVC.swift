@@ -12,7 +12,8 @@ import AVFoundation
 import Spring
 import GoogleMobileAds
 
-class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADBannerViewDelegate {
+class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADBannerViewDelegate, GADRewardBasedVideoAdDelegate {
+   
    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet var pirateShipImg: UIImageView!
@@ -33,6 +34,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     
     @IBOutlet var offlineNonAdLabel: UILabel!
     
+    @IBOutlet var blueboardAd: UIImageView!
     @IBOutlet var offlineAdLabel: UILabel!
     //stackview elements for overlay
     @IBOutlet var pirateTotalLbl: UILabel!
@@ -94,6 +96,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         
         let tapGestureShip = UITapGestureRecognizer(target: self, action: #selector(MainVC.shipImgTapped(_:)))
         self.pirateShipImg.addGestureRecognizer(tapGestureShip)
+        
+        GADRewardBasedVideoAd.sharedInstance().delegate = self
+      
         
         
         requestPirate.returnsObjectsAsFaults = false
@@ -166,6 +171,14 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     
     func reloadTable() {
         tableView.reloadData()
+    }
+    
+    
+    
+    func rewardBasedVideoAdDidReceive(_ rewardBasedVideoAd:GADRewardBasedVideoAd) {
+        self.blueboardAd.alpha = 1
+        self.offlineAdLabel.alpha = 1
+        self.offlineAdLabel.isUserInteractionEnabled = true
     }
     
     
@@ -370,6 +383,20 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         slateGlassView.isHidden = false
     }
     
+    func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd, didRewardUserWith reward: GADAdReward) {
+        print("CALLED1")
+        let context = appDelegate.persistentContainer.viewContext
+        wallet[0].totalLootAmount += amountOfMoneyMade
+        do {
+            updateWalletLoot()
+            try context.save()
+            
+        } catch {
+            //handle error
+        }
+        
+    }
+    
     func updateStackViewInformation(pirate:Pirate) {
         self.pirateNameInfo.text = pirate.name
         self.pirateTotalLbl.text = "\(pirate.numberOfPirates)"
@@ -438,12 +465,6 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
             
             let timeSince = date - time
             let timeSinceInMilliseconds = timeSince * 1000
-            
-          
-            print("\(timeSince)TIME SINCE.... \(timeSinceInMilliseconds)IN MILLISECONDS")
-            
-            
-            
             
             let currentTime = (timeSinceInMilliseconds / Double(pirate.lootTime * 1000))
             print("\(currentTime)CURRENT TIME")
@@ -653,8 +674,12 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     }
     
     @IBAction func offlineAdLabelPressed(_ sender: Any) {
+        if GADRewardBasedVideoAd.sharedInstance().isReady == true {
+            GADRewardBasedVideoAd.sharedInstance().present(fromRootViewController: self)
+        }
         offlineLootView.isHidden = true
-        print("touched2")
+        
+        
     }
     
     
