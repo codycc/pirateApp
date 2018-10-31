@@ -105,7 +105,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             bucaneer.setValue(3, forKey: "plankNumber")
             bucaneer.setValue(18, forKey: "currentTime")
             bucaneer.setValue(15, forKey: "numberOfImagesRun")
-            bucaneer.setValue(800, forKey: "piratePrice")
+            bucaneer.setValue(1500, forKey: "piratePrice")
 
             
             thief.setValue(3, forKey: "id")
@@ -121,7 +121,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             thief.setValue(4, forKey: "plankNumber")
             thief.setValue(27, forKey: "currentTime")
             thief.setValue(15, forKey: "numberOfImagesRun")
-            thief.setValue(1300, forKey: "piratePrice")
+            thief.setValue(2500, forKey: "piratePrice")
 
             
             gunna.setValue(4, forKey: "id")
@@ -137,7 +137,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             gunna.setValue(5, forKey: "plankNumber")
             gunna.setValue(36, forKey: "currentTime")
             gunna.setValue(15, forKey: "numberOfImagesRun")
-            gunna.setValue(1700, forKey: "piratePrice")
+            gunna.setValue(3000, forKey: "piratePrice")
 
             
             bluebeard.setValue(5, forKey: "id")
@@ -153,7 +153,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             bluebeard.setValue(1, forKey: "plankNumber")
             bluebeard.setValue(45, forKey: "currentTime")
             bluebeard.setValue(14, forKey: "numberOfImagesRun")
-            bluebeard.setValue(2300, forKey: "piratePrice")
+            bluebeard.setValue(3700, forKey: "piratePrice")
 
             
             redbeard.setValue(6, forKey: "id")
@@ -169,7 +169,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             redbeard.setValue(2, forKey: "plankNumber")
             redbeard.setValue(54, forKey: "currentTime")
             redbeard.setValue(14, forKey: "numberOfImagesRun")
-            redbeard.setValue(3000, forKey: "piratePrice")
+            redbeard.setValue(4200, forKey: "piratePrice")
 
             
             blackbeard.setValue(7, forKey: "id")
@@ -185,7 +185,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             blackbeard.setValue(3, forKey: "plankNumber")
             blackbeard.setValue(63, forKey: "currentTime")
             blackbeard.setValue(14, forKey: "numberOfImagesRun")
-            blackbeard.setValue(5000, forKey: "piratePrice")
+            blackbeard.setValue(7000, forKey: "piratePrice")
 
             
             

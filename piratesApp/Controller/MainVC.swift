@@ -203,11 +203,12 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     }
     
     func showOfflineView() {
-         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
-        if launchedBefore {
+         let launchedOffline = UserDefaults.standard.bool(forKey: "launchedOffline")
+        if !launchedOffline {
             offlineLootView.isHidden = false
             offlineNonAdLabel.text = String(format: "$%.2f", amountOfMoneyMade)
             offlineAdLabel.text = String(format: "$%.2f", amountOfMoneyMade * 2)
+            UserDefaults.standard.set(true, forKey: "launchedOffline")
         }
     }
     
@@ -621,6 +622,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         if pirate.piratePrice <= wallet[0].totalLootAmount && !pirate.isUnlocked {
             pirate.isUnlocked = true
             pirate.isAnimating = true
+            pirate.numberOfPirates += 1
             wallet[0].totalLootAmount -= pirate.piratePrice
             do {
                 try context.save()
