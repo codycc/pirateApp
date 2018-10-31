@@ -32,6 +32,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     @IBOutlet var pirateNameInfo: UILabel!
     @IBOutlet var informationStackView: UIStackView!
     
+    @IBOutlet var piratePanDownViewImage: NSLayoutConstraint!
     @IBOutlet var offlineNonAdLabel: UILabel!
     
     @IBOutlet var blueboardAd: UIImageView!
@@ -43,6 +44,8 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     @IBOutlet var lootingTimeLbl: UILabel!
     @IBOutlet var pirateImageOverlay: UIImageView!
     
+    @IBOutlet var gameBeatLabel: UILabel!
+    @IBOutlet var gameBeatView: UIView!
     var pirates = [Pirate]()
     var sortedPirates = [Pirate]()
     var wallet = [Wallet]()
@@ -139,11 +142,10 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         startTimers()
         startAnimationTimers()
         showOfflineView()
-        
+        checkIfAllPiratesAreFilled()
     }
 
     @objc func alertTimers() {
-        print("alert tIMERS CALLED")
         startTimers()
     }
     
@@ -202,14 +204,27 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         setParrotImages(imgArray: imgArray)
     }
     
+    func checkIfAllPiratesAreFilled() {
+        var count = 0
+        for pirate in sortedPirates {
+            if pirate.numberOfPirates >= 100 {
+                count += 1
+            }
+            if count == 8 {
+                self.gameBeatView.isHidden = false
+                self.gameBeatLabel.isHidden = false
+            }
+        }
+    }
+    
     func showOfflineView() {
          let launchedOffline = UserDefaults.standard.bool(forKey: "launchedOffline")
-        if !launchedOffline {
+        if launchedOffline {
             offlineLootView.isHidden = false
             offlineNonAdLabel.text = String(format: "$%.2f", amountOfMoneyMade)
             offlineAdLabel.text = String(format: "$%.2f", amountOfMoneyMade * 2)
-            UserDefaults.standard.set(true, forKey: "launchedOffline")
         }
+        UserDefaults.standard.set(true, forKey: "launchedOffline")
     }
     
     func setParrotImages(imgArray: Array<UIImage>) {
@@ -310,7 +325,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         do {
             try musicPlayer = AVAudioPlayer(contentsOf: soundUrl as URL)
             musicPlayer.prepareToPlay()
-            musicPlayer.numberOfLoops = 0
+            musicPlayer.numberOfLoops = -1
             musicPlayer.play()
         } catch let err as NSError {
             print(err.debugDescription)
@@ -358,7 +373,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         }
     }
     
-    func lowerPanDownView() {
+    func lowerPanDownView(pirate: Pirate) {
         
         UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 4, animations: {
             self.blackGlass.isHidden = false
@@ -380,12 +395,34 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
             self.informationStackView.heightAnchor.constraint(equalToConstant: height).isActive = true
             
         })
+        switch pirate.id {
+        case 0:
+            self.piratePanDownViewImage.constant = 0
+        case 1:
+            self.piratePanDownViewImage.constant = -60
+        case 2:
+            self.piratePanDownViewImage.constant = -110
+        case 3:
+            self.piratePanDownViewImage.constant = -80
+        case 4:
+            self.piratePanDownViewImage.constant = -10
+        case 5:
+            self.piratePanDownViewImage.constant = -10
+        case 6:
+            self.piratePanDownViewImage.constant = -10
+        case 7:
+            self.piratePanDownViewImage.constant = -10
+        
+            
+        default:
+            print("hello")
+        }
+        
         
         slateGlassView.isHidden = false
     }
     
     func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd, didRewardUserWith reward: GADAdReward) {
-        print("CALLED1")
         let context = appDelegate.persistentContainer.viewContext
         wallet[0].totalLootAmount += amountOfMoneyMade
         do {
@@ -468,13 +505,10 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
             let timeSinceInMilliseconds = timeSince * 1000
             
             let currentTime = (timeSinceInMilliseconds / Double(pirate.lootTime * 1000))
-            print("\(currentTime)CURRENT TIME")
+
             let wholeNumber = currentTime
-            print("\(wholeNumber)whol number")
              amountOfMoneyMade = pirate.lootAmount * wholeNumber
-            print("\(amountOfMoneyMade) amount of money made")
-            
-            
+
             let context = appDelegate.persistentContainer.viewContext
             wallet[0].totalLootAmount += amountOfMoneyMade
             
@@ -572,7 +606,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         let index = button.tag
         let pirate = sortedPirates[index]
         
-        lowerPanDownView()
+        lowerPanDownView(pirate: pirate)
         updateStackViewInformation(pirate: pirate)
         updatePirateFightingImage(pirate: pirate)
         
@@ -654,6 +688,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
 
         let pirate = sortedPirates[index]
         playPurchaseSoundEffect()
+        checkIfAllPiratesAreFilled()
         
         pirate.numberOfPirates += 1
         wallet[0].totalLootAmount -= pirate.piratePrice
@@ -672,7 +707,6 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     
     @IBAction func offlineNonAdLabelPressed(_ sender: Any) {
         offlineLootView.isHidden = true
-        print("touched")
     }
     
     @IBAction func offlineAdLabelPressed(_ sender: Any) {

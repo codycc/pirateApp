@@ -33,10 +33,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         if launchedBefore {
-            print("not first launch")
+           
         } else {
-            print("first launch")
             
+            UserDefaults.standard.set(false, forKey: "launchedOffline")
             UserDefaults.standard.set(true, forKey: "launchedBefore")
             
             let appDelegate = UIApplication.shared.delegate as! AppDelegate

@@ -38,6 +38,10 @@ class PirateCell: UITableViewCell {
     @IBOutlet var piratePriceLbl: UILabel!
     @IBOutlet var piratePriceLblPlank: UILabel!
     
+    @IBOutlet var maxPiratesReachedView: UIView!
+    
+    @IBOutlet var maxPiratesReachedLbl: UILabel!
+    
     func configureCell(pirate: Pirate, wallet: Wallet) {
         self.pirateNameLbl.text =  String(describing: pirate.name!)
         setPlankUnlock(pirate:pirate)
@@ -51,6 +55,7 @@ class PirateCell: UITableViewCell {
         updatePirateLootTime(pirate: pirate)
         setPirateNameLbl(pirate: pirate)
         setPiratePricePlankLbl(pirate: pirate)
+        checkIfMaxPiratesReached(pirate: pirate)
     }
     
     func setPlankUnlock(pirate: Pirate) {
@@ -61,7 +66,7 @@ class PirateCell: UITableViewCell {
             self.lootLbl.isHidden = false
             self.buyPlankImg.isHidden = false
             self.buyPlankBtn.isHidden = false
-            self.lootImg.isHidden = false
+           // self.lootImg.isHidden = false
             self.pirateLootTimeLbl.isHidden = false
             self.buyPlankColorTin.isHidden = false
             self.piratePriceLbl.isHidden = false
@@ -76,7 +81,7 @@ class PirateCell: UITableViewCell {
             self.lootLbl.isHidden = true
             self.buyPlankImg.isHidden = true
             self.buyPlankBtn.isHidden = true
-            self.lootImg.isHidden = true
+            
             self.pirateLootTimeLbl.isHidden = true
             self.buyPlankColorTin.isHidden = true
             self.piratePriceLbl.isHidden = true
@@ -84,6 +89,16 @@ class PirateCell: UITableViewCell {
             self.timePlankImg.isHidden = true
             self.lockImg.isHidden = false
             self.piratePriceLblPlank.isHidden = false
+        }
+    }
+    
+    func checkIfMaxPiratesReached(pirate: Pirate) {
+        if pirate.numberOfPirates >= 100 {
+            self.maxPiratesReachedLbl.isHidden = false
+            self.maxPiratesReachedLbl.isHidden = false
+        } else {
+            self.maxPiratesReachedLbl.isHidden = true
+            self.maxPiratesReachedView.isHidden = true 
         }
     }
     
