@@ -42,6 +42,8 @@ class PirateCell: UITableViewCell {
     
     @IBOutlet weak var maxPiratesReachedLbl: UILabel!
     
+    var imgArray = [UIImage]()
+    
     func configureCell(pirate: Pirate, wallet: Wallet) {
         self.pirateNameLbl.text =  String(describing: pirate.name!)
         setPlankUnlock(pirate:pirate)
@@ -94,7 +96,7 @@ class PirateCell: UITableViewCell {
     func checkIfMaxPiratesReached(pirate: Pirate) {
         if pirate.numberOfPirates >= 100 {
             self.maxPiratesReachedLbl.isHidden = false
-            self.maxPiratesReachedLbl.isHidden = false
+            self.maxPiratesReachedView.isHidden = false
         } else {
             self.maxPiratesReachedLbl.isHidden = true
             self.maxPiratesReachedView.isHidden = true 
@@ -169,24 +171,20 @@ class PirateCell: UITableViewCell {
     }
     
 
-    
+
     func addImagesForAnimation(pirate: Pirate) {
-        var imgArray = [UIImage]()
-        for x in 0...pirate.numberOfImages {
-            let img = UIImage(named:"pirate\(pirate.id)idle\(x)")
-            imgArray.append(img!)
-        }
-        setPirateImages(imgArray: imgArray)
+        let img = UIImage(named:"pirate\(pirate.id)idle\(0)")
+        pirateImg.image = img
     }
     
 
     
     func setPirateImages(imgArray: Array<UIImage>) {
-        pirateImg.stopAnimating()
-        pirateImg.animationImages = imgArray
-        pirateImg.animationDuration = 0.8
-        pirateImg.animationRepeatCount = 0
-        pirateImg.startAnimating()
+//        pirateImg.stopAnimating()
+//        pirateImg.animationImages = imgArray
+//        pirateImg.animationDuration = 0.8
+//        pirateImg.animationRepeatCount = 0
+//        pirateImg.startAnimating()
     }
 
 }

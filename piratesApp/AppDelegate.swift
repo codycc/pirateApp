@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //LOADING VIDEO AD
         GADRewardBasedVideoAd.sharedInstance().load(GADRequest(),
-                                                    withAdUnitID: "ca-app-pub-1067425139660844/7589813936")
+                                                    withAdUnitID: "ca-app-pub-3940256099942544/5224354917")
         
         
         if launchedBefore {

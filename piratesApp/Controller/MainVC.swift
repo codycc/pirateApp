@@ -164,11 +164,13 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     }
     
     @objc func setGems() {
+        gemsImg.stopAnimating()
         gemsImg.animation = "pop"
         gemsImg.animate()
     }
     
     @objc func setLootChest() {
+        lootImg.stopAnimating()
         lootImg.animation = "morph"
         lootImg.animate()
     }
@@ -200,8 +202,8 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     
     func addParrotImagesForAnimation() {
         var imgArray = [UIImage]()
+        imgArray = []
         changeParrotColor = !changeParrotColor
-        print("\(changeParrotColor)")
         if changeParrotColor {
             for x in 0...11 {
                 let img = UIImage(named:"redParrot\(x)")
@@ -252,7 +254,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     
     func addShipImagesForAnimation() {
         var imgArray = [UIImage]()
-        
+        imgArray = []
         changeShipColor = !changeShipColor
         
         if changeShipColor {
@@ -280,6 +282,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     
     func addExplosionImagesForAnimation() {
         var imgArray = [UIImage]()
+        imgArray = []
         for x in 1...14 {
             let img = UIImage(named:"smokeEffect\(x)")
             imgArray.append(img!)
@@ -289,6 +292,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     
     func addShipExplosionImagesForAnimation() {
         var imgArray = [UIImage]()
+        imgArray = []
         for x in 1...14 {
             let img = UIImage(named:"smokeEffect\(x)")
             imgArray.append(img!)
@@ -299,6 +303,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
    
     
     func setShipExplosionImages(imgArray: Array<UIImage>) {
+        shipExplosionImg.stopAnimating()
         shipExplosionImg.isHidden = false
         shipExplosionImg.animationImages = imgArray
         shipExplosionImg.animationDuration = 0.5
@@ -307,6 +312,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     }
     
     func setExplosionImages(imgArray: Array<UIImage>) {
+        explosionImg.stopAnimating()
         explosionImg.isHidden = false
         explosionImg.animationImages = imgArray
         explosionImg.animationDuration = 0.5
@@ -489,7 +495,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     
     func startTimers() {
         for pirate in sortedPirates {
+            print("\(pirate.isAnimating)pirate is animating")
             if pirate.isAnimating {
+                print("isanimating")
                 grabPirateOfflineData(pirate: pirate)
                 UserDefaults.standard.set(false, forKey: "launchedStartUp")
                 var timer = Timer()
@@ -524,7 +532,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
             let timeSince = date - time
             let timeSinceInMilliseconds = timeSince * 1000
             
-            let currentTime = (timeSinceInMilliseconds / Double(pirate.lootTime * 1000))
+            let currentTime = (timeSinceInMilliseconds / Double(pirate.lootTime * 1000 ))
 
             let wholeNumber = currentTime
              amountOfMoneyMade = pirate.lootAmount * wholeNumber
@@ -558,7 +566,6 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         
         let context = appDelegate.persistentContainer.viewContext
         pirate.currentTime = pirate.currentTime - 1
-        print("\(pirate.currentTime)")
         if pirate.currentTime <= 0 {
             wallet[0].totalLootAmount += pirate.lootAmount
             pirate.currentTime = pirate.lootTime
@@ -614,6 +621,11 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         }
         
         return rowHeight
+    }
+    
+    func prepareForReuse() {
+        self.pirateImageOverlay.stopAnimating()
+       
     }
     
     
