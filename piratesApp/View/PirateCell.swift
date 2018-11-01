@@ -12,35 +12,35 @@ import Spring
 class PirateCell: UITableViewCell {
 
     @IBOutlet weak var pirateNameLbl: UILabel!
-    @IBOutlet var pirateNameLbl2: UILabel!
+    @IBOutlet weak var pirateNameLbl2: UILabel!
     
-    @IBOutlet var plankImg: UIImageView!
-    @IBOutlet var groundImg: UIImageView!
-    @IBOutlet var backgroundImg: UIImageView!
-    @IBOutlet var upgradePlankImg: UIImageView!
+    @IBOutlet weak var plankImg: UIImageView!
+    @IBOutlet weak var groundImg: UIImageView!
+    @IBOutlet weak var backgroundImg: UIImageView!
+    @IBOutlet weak var upgradePlankImg: UIImageView!
+
+    @IBOutlet weak var buyPlankColorTin: SpringImageView!
     
-    @IBOutlet var buyPlankColorTin: SpringImageView!
+    @IBOutlet weak var lockImg: SpringImageView!
     
-    @IBOutlet var lockImg: SpringImageView!
+    @IBOutlet weak var plankBtn: UIButton!
     
-    @IBOutlet var plankBtn: UIButton!
+    @IBOutlet weak var timePlankImg: UIImageView!
+    @IBOutlet weak var pirateImgBtn: UIButton!
+    @IBOutlet weak var lootLbl: UILabel!
+    @IBOutlet weak var pirateImg: UIImageView!
+    @IBOutlet weak var lootImg: SpringImageView!
     
-    @IBOutlet var timePlankImg: UIImageView!
-    @IBOutlet var pirateImgBtn: UIButton!
-    @IBOutlet var lootLbl: UILabel!
-    @IBOutlet var pirateImg: UIImageView!
-    @IBOutlet var lootImg: SpringImageView!
+    @IBOutlet weak var pirateLootTimeLbl: UILabel!
+    @IBOutlet weak var numberOfPiratesLbl: UILabel!
+    @IBOutlet weak var buyPlankBtn: UIButton!
+    @IBOutlet weak var buyPlankImg: UIImageView!
+    @IBOutlet weak var piratePriceLbl: UILabel!
+    @IBOutlet weak var piratePriceLblPlank: UILabel!
     
-    @IBOutlet var pirateLootTimeLbl: UILabel!
-    @IBOutlet var numberOfPiratesLbl: UILabel!
-    @IBOutlet var buyPlankBtn: UIButton!
-    @IBOutlet var buyPlankImg: UIImageView!
-    @IBOutlet var piratePriceLbl: UILabel!
-    @IBOutlet var piratePriceLblPlank: UILabel!
+    @IBOutlet weak var maxPiratesReachedView: UIView!
     
-    @IBOutlet var maxPiratesReachedView: UIView!
-    
-    @IBOutlet var maxPiratesReachedLbl: UILabel!
+    @IBOutlet weak var maxPiratesReachedLbl: UILabel!
     
     func configureCell(pirate: Pirate, wallet: Wallet) {
         self.pirateNameLbl.text =  String(describing: pirate.name!)
@@ -66,7 +66,6 @@ class PirateCell: UITableViewCell {
             self.lootLbl.isHidden = false
             self.buyPlankImg.isHidden = false
             self.buyPlankBtn.isHidden = false
-           // self.lootImg.isHidden = false
             self.pirateLootTimeLbl.isHidden = false
             self.buyPlankColorTin.isHidden = false
             self.piratePriceLbl.isHidden = false
@@ -152,10 +151,6 @@ class PirateCell: UITableViewCell {
         let minutes = Int(pirateLootTimeInSeconds) / 60 % 60
         let seconds = Int(pirateLootTimeInSeconds) % 60
         
-        
-        if pirateLootTimeInSeconds > 60000 {
-         //(pirateLootTimeInSeconds / 3600, (pirateLootTimeInSeconds % 3600) / 60, (pirateLootTimeInSeconds % 3600) % 60)
-        }
         
         pirateLootTimeLbl.text = String(format:"%02i:%02i:%02i", hours, minutes, seconds)
     }

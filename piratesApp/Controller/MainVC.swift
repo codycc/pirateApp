@@ -16,36 +16,37 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
    
    
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet var pirateShipImg: UIImageView!
-    @IBOutlet var parrotImg: UIImageView!
-    @IBOutlet var walletLootLbl: UILabel!
-    @IBOutlet var lootImg: SpringImageView!
-    @IBOutlet var gemsImg: SpringImageView!
-    @IBOutlet var explosionImg: UIImageView!
-    @IBOutlet var shipExplosionImg: UIImageView!
-    @IBOutlet var panDownView: UIView!
-    @IBOutlet var editedRope2: UIImageView!
-    @IBOutlet var editedRope1: UIImageView!
-    @IBOutlet var slateGlassView: UIView!
-    @IBOutlet var blackGlass: UIView!
-    @IBOutlet var exitIcon: UIButton!
-    @IBOutlet var pirateNameInfo: UILabel!
-    @IBOutlet var informationStackView: UIStackView!
+    @IBOutlet weak var pirateShipImg: UIImageView!
+    @IBOutlet weak var parrotImg: UIImageView!
+    @IBOutlet weak var walletLootLbl: UILabel!
+    @IBOutlet weak var lootImg: SpringImageView!
+    @IBOutlet weak var gemsImg: SpringImageView!
+    @IBOutlet weak var explosionImg: UIImageView!
+    @IBOutlet weak var shipExplosionImg: UIImageView!
+    @IBOutlet weak var panDownView: UIView!
+    @IBOutlet weak var editedRope2: UIImageView!
+    @IBOutlet weak var editedRope1: UIImageView!
+    @IBOutlet weak var slateGlassView: UIView!
+    @IBOutlet weak var blackGlass: UIView!
+    @IBOutlet weak var exitIcon: UIButton!
+    @IBOutlet weak var pirateNameInfo: UILabel!
+    @IBOutlet weak var informationStackView: UIStackView!
     
-    @IBOutlet var piratePanDownViewImage: NSLayoutConstraint!
-    @IBOutlet var offlineNonAdLabel: UILabel!
+    @IBOutlet weak var exitBtnBeggining: UIButton!
+    @IBOutlet weak var piratePanDownViewImage: NSLayoutConstraint!
+    @IBOutlet weak var offlineNonAdLabel: UILabel!
     
-    @IBOutlet var blueboardAd: UIImageView!
-    @IBOutlet var offlineAdLabel: UILabel!
+    @IBOutlet weak var blueboardAd: UIImageView!
+    @IBOutlet weak var offlineAdLabel: UILabel!
     //stackview elements for overlay
-    @IBOutlet var pirateTotalLbl: UILabel!
-    @IBOutlet var lootPerSessionLbl: UILabel!
-    @IBOutlet var piratePriceLbl: UILabel!
-    @IBOutlet var lootingTimeLbl: UILabel!
-    @IBOutlet var pirateImageOverlay: UIImageView!
+    @IBOutlet weak var pirateTotalLbl: UILabel!
+    @IBOutlet weak var lootPerSessionLbl: UILabel!
+    @IBOutlet weak var piratePriceLbl: UILabel!
+    @IBOutlet weak var lootingTimeLbl: UILabel!
+    @IBOutlet weak var pirateImageOverlay: UIImageView!
     
-    @IBOutlet var gameBeatLabel: UILabel!
-    @IBOutlet var gameBeatView: UIView!
+    @IBOutlet weak var gameBeatLabel: UILabel!
+    @IBOutlet weak var gameBeatView: UIView!
     var pirates = [Pirate]()
     var sortedPirates = [Pirate]()
     var wallet = [Wallet]()
@@ -72,7 +73,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         tableView.bounces = false
         tableView.alwaysBounceVertical = false
         
-        adView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        adView.adUnitID = "ca-app-pub-3940256099942544/6300978111"
         adView.rootViewController = self
         adView.load(GADRequest())
         adView.delegate = self
@@ -143,6 +144,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         startAnimationTimers()
         showOfflineView()
         checkIfAllPiratesAreFilled()
+        showIfUserIsOnFirstUse()
     }
 
     @objc func alertTimers() {
@@ -175,7 +177,19 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         tableView.reloadData()
     }
     
-    
+    func showIfUserIsOnFirstUse() {
+            
+            let isFirstUse = UserDefaults.standard.bool(forKey: "isFirstUse")
+        
+            if isFirstUse {
+                self.gameBeatLabel.isHidden = false
+                self.blackGlass.isHidden = false
+                self.exitBtnBeggining.isHidden = false
+                self.gameBeatLabel.text = "Ahoy Mate!, Welcome to Pirate Looter! The idle game where you can hire pirates! The goal is to get 100 of each pirate, Cheers!"
+                
+                UserDefaults.standard.set(false, forKey: "isFirstUse")
+            }
+    }
     
     func rewardBasedVideoAdDidReceive(_ rewardBasedVideoAd:GADRewardBasedVideoAd) {
         self.blueboardAd.alpha = 1
@@ -210,7 +224,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
             if pirate.numberOfPirates >= 100 {
                 count += 1
             }
-            if count == 8 {
+            if count >= 8 {
                 self.gameBeatView.isHidden = false
                 self.gameBeatLabel.isHidden = false
             }
@@ -219,6 +233,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     
     func showOfflineView() {
          let launchedOffline = UserDefaults.standard.bool(forKey: "launchedOffline")
+         UserDefaults.standard.set(false, forKey: "launchedOffline")
         if launchedOffline {
             offlineLootView.isHidden = false
             offlineNonAdLabel.text = String(format: "$%.2f", amountOfMoneyMade)
@@ -379,9 +394,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
             self.blackGlass.isHidden = false
             
 
-            self.panDownView.center.y += 440
-            self.editedRope1.center.y += 400
-            self.editedRope2.center.y += 400
+            self.panDownView.center.y += 370
+            self.editedRope1.center.y += 370
+            self.editedRope2.center.y += 370
         }, completion: { finished in
             self.informationStackView.isHidden = false
             self.informationStackView.alpha = 0
@@ -436,12 +451,17 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     }
     
     func updateStackViewInformation(pirate:Pirate) {
+        let pirateLootTimeInSeconds = pirate.lootTime
+        let hours = Int(pirateLootTimeInSeconds) / 3600
+        let minutes = Int(pirateLootTimeInSeconds) / 60 % 60
+        let seconds = Int(pirateLootTimeInSeconds) % 60
+        
         self.pirateNameInfo.text = pirate.name
         self.pirateTotalLbl.text = "\(pirate.numberOfPirates)"
         self.lootPerSessionLbl.text = String(format: "$%.2f", pirate.lootAmount)
         self.piratePriceLbl.text = String(format: "$%.2f", pirate.piratePrice)
         
-        self.lootingTimeLbl.text = "\(pirate.lootTime)"
+        self.lootingTimeLbl.text = String(format:"%02i:%02i:%02i", hours, minutes, seconds)
 
     }
     
@@ -599,9 +619,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     
     
     @IBAction func pirateBtnPressed(_ sender: Any) {
-        
-        let context = appDelegate.persistentContainer.viewContext
-        
+     
         let button = sender as! UIButton
         let index = button.tag
         let pirate = sortedPirates[index]
@@ -631,9 +649,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 4, animations: {
             self.blackGlass.isHidden = true
             self.exitIcon.isHidden = true
-            self.panDownView.center.y -= 440
-            self.editedRope1.center.y -= 400
-            self.editedRope2.center.y -= 400
+            self.panDownView.center.y -= 370
+            self.editedRope1.center.y -= 370
+            self.editedRope2.center.y -= 370
             self.informationStackView.isHidden = true
         }, completion: { finished in
             let height = self.view.frame.size.height * 0.4
@@ -707,6 +725,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     
     @IBAction func offlineNonAdLabelPressed(_ sender: Any) {
         offlineLootView.isHidden = true
+        playAhoySoundEffect()
     }
     
     @IBAction func offlineAdLabelPressed(_ sender: Any) {
@@ -718,6 +737,13 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         
     }
     
+    @IBAction func exitBtnBeggining(_ sender: Any) {
+        self.exitBtnBeggining.isHidden = true
+        self.blackGlass.isHidden = true
+        self.gameBeatLabel.isHidden = true
+        playAhoySoundEffect()
+        self.gameBeatLabel.text = "CONGRATS MATE! YOU HAVE JUST BEAT THE GAME! TO REPLAY, PLEASE REDOWNLOAD THE APP! CHEERS!"
+    }
     
     
 }
