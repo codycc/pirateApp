@@ -86,6 +86,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         self.parrotImg.isUserInteractionEnabled = true
         self.pirateShipImg.isUserInteractionEnabled = true
         
+        UserDefaults.standard.set(false, forKey: "appClosed")
         
         // tap gestures
 
@@ -108,8 +109,13 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         requestPirate.returnsObjectsAsFaults = false
         requestWallet.returnsObjectsAsFaults = false
 
+        
+        
         NotificationCenter.default.addObserver(self, selector:#selector(MainVC.alertTimers), name:
             UIApplication.willEnterForegroundNotification, object: nil)
+        
+//        NotificationCenter.default.addObserver(self, selector:#selector(MainVC.invalidateTimers), name:
+//            UIApplication.willResignActiveNotification, object: nil)
         
         //fetching Pirate Entity from CoreData
         do {
@@ -148,7 +154,12 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     }
 
     @objc func alertTimers() {
+        print("alertTimersCalled")
         startTimers()
+    }
+    
+    @objc func invalidateTimers() {
+          UserDefaults.standard.set(true, forKey: "appClosed")
     }
     
      func startAnimationTimers() {
@@ -303,7 +314,6 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
    
     
     func setShipExplosionImages(imgArray: Array<UIImage>) {
-        shipExplosionImg.stopAnimating()
         shipExplosionImg.isHidden = false
         shipExplosionImg.animationImages = imgArray
         shipExplosionImg.animationDuration = 0.5
@@ -312,7 +322,6 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     }
     
     func setExplosionImages(imgArray: Array<UIImage>) {
-        explosionImg.stopAnimating()
         explosionImg.isHidden = false
         explosionImg.animationImages = imgArray
         explosionImg.animationDuration = 0.5
@@ -499,7 +508,6 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
             if pirate.isAnimating {
                 print("isanimating")
                 grabPirateOfflineData(pirate: pirate)
-                UserDefaults.standard.set(false, forKey: "launchedStartUp")
                 var timer = Timer()
                 timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(MainVC.updateCoreDataFromTimer), userInfo: pirate, repeats: true)
                 
@@ -508,6 +516,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
                 updateFirstPirate(pirate: pirate)
             }
         }
+        reloadTable()
     }
     
     func updateFirstPirate(pirate: Pirate) {
@@ -562,7 +571,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     
     @objc func updateCoreDataFromTimer(timer: Timer) {
         let pirate = timer.userInfo as! Pirate
-        
+        print("called\(pirate.isAnimating)animating")
         
         let context = appDelegate.persistentContainer.viewContext
         pirate.currentTime = pirate.currentTime - 1

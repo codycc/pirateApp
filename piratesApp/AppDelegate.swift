@@ -26,11 +26,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         GADMobileAds.configure(withApplicationID: "ca-app-pub-1067425139660844~7276960926")
-        
+        UserDefaults.standard.set(false, forKey: "appClosed")
         //LOADING VIDEO AD
-        GADRewardBasedVideoAd.sharedInstance().load(GADRequest(),
-                                                    withAdUnitID: "ca-app-pub-3940256099942544/5224354917")
-        
+//        GADRewardBasedVideoAd.sharedInstance().load(GADRequest(),
+//                                                    withAdUnitID: "ca-app-pub-3940256099942544/5224354917")
+//
         
         if launchedBefore {
            
@@ -212,7 +212,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         _ = UserDefaults.standard.bool(forKey: "appClosed")
         UserDefaults.standard.set(true, forKey: "appClosed")
-        
+        let appClosed = UserDefaults.standard.bool(forKey: "appClosed")
+        print("WILL RESIGN ACTIVE\(appClosed) is app closes?")
     
 }
 
@@ -231,7 +232,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-        
+        let date = NSDate().timeIntervalSince1970
+        let time = UserDefaults.standard.double(forKey: "timeClosed")
+
+        let foreground = UserDefaults.standard.bool(forKey: "appClosed")
+        print("enter foreground\(foreground)is app closed")
+//        _ = UserDefaults.standard.bool(forKey: "appClosed")
+        UserDefaults.standard.set(false, forKey: "appClosed")
         
     }
 
@@ -239,11 +246,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
         let date = NSDate().timeIntervalSince1970
         let time = UserDefaults.standard.double(forKey: "timeClosed")
-        
+
         var timeSince = date - time
-        
+
         print("enter foreground")
-        _ = UserDefaults.standard.bool(forKey: "appClosed")
+//        _ = UserDefaults.standard.bool(forKey: "appClosed")
         UserDefaults.standard.set(false, forKey: "appClosed")
         
        
