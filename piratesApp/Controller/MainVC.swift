@@ -338,13 +338,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     
     // replace pirateship with pirates when clicked
     func addImagesForAnimation(pirate: Pirate) {
-//        pirateShipImg.stopAnimating()
-//        var imgArray = [UIImage]()
-//        for x in 0...pirate.numberOfImages {
-//            let img = UIImage(named:"pirate\(pirate.id)idle\(x)")
-//            imgArray.append(img!)
-//        }
-//        setShipImages(imgArray: imgArray)
+
     }
     
     func setImages(imgArray: Array<UIImage>) {
@@ -415,8 +409,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
             
 
             self.panDownView.center.y += 380
-//            self.editedRope1.center.y += 300
-//            self.editedRope2.center.y += 300
+
         }, completion: { finished in
             self.informationStackView.isHidden = false
             self.informationStackView.alpha = 0
@@ -509,9 +502,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     
     func startTimers() {
         for pirate in sortedPirates {
-            print("\(pirate.isAnimating)pirate is animating")
             if pirate.isAnimating {
-                print("isanimating")
                 grabPirateOfflineData(pirate: pirate)
                 var timer = Timer()
                 timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(MainVC.updateCoreDataFromTimer), userInfo: pirate, repeats: true)
@@ -676,8 +667,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
             self.blackGlass.isHidden = true
             self.exitIcon.isHidden = true
             self.panDownView.center.y -= 380
-//            self.editedRope1.center.y -= 300
-//            self.editedRope2.center.y -= 300
+
             self.informationStackView.isHidden = true
         }, completion: { finished in
             let height = self.view.frame.size.height * 0.4
@@ -726,7 +716,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     
     @IBAction func buyBtnPressed(_ sender: Any) {
         let context = appDelegate.persistentContainer.viewContext
- 
+        
+        checkIfAllPiratesAreFilled()
+        
         let button = sender as! UIButton
         let index = button.tag
 

@@ -28,9 +28,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GADMobileAds.configure(withApplicationID: "ca-app-pub-1067425139660844~7276960926")
         UserDefaults.standard.set(false, forKey: "appClosed")
         //LOADING VIDEO AD
-//        GADRewardBasedVideoAd.sharedInstance().load(GADRequest(),
-//                                                    withAdUnitID: "ca-app-pub-3940256099942544/5224354917")
-//
+        GADRewardBasedVideoAd.sharedInstance().load(GADRequest(),
+                                                    withAdUnitID: "ca-app-pub-1067425139660844/7589813936")
+
         
         if launchedBefore {
            
@@ -57,7 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             //set up wallet
             let wallet = NSEntityDescription.insertNewObject(forEntityName: "Wallet", into: context)
             
-            wallet.setValue(10000000, forKey: "totalLootAmount")
+            wallet.setValue(0, forKey: "totalLootAmount")
             wallet.setValue(0, forKey: "totalGemsAmount")
             
             skollywag.setValue(0, forKey: "id")

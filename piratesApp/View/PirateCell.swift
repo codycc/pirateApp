@@ -41,6 +41,7 @@ class PirateCell: UITableViewCell {
     @IBOutlet weak var maxPiratesReachedView: UIView!
     
     @IBOutlet weak var maxPiratesReachedLbl: UILabel!
+    @IBOutlet var pirateImgConstraint: NSLayoutConstraint!
     
     var imgArray = [UIImage]()
     
@@ -58,6 +59,7 @@ class PirateCell: UITableViewCell {
         setPirateNameLbl(pirate: pirate)
         setPiratePricePlankLbl(pirate: pirate)
         checkIfMaxPiratesReached(pirate: pirate)
+        checkHowToChangeConstraint(pirate: pirate)
     }
     
     func setPlankUnlock(pirate: Pirate) {
@@ -90,6 +92,29 @@ class PirateCell: UITableViewCell {
             self.timePlankImg.isHidden = true
             self.lockImg.isHidden = false
             self.piratePriceLblPlank.isHidden = false
+        }
+    }
+    
+    func checkHowToChangeConstraint(pirate: Pirate) {
+        switch pirate.id {
+        case 0:
+            self.pirateImgConstraint.constant = -20
+        case 1:
+            self.pirateImgConstraint.constant = -30
+        case 2:
+            self.pirateImgConstraint.constant = -40
+        case 3:
+            self.pirateImgConstraint.constant = -35
+        case 4:
+            self.pirateImgConstraint.constant = -20
+        case 5:
+            self.pirateImgConstraint.constant = -20
+        case 6:
+            self.pirateImgConstraint.constant = -20
+        case 7:
+            self.pirateImgConstraint.constant = -20
+        default:
+            print("default")
         }
     }
     
