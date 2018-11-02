@@ -536,9 +536,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
             
             
             let timeSince = date - time
-            let timeSinceInMilliseconds = timeSince * 1000
+            let timeSinceInMilliseconds = timeSince 
             
-            let currentTime = (timeSinceInMilliseconds / Double(pirate.lootTime * 1000 ))
+            let currentTime = (timeSinceInMilliseconds / Double(pirate.lootTime  ))
 
             let wholeNumber = currentTime
              amountOfMoneyMade = pirate.lootAmount * wholeNumber
@@ -549,10 +549,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
             if Double(pirate.currentTime) > timeSince {
                 pirate.currentTime = pirate.currentTime - Int32(timeSince)
             } else {
+                print("\(pirate.currentTime)\(pirate.id)PIRATE CURRENT TIME")
                 pirate.currentTime = Int32(timeSince) % pirate.currentTime
             }
-            
-            
             updateWalletLoot()
             
             do {
