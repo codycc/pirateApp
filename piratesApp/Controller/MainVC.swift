@@ -60,6 +60,15 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     var changeParrotColor = true
     var changeShipColor = true
     var amountOfMoneyMade = 0.0
+    var explosionArray = [UIImage]()
+    var shipExplosionArray = [UIImage]()
+    var shipArray = [UIImage]()
+    
+    let ahoyPath = Bundle.main.path(forResource: "ahoy", ofType: "wav")
+    
+    
+    let parrotPath = Bundle.main.path(forResource: "pr3", ofType: "wav")
+    
     
     @IBOutlet var adView: GADBannerView!
     @IBOutlet var offlineLootView: UIView!
@@ -114,8 +123,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         NotificationCenter.default.addObserver(self, selector:#selector(MainVC.alertTimers), name:
             UIApplication.willEnterForegroundNotification, object: nil)
         
-//        NotificationCenter.default.addObserver(self, selector:#selector(MainVC.invalidateTimers), name:
-//            UIApplication.willResignActiveNotification, object: nil)
+
         
         //fetching Pirate Entity from CoreData
         do {
@@ -264,66 +272,65 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     }
     
     func addShipImagesForAnimation() {
-        var imgArray = [UIImage]()
-        imgArray = []
+       
+        shipArray = []
         changeShipColor = !changeShipColor
         
         if changeShipColor {
             for x in 0...24 {
                 let img = UIImage(named:"shipRightBlack\(x)")
-                imgArray.append(img!)
+                shipArray.append(img!)
             }
         } else {
             for x in 0...24 {
                 let img = UIImage(named:"shipRight\(x)")
-                imgArray.append(img!)
+                shipArray.append(img!)
             }
         }
         
-        setShipImages(imgArray: imgArray)
+        setShipImages()
     }
     
-    func setShipImages(imgArray: Array<UIImage>) {
+    func setShipImages() {
         pirateShipImg.stopAnimating()
-        pirateShipImg.animationImages = imgArray
+        pirateShipImg.animationImages = shipArray
         pirateShipImg.animationDuration = 3.0
         pirateShipImg.animationRepeatCount = 0
         pirateShipImg.startAnimating()
     }
     
     func addExplosionImagesForAnimation() {
-        var imgArray = [UIImage]()
-        imgArray = []
+        explosionArray = []
         for x in 1...14 {
             let img = UIImage(named:"smokeEffect\(x)")
-            imgArray.append(img!)
+            explosionArray.append(img!)
         }
-        setExplosionImages(imgArray: imgArray)
+        setExplosionImages()
     }
     
     func addShipExplosionImagesForAnimation() {
-        var imgArray = [UIImage]()
-        imgArray = []
+        shipExplosionArray = []
         for x in 1...14 {
             let img = UIImage(named:"smokeEffect\(x)")
-            imgArray.append(img!)
+            shipExplosionArray.append(img!)
         }
-        setShipExplosionImages(imgArray: imgArray)
+        setShipExplosionImages()
     }
     
    
     
-    func setShipExplosionImages(imgArray: Array<UIImage>) {
+    func setShipExplosionImages() {
+        shipExplosionImg.stopAnimating()
         shipExplosionImg.isHidden = false
-        shipExplosionImg.animationImages = imgArray
+        shipExplosionImg.animationImages = shipExplosionArray
         shipExplosionImg.animationDuration = 0.5
         shipExplosionImg.animationRepeatCount = 1
         shipExplosionImg.startAnimating()
     }
     
-    func setExplosionImages(imgArray: Array<UIImage>) {
+    func setExplosionImages() {
         explosionImg.isHidden = false
-        explosionImg.animationImages = imgArray
+        explosionImg.animationImages = explosionArray
         explosionImg.animationDuration = 0.5
         explosionImg.animationRepeatCount = 1
         explosionImg.startAnimating()
@@ -331,13 +338,13 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     
     // replace pirateship with pirates when clicked
     func addImagesForAnimation(pirate: Pirate) {
-        pirateShipImg.stopAnimating()
-        var imgArray = [UIImage]()
-        for x in 0...pirate.numberOfImages {
-            let img = UIImage(named:"pirate\(pirate.id)idle\(x)")
-            imgArray.append(img!)
-        }
-        setShipImages(imgArray: imgArray)
+//        pirateShipImg.stopAnimating()
+//        var imgArray = [UIImage]()
+//        for x in 0...pirate.numberOfImages {
+//            let img = UIImage(named:"pirate\(pirate.id)idle\(x)")
+//            imgArray.append(img!)
+//        }
+//        setShipImages(imgArray: imgArray)
     }
     
     func setImages(imgArray: Array<UIImage>) {
@@ -363,10 +370,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     }
     
     func playParrotSoundEffect() {
-        let path = Bundle.main.path(forResource: "pr3", ofType: "wav")
-        let soundUrl = NSURL(fileURLWithPath: path!)
+        let parrotSoundUrl = NSURL(fileURLWithPath: parrotPath!)
         do {
-            try parrotPlayer = AVAudioPlayer(contentsOf: soundUrl as URL)
+            try parrotPlayer = AVAudioPlayer(contentsOf: parrotSoundUrl as URL)
             parrotPlayer.prepareToPlay()
             parrotPlayer.play()
         } catch let err as NSError {
@@ -376,10 +382,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     }
     
     func playAhoySoundEffect() {
-        let path = Bundle.main.path(forResource: "ahoy", ofType: "wav")
-        let soundUrl = NSURL(fileURLWithPath: path!)
+        let ahoySoundUrl = NSURL(fileURLWithPath: ahoyPath!)
         do {
-            try shipPlayer = AVAudioPlayer(contentsOf: soundUrl as URL)
+            try shipPlayer = AVAudioPlayer(contentsOf: ahoySoundUrl as URL)
             shipPlayer.prepareToPlay()
             shipPlayer.volume = 0.4
             shipPlayer.play()
@@ -409,9 +414,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
             self.blackGlass.isHidden = false
             
 
-            self.panDownView.center.y += 370
-            self.editedRope1.center.y += 370
-            self.editedRope2.center.y += 370
+            self.panDownView.center.y += 380
+//            self.editedRope1.center.y += 300
+//            self.editedRope2.center.y += 300
         }, completion: { finished in
             self.informationStackView.isHidden = false
             self.informationStackView.alpha = 0
@@ -670,9 +675,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 4, animations: {
             self.blackGlass.isHidden = true
             self.exitIcon.isHidden = true
-            self.panDownView.center.y -= 370
-            self.editedRope1.center.y -= 370
-            self.editedRope2.center.y -= 370
+            self.panDownView.center.y -= 380
+//            self.editedRope1.center.y -= 300
+//            self.editedRope2.center.y -= 300
             self.informationStackView.isHidden = true
         }, completion: { finished in
             let height = self.view.frame.size.height * 0.4
@@ -731,9 +736,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         
         pirate.numberOfPirates += 1
         wallet[0].totalLootAmount -= pirate.piratePrice
-        pirate.piratePrice = (pirate.piratePrice + pirate.piratePrice / 7)
-        pirate.lootTime += pirate.lootTime / 5
-        pirate.lootAmount += (pirate.lootAmount / 20)
+        pirate.piratePrice = (pirate.piratePrice + pirate.piratePrice / 20)
+        pirate.lootTime += (pirate.lootTime / 10)
+        pirate.lootAmount += (pirate.lootAmount / 15)
         do {
             try context.save()
             updateWalletLoot()

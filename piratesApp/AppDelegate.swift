@@ -57,12 +57,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             //set up wallet
             let wallet = NSEntityDescription.insertNewObject(forEntityName: "Wallet", into: context)
             
-            wallet.setValue(0, forKey: "totalLootAmount")
+            wallet.setValue(10000000, forKey: "totalLootAmount")
             wallet.setValue(0, forKey: "totalGemsAmount")
             
             skollywag.setValue(0, forKey: "id")
             skollywag.setValue("Scollywag", forKey: "name")
-            skollywag.setValue(6, forKey: "lootTime")
+            skollywag.setValue(10, forKey: "lootTime")
             skollywag.setValue(25, forKey: "lootAmount")
             skollywag.setValue(1, forKey: "numberOfPirates")
             skollywag.setValue(true, forKey: "isAnimating")
