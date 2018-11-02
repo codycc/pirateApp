@@ -82,7 +82,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         tableView.bounces = false
         tableView.alwaysBounceVertical = false
         
-        adView.adUnitID = "ca-app-pub-3940256099942544/6300978111"
+        adView.adUnitID = "ca-app-pub-1067425139660844/7823755834"
         adView.rootViewController = self
         adView.load(GADRequest())
         adView.delegate = self
