@@ -77,6 +77,7 @@ class PirateCell: UITableViewCell {
             self.timePlankImg.isHidden = false
             self.lockImg.isHidden = true
             self.piratePriceLblPlank.isHidden = true
+            self.pirateImgBtn.isEnabled = true
         } else {
             self.plankImg.isHidden = false
             self.pirateNameLbl.isHidden = false
@@ -84,7 +85,7 @@ class PirateCell: UITableViewCell {
             self.lootLbl.isHidden = true
             self.buyPlankImg.isHidden = true
             self.buyPlankBtn.isHidden = true
-            
+            self.pirateImgBtn.isEnabled = false
             self.pirateLootTimeLbl.isHidden = true
             self.buyPlankColorTin.isHidden = true
             self.piratePriceLbl.isHidden = true

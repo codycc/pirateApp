@@ -68,7 +68,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     
     
     let parrotPath = Bundle.main.path(forResource: "pr3", ofType: "wav")
-    
+    var pirateImgArray = [UIImage]()
     
     @IBOutlet var adView: GADBannerView!
     @IBOutlet var offlineLootView: UIView!
@@ -479,18 +479,19 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     }
     
     func updatePirateFightingImage(pirate: Pirate) {
+        pirateImgArray = []
         pirateImageOverlay.stopAnimating()
-        var imgArray = [UIImage]()
+        
         for x in 0...14 {
             let img = UIImage(named:"pirate\(pirate.id)attack\(x)")
-            imgArray.append(img!)
+            pirateImgArray.append(img!)
         }
-        setPirateOverlayImage(imgArray: imgArray)
+        setPirateOverlayImage()
     }
     
-    func setPirateOverlayImage(imgArray: Array<UIImage>) {
+    func setPirateOverlayImage() {
         pirateImageOverlay.stopAnimating()
-        pirateImageOverlay.animationImages = imgArray
+        pirateImageOverlay.animationImages = pirateImgArray
         pirateImageOverlay.animationDuration = 1.3
         pirateImageOverlay.animationRepeatCount = 0
         pirateImageOverlay.startAnimating()
@@ -657,9 +658,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     }
     
     @IBAction func shipImgTapped(_ sender: Any) {
-        playAhoySoundEffect()
-        addShipExplosionImagesForAnimation()
-        addShipImagesForAnimation()
+//        playAhoySoundEffect()
+//        addShipExplosionImagesForAnimation()
+//        addShipImagesForAnimation()
     }
     
     @IBAction func exitIconTapped(_ sender: Any) {
