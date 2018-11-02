@@ -567,7 +567,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     
     @objc func updateCoreDataFromTimer(timer: Timer) {
         let pirate = timer.userInfo as! Pirate
-        print("called\(pirate.isAnimating)animating")
+
         
         let context = appDelegate.persistentContainer.viewContext
         pirate.currentTime = pirate.currentTime - 1
