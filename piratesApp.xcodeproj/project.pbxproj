@@ -23,6 +23,7 @@
 		0B78C3E321820B7300D628FB /* ahoy.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0B78C3E221820B7300D628FB /* ahoy.wav */; };
 		0B78C3E521826A8C00D628FB /* purchase.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0B78C3E421826A8B00D628FB /* purchase.wav */; };
 		0B78C3E72187A18A00D628FB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0B78C3E62187A18A00D628FB /* GoogleService-Info.plist */; };
+		0BDD499A218DEEBD0022BB8E /* StoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDD4999218DEEBD0022BB8E /* StoreVC.swift */; };
 		616D6631FECA1AE6BFB7C26D /* Pods_piratesApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 836271208CF8FCF0D8DF9160 /* Pods_piratesApp.framework */; };
 		A797B97C002785BC72F2DFD2 /* Pods_piratesAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF4F632F77AB1CE59392C73 /* Pods_piratesAppTests.framework */; };
 		C6B21E896365C1595647FCC1 /* Pods_piratesAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E44A5E8313631BD2B7262985 /* Pods_piratesAppUITests.framework */; };
@@ -68,6 +69,7 @@
 		0B78C3E221820B7300D628FB /* ahoy.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ahoy.wav; sourceTree = "<group>"; };
 		0B78C3E421826A8B00D628FB /* purchase.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = purchase.wav; sourceTree = "<group>"; };
 		0B78C3E62187A18A00D628FB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0BDD4999218DEEBD0022BB8E /* StoreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreVC.swift; sourceTree = "<group>"; };
 		1FF4F632F77AB1CE59392C73 /* Pods_piratesAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_piratesAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C098F674FEDDB7F893D64E7 /* Pods-piratesAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-piratesAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-piratesAppTests/Pods-piratesAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5A8E74F24664786BCBFC1FF6 /* Pods-piratesApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-piratesApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-piratesApp/Pods-piratesApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				0B6A4A6B2177B6B500495663 /* MainVC.swift */,
+				0BDD4999218DEEBD0022BB8E /* StoreVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -465,6 +468,7 @@
 				0B6A4A722177B6B500495663 /* piratesApp.xcdatamodeld in Sources */,
 				0B6A4A6C2177B6B500495663 /* MainVC.swift in Sources */,
 				0B6A4A6A2177B6B500495663 /* AppDelegate.swift in Sources */,
+				0BDD499A218DEEBD0022BB8E /* StoreVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
