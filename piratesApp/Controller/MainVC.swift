@@ -12,7 +12,7 @@ import AVFoundation
 import Spring
 import GoogleMobileAds
 
-class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADBannerViewDelegate, GADRewardBasedVideoAdDelegate {
+class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADBannerViewDelegate {
    
    
     @IBOutlet weak var tableView: UITableView!
@@ -50,11 +50,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     var shipExplosionArray = [UIImage]()
     var shipArray = [UIImage]()
     var pirateToSend: Pirate!
-    
-    
     let ahoyPath = Bundle.main.path(forResource: "ahoy", ofType: "wav")
-    
-    
     let parrotPath = Bundle.main.path(forResource: "pr3", ofType: "wav")
    
     
@@ -93,7 +89,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         let tapGestureShip = UITapGestureRecognizer(target: self, action: #selector(MainVC.shipImgTapped(_:)))
         self.pirateShipImg.addGestureRecognizer(tapGestureShip)
         
-        GADRewardBasedVideoAd.sharedInstance().delegate = self
+       
  
         requestPirate.returnsObjectsAsFaults = false
         requestWallet.returnsObjectsAsFaults = false
@@ -134,13 +130,14 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         sortPirates()
         startTimers()
         startAnimationTimers()
-       // showOfflineView()
+        
         checkIfAllPiratesAreFilled()
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
         showIfUserIsOnFirstUse()
+        showOfflineView()
     }
 
     @objc func alertTimers() {
@@ -218,20 +215,17 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     func showIfUserIsOnFirstUse() {
         let isFirstUse = UserDefaults.standard.bool(forKey: "isFirstUse")
         if isFirstUse {
-            print("FIRST USE")
             performSegue(withIdentifier: "goToIntroOutroVC", sender: nil)
         }
     }
     
     func showOfflineView() {
-         let launchedOffline = UserDefaults.standard.bool(forKey: "launchedOffline")
-         UserDefaults.standard.set(false, forKey: "launchedOffline")
-        if launchedOffline {
-            let vc = OfflineBonusVC()
-            present(vc, animated: true, completion: nil)
+        let launchedOffline = UserDefaults.standard.bool(forKey: "launchedOffline")
+        if !launchedOffline {
+            performSegue(withIdentifier: "goToOfflineVC", sender: nil)
             
         }
-        UserDefaults.standard.set(true, forKey: "launchedOffline")
+        
     }
     
     func setParrotImages(imgArray: Array<UIImage>) {
@@ -376,18 +370,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
 
 
     
-    func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd, didRewardUserWith reward: GADAdReward) {
-        let context = appDelegate.persistentContainer.viewContext
-        wallet[0].totalLootAmount += amountOfMoneyMade
-        do {
-            updateWalletLoot()
-            try context.save()
-            
-        } catch {
-            //handle error
-        }
-        
-    }
+  
     
     func sortPirates() {
         sortedPirates = pirates.sorted(by: { $0.id < $1.id})
@@ -524,9 +507,10 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         if segue.identifier == "goToStatsVC" {
             let destinationVC = segue.destination as! StatsVC
             destinationVC.pirate = self.pirateToSend
+        } else if segue.identifier == "goToOfflineVC" {
+            let destinationVC = segue.destination as! OfflineBonusVC
+            destinationVC.amountOfMoneyMade = self.amountOfMoneyMade
         }
-        
-        
     }
     
     

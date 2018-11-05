@@ -10,21 +10,34 @@ import UIKit
 
 import Firebase
 import GoogleMobileAds
+import CoreData
 
-class OfflineBonusVC: UIViewController {
+
+
+class OfflineBonusVC: UIViewController, GADBannerViewDelegate, GADRewardBasedVideoAdDelegate {
+   
+    
 
     @IBOutlet var offlineNonAdLbl: UILabel!
-    
     @IBOutlet var offlineAdLbl: UILabel!
-    
     @IBOutlet var blueboardAd: UIImageView!
+    
+    
+    var wallet = [Wallet]()
+    var amountOfMoneyMade: Double!
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //offlineNonAdLbl.text = String(format: "$%.2f", amountOfMoneyMade)
-        //offlineAdLbl.text = String(format: "$%.2f", amountOfMoneyMade * 2)
+        offlineNonAdLbl.text = String(format: "$%.2f", amountOfMoneyMade)
+        offlineAdLbl.text = String(format: "$%.2f", amountOfMoneyMade * 2)
 
+        GADRewardBasedVideoAd.sharedInstance().delegate = self
+        
+        let context = appDelegate.persistentContainer.viewContext
+        let requestWallet = NSFetchRequest<NSFetchRequestResult>(entityName: "Wallet")
         
         let tapGestureNonAd = UITapGestureRecognizer(target: self, action: #selector(OfflineBonusVC.offlineNonAdLabelPressed(_:)))
         self.offlineNonAdLbl.addGestureRecognizer(tapGestureNonAd)
@@ -32,14 +45,43 @@ class OfflineBonusVC: UIViewController {
         let tapGestureAd = UITapGestureRecognizer(target: self, action: #selector(OfflineBonusVC.offlineAdLabelPressed(_:)))
         self.offlineAdLbl.addGestureRecognizer(tapGestureAd)
         
+        
+        // fetching Wallet Entity from CoreData
+        do {
+            let results = try context.fetch(requestWallet)
+            if results.count > 0 {
+                for result in results {
+                    wallet.append(result as! Wallet)
+                }
+            }
+        } catch {
+            // handle error
+        }
+        
         // Do any additional setup after loading the view.
     }
+    
+    func rewardBasedVideoAdDidClose(_ rewardBasedVideoAd: GADRewardBasedVideoAd)  {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd, didRewardUserWith reward: GADAdReward) {
+        let context = appDelegate.persistentContainer.viewContext
+        wallet[0].totalLootAmount += amountOfMoneyMade
+        do {
+            try context.save()
+        } catch {
+            //handle error
+        }
+        
+    }
+    
     
     @IBAction func offlineAdLabelPressed(_ sender: Any) {
         if GADRewardBasedVideoAd.sharedInstance().isReady == true {
             GADRewardBasedVideoAd.sharedInstance().present(fromRootViewController: self)
         }
-        self.dismiss(animated: true, completion: nil)
+        
        
     }
     

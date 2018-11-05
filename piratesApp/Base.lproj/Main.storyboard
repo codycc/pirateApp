@@ -69,7 +69,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CFI-LS-PRA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="134" y="948"/>
+            <point key="canvasLocation" x="-220" y="945"/>
         </scene>
         <!--MainVC-->
         <scene sceneID="tne-QT-ifu">
@@ -608,6 +608,7 @@
                         <outlet property="walletLootLbl" destination="G0q-bj-ZiS" id="RYp-HV-zRy"/>
                         <segue destination="K9k-1H-Sud" kind="presentation" identifier="goToIntroOutroVC" modalTransitionStyle="crossDissolve" id="6NW-5c-iGp"/>
                         <segue destination="XVD-47-P5Z" kind="presentation" identifier="goToStatsVC" modalTransitionStyle="crossDissolve" id="xgK-98-1wT"/>
+                        <segue destination="YO3-BV-5Ov" kind="presentation" identifier="goToOfflineVC" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="aLr-cJ-X39"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -906,7 +907,7 @@
                                             <constraint firstAttribute="height" constant="80" id="8mN-P5-d7q"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="200,000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="fTa-il-94I">
+                                    <label opaque="NO" alpha="0.40000000000000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="200,000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="fTa-il-94I">
                                         <rect key="frame" x="227.5" y="370" width="80" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="80" id="rxC-ld-VSp"/>
@@ -953,7 +954,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Y5Y-R1-pZX" firstAttribute="top" secondItem="caC-l4-UbF" secondAttribute="top" id="DX5-Ff-HEW"/>
                             <constraint firstItem="Y5Y-R1-pZX" firstAttribute="bottom" secondItem="jMK-54-pse" secondAttribute="bottom" id="Lfv-ki-dBb"/>
@@ -972,7 +973,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R0a-ir-Jys" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="935" y="1015"/>
+            <point key="canvasLocation" x="770" y="920"/>
         </scene>
         <!--StoreVC-->
         <scene sceneID="iBE-Bj-5kj">
@@ -1211,7 +1212,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vto-8l-zLh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1029.5999999999999" y="129.98500749625188"/>
+            <point key="canvasLocation" x="1626" y="-34"/>
         </scene>
     </scenes>
     <resources>
