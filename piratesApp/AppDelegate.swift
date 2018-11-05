@@ -60,6 +60,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             wallet.setValue(0, forKey: "totalLootAmount")
             wallet.setValue(0, forKey: "totalGemsAmount")
             
+            let user = NSEntityDescription.insertNewObject(forEntityName: "User", into: context)
+            
+            
+            user.setValue(false, forKey: "hasKoala")
+            user.setValue(false, forKey: "hasSeagull")
+            user.setValue(false, forKey: "hasVulture")
+            user.setValue(false, forKey: "hasCampFire")
+            
             skollywag.setValue(0, forKey: "id")
             skollywag.setValue("Scollywag", forKey: "name")
             skollywag.setValue(10, forKey: "lootTime")

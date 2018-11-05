@@ -31,11 +31,15 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     @IBOutlet weak var exitIcon: UIButton!
     @IBOutlet weak var pirateNameInfo: UILabel!
 
+    @IBOutlet var seagullImage: UIImageView!
+    @IBOutlet var koalaImage: UIImageView!
+    @IBOutlet var vultureImage: UIImageView!
+    @IBOutlet var campFireImage: UIImageView!
     
-
     var pirates = [Pirate]()
     var sortedPirates = [Pirate]()
     var wallet = [Wallet]()
+    var users = [User]()
     var cellHeights: [IndexPath : CGFloat] = [:]
 
     var musicPlayer: AVAudioPlayer!
@@ -75,7 +79,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         let context = appDelegate.persistentContainer.viewContext
         let requestPirate = NSFetchRequest<NSFetchRequestResult>(entityName: "Pirate")
         let requestWallet = NSFetchRequest<NSFetchRequestResult>(entityName: "Wallet")
-
+        let requestUser = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+        
+        
         self.parrotImg.isUserInteractionEnabled = true
         self.pirateShipImg.isUserInteractionEnabled = true
         
@@ -93,7 +99,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
  
         requestPirate.returnsObjectsAsFaults = false
         requestWallet.returnsObjectsAsFaults = false
-
+        requestUser.returnsObjectsAsFaults = false
+        
+        
         NotificationCenter.default.addObserver(self, selector:#selector(MainVC.alertTimers), name:
             UIApplication.willEnterForegroundNotification, object: nil)
         
@@ -105,6 +113,18 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
             if results.count > 0 {
                 for result in results {
                     pirates.append(result as! Pirate)
+                }
+            }
+        } catch {
+            // handle error
+        }
+        
+        
+        do {
+            let results = try context.fetch(requestUser)
+            if results.count > 0 {
+                for result in results {
+                    user.append(result as! User)
                 }
             }
         } catch {
@@ -130,7 +150,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         sortPirates()
         startTimers()
         startAnimationTimers()
-        
+        checkForUserStoreItems()
         checkIfAllPiratesAreFilled()
         
     }
@@ -196,6 +216,20 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         
         
         setParrotImages(imgArray: imgArray)
+    }
+    
+    func checkForUserStoreItems() {
+        let user = users[0]
+        if user.hasKoala {
+            koalaImage.isHidden = false
+        } else if user.hasSeagull {
+            seagullImage.isHidden = false
+        } else if user.hasVulture {
+            vultureImage.isHidden = false
+        } else if user.hasCampFire {
+            campFireImage.isHidden = false
+        }
+        
     }
     
     func checkIfAllPiratesAreFilled() {
