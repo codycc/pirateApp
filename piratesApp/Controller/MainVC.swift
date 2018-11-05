@@ -30,23 +30,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     @IBOutlet weak var blackGlass: UIView!
     @IBOutlet weak var exitIcon: UIButton!
     @IBOutlet weak var pirateNameInfo: UILabel!
-    @IBOutlet weak var informationStackView: UIStackView!
+
     
-    @IBOutlet weak var exitBtnBeggining: UIButton!
-    @IBOutlet weak var piratePanDownViewImage: NSLayoutConstraint!
-    @IBOutlet weak var offlineNonAdLabel: UILabel!
-    
-    @IBOutlet weak var blueboardAd: UIImageView!
-    @IBOutlet weak var offlineAdLabel: UILabel!
-    //stackview elements for overlay
-    @IBOutlet weak var pirateTotalLbl: UILabel!
-    @IBOutlet weak var lootPerSessionLbl: UILabel!
-    @IBOutlet weak var piratePriceLbl: UILabel!
-    @IBOutlet weak var lootingTimeLbl: UILabel!
-    @IBOutlet weak var pirateImageOverlay: UIImageView!
-    
-    @IBOutlet weak var gameBeatLabel: UILabel!
-    @IBOutlet weak var gameBeatView: UIView!
+
     var pirates = [Pirate]()
     var sortedPirates = [Pirate]()
     var wallet = [Wallet]()
@@ -68,7 +54,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     
     
     let parrotPath = Bundle.main.path(forResource: "pr3", ofType: "wav")
-    var pirateImgArray = [UIImage]()
+   
     
     @IBOutlet var adView: GADBannerView!
     @IBOutlet var offlineLootView: UIView!
@@ -101,25 +87,15 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
 
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(MainVC.parrotImgTapped(_:)))
         self.parrotImg.addGestureRecognizer(tapGesture)
-        
-        let tapGestureNonAd = UITapGestureRecognizer(target: self, action: #selector(MainVC.offlineNonAdLabelPressed(_:)))
-        self.offlineNonAdLabel.addGestureRecognizer(tapGestureNonAd)
-        
-        let tapGestureAd = UITapGestureRecognizer(target: self, action: #selector(MainVC.offlineAdLabelPressed(_:)))
-        self.offlineAdLabel.addGestureRecognizer(tapGestureAd)
-        
+
         let tapGestureShip = UITapGestureRecognizer(target: self, action: #selector(MainVC.shipImgTapped(_:)))
         self.pirateShipImg.addGestureRecognizer(tapGestureShip)
         
         GADRewardBasedVideoAd.sharedInstance().delegate = self
-      
-        
-        
+ 
         requestPirate.returnsObjectsAsFaults = false
         requestWallet.returnsObjectsAsFaults = false
 
-        
-        
         NotificationCenter.default.addObserver(self, selector:#selector(MainVC.alertTimers), name:
             UIApplication.willEnterForegroundNotification, object: nil)
         
@@ -198,26 +174,6 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         tableView.reloadData()
     }
     
-    func showIfUserIsOnFirstUse() {
-            
-            let isFirstUse = UserDefaults.standard.bool(forKey: "isFirstUse")
-        
-            if isFirstUse {
-                self.gameBeatLabel.isHidden = false
-                self.blackGlass.isHidden = false
-                self.exitBtnBeggining.isHidden = false
-                self.gameBeatLabel.text = "Ahoy Mate!, Welcome to Pirate Looter! The idle game where you can hire pirates! The goal is to get 100 of each pirate, Cheers!"
-                
-                UserDefaults.standard.set(false, forKey: "isFirstUse")
-            }
-    }
-    
-    func rewardBasedVideoAdDidReceive(_ rewardBasedVideoAd:GADRewardBasedVideoAd) {
-        self.blueboardAd.alpha = 1
-        self.offlineAdLabel.alpha = 1
-        self.offlineAdLabel.isUserInteractionEnabled = true
-    }
-    
     
     func addParrotImagesForAnimation() {
         var imgArray = [UIImage]()
@@ -246,9 +202,18 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
                 count += 1
             }
             if count >= 8 {
-                self.gameBeatView.isHidden = false
-                self.gameBeatLabel.isHidden = false
+               let vc = IntroOutroVC()
+                present(vc, animated: true, completion: nil)
             }
+        }
+    }
+    
+    
+    func showIfUserIsOnFirstUse() {
+        let isFirstUse = UserDefaults.standard.bool(forKey: "isFirstUse")
+        if isFirstUse {
+            let vc = IntroOutroVC()
+            present(vc, animated: true, completion: nil)
         }
     }
     
@@ -256,9 +221,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
          let launchedOffline = UserDefaults.standard.bool(forKey: "launchedOffline")
          UserDefaults.standard.set(false, forKey: "launchedOffline")
         if launchedOffline {
-            offlineLootView.isHidden = false
-            offlineNonAdLabel.text = String(format: "$%.2f", amountOfMoneyMade)
-            offlineAdLabel.text = String(format: "$%.2f", amountOfMoneyMade * 2)
+            let vc = OfflineBonusVC()
+            present(vc, animated: true, completion: nil)
+            
         }
         UserDefaults.standard.set(true, forKey: "launchedOffline")
     }
@@ -402,53 +367,8 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         }
     }
     
-    func lowerPanDownView(pirate: Pirate) {
-        
-        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 4, animations: {
-            self.blackGlass.isHidden = false
-            
 
-            self.panDownView.center.y += 380
 
-        }, completion: { finished in
-            self.informationStackView.isHidden = false
-            self.informationStackView.alpha = 0
-            UIView.animate(withDuration: 0.5, animations: {
-                self.informationStackView.alpha = 1
-            }, completion: { finished in
-                self.exitIcon.isHidden = false
-            })
-            let height = self.view.frame.size.height * 0.45
-            self.informationStackView.translatesAutoresizingMaskIntoConstraints = false
-            self.informationStackView.heightAnchor.constraint(equalToConstant: height).isActive = true
-            
-        })
-        switch pirate.id {
-        case 0:
-            self.piratePanDownViewImage.constant = 0
-        case 1:
-            self.piratePanDownViewImage.constant = -60
-        case 2:
-            self.piratePanDownViewImage.constant = -110
-        case 3:
-            self.piratePanDownViewImage.constant = -80
-        case 4:
-            self.piratePanDownViewImage.constant = -10
-        case 5:
-            self.piratePanDownViewImage.constant = -10
-        case 6:
-            self.piratePanDownViewImage.constant = -10
-        case 7:
-            self.piratePanDownViewImage.constant = -10
-        
-            
-        default:
-            print("hello")
-        }
-        
-        
-        slateGlassView.isHidden = false
-    }
     
     func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd, didRewardUserWith reward: GADAdReward) {
         let context = appDelegate.persistentContainer.viewContext
@@ -461,40 +381,6 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
             //handle error
         }
         
-    }
-    
-    func updateStackViewInformation(pirate:Pirate) {
-        let pirateLootTimeInSeconds = pirate.lootTime
-        let hours = Int(pirateLootTimeInSeconds) / 3600
-        let minutes = Int(pirateLootTimeInSeconds) / 60 % 60
-        let seconds = Int(pirateLootTimeInSeconds) % 60
-        
-        self.pirateNameInfo.text = pirate.name
-        self.pirateTotalLbl.text = "\(pirate.numberOfPirates)"
-        self.lootPerSessionLbl.text = String(format: "$%.2f", pirate.lootAmount)
-        self.piratePriceLbl.text = String(format: "$%.2f", pirate.piratePrice)
-        
-        self.lootingTimeLbl.text = String(format:"%02i:%02i:%02i", hours, minutes, seconds)
-
-    }
-    
-    func updatePirateFightingImage(pirate: Pirate) {
-        pirateImgArray = []
-        pirateImageOverlay.stopAnimating()
-        
-        for x in 0...14 {
-            let img = UIImage(named:"pirate\(pirate.id)attack\(x)")
-            pirateImgArray.append(img!)
-        }
-        setPirateOverlayImage()
-    }
-    
-    func setPirateOverlayImage() {
-        pirateImageOverlay.stopAnimating()
-        pirateImageOverlay.animationImages = pirateImgArray
-        pirateImageOverlay.animationDuration = 1.3
-        pirateImageOverlay.animationRepeatCount = 0
-        pirateImageOverlay.startAnimating()
     }
     
     func sortPirates() {
@@ -549,7 +435,6 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
             if Double(pirate.currentTime) > timeSince {
                 pirate.currentTime = pirate.currentTime - Int32(timeSince)
             } else {
-                print("\(pirate.currentTime)\(pirate.id)PIRATE CURRENT TIME")
                 pirate.currentTime = Int32(timeSince) % pirate.currentTime
             }
             updateWalletLoot()
@@ -641,7 +526,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         let index = button.tag
         let pirate = sortedPirates[index]
         
-        lowerPanDownView(pirate: pirate)
+        let vc = StatsVC()
+        present(vc, animated: true, completion: nil)
+        
         updateStackViewInformation(pirate: pirate)
         updatePirateFightingImage(pirate: pirate)
         
@@ -741,26 +628,13 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         }
     }
     
-    @IBAction func offlineNonAdLabelPressed(_ sender: Any) {
-        offlineLootView.isHidden = true
-        playAhoySoundEffect()
-    }
+
     
-    @IBAction func offlineAdLabelPressed(_ sender: Any) {
-        if GADRewardBasedVideoAd.sharedInstance().isReady == true {
-            GADRewardBasedVideoAd.sharedInstance().present(fromRootViewController: self)
-        }
-        offlineLootView.isHidden = true
-        
-        
-    }
+ 
     
     @IBAction func exitBtnBeggining(_ sender: Any) {
-        self.exitBtnBeggining.isHidden = true
-        self.blackGlass.isHidden = true
-        self.gameBeatLabel.isHidden = true
         playAhoySoundEffect()
-        self.gameBeatLabel.text = "CONGRATS MATE! YOU HAVE JUST BEAT THE GAME! TO REPLAY, PLEASE REDOWNLOAD THE APP! CHEERS!"
+        
     }
     
     
