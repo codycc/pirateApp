@@ -49,6 +49,8 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     var explosionArray = [UIImage]()
     var shipExplosionArray = [UIImage]()
     var shipArray = [UIImage]()
+    var pirateToSend: Pirate!
+    
     
     let ahoyPath = Bundle.main.path(forResource: "ahoy", ofType: "wav")
     
@@ -519,6 +521,12 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
+        if segue.identifier == "goToStatsVC" {
+            let destinationVC = segue.destination as! StatsVC
+            destinationVC.pirate = self.pirateToSend
+        }
+        
+        
     }
     
     
@@ -529,8 +537,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         let index = button.tag
         let pirate = sortedPirates[index]
         
-        let vc = StatsVC()
-        present(vc, animated: true, completion: nil)
+        self.pirateToSend = pirate
+        
+        performSegue(withIdentifier: "goToStatsVC", sender: nil)
         
 
     }

@@ -26,6 +26,8 @@ class StatsVC: UIViewController {
         super.viewDidLoad()
         self.pirateImageOverlay.stopAnimating()
         lowerPanDownView(pirate: pirate)
+        updateStackViewInformation(pirate: pirate)
+        updatePirateFightingImage(pirate: pirate)
     }
     
     func updatePirateFightingImage(pirate: Pirate) {
@@ -64,19 +66,19 @@ class StatsVC: UIViewController {
     }
     
     func lowerPanDownView(pirate: Pirate) {
-        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 4, animations: {
-            self.panDownView.center.y += 380
-            
-        }, completion: { finished in
-            UIView.animate(withDuration: 0.5, animations: {
-            }, completion: { finished in
-            })
-            
-            let height = self.view.frame.size.height * 0.45
-            self.informationStackView.translatesAutoresizingMaskIntoConstraints = false
-            self.informationStackView.heightAnchor.constraint(equalToConstant: height).isActive = true
-            
-        })
+//        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 4, animations: {
+//            self.panDownView.center.y += 380
+//
+//        }, completion: { finished in
+//            UIView.animate(withDuration: 0.5, animations: {
+//            }, completion: { finished in
+//            })
+//
+//            let height = self.view.frame.size.height * 0.45
+//            self.informationStackView.translatesAutoresizingMaskIntoConstraints = false
+//            self.informationStackView.heightAnchor.constraint(equalToConstant: height).isActive = true
+//
+//        })
         switch pirate.id {
         case 0:
             self.piratePanDownViewImage.constant = 0
