@@ -17,7 +17,7 @@
         <!--Intro OutroVC-->
         <scene sceneID="5FX-KA-BxP">
             <objects>
-                <viewController id="K9k-1H-Sud" customClass="IntroOutroVC" customModule="piratesApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="overCurrentContext" id="K9k-1H-Sud" customClass="IntroOutroVC" customModule="piratesApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vJf-Du-cSf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -26,13 +26,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONGRATS MATE! YOU HAVE JUST BEAT THE GAME! TO REPLAY, PLEASE REDOWNLOAD THE APP! CHEERS!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ppx-Ca-bKO">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONGRATS MATE! YOU HAVE JUST BEAT THE GAME! TO REPLAY, PLEASE REDOWNLOAD THE APP! CHEERS!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" minimumFontSize="31" translatesAutoresizingMaskIntoConstraints="NO" id="Ppx-Ca-bKO">
                                 <rect key="frame" x="30" y="31" width="315" height="605"/>
                                 <fontDescription key="fontDescription" name="PiratesWriters" family="Pirates Writers" pointSize="41"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aB9-yk-QCV">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aB9-yk-QCV">
                                 <rect key="frame" x="313" y="20" width="46" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="46" id="plK-0Z-n2Y"/>
@@ -45,7 +45,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Kb7-1v-z0U" firstAttribute="trailing" secondItem="rrJ-uj-BGC" secondAttribute="trailing" id="7un-yE-m6G"/>
                             <constraint firstItem="Kb7-1v-z0U" firstAttribute="leading" secondItem="rrJ-uj-BGC" secondAttribute="leading" id="ArK-oM-JfD"/>
@@ -69,7 +69,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CFI-LS-PRA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-634" y="128"/>
+            <point key="canvasLocation" x="134" y="948"/>
         </scene>
         <!--MainVC-->
         <scene sceneID="tne-QT-ifu">
@@ -591,41 +591,29 @@
                     <connections>
                         <outlet property="adView" destination="frJ-An-cjE" id="4f6-N0-7bL"/>
                         <outlet property="blackGlass" destination="vHB-nx-YuU" id="n3D-xQ-4Gh"/>
-                        <outlet property="blueboardAd" destination="Bln-Op-yBs" id="8vD-ah-lMd"/>
                         <outlet property="editedRope1" destination="tyr-5W-qat" id="4vh-WH-mfA"/>
                         <outlet property="editedRope2" destination="EK9-o5-UDN" id="Hay-OX-mYg"/>
-                        <outlet property="exitBtnBeggining" destination="aB9-yk-QCV" id="IvO-Jh-8fq"/>
                         <outlet property="exitIcon" destination="1nh-MM-eV2" id="IUV-Kh-bKI"/>
                         <outlet property="explosionImg" destination="t0w-RH-gyK" id="Iav-Lm-Nwm"/>
-                        <outlet property="gameBeatLabel" destination="Ppx-Ca-bKO" id="qwc-Fm-B3D"/>
-                        <outlet property="gameBeatView" destination="Kb7-1v-z0U" id="bLW-rd-364"/>
                         <outlet property="gemsImg" destination="cFb-s4-4Zf" id="fpu-u9-HIV"/>
-                        <outlet property="informationStackView" destination="Bcg-w1-MXf" id="uGS-V8-xyX"/>
                         <outlet property="lootImg" destination="cXY-Pc-h1W" id="r2a-lN-V2Y"/>
-                        <outlet property="lootPerSessionLbl" destination="WGN-ym-HZE" id="2bv-Rf-GVQ"/>
-                        <outlet property="lootingTimeLbl" destination="kFc-fn-IEK" id="bfT-MQ-KbJ"/>
-                        <outlet property="offlineAdLabel" destination="fTa-il-94I" id="KPi-dy-eUF"/>
                         <outlet property="offlineLootView" destination="Y5Y-R1-pZX" id="qSK-xh-nvB"/>
-                        <outlet property="offlineNonAdLabel" destination="1VM-Qp-rzf" id="iMJ-mQ-poD"/>
                         <outlet property="panDownView" destination="SNk-1w-aLY" id="lys-3x-znD"/>
                         <outlet property="parrotImg" destination="hXp-gp-h9u" id="hR0-NB-P6N"/>
-                        <outlet property="pirateImageOverlay" destination="aPm-KR-g8E" id="zSq-X2-tFI"/>
                         <outlet property="pirateNameInfo" destination="2ei-ju-9c2" id="UEx-x9-hru"/>
-                        <outlet property="piratePanDownViewImage" destination="RjY-OZ-tPF" id="Uq4-XR-ht5"/>
-                        <outlet property="piratePriceLbl" destination="DYi-fz-l55" id="vnd-dP-vPd"/>
                         <outlet property="pirateShipImg" destination="Cnj-bm-ETr" id="bDH-pS-mzz"/>
-                        <outlet property="pirateTotalLbl" destination="EJF-FE-oUc" id="WI2-XC-2YX"/>
                         <outlet property="shipExplosionImg" destination="6pE-SB-dMZ" id="0Zq-dl-YZr"/>
                         <outlet property="slateGlassView" destination="Xte-8d-6xj" id="5XO-23-Qg1"/>
                         <outlet property="tableView" destination="85r-OI-m6b" id="uj0-Nv-dTN"/>
                         <outlet property="walletLootLbl" destination="G0q-bj-ZiS" id="RYp-HV-zRy"/>
+                        <segue destination="K9k-1H-Sud" kind="presentation" identifier="goToIntroOutroVC" modalTransitionStyle="crossDissolve" id="6NW-5c-iGp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="IcP-Jp-vmN"/>
                 <tapGestureRecognizer id="eHU-Zr-kvZ"/>
             </objects>
-            <point key="canvasLocation" x="133.59999999999999" y="129.98500749625188"/>
+            <point key="canvasLocation" x="65" y="80"/>
         </scene>
         <!--StatsVC-->
         <scene sceneID="a1h-eT-q0w">
@@ -696,7 +684,6 @@
                                         <state key="normal" image="exitIcon"/>
                                         <connections>
                                             <action selector="exitBtnPressed:" destination="XVD-47-P5Z" eventType="touchUpInside" id="N7E-Zl-yP9"/>
-                                            <action selector="exitIconTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="g07-5o-SXb"/>
                                         </connections>
                                     </button>
                                     <view hidden="YES" alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vHB-nx-YuU">
@@ -847,7 +834,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cik-Ii-C9r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-634" y="842"/>
+            <point key="canvasLocation" x="-994" y="864"/>
         </scene>
         <!--Offline BonusVC-->
         <scene sceneID="nCf-Xt-OvL">
@@ -981,7 +968,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R0a-ir-Jys" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="134" y="842"/>
+            <point key="canvasLocation" x="935" y="1015"/>
         </scene>
         <!--StoreVC-->
         <scene sceneID="iBE-Bj-5kj">

@@ -24,7 +24,7 @@ class StatsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.pirateImageOverlay.stopAnimating()
         lowerPanDownView(pirate: pirate)
     }
     
@@ -47,7 +47,6 @@ class StatsVC: UIViewController {
         pirateImageOverlay.animationRepeatCount = 0
         pirateImageOverlay.startAnimating()
     }
-    
     
     func updateStackViewInformation(pirate:Pirate) {
         let pirateLootTimeInSeconds = pirate.lootTime
@@ -105,6 +104,15 @@ class StatsVC: UIViewController {
     
     
     @IBAction func exitBtnPressed(_ sender: Any) {
+        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 4, animations: {
+            self.panDownView.center.y -= 380
+        }, completion: { finished in
+            let height = self.view.frame.size.height * 0.4
+            self.informationStackView.translatesAutoresizingMaskIntoConstraints = false
+            self.informationStackView.heightAnchor.constraint(equalToConstant: height).isActive = true
+            
+        })
+        pirateImageOverlay.stopAnimating()
         self.dismiss(animated: true, completion: nil)
     }
     

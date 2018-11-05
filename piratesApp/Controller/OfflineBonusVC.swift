@@ -22,8 +22,8 @@ class OfflineBonusVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        offlineNonAdLbl.text = String(format: "$%.2f", amountOfMoneyMade)
-        offlineAdLbl.text = String(format: "$%.2f", amountOfMoneyMade * 2)
+        //offlineNonAdLbl.text = String(format: "$%.2f", amountOfMoneyMade)
+        //offlineAdLbl.text = String(format: "$%.2f", amountOfMoneyMade * 2)
 
         
         let tapGestureNonAd = UITapGestureRecognizer(target: self, action: #selector(OfflineBonusVC.offlineNonAdLabelPressed(_:)))

@@ -132,8 +132,12 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         sortPirates()
         startTimers()
         startAnimationTimers()
-        showOfflineView()
+       // showOfflineView()
         checkIfAllPiratesAreFilled()
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         showIfUserIsOnFirstUse()
     }
 
@@ -212,8 +216,8 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     func showIfUserIsOnFirstUse() {
         let isFirstUse = UserDefaults.standard.bool(forKey: "isFirstUse")
         if isFirstUse {
-            let vc = IntroOutroVC()
-            present(vc, animated: true, completion: nil)
+            print("FIRST USE")
+            performSegue(withIdentifier: "goToIntroOutroVC", sender: nil)
         }
     }
     
@@ -513,9 +517,8 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         return rowHeight
     }
     
-    func prepareForReuse() {
-        self.pirateImageOverlay.stopAnimating()
-       
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
     }
     
     
@@ -528,9 +531,6 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         
         let vc = StatsVC()
         present(vc, animated: true, completion: nil)
-        
-        updateStackViewInformation(pirate: pirate)
-        updatePirateFightingImage(pirate: pirate)
         
 
     }
@@ -549,23 +549,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
 //        addShipImagesForAnimation()
     }
     
-    @IBAction func exitIconTapped(_ sender: Any) {
-        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 4, animations: {
-            self.blackGlass.isHidden = true
-            self.exitIcon.isHidden = true
-            self.panDownView.center.y -= 380
 
-            self.informationStackView.isHidden = true
-        }, completion: { finished in
-            let height = self.view.frame.size.height * 0.4
-            self.informationStackView.translatesAutoresizingMaskIntoConstraints = false
-            self.informationStackView.heightAnchor.constraint(equalToConstant: height).isActive = true
-            
-        })
-        
-        slateGlassView.isHidden = true
-        
-    }
     @IBAction func unlockPiratePressed(_ sender: Any) {
         let context = appDelegate.persistentContainer.viewContext
         
@@ -628,16 +612,10 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         }
     }
     
-
-    
- 
-    
     @IBAction func exitBtnBeggining(_ sender: Any) {
         playAhoySoundEffect()
         
     }
-    
-    
 }
 
 
