@@ -49,6 +49,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     var parrotPlayer: AVAudioPlayer!
     var shipPlayer: AVAudioPlayer!
     var purchasePlayer: AVAudioPlayer!
+    var shopPlayer: AVAudioPlayer!
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var changeParrotColor = true
     var changeShipColor = true
@@ -59,7 +60,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     var pirateToSend: Pirate!
     let ahoyPath = Bundle.main.path(forResource: "ahoy", ofType: "wav")
     let parrotPath = Bundle.main.path(forResource: "pr3", ofType: "wav")
-   
+    let shopPath = Bundle.main.path(forResource: "shopNoise", ofType: "wav")
     
     @IBOutlet var adView: GADBannerView!
     @IBOutlet var offlineLootView: UIView!
@@ -184,7 +185,52 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     }
     
     func updateWalletLoot() {
-        walletLootLbl.text = String(format: "$%.2f", wallet[0].totalLootAmount)
+        var string = ""
+        var walletAmount = wallet[0].totalLootAmount
+        
+        if walletAmount >= 1000000000000 {
+            let str = "\(walletAmount)"
+            let digits = str.compactMap{Int(String($0))}
+            string = "\(digits[0]).\(digits[1])) Trillion"
+            
+        } else if walletAmount >= 100000000000 {
+            let str = "\(walletAmount)"
+            let digits = str.compactMap{Int(String($0))}
+            string = "\(digits[0])\(digits[1])\(digits[2]) Billion"
+         
+            
+        } else if walletAmount >= 10000000000 {
+            let str = "\(walletAmount)"
+            let digits = str.compactMap{Int(String($0))}
+            string = "\(digits[0])\(digits[1])) Billion"
+           
+            
+        } else if walletAmount >= 1000000000 {
+            let str = "\(walletAmount)"
+            let digits = str.compactMap{Int(String($0))}
+            string = "\(digits[0]).\(digits[1]) Billion"
+            
+        } else if walletAmount >= 100000000 {
+            let str = "\(walletAmount)"
+            let digits = str.compactMap{Int(String($0))}
+            string = "\(digits[0])\(digits[1])\(digits[2]) Million"
+            
+        } else if walletAmount >= 10000000 {
+            let str = "\(walletAmount)"
+            let digits = str.compactMap{Int(String($0))}
+            string = "\(digits[0])\(digits[1]) Million"
+            
+        } else if walletAmount >= 1000000 {
+            let str = "\(walletAmount)"
+            let digits = str.compactMap{Int(String($0))}
+            string = "\(digits[0]).\(digits[1]) Million"
+            
+        } else {
+            string = NumberFormatter.localizedString(from: NSNumber(value: walletAmount), number: NumberFormatter.Style.decimal)
+            
+        }
+        
+        walletLootLbl.text = string
         reloadTable()
     }
     
@@ -588,6 +634,18 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     
     
     @IBAction func shopLblTapped(_ sender: Any) {
+        
+        let soundUrl = NSURL(fileURLWithPath: shopPath!)
+        
+        do {
+            try shopPlayer = AVAudioPlayer(contentsOf: soundUrl as URL)
+            shopPlayer.prepareToPlay()
+            shopPlayer.numberOfLoops = 0
+            shopPlayer.play()
+        } catch let err as NSError {
+            print(err.debugDescription)
+        }
+        
         performSegue(withIdentifier: "goToStoreVC", sender: nil)
     }
 
@@ -604,6 +662,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
             pirate.isAnimating = true
             pirate.numberOfPirates += 1
             wallet[0].totalLootAmount -= pirate.piratePrice
+            
+            
+          
             do {
                 try context.save()
                 do {

@@ -43,7 +43,7 @@ class PirateCell: UITableViewCell {
     @IBOutlet weak var maxPiratesReachedLbl: UILabel!
     @IBOutlet var pirateImgConstraint: NSLayoutConstraint!
     
-
+    
     
     
     var imgArray = [UIImage]()

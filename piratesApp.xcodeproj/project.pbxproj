@@ -10,6 +10,7 @@
 		0B0883872190B86F000ECEAA /* IntroOutroVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0883862190B86F000ECEAA /* IntroOutroVC.swift */; };
 		0B0883892190C059000ECEAA /* OfflineBonusVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0883882190C059000ECEAA /* OfflineBonusVC.swift */; };
 		0B08838B2190C393000ECEAA /* StatsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B08838A2190C393000ECEAA /* StatsVC.swift */; };
+		0B08838D219138BA000ECEAA /* shopNoise.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0B08838C219138BA000ECEAA /* shopNoise.wav */; };
 		0B6A4A6A2177B6B500495663 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6A4A692177B6B500495663 /* AppDelegate.swift */; };
 		0B6A4A6C2177B6B500495663 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6A4A6B2177B6B500495663 /* MainVC.swift */; };
 		0B6A4A6F2177B6B500495663 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B6A4A6D2177B6B500495663 /* Main.storyboard */; };
@@ -53,6 +54,7 @@
 		0B0883862190B86F000ECEAA /* IntroOutroVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroOutroVC.swift; sourceTree = "<group>"; };
 		0B0883882190C059000ECEAA /* OfflineBonusVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineBonusVC.swift; sourceTree = "<group>"; };
 		0B08838A2190C393000ECEAA /* StatsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsVC.swift; sourceTree = "<group>"; };
+		0B08838C219138BA000ECEAA /* shopNoise.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = shopNoise.wav; sourceTree = "<group>"; };
 		0B6A4A662177B6B400495663 /* piratesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = piratesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B6A4A692177B6B500495663 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0B6A4A6B2177B6B500495663 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				0B78C3E62187A18A00D628FB /* GoogleService-Info.plist */,
+				0B08838C219138BA000ECEAA /* shopNoise.wav */,
 				0B78C3E421826A8B00D628FB /* purchase.wav */,
 				0B78C3E221820B7300D628FB /* ahoy.wav */,
 				0B78C3E02181365300D628FB /* pr3.wav */,
@@ -351,6 +354,7 @@
 				0B6A4AA0217BEB5700495663 /* piratesmusic.wav in Resources */,
 				0B6A4A742177B6B600495663 /* Assets.xcassets in Resources */,
 				0B78C3E321820B7300D628FB /* ahoy.wav in Resources */,
+				0B08838D219138BA000ECEAA /* shopNoise.wav in Resources */,
 				0B78C3E72187A18A00D628FB /* GoogleService-Info.plist in Resources */,
 				0B78C3DB2180F2AC00D628FB /* JOLLR___.TTF in Resources */,
 				0B6A4A6F2177B6B500495663 /* Main.storyboard in Resources */,
