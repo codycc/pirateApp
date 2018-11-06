@@ -20,7 +20,9 @@
     <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="class">
         <attribute name="hasCampFire" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="hasKoala" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="hasPelican" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="hasSeagull" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="hasShip" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="hasVulture" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <entity name="Wallet" representedClassName="Wallet" syncable="YES" codeGenerationType="class">
@@ -29,7 +31,7 @@
     </entity>
     <elements>
         <element name="Pirate" positionX="-63" positionY="-18" width="128" height="270"/>
-        <element name="User" positionX="-54" positionY="99" width="128" height="105"/>
+        <element name="User" positionX="-54" positionY="99" width="128" height="135"/>
         <element name="Wallet" positionX="-54" positionY="36" width="128" height="75"/>
     </elements>
 </model>
