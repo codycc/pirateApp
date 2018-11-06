@@ -102,7 +102,8 @@ class StoreVC: UIViewController {
         if !users[0].hasSeagull && wallet[0].totalLootAmount >= 500000 {
             wallet[0].totalLootAmount = wallet[0].totalLootAmount - 500000
             users[0].hasSeagull = true
-            seagullImage.image = UIImage(named: "purchasedboard")
+            seagullBlueboard.image = UIImage(named: "purchasedboard")
+            seagullImage.alpha = 0.7
         }
     }
     
@@ -110,7 +111,8 @@ class StoreVC: UIViewController {
         if !users[0].hasCampFire && wallet[0].totalLootAmount >= 750000 {
             wallet[0].totalLootAmount = wallet[0].totalLootAmount - 750000
             users[0].hasCampFire = true
-            campFireImage.image = UIImage(named: "purchasedboard")
+            campFireBlueboard.image = UIImage(named: "purchasedboard")
+            campFireImage.alpha = 0.7
         }
     }
     
@@ -118,7 +120,8 @@ class StoreVC: UIViewController {
         if !users[0].hasPelican && wallet[0].totalLootAmount >= 850000 {
             wallet[0].totalLootAmount = wallet[0].totalLootAmount - 850000
             users[0].hasPelican = true
-            pelicanImage.image = UIImage(named: "purchasedboard")
+            pelicanBlueboard.image = UIImage(named: "purchasedboard")
+            pelicanImage.alpha = 0.7
         }
     }
     
@@ -126,7 +129,8 @@ class StoreVC: UIViewController {
         if !users[0].hasVulture && wallet[0].totalLootAmount >= 1000000 {
             wallet[0].totalLootAmount = wallet[0].totalLootAmount - 1000000
             users[0].hasVulture = true
-            vultureImage.image = UIImage(named: "purchasedboard")
+            vultureBlueboard.image = UIImage(named: "purchasedboard")
+            vultureImage.alpha = 0.7
         }
     }
     
@@ -134,7 +138,8 @@ class StoreVC: UIViewController {
         if !users[0].hasKoala && wallet[0].totalLootAmount >= 1500000 {
             wallet[0].totalLootAmount = wallet[0].totalLootAmount - 1500000
             users[0].hasKoala = true
-            koalaImage.image = UIImage(named: "purchasedboard")
+            koalaBlueboard.image = UIImage(named: "purchasedboard")
+            koalaImage.alpha = 0.7
         }
     }
     
@@ -142,7 +147,8 @@ class StoreVC: UIViewController {
         if !users[0].hasShip && wallet[0].totalLootAmount >= 3000000 {
             wallet[0].totalLootAmount = wallet[0].totalLootAmount - 3000000
             users[0].hasShip = true
-            shipImage.image = UIImage(named: "purchasedboard")
+            shipBlueboard.image = UIImage(named: "purchasedboard")
+            shipImage.alpha = 0.7
         }
     }
     
