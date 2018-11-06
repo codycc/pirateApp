@@ -71,6 +71,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             user.setValue(false, forKey: "hasSeagull")
             user.setValue(false, forKey: "hasVulture")
             user.setValue(false, forKey: "hasCampFire")
+            user.setValue(false, forKey: "hasShip")
+            user.setValue(false, forKey: "hasPelican")
             
             skollywag.setValue(0, forKey: "id")
             skollywag.setValue("Scollywag", forKey: "name")

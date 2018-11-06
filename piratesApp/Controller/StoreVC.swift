@@ -46,6 +46,7 @@ class StoreVC: UIViewController {
         let requestWallet = NSFetchRequest<NSFetchRequestResult>(entityName: "Wallet")
         
         
+        
         self.seagullImage.isUserInteractionEnabled = true
         self.campFireImage.isUserInteractionEnabled = true
         self.pelicanImage.isUserInteractionEnabled = true
@@ -95,15 +96,64 @@ class StoreVC: UIViewController {
             // handle error
         }
         
+        checkWhatItemsAreBought()
+        
+    }
+    
+    func checkWhatItemsAreBought() {
+        if users[0].hasSeagull {
+            seagullImage.isUserInteractionEnabled = false
+            seagullImage.alpha = 0.6
+            seagullBlueboard.image = UIImage(named: "purchasedboard")
+        }
+        
+        if users[0].hasCampFire {
+            campFireImage.isUserInteractionEnabled = false
+            campFireImage.alpha = 0.6
+            campFireBlueboard.image = UIImage(named: "purchasedboard")
+        }
+        
+        if users[0].hasPelican {
+            pelicanImage.isUserInteractionEnabled = false
+            pelicanImage.alpha = 0.6
+            pelicanBlueboard.image = UIImage(named: "purchasedboard")
+        }
+        
+        if users[0].hasVulture {
+            vultureImage.isUserInteractionEnabled = false
+            vultureImage.alpha = 0.6
+            vultureBlueboard.image = UIImage(named: "purchasedboard")
+        }
+        
+        if users[0].hasKoala {
+            koalaImage.isUserInteractionEnabled = false
+            koalaImage.alpha = 0.6
+            koalaBlueboard.image = UIImage(named: "purchasedboard")
+        }
+        
+        if users[0].hasShip {
+            shipImage.isUserInteractionEnabled = false
+            shipImage.alpha = 0.6
+            shipBlueboard.image = UIImage(named: "purchasedboard")
+            
+        }
     }
     
     
     @IBAction func seagullImageTapped(_ sender: Any) {
+        
         if !users[0].hasSeagull && wallet[0].totalLootAmount >= 500000 {
             wallet[0].totalLootAmount = wallet[0].totalLootAmount - 500000
             users[0].hasSeagull = true
             seagullBlueboard.image = UIImage(named: "purchasedboard")
             seagullImage.alpha = 0.7
+            
+            let context = appDelegate.persistentContainer.viewContext
+            do {
+                try context.save()
+            } catch {
+                
+            }
         }
     }
     
@@ -113,6 +163,13 @@ class StoreVC: UIViewController {
             users[0].hasCampFire = true
             campFireBlueboard.image = UIImage(named: "purchasedboard")
             campFireImage.alpha = 0.7
+            
+            let context = appDelegate.persistentContainer.viewContext
+            do {
+                try context.save()
+            } catch {
+                
+            }
         }
     }
     
@@ -122,6 +179,13 @@ class StoreVC: UIViewController {
             users[0].hasPelican = true
             pelicanBlueboard.image = UIImage(named: "purchasedboard")
             pelicanImage.alpha = 0.7
+            
+            let context = appDelegate.persistentContainer.viewContext
+            do {
+                try context.save()
+            } catch {
+                
+            }
         }
     }
     
@@ -131,6 +195,13 @@ class StoreVC: UIViewController {
             users[0].hasVulture = true
             vultureBlueboard.image = UIImage(named: "purchasedboard")
             vultureImage.alpha = 0.7
+            
+            let context = appDelegate.persistentContainer.viewContext
+            do {
+                try context.save()
+            } catch {
+                
+            }
         }
     }
     
@@ -140,6 +211,13 @@ class StoreVC: UIViewController {
             users[0].hasKoala = true
             koalaBlueboard.image = UIImage(named: "purchasedboard")
             koalaImage.alpha = 0.7
+            
+            let context = appDelegate.persistentContainer.viewContext
+            do {
+                try context.save()
+            } catch {
+                
+            }
         }
     }
     
@@ -149,6 +227,13 @@ class StoreVC: UIViewController {
             users[0].hasShip = true
             shipBlueboard.image = UIImage(named: "purchasedboard")
             shipImage.alpha = 0.7
+            
+            let context = appDelegate.persistentContainer.viewContext
+            do {
+                try context.save()
+            } catch {
+                
+            }
         }
     }
     

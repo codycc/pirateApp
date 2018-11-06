@@ -160,7 +160,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         startAnimationTimers()
         checkForUserStoreItems()
         checkIfAllPiratesAreFilled()
-        
+        checkWhatItemsToDisplay()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -269,6 +269,36 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         
         
         setParrotImages(imgArray: imgArray)
+    }
+    
+    func checkWhatItemsToDisplay() {
+        if users[0].hasSeagull {
+           self.seagullImage.isHidden = false
+        }
+        
+        if users[0].hasCampFire {
+            self.lootImg.isHidden = true
+            self.gemsImg.isHidden = true 
+            self.campFireImage.isHidden = false
+        }
+        
+        if users[0].hasPelican {
+            
+        }
+        
+        if users[0].hasVulture {
+            self.vultureImage.isHidden = false
+        }
+        
+        if users[0].hasKoala {
+            self.koalaImage.isHidden = false
+        }
+        
+        if users[0].hasShip {
+        
+        }
+        
+        
     }
     
     func checkForUserStoreItems() {
