@@ -34,7 +34,7 @@ class StatsVC: UIViewController {
         pirateImgArray = []
         pirateImageOverlay.stopAnimating()
         
-        for x in 0...14 {
+        for x in 0...pirate.numberOfImagesAttack {
             let img = UIImage(named:"pirate\(pirate.id)attack\(x)")
             pirateImgArray.append(img!)
         }
@@ -79,22 +79,32 @@ class StatsVC: UIViewController {
 //            self.informationStackView.heightAnchor.constraint(equalToConstant: height).isActive = true
 //
 //        })
+        
+        //change 
         switch pirate.id {
         case 0:
             self.piratePanDownViewImage.constant = 0
         case 1:
             self.piratePanDownViewImage.constant = -60
         case 2:
-            self.piratePanDownViewImage.constant = -110
+            self.piratePanDownViewImage.constant = -30
         case 3:
-            self.piratePanDownViewImage.constant = -80
+            self.piratePanDownViewImage.constant = -70
         case 4:
-            self.piratePanDownViewImage.constant = -10
+            self.piratePanDownViewImage.constant = -15
         case 5:
             self.piratePanDownViewImage.constant = -10
         case 6:
-            self.piratePanDownViewImage.constant = -10
+            self.piratePanDownViewImage.constant = -100
         case 7:
+            self.piratePanDownViewImage.constant = -80
+        case 8:
+            self.piratePanDownViewImage.constant = -10
+        case 9:
+            self.piratePanDownViewImage.constant = -10
+        case 10:
+            self.piratePanDownViewImage.constant = -10
+        case 11:
             self.piratePanDownViewImage.constant = -10
             
             

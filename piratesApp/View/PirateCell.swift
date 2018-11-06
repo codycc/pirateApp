@@ -100,24 +100,32 @@ class PirateCell: UITableViewCell {
          
         }
     }
-    
+    //change
     func checkHowToChangeConstraint(pirate: Pirate) {
         switch pirate.id {
         case 0:
-            self.pirateImgConstraint.constant = -20
+            self.pirateImgConstraint.constant = -15
         case 1:
             self.pirateImgConstraint.constant = -30
         case 2:
-            self.pirateImgConstraint.constant = -40
+            self.pirateImgConstraint.constant = -17
         case 3:
-            self.pirateImgConstraint.constant = -35
+            self.pirateImgConstraint.constant = -25
         case 4:
             self.pirateImgConstraint.constant = -20
         case 5:
             self.pirateImgConstraint.constant = -20
         case 6:
-            self.pirateImgConstraint.constant = -20
+            self.pirateImgConstraint.constant = -38
         case 7:
+            self.pirateImgConstraint.constant = -33
+        case 8:
+            self.pirateImgConstraint.constant = -20
+        case 9:
+            self.pirateImgConstraint.constant = -20
+        case 10:
+            self.pirateImgConstraint.constant = -20
+        case 11:
             self.pirateImgConstraint.constant = -20
         default:
             print("default")

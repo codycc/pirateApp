@@ -291,7 +291,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
             if pirate.numberOfPirates >= 100 {
                 count += 1
             }
-            if count >= 8 {
+            if count >= 12 {
                let vc = IntroOutroVC()
                 present(vc, animated: true, completion: nil)
             }
@@ -454,11 +454,6 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         }
     }
     
-
-
-    
-  
-    
     func sortPirates() {
         sortedPirates = pirates.sorted(by: { $0.id < $1.id})
     }
@@ -540,7 +535,6 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         
         do {
            try context.save()
-            //print("\(pirate.currentTime)current")
         } catch {
             //handle error 
         }
@@ -586,7 +580,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         if(indexPath.row < 0){
             rowHeight = 0.0
         }else{
-            rowHeight = 124.0    //or whatever you like
+            rowHeight = 124.0   
         }
         
         return rowHeight
