@@ -43,6 +43,9 @@ class PirateCell: UITableViewCell {
     @IBOutlet weak var maxPiratesReachedLbl: UILabel!
     @IBOutlet var pirateImgConstraint: NSLayoutConstraint!
     
+
+    
+    
     var imgArray = [UIImage]()
     
     func configureCell(pirate: Pirate, wallet: Wallet) {
@@ -78,6 +81,7 @@ class PirateCell: UITableViewCell {
             self.lockImg.isHidden = true
             self.piratePriceLblPlank.isHidden = true
             self.pirateImgBtn.isEnabled = true
+            
         } else {
             self.plankImg.isHidden = false
             self.pirateNameLbl.isHidden = false
@@ -93,6 +97,7 @@ class PirateCell: UITableViewCell {
             self.timePlankImg.isHidden = true
             self.lockImg.isHidden = false
             self.piratePriceLblPlank.isHidden = false
+         
         }
     }
     

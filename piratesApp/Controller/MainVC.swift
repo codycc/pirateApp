@@ -41,6 +41,8 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     var wallet = [Wallet]()
     var users = [User]()
     var cellHeights: [IndexPath : CGFloat] = [:]
+    
+    
 
     var musicPlayer: AVAudioPlayer!
     var parrotPlayer: AVAudioPlayer!
@@ -124,7 +126,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
             let results = try context.fetch(requestUser)
             if results.count > 0 {
                 for result in results {
-                    user.append(result as! User)
+                    users.append(result as! User)
                 }
             }
         } catch {
@@ -517,6 +519,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
             cell.buyPlankBtn.tag = indexPath.row
             cell.pirateImgBtn.tag = indexPath.row
             cell.plankBtn.tag = indexPath.row
+            
+       
+            
             return cell
         } else {
             return PirateCell()
@@ -612,13 +617,95 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         }
     }
     
-    @IBAction func buyBtnPressed(_ sender: Any) {
+    
+    
+    
+    
+    @IBAction func buyBtnPressed(_ sender: Any, forEvent event: UIEvent) {
+       
+        
         let context = appDelegate.persistentContainer.viewContext
         
         checkIfAllPiratesAreFilled()
         
         let button = sender as! UIButton
         let index = button.tag
+        
+        
+        
+        let imageName = "singleLoot.png"
+        let image = UIImage(named: imageName)
+        
+        guard let touch = event.allTouches?.first else { return }
+        let point = touch.location(in: view)
+        print ("point: \(point)")
+        
+        
+        var imageView = UIImageView(image: image!)
+        var imageView2 = UIImageView(image: image!)
+        var imageView3 = UIImageView(image: image!)
+        var imageView4 = UIImageView(image: image!)
+
+        imageView.frame = CGRect(x: point.x, y: point.y, width: 30, height: 30)
+        view.addSubview(imageView)
+        
+        imageView2.frame = CGRect(x: point.x, y: point.y, width: 30, height: 30)
+        view.addSubview(imageView2)
+        
+        imageView3.frame = CGRect(x: point.x, y: point.y, width: 30, height: 30)
+        view.addSubview(imageView3)
+        
+        imageView4.frame = CGRect(x: point.x, y: point.y, width: 30, height: 30)
+        view.addSubview(imageView4)
+        
+        let lowerValue = -60
+        let upperValue = -20
+        
+        
+        let randomNum1 = arc4random_uniform(50) + 1;
+        let randomNum2 = arc4random_uniform(50) + 1;
+        let randomNum3 = Int(arc4random_uniform(UInt32(upperValue - lowerValue + 1))) +   lowerValue
+        let randomNum4 = Int(arc4random_uniform(UInt32(upperValue - lowerValue + 1))) +   lowerValue
+        let randomNum5 = Int(arc4random_uniform(UInt32(upperValue - lowerValue + 1))) +   lowerValue
+        let randomNum6 = Int(arc4random_uniform(UInt32(upperValue - lowerValue + 1))) +   lowerValue
+        let randomNum7 = Int(arc4random_uniform(UInt32(upperValue - lowerValue + 1))) +   lowerValue
+        let randomNum8 = Int(arc4random_uniform(UInt32(upperValue - lowerValue + 1))) +   lowerValue
+        
+        
+
+        
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut , animations: {
+            imageView.transform = CGAffineTransform(translationX: CGFloat(randomNum1) , y: CGFloat(randomNum7) )
+            imageView2.transform = CGAffineTransform(translationX: CGFloat(randomNum2), y: CGFloat(randomNum8) )
+            imageView3.transform = CGAffineTransform(translationX: CGFloat(randomNum3), y: CGFloat(randomNum5))
+            imageView4.transform = CGAffineTransform(translationX: CGFloat(randomNum4), y: CGFloat(randomNum6))
+            
+        }, completion: { finished in
+            UIView.animate(withDuration: 0.3, animations: {
+                imageView.alpha = 0
+                imageView2.alpha = 0
+                imageView3.alpha = 0
+                imageView4.alpha = 0
+                
+            }, completion: { (finished) in
+                imageView.removeFromSuperview()
+                imageView2.removeFromSuperview()
+                imageView3.removeFromSuperview()
+                imageView4.removeFromSuperview()
+            })
+          
+        })
+        
+        
+//        UIView.animate(withDuration: 0.5, options: .curveLinear ,animations: {
+//
+//
+//        }) { (finished) in
+//
+//
+//        }
+        
+     
 
         let pirate = sortedPirates[index]
         playPurchaseSoundEffect()
