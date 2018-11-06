@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class StatsVC: UIViewController {
 
@@ -22,12 +23,28 @@ class StatsVC: UIViewController {
     var pirate: Pirate!
     var pirateImgArray = [UIImage]()
     
+    var exitPlayer: AVAudioPlayer!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.pirateImageOverlay.stopAnimating()
         lowerPanDownView(pirate: pirate)
         updateStackViewInformation(pirate: pirate)
         updatePirateFightingImage(pirate: pirate)
+    }
+    
+    func playExitSoundEffect() {
+        let path = Bundle.main.path(forResource: "pop", ofType: "wav")
+        let soundUrl = NSURL(fileURLWithPath: path!)
+        
+        do {
+            try exitPlayer = AVAudioPlayer(contentsOf: soundUrl as URL)
+            exitPlayer.prepareToPlay()
+            exitPlayer.volume = 0.3
+            exitPlayer.play()
+        } catch let err as NSError {
+            print(err.debugDescription)
+        }
     }
     
     func updatePirateFightingImage(pirate: Pirate) {
@@ -116,6 +133,7 @@ class StatsVC: UIViewController {
     
     
     @IBAction func exitBtnPressed(_ sender: Any) {
+        playExitSoundEffect()
         UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 4, animations: {
             self.panDownView.center.y -= 380
         }, completion: { finished in

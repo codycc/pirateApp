@@ -668,6 +668,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
             try shopPlayer = AVAudioPlayer(contentsOf: soundUrl as URL)
             shopPlayer.prepareToPlay()
             shopPlayer.numberOfLoops = 0
+            shopPlayer.volume = 0.7
             shopPlayer.play()
         } catch let err as NSError {
             print(err.debugDescription)

@@ -37,6 +37,7 @@ class StoreVC: UIViewController {
     var wallet = [Wallet]()
     
     var purchasePlayer: AVAudioPlayer!
+    var exitPlayer: AVAudioPlayer!
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
@@ -113,6 +114,20 @@ class StoreVC: UIViewController {
             purchasePlayer.prepareToPlay()
             purchasePlayer.volume = 0.7
             purchasePlayer.play()
+        } catch let err as NSError {
+            print(err.debugDescription)
+        }
+    }
+    
+    func playExitSoundEffect() {
+        let path = Bundle.main.path(forResource: "pop", ofType: "wav")
+        let soundUrl = NSURL(fileURLWithPath: path!)
+        
+        do {
+            try exitPlayer = AVAudioPlayer(contentsOf: soundUrl as URL)
+            exitPlayer.prepareToPlay()
+            exitPlayer.volume = 0.4
+            exitPlayer.play()
         } catch let err as NSError {
             print(err.debugDescription)
         }
@@ -263,6 +278,7 @@ class StoreVC: UIViewController {
     
 
     @IBAction func exitIconTapped(_ sender: Any) {
+        playExitSoundEffect()
         self.dismiss(animated: true, completion: nil)
     }
     

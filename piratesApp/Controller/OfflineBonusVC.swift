@@ -11,7 +11,7 @@ import UIKit
 import Firebase
 import GoogleMobileAds
 import CoreData
-
+import AVFoundation
 
 
 class OfflineBonusVC: UIViewController, GADBannerViewDelegate, GADRewardBasedVideoAdDelegate {
@@ -26,7 +26,7 @@ class OfflineBonusVC: UIViewController, GADBannerViewDelegate, GADRewardBasedVid
     var wallet = [Wallet]()
     var amountOfMoneyMade: Double!
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-   
+    var purchasePlayer: AVAudioPlayer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,6 +80,20 @@ class OfflineBonusVC: UIViewController, GADBannerViewDelegate, GADRewardBasedVid
         
     }
     
+    func playPurchaseSoundEffect() {
+        let path = Bundle.main.path(forResource: "purchase", ofType: "wav")
+        let soundUrl = NSURL(fileURLWithPath: path!)
+        
+        do {
+            try purchasePlayer = AVAudioPlayer(contentsOf: soundUrl as URL)
+            purchasePlayer.prepareToPlay()
+            purchasePlayer.volume = 0.3
+            purchasePlayer.play()
+        } catch let err as NSError {
+            print(err.debugDescription)
+        }
+    }
+    
     
     @IBAction func offlineAdLabelPressed(_ sender: Any) {
         if GADRewardBasedVideoAd.sharedInstance().isReady == true {
@@ -97,6 +111,7 @@ class OfflineBonusVC: UIViewController, GADBannerViewDelegate, GADRewardBasedVid
     
     
     @IBAction func offlineNonAdLabelPressed(_ sender: Any) {
+        playPurchaseSoundEffect()
         self.dismiss(animated: true, completion: nil)
         
     }
