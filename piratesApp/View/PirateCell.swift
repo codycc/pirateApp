@@ -159,7 +159,8 @@ class PirateCell: UITableViewCell {
     }
     
     func setLootLbl(pirate: Pirate) {
-        lootLbl.text = String(format: "$%.2f", pirate.lootAmount)
+        let string = NumberFormatter.localizedString(from: NSNumber(value: pirate.lootAmount), number: NumberFormatter.Style.currency)
+        lootLbl.text = string
     }
     
     func setNumberOfPiratesLbl(pirate: Pirate) {
@@ -167,7 +168,9 @@ class PirateCell: UITableViewCell {
     }
     
     func updatePiratePrice(pirate: Pirate) {
-        piratePriceLbl.text = String(format: "$%.2f", pirate.piratePrice)
+        let string = NumberFormatter.localizedString(from: NSNumber(value: pirate.piratePrice), number: NumberFormatter.Style.currency)
+        
+        piratePriceLbl.text = string
     }
     
     func setPirateNameLbl(pirate: Pirate) {
@@ -175,7 +178,9 @@ class PirateCell: UITableViewCell {
     }
     
     func setPiratePricePlankLbl(pirate: Pirate) {
-        self.piratePriceLblPlank.text = String(format: "$%.2f", pirate.piratePrice)
+        let string = NumberFormatter.localizedString(from: NSNumber(value: pirate.piratePrice), number: NumberFormatter.Style.currency)
+        
+        self.piratePriceLblPlank.text = string
     }
     
     func updatePirateLootTime(pirate: Pirate) {

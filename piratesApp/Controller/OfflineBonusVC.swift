@@ -31,8 +31,12 @@ class OfflineBonusVC: UIViewController, GADBannerViewDelegate, GADRewardBasedVid
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        offlineNonAdLbl.text = String(format: "$%.2f", amountOfMoneyMade)
-        offlineAdLbl.text = String(format: "$%.2f", amountOfMoneyMade * 2)
+        let offlineNonAdAmount = NumberFormatter.localizedString(from: NSNumber(value: amountOfMoneyMade), number: NumberFormatter.Style.currency)
+        let offlineAdAmount = NumberFormatter.localizedString(from: NSNumber(value: amountOfMoneyMade * 2), number: NumberFormatter.Style.currency)
+        
+        
+        offlineNonAdLbl.text = offlineNonAdAmount
+        offlineAdLbl.text = offlineAdAmount
 
         GADRewardBasedVideoAd.sharedInstance().delegate = self
         

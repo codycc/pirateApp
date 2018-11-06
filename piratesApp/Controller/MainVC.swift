@@ -226,7 +226,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
             string = "\(digits[0]).\(digits[1]) Million"
             
         } else {
-            string = NumberFormatter.localizedString(from: NSNumber(value: walletAmount), number: NumberFormatter.Style.decimal)
+            string = NumberFormatter.localizedString(from: NSNumber(value: walletAmount), number: NumberFormatter.Style.currency)
             
         }
         
