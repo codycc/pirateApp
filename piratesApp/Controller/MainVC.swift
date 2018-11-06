@@ -276,24 +276,89 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     
     func checkWhatItemsToDisplay() {
         if users[0].hasSeagull {
+            var imgArray = [UIImage]()
+            imgArray = []
+            for x in 1...19 {
+                let img = UIImage(named:"seagull\(x)")
+                imgArray.append(img!)
+            }
+            
+            seagullImage.stopAnimating()
+            seagullImage.animationImages = imgArray
+            seagullImage.animationDuration = 5.0
+            seagullImage.animationRepeatCount = 0
+            seagullImage.startAnimating()
            self.seagullImage.isHidden = false
         }
         
         if users[0].hasCampFire {
+            var imgArray = [UIImage]()
+            imgArray = []
+            for x in 1...6 {
+                let img = UIImage(named:"campfire0\(x)")
+                imgArray.append(img!)
+            }
+            
+            campFireImage.stopAnimating()
+            campFireImage.animationImages = imgArray
+            campFireImage.animationDuration = 0.7
+            campFireImage.animationRepeatCount = 0
+            campFireImage.startAnimating()
+
             self.lootImg.isHidden = true
             self.gemsImg.isHidden = true 
             self.campFireImage.isHidden = false
         }
         
         if users[0].hasPelican {
+            var imgArray = [UIImage]()
+            imgArray = []
+            for x in 0...11 {
+                let img = UIImage(named:"pelican\(x)")
+                imgArray.append(img!)
+            }
+            
+            pelicanImage.stopAnimating()
+            pelicanImage.animationImages = imgArray
+            pelicanImage.animationDuration = 0.7
+            pelicanImage.animationRepeatCount = 0
+            pelicanImage.startAnimating()
+            
+            
+            
             self.pelicanImage.isHidden = false
         }
         
         if users[0].hasVulture {
+            var imgArray = [UIImage]()
+            imgArray = []
+            for x in 0...15 {
+                let img = UIImage(named:"vulture\(x)")
+                imgArray.append(img!)
+            }
+            
+            vultureImage.stopAnimating()
+            vultureImage.animationImages = imgArray
+            vultureImage.animationDuration = 1.0
+            vultureImage.animationRepeatCount = 0
+            vultureImage.startAnimating()
+            
             self.vultureImage.isHidden = false
         }
         
         if users[0].hasKoala {
+            var imgArray = [UIImage]()
+            imgArray = []
+            for x in 0...19 {
+                let img = UIImage(named:"koala\(x)")
+                imgArray.append(img!)
+            }
+            
+            koalaImage.stopAnimating()
+            koalaImage.animationImages = imgArray
+            koalaImage.animationDuration = 5.0
+            koalaImage.animationRepeatCount = 0
+            koalaImage.startAnimating()
             self.koalaImage.isHidden = false
         }
         
