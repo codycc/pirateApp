@@ -17,5 +17,8 @@ class StoreVC: UIViewController {
     }
     
 
-
+    @IBAction func exitIconTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }

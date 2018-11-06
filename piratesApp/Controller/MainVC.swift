@@ -31,6 +31,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     @IBOutlet weak var exitIcon: UIButton!
     @IBOutlet weak var pirateNameInfo: UILabel!
 
+    @IBOutlet var shopLbl: UILabel!
     @IBOutlet var seagullImage: UIImageView!
     @IBOutlet var koalaImage: UIImageView!
     @IBOutlet var vultureImage: UIImageView!
@@ -86,6 +87,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         
         self.parrotImg.isUserInteractionEnabled = true
         self.pirateShipImg.isUserInteractionEnabled = true
+        self.shopLbl.isUserInteractionEnabled = true
         
         UserDefaults.standard.set(false, forKey: "appClosed")
         
@@ -97,6 +99,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         let tapGestureShip = UITapGestureRecognizer(target: self, action: #selector(MainVC.shipImgTapped(_:)))
         self.pirateShipImg.addGestureRecognizer(tapGestureShip)
         
+        
+        let tapGestureShop = UITapGestureRecognizer(target: self, action: #selector(MainVC.shopLblTapped(_:)))
+        self.shopLbl.addGestureRecognizer(tapGestureShop)
        
  
         requestPirate.returnsObjectsAsFaults = false
@@ -581,6 +586,10 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
 //        addShipImagesForAnimation()
     }
     
+    
+    @IBAction func shopLblTapped(_ sender: Any) {
+        performSegue(withIdentifier: "goToStoreVC", sender: nil)
+    }
 
     @IBAction func unlockPiratePressed(_ sender: Any) {
         let context = appDelegate.persistentContainer.viewContext
@@ -695,15 +704,6 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
             })
           
         })
-        
-        
-//        UIView.animate(withDuration: 0.5, options: .curveLinear ,animations: {
-//
-//
-//        }) { (finished) in
-//
-//
-//        }
         
      
 
