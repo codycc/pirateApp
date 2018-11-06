@@ -632,6 +632,7 @@
                         <outlet property="offlineLootView" destination="Y5Y-R1-pZX" id="qSK-xh-nvB"/>
                         <outlet property="panDownView" destination="SNk-1w-aLY" id="lys-3x-znD"/>
                         <outlet property="parrotImg" destination="hXp-gp-h9u" id="hR0-NB-P6N"/>
+                        <outlet property="pelicanImage" destination="jWy-DL-HpA" id="G4e-dB-WCt"/>
                         <outlet property="pirateNameInfo" destination="2ei-ju-9c2" id="UEx-x9-hru"/>
                         <outlet property="pirateShipImg" destination="Cnj-bm-ETr" id="bDH-pS-mzz"/>
                         <outlet property="seagullImage" destination="2YZ-3f-t3x" id="c64-JP-hEh"/>

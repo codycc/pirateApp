@@ -37,6 +37,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     @IBOutlet var vultureImage: UIImageView!
     @IBOutlet var campFireImage: UIImageView!
     
+    
+    @IBOutlet weak var pelicanImage: UIImageView!
+    
     var pirates = [Pirate]()
     var sortedPirates = [Pirate]()
     var wallet = [Wallet]()
@@ -283,7 +286,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         }
         
         if users[0].hasPelican {
-            
+            self.pelicanImage.isHidden = false
         }
         
         if users[0].hasVulture {

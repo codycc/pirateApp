@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import AVFoundation
 
 class StoreVC: UIViewController {
     
@@ -34,6 +35,8 @@ class StoreVC: UIViewController {
     
     var users = [User]()
     var wallet = [Wallet]()
+    
+    var purchasePlayer: AVAudioPlayer!
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
@@ -100,6 +103,21 @@ class StoreVC: UIViewController {
         
     }
     
+    
+    func playPurchaseSoundEffect() {
+        let path = Bundle.main.path(forResource: "purchase", ofType: "wav")
+        let soundUrl = NSURL(fileURLWithPath: path!)
+        
+        do {
+            try purchasePlayer = AVAudioPlayer(contentsOf: soundUrl as URL)
+            purchasePlayer.prepareToPlay()
+            purchasePlayer.volume = 0.7
+            purchasePlayer.play()
+        } catch let err as NSError {
+            print(err.debugDescription)
+        }
+    }
+    
     func checkWhatItemsAreBought() {
         if users[0].hasSeagull {
             seagullImage.isUserInteractionEnabled = false
@@ -151,6 +169,7 @@ class StoreVC: UIViewController {
             let context = appDelegate.persistentContainer.viewContext
             do {
                 try context.save()
+                playPurchaseSoundEffect()
             } catch {
                 
             }
@@ -167,6 +186,7 @@ class StoreVC: UIViewController {
             let context = appDelegate.persistentContainer.viewContext
             do {
                 try context.save()
+                 playPurchaseSoundEffect()
             } catch {
                 
             }
@@ -183,6 +203,7 @@ class StoreVC: UIViewController {
             let context = appDelegate.persistentContainer.viewContext
             do {
                 try context.save()
+                 playPurchaseSoundEffect()
             } catch {
                 
             }
@@ -199,6 +220,7 @@ class StoreVC: UIViewController {
             let context = appDelegate.persistentContainer.viewContext
             do {
                 try context.save()
+                 playPurchaseSoundEffect()
             } catch {
                 
             }
@@ -215,6 +237,7 @@ class StoreVC: UIViewController {
             let context = appDelegate.persistentContainer.viewContext
             do {
                 try context.save()
+                 playPurchaseSoundEffect()
             } catch {
                 
             }
@@ -231,6 +254,7 @@ class StoreVC: UIViewController {
             let context = appDelegate.persistentContainer.viewContext
             do {
                 try context.save()
+                 playPurchaseSoundEffect()
             } catch {
                 
             }
