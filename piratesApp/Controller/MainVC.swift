@@ -744,7 +744,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         
 
         
-        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut , animations: {
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseIn , animations: {
             imageView.transform = CGAffineTransform(translationX: CGFloat(randomNum1) , y: CGFloat(randomNum7) )
             imageView2.transform = CGAffineTransform(translationX: CGFloat(randomNum2), y: CGFloat(randomNum8) )
             imageView3.transform = CGAffineTransform(translationX: CGFloat(randomNum3), y: CGFloat(randomNum5))
@@ -766,8 +766,6 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
           
         })
         
-     
-
         let pirate = sortedPirates[index]
         playPurchaseSoundEffect()
         checkIfAllPiratesAreFilled()
