@@ -26,6 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         GADMobileAds.configure(withApplicationID: "ca-app-pub-1067425139660844~7276960926")
+        
+        
         UserDefaults.standard.set(false, forKey: "appClosed")
         //LOADING VIDEO AD
         GADRewardBasedVideoAd.sharedInstance().load(GADRequest(),
@@ -33,6 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         
         if launchedBefore {
+            
            UserDefaults.standard.set(false, forKey: "launchedOffline")
         } else {
             
@@ -94,8 +97,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             cutler.setValue(12, forKey: "lootTime")
             cutler.setValue(100, forKey: "lootAmount")
             cutler.setValue(0, forKey: "numberOfPirates")
-            cutler.setValue(true, forKey: "isAnimating")
-            cutler.setValue(true, forKey: "isUnlocked")
+            cutler.setValue(false , forKey: "isAnimating")
+            cutler.setValue(false, forKey: "isUnlocked")
             cutler.setValue(15, forKey: "numberOfImages")
             cutler.setValue(1, forKey: "groundNumber")
             cutler.setValue(2, forKey: "backgroundNumber")
@@ -110,8 +113,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             bandit.setValue(18, forKey: "lootTime")
             bandit.setValue(200, forKey: "lootAmount")
             bandit.setValue(0, forKey: "numberOfPirates")
-            bandit.setValue(true, forKey: "isAnimating")
-            bandit.setValue(true, forKey: "isUnlocked")
+            bandit.setValue(false, forKey: "isAnimating")
+            bandit.setValue(false, forKey: "isUnlocked")
             bandit.setValue(15, forKey: "numberOfImages")
             bandit.setValue(1, forKey: "groundNumber")
             bandit.setValue(1, forKey: "backgroundNumber")
@@ -125,8 +128,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             landlubber.setValue(27, forKey: "lootTime")
             landlubber.setValue(400, forKey: "lootAmount")
             landlubber.setValue(0, forKey: "numberOfPirates")
-            landlubber.setValue(true, forKey: "isAnimating")
-            landlubber.setValue(true, forKey: "isUnlocked")
+            landlubber.setValue(false, forKey: "isAnimating")
+            landlubber.setValue(false, forKey: "isUnlocked")
             landlubber.setValue(15, forKey: "numberOfImages")
             landlubber.setValue(1, forKey: "groundNumber")
             landlubber.setValue(2, forKey: "backgroundNumber")
@@ -140,8 +143,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             roger.setValue(36, forKey: "lootTime")
             roger.setValue(500, forKey: "lootAmount")
             roger.setValue(0, forKey: "numberOfPirates")
-            roger.setValue(true, forKey: "isAnimating")
-            roger.setValue(true, forKey: "isUnlocked")
+            roger.setValue(false, forKey: "isAnimating")
+            roger.setValue(false, forKey: "isUnlocked")
             roger.setValue(15, forKey: "numberOfImages")
             roger.setValue(2, forKey: "groundNumber")
             roger.setValue(1, forKey: "backgroundNumber")
@@ -155,8 +158,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             crook.setValue(45, forKey: "lootTime")
             crook.setValue(600, forKey: "lootAmount")
             crook.setValue(0, forKey: "numberOfPirates")
-            crook.setValue(true, forKey: "isAnimating")
-            crook.setValue(true, forKey: "isUnlocked")
+            crook.setValue(false, forKey: "isAnimating")
+            crook.setValue(false, forKey: "isUnlocked")
             crook.setValue(15, forKey: "numberOfImages")
             crook.setValue(2, forKey: "groundNumber")
             crook.setValue(2, forKey: "backgroundNumber")
@@ -170,8 +173,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             bucaneer.setValue(54, forKey: "lootTime")
             bucaneer.setValue(700, forKey: "lootAmount")
             bucaneer.setValue(0, forKey: "numberOfPirates")
-            bucaneer.setValue(true, forKey: "isAnimating")
-            bucaneer.setValue(true, forKey: "isUnlocked")
+            bucaneer.setValue(false, forKey: "isAnimating")
+            bucaneer.setValue(false, forKey: "isUnlocked")
             bucaneer.setValue(11, forKey: "numberOfImages")
             bucaneer.setValue(2, forKey: "groundNumber")
             bucaneer.setValue(1, forKey: "backgroundNumber")
@@ -186,8 +189,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             thief.setValue(63, forKey: "lootTime")
             thief.setValue(800, forKey: "lootAmount")
             thief.setValue(0, forKey: "numberOfPirates")
-            thief.setValue(true, forKey: "isAnimating")
-            thief.setValue(true, forKey: "isUnlocked")
+            thief.setValue(false, forKey: "isAnimating")
+            thief.setValue(false, forKey: "isUnlocked")
             thief.setValue(11, forKey: "numberOfImages")
             thief.setValue(2, forKey: "groundNumber")
             thief.setValue(2, forKey: "backgroundNumber")
@@ -202,8 +205,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             gunna.setValue(72, forKey: "lootTime")
             gunna.setValue(900, forKey: "lootAmount")
             gunna.setValue(0, forKey: "numberOfPirates")
-            gunna.setValue(true, forKey: "isAnimating")
-            gunna.setValue(true, forKey: "isUnlocked")
+            gunna.setValue(false, forKey: "isAnimating")
+            gunna.setValue(false, forKey: "isUnlocked")
             gunna.setValue(11, forKey: "numberOfImages")
             gunna.setValue(3, forKey: "groundNumber")
             gunna.setValue(1, forKey: "backgroundNumber")
@@ -218,8 +221,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             bluebeard.setValue(81, forKey: "lootTime")
             bluebeard.setValue(950, forKey: "lootAmount")
             bluebeard.setValue(0, forKey: "numberOfPirates")
-            bluebeard.setValue(true, forKey: "isAnimating")
-            bluebeard.setValue(true, forKey: "isUnlocked")
+            bluebeard.setValue(false, forKey: "isAnimating")
+            bluebeard.setValue(false, forKey: "isUnlocked")
             bluebeard.setValue(24, forKey: "numberOfImages")
             bluebeard.setValue(3, forKey: "groundNumber")
             bluebeard.setValue(2, forKey: "backgroundNumber")
@@ -234,8 +237,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             redbeard.setValue(90, forKey: "lootTime")
             redbeard.setValue(1000, forKey: "lootAmount")
             redbeard.setValue(0, forKey: "numberOfPirates")
-            redbeard.setValue(true, forKey: "isAnimating")
-            redbeard.setValue(true, forKey: "isUnlocked")
+            redbeard.setValue(false, forKey: "isAnimating")
+            redbeard.setValue(false, forKey: "isUnlocked")
             redbeard.setValue(24, forKey: "numberOfImages")
             redbeard.setValue(3, forKey: "groundNumber")
             redbeard.setValue(1, forKey: "backgroundNumber")
@@ -250,8 +253,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             blackbeard.setValue(99, forKey: "lootTime")
             blackbeard.setValue(1250, forKey: "lootAmount")
             blackbeard.setValue(0, forKey: "numberOfPirates")
-            blackbeard.setValue(true, forKey: "isAnimating")
-            blackbeard.setValue(true, forKey: "isUnlocked")
+            blackbeard.setValue(false, forKey: "isAnimating")
+            blackbeard.setValue(false, forKey: "isUnlocked")
             blackbeard.setValue(24, forKey: "numberOfImages")
             blackbeard.setValue(3, forKey: "groundNumber")
             blackbeard.setValue(2, forKey: "backgroundNumber")
@@ -292,7 +295,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-        
+      
         let date = NSDate().timeIntervalSince1970
         _ = UserDefaults.standard.double(forKey: "timeClosed")
         
@@ -308,17 +311,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let foreground = UserDefaults.standard.bool(forKey: "appClosed")
         print("enter foreground\(foreground)is app closed")
 //        _ = UserDefaults.standard.bool(forKey: "appClosed")
+        
         UserDefaults.standard.set(false, forKey: "appClosed")
         
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        
         let date = NSDate().timeIntervalSince1970
         let time = UserDefaults.standard.double(forKey: "timeClosed")
 
-        print("enter foreground")
+        
 //        _ = UserDefaults.standard.bool(forKey: "appClosed")
+      
         UserDefaults.standard.set(false, forKey: "appClosed")
         
        

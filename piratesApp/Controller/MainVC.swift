@@ -37,6 +37,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     @IBOutlet var vultureImage: UIImageView!
     @IBOutlet var campFireImage: UIImageView!
     
+    @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
     
     @IBOutlet weak var pelicanImage: UIImageView!
     
@@ -161,14 +162,20 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         sortPirates()
         startTimers()
         startAnimationTimers()
-        checkForUserStoreItems()
+        //checkForUserStoreItems()
         checkIfAllPiratesAreFilled()
-        checkWhatItemsToDisplay()
+        //checkWhatItemsToDisplay()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.tableViewHeight.constant = self.view.frame.height * 0.35
     }
     
     override func viewDidAppear(_ animated: Bool) {
         showIfUserIsOnFirstUse()
         showOfflineView()
+        
+        
     }
 
     @objc func alertTimers() {
@@ -177,6 +184,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     }
     
     @objc func invalidateTimers() {
+        
           UserDefaults.standard.set(true, forKey: "appClosed")
     }
     
@@ -189,7 +197,8 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     
     func updateWalletLoot() {
         var string = ""
-        var walletAmount = wallet[0].totalLootAmount
+        //let walletAmount = wallet[0].totalLootAmount
+        let walletAmount = 100000.00
         
         if walletAmount >= 1000000000000 {
             let str = "\(walletAmount)"
@@ -238,15 +247,15 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     }
     
     @objc func setGems() {
-        gemsImg.stopAnimating()
-        gemsImg.animation = "pop"
-        gemsImg.animate()
+        //gemsImg.stopAnimating()
+     //   gemsImg.animation = "pop"
+      //  gemsImg.animate()
     }
     
     @objc func setLootChest() {
-        lootImg.stopAnimating()
-        lootImg.animation = "morph"
-        lootImg.animate()
+        //lootImg.stopAnimating()
+       // lootImg.animation = "morph"
+       // lootImg.animate()
     }
     
     func reloadTable() {
@@ -276,18 +285,6 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     
     func checkWhatItemsToDisplay() {
         if users[0].hasSeagull {
-            var imgArray = [UIImage]()
-            imgArray = []
-            for x in 1...19 {
-                let img = UIImage(named:"seagull\(x)")
-                imgArray.append(img!)
-            }
-            
-            seagullImage.stopAnimating()
-            seagullImage.animationImages = imgArray
-            seagullImage.animationDuration = 5.0
-            seagullImage.animationRepeatCount = 0
-            seagullImage.startAnimating()
            self.seagullImage.isHidden = false
         }
         
@@ -311,21 +308,6 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         }
         
         if users[0].hasPelican {
-            var imgArray = [UIImage]()
-            imgArray = []
-            for x in 0...11 {
-                let img = UIImage(named:"pelican\(x)")
-                imgArray.append(img!)
-            }
-            
-            pelicanImage.stopAnimating()
-            pelicanImage.animationImages = imgArray
-            pelicanImage.animationDuration = 0.7
-            pelicanImage.animationRepeatCount = 0
-            pelicanImage.startAnimating()
-            
-            
-            
             self.pelicanImage.isHidden = false
         }
         
@@ -347,18 +329,6 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         }
         
         if users[0].hasKoala {
-            var imgArray = [UIImage]()
-            imgArray = []
-            for x in 0...19 {
-                let img = UIImage(named:"koala\(x)")
-                imgArray.append(img!)
-            }
-            
-            koalaImage.stopAnimating()
-            koalaImage.animationImages = imgArray
-            koalaImage.animationDuration = 5.0
-            koalaImage.animationRepeatCount = 0
-            koalaImage.startAnimating()
             self.koalaImage.isHidden = false
         }
         
@@ -398,6 +368,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     
     
     func showIfUserIsOnFirstUse() {
+        
         let isFirstUse = UserDefaults.standard.bool(forKey: "isFirstUse")
         if isFirstUse {
             performSegue(withIdentifier: "goToIntroOutroVC", sender: nil)
@@ -405,6 +376,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     }
     
     func showOfflineView() {
+       
         let launchedOffline = UserDefaults.standard.bool(forKey: "launchedOffline")
         if !launchedOffline {
             performSegue(withIdentifier: "goToOfflineVC", sender: nil)
