@@ -87,7 +87,7 @@ class OfflineBonusVC: UIViewController, GADBannerViewDelegate, GADRewardBasedVid
         do {
             try purchasePlayer = AVAudioPlayer(contentsOf: soundUrl as URL)
             purchasePlayer.prepareToPlay()
-            purchasePlayer.volume = 0.3
+            purchasePlayer.volume = 0.5
             purchasePlayer.play()
         } catch let err as NSError {
             print(err.debugDescription)

@@ -14,13 +14,39 @@ import AVFoundation
 class IntroOutroVC: UIViewController, AVAudioPlayerDelegate {
     @IBOutlet var gameBeatLbl: UILabel!
     @IBOutlet var gameBeatView: UIView!
-
+    @IBOutlet weak var nextBtn: UIButton!
+    @IBOutlet weak var tutorialLbl: UILabel!
+    
+    @IBOutlet weak var pirateImage: UIImageView!
+    @IBOutlet weak var tutorialImage: UIImageView!
+    
+    @IBOutlet weak var exitBtn: UIButton!
+    
+    var popPlayer: AVAudioPlayer!
+    
+    var imagesArray = ["TUTORIAL1","TUTORIAL2","TUTORIAL3"]
+    var count = 0
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        exitBtn.isUserInteractionEnabled = false
+        exitBtn.alpha = 0.5
         showIfUserIsOnFirstUse()
         print("IN VIEW CONTROLLER")
         // Do any additional setup after loading the view.
+    }
+    
+    func playPopSoundEffect() {
+        let path = Bundle.main.path(forResource: "pop", ofType: "wav")
+        let soundUrl = NSURL(fileURLWithPath: path!)
+        
+        do {
+            try popPlayer = AVAudioPlayer(contentsOf: soundUrl as URL)
+            popPlayer.prepareToPlay()
+            popPlayer.volume = 0.3
+            popPlayer.play()
+        } catch let err as NSError {
+            print(err.debugDescription)
+        }
     }
 
     func showIfUserIsOnFirstUse() {
@@ -34,8 +60,27 @@ class IntroOutroVC: UIViewController, AVAudioPlayerDelegate {
     
     @IBAction func exitBtnPressed(_ sender: Any) {
         //go to main vc
+        playPopSoundEffect()
         self.dismiss(animated: true) {
             self.gameBeatLbl.text = "CONGRATS MATE! YOU HAVE JUST BEAT THE GAME! TO REPLAY, PLEASE REDOWNLOAD THE APP! CHEERS!"
+        }
+        
+    }
+    
+    
+    @IBAction func nextBtnPressed(_ sender: Any) {
+        playPopSoundEffect()
+        pirateImage.isHidden = true
+        tutorialLbl.isHidden = false
+        tutorialImage.isHidden = false
+        gameBeatView.alpha = 0.9
+        tutorialImage.image = UIImage(named: imagesArray[count])
+        count += 1
+        if count == 3 {
+            exitBtn.isUserInteractionEnabled = true
+            exitBtn.alpha = 1.0
+            nextBtn.isUserInteractionEnabled = false
+            nextBtn.alpha = 0.6
         }
         
     }

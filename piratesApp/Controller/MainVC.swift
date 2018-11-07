@@ -65,9 +65,14 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     let ahoyPath = Bundle.main.path(forResource: "ahoy", ofType: "wav")
     let parrotPath = Bundle.main.path(forResource: "pr3", ofType: "wav")
     let shopPath = Bundle.main.path(forResource: "shopNoise", ofType: "wav")
+    let requestPirate = NSFetchRequest<NSFetchRequestResult>(entityName: "Pirate")
+    let requestWallet = NSFetchRequest<NSFetchRequestResult>(entityName: "Wallet")
+    let requestUser = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+    
     
     @IBOutlet var adView: GADBannerView!
     @IBOutlet var offlineLootView: UIView!
+    
     
     
     override func viewDidLoad() {
@@ -78,16 +83,10 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         tableView.bounces = false
         tableView.alwaysBounceVertical = false
         
-        adView.adUnitID = "ca-app-pub-3940256099942544/6300978111"
+        adView.adUnitID = "ca-app-pub-1067425139660844/7823755834"
         adView.rootViewController = self
         adView.load(GADRequest())
         adView.delegate = self
-        
-        let date = NSDate().timeIntervalSince1970
-        let context = appDelegate.persistentContainer.viewContext
-        let requestPirate = NSFetchRequest<NSFetchRequestResult>(entityName: "Pirate")
-        let requestWallet = NSFetchRequest<NSFetchRequestResult>(entityName: "Wallet")
-        let requestUser = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
         
         
         self.parrotImg.isUserInteractionEnabled = true
@@ -115,46 +114,16 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         
         
         NotificationCenter.default.addObserver(self, selector:#selector(MainVC.alertTimers), name:
-            UIApplication.willEnterForegroundNotification, object: nil)
+        UIApplication.willEnterForegroundNotification, object: nil)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(checkWhatItemsToDisplay), name: NSNotification.Name(rawValue: "checkNewItems"), object: nil)
 
         
         //fetching Pirate Entity from CoreData
-        do {
-            let results = try context.fetch(requestPirate)
-            if results.count > 0 {
-                for result in results {
-                    pirates.append(result as! Pirate)
-                }
-            }
-        } catch {
-            // handle error
-        }
-        
-        
-        do {
-            let results = try context.fetch(requestUser)
-            if results.count > 0 {
-                for result in results {
-                    users.append(result as! User)
-                }
-            }
-        } catch {
-            // handle error
-        }
-        
-        // fetching Wallet Entity from CoreData
-        do {
-            let results = try context.fetch(requestWallet)
-            if results.count > 0 {
-                for result in results {
-                    wallet.append(result as! Wallet)
-                }
-            }
-        } catch {
-            // handle error 
-        }
-        
+     
+        grabPirateData()
+        grabWalletData()
+        grabUserData()
         updateWalletLoot()
         addParrotImagesForAnimation()
         addShipImagesForAnimation()
@@ -162,9 +131,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         sortPirates()
         startTimers()
         startAnimationTimers()
-        //checkForUserStoreItems()
+        checkForUserStoreItems()
         checkIfAllPiratesAreFilled()
-        //checkWhatItemsToDisplay()
+        checkWhatItemsToDisplay()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -179,13 +148,11 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     }
 
     @objc func alertTimers() {
-        print("alertTimersCalled")
         startTimers()
     }
     
     @objc func invalidateTimers() {
-        
-          UserDefaults.standard.set(true, forKey: "appClosed")
+        UserDefaults.standard.set(true, forKey: "appClosed")
     }
     
      func startAnimationTimers() {
@@ -195,10 +162,57 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         gemsTimer = Timer.scheduledTimer(timeInterval: 11, target: self, selector: #selector(MainVC.setGems), userInfo: nil, repeats: true)
     }
     
+    
+    func grabUserData() {
+         let context = appDelegate.persistentContainer.viewContext
+        users = []
+        do {
+            let results = try context.fetch(requestUser)
+            if results.count > 0 {
+                for result in results {
+                    users.append(result as! User)
+                }
+            }
+        } catch {
+            // handle error
+        }
+    }
+    
+    func grabWalletData() {
+         let context = appDelegate.persistentContainer.viewContext
+        wallet = []
+        // fetching Wallet Entity from CoreData
+        do {
+            let results = try context.fetch(requestWallet)
+            if results.count > 0 {
+                for result in results {
+                    wallet.append(result as! Wallet)
+                }
+            }
+        } catch {
+            // handle error
+        }
+    }
+    
+    func grabPirateData() {
+         let context = appDelegate.persistentContainer.viewContext
+        pirates = []
+        do {
+            let results = try context.fetch(requestPirate)
+            if results.count > 0 {
+                for result in results {
+                    pirates.append(result as! Pirate)
+                }
+            }
+        } catch {
+            // handle error
+        }
+    }
+    
+    
     func updateWalletLoot() {
         var string = ""
-        //let walletAmount = wallet[0].totalLootAmount
-        let walletAmount = 100000.00
+        let walletAmount = wallet[0].totalLootAmount
         
         if walletAmount >= 1000000000000 {
             let str = "\(walletAmount)"
@@ -283,7 +297,8 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         setParrotImages(imgArray: imgArray)
     }
     
-    func checkWhatItemsToDisplay() {
+    @objc func checkWhatItemsToDisplay() {
+        grabUserData()
         if users[0].hasSeagull {
            self.seagullImage.isHidden = false
         }
@@ -333,13 +348,20 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         }
         
         if users[0].hasShip {
+            shipArray = []
+            for x in 0...24 {
+                let img = UIImage(named:"shipRightBlack\(x)")
+                shipArray.append(img!)
+            }
+
+            setShipImages()
         
         }
         
         
     }
     
-    func checkForUserStoreItems() {
+    @objc func checkForUserStoreItems() {
         let user = users[0]
         if user.hasKoala {
             koalaImage.isHidden = false
@@ -394,21 +416,12 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     }
     
     func addShipImagesForAnimation() {
-       
         shipArray = []
-        changeShipColor = !changeShipColor
-        
-        if changeShipColor {
-            for x in 0...24 {
-                let img = UIImage(named:"shipRightBlack\(x)")
-                shipArray.append(img!)
-            }
-        } else {
             for x in 0...24 {
                 let img = UIImage(named:"shipRight\(x)")
                 shipArray.append(img!)
             }
-        }
+        
         
         setShipImages()
     }
@@ -670,7 +683,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     
     
     @IBAction func pirateBtnPressed(_ sender: Any) {
-     
+        playAhoySoundEffect()
         let button = sender as! UIButton
         let index = button.tag
         let pirate = sortedPirates[index]
@@ -776,10 +789,10 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         print ("point: \(point)")
         
         
-        var imageView = UIImageView(image: image!)
-        var imageView2 = UIImageView(image: image!)
-        var imageView3 = UIImageView(image: image!)
-        var imageView4 = UIImageView(image: image!)
+        let imageView = UIImageView(image: image!)
+        let imageView2 = UIImageView(image: image!)
+        let imageView3 = UIImageView(image: image!)
+        let imageView4 = UIImageView(image: image!)
 
         imageView.frame = CGRect(x: point.x, y: point.y, width: 30, height: 30)
         view.addSubview(imageView)

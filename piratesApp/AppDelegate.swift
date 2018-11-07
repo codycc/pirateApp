@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UserDefaults.standard.set(false, forKey: "appClosed")
         //LOADING VIDEO AD
         GADRewardBasedVideoAd.sharedInstance().load(GADRequest(),
-                                                    withAdUnitID: "ca-app-pub-3940256099942544/5224354917")
+                                                    withAdUnitID: "ca-app-pub-1067425139660844/7589813936")
 
         
         if launchedBefore {
@@ -78,7 +78,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             user.setValue(false, forKey: "hasPelican")
             
             skollywag.setValue(0, forKey: "id")
-            skollywag.setValue("Scollywag", forKey: "name")
+            skollywag.setValue("Scolly", forKey: "name")
             skollywag.setValue(10, forKey: "lootTime")
             skollywag.setValue(25, forKey: "lootAmount")
             skollywag.setValue(1, forKey: "numberOfPirates")
@@ -319,10 +319,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
         
-        let date = NSDate().timeIntervalSince1970
-        let time = UserDefaults.standard.double(forKey: "timeClosed")
 
-        
 //        _ = UserDefaults.standard.bool(forKey: "appClosed")
       
         UserDefaults.standard.set(false, forKey: "appClosed")

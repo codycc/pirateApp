@@ -278,6 +278,7 @@ class StoreVC: UIViewController {
     
 
     @IBAction func exitIconTapped(_ sender: Any) {
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "checkNewItems"), object: nil)
         playExitSoundEffect()
         self.dismiss(animated: true, completion: nil)
     }

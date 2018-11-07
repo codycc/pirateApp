@@ -83,19 +83,7 @@ class StatsVC: UIViewController {
     }
     
     func lowerPanDownView(pirate: Pirate) {
-//        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 4, animations: {
-//            self.panDownView.center.y += 380
-//
-//        }, completion: { finished in
-//            UIView.animate(withDuration: 0.5, animations: {
-//            }, completion: { finished in
-//            })
-//
-//            let height = self.view.frame.size.height * 0.45
-//            self.informationStackView.translatesAutoresizingMaskIntoConstraints = false
-//            self.informationStackView.heightAnchor.constraint(equalToConstant: height).isActive = true
-//
-//        })
+
         
         //change 
         switch pirate.id {
