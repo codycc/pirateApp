@@ -15,9 +15,9 @@ class IntroOutroVC: UIViewController, AVAudioPlayerDelegate {
     @IBOutlet var gameBeatLbl: UILabel!
     @IBOutlet var gameBeatView: UIView!
     @IBOutlet weak var nextBtn: UIButton!
-    @IBOutlet weak var tutorialLbl: UILabel!
+
+    @IBOutlet weak var tutorialLabel: UILabel!
     
-    @IBOutlet weak var pirateImage: UIImageView!
     @IBOutlet weak var tutorialImage: UIImageView!
     
     @IBOutlet weak var exitBtn: UIButton!
@@ -63,6 +63,10 @@ class IntroOutroVC: UIViewController, AVAudioPlayerDelegate {
         playPopSoundEffect()
         self.dismiss(animated: true) {
             self.gameBeatLbl.text = "CONGRATS MATE! YOU HAVE JUST BEAT THE GAME! TO REPLAY, PLEASE REDOWNLOAD THE APP! CHEERS!"
+            self.tutorialLabel.isHidden = true
+            self.gameBeatView.alpha = 0.7
+            self.tutorialImage.isHidden = true
+            self.gameBeatLbl.isHidden = false
         }
         
     }
@@ -70,8 +74,8 @@ class IntroOutroVC: UIViewController, AVAudioPlayerDelegate {
     
     @IBAction func nextBtnPressed(_ sender: Any) {
         playPopSoundEffect()
-        pirateImage.isHidden = true
-        tutorialLbl.isHidden = false
+       
+        tutorialLabel.isHidden = false
         tutorialImage.isHidden = false
         gameBeatView.alpha = 0.9
         tutorialImage.image = UIImage(named: imagesArray[count])
@@ -80,7 +84,7 @@ class IntroOutroVC: UIViewController, AVAudioPlayerDelegate {
             exitBtn.isUserInteractionEnabled = true
             exitBtn.alpha = 1.0
             nextBtn.isUserInteractionEnabled = false
-            nextBtn.alpha = 0.6
+            nextBtn.alpha = 0
         }
         
     }
