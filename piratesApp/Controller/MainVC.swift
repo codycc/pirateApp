@@ -299,6 +299,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     
     @objc func checkWhatItemsToDisplay() {
         grabUserData()
+        updateWalletLoot()
         if users[0].hasSeagull {
            self.seagullImage.isHidden = false
         }
