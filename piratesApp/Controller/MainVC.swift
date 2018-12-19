@@ -39,6 +39,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
     
+    @IBOutlet weak var prestigeLbl: UILabel!
     @IBOutlet weak var pelicanImage: UIImageView!
     
     var pirates = [Pirate]()
@@ -53,7 +54,35 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     var parrotPlayer: AVAudioPlayer!
     var shipPlayer: AVAudioPlayer!
     var purchasePlayer: AVAudioPlayer!
+    var prestigePlayer: AVAudioPlayer!
     var shopPlayer: AVAudioPlayer!
+    var timerPirate0 = Timer()
+    var timerPirate1 = Timer()
+    var timerPirate2 = Timer()
+    var timerPirate3 = Timer()
+    var timerPirate4 = Timer()
+    var timerPirate5 = Timer()
+    var timerPirate6 = Timer()
+    var timerPirate7 = Timer()
+    var timerPirate8 = Timer()
+    var timerPirate9 = Timer()
+    var timerPirate10 = Timer()
+    var timerPirate11 = Timer()
+    
+    
+    var timer2Pirate0 = Timer()
+    var timer2Pirate1 = Timer()
+    var timer2Pirate2 = Timer()
+    var timer2Pirate3 = Timer()
+    var timer2Pirate4 = Timer()
+    var timer2Pirate5 = Timer()
+    var timer2Pirate6 = Timer()
+    var timer2Pirate7 = Timer()
+    var timer2Pirate8 = Timer()
+    var timer2Pirate9 = Timer()
+    var timer2Pirate10 = Timer()
+    var timer2Pirate11 = Timer()
+    
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var changeParrotColor = true
     var changeShipColor = true
@@ -83,7 +112,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         tableView.bounces = false
         tableView.alwaysBounceVertical = false
         
-        adView.adUnitID = "ca-app-pub-1067425139660844/7823755834"
+        
+        adView.adUnitID = "ca-app-pub-3940256099942544/6300978111"
+//        adView.adUnitID = "ca-app-pub-1067425139660844/7823755834"
         adView.rootViewController = self
         adView.load(GADRequest())
         adView.delegate = self
@@ -125,6 +156,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         grabWalletData()
         grabUserData()
         updateWalletLoot()
+        updateGemAmount()
         addParrotImagesForAnimation()
         addShipImagesForAnimation()
         playMusic()
@@ -209,10 +241,16 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         }
     }
     
+    func updateGemAmount() {
+        let gemAmount = wallet[0].totalGemsAmount
+        prestigeLbl.text = "\(gemAmount)"
+    }
+    
     
     func updateWalletLoot() {
         var string = ""
         let walletAmount = wallet[0].totalLootAmount
+        
         
         if walletAmount >= 1000000000000 {
             let str = "\(walletAmount)"
@@ -376,17 +414,207 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         
     }
     
+    func resetPirates() {
+
+        let context = appDelegate.persistentContainer.viewContext
+        
+        for pirate in pirates {
+            switch pirate.id {
+            case 0:
+                pirate.lootTime = 10
+                pirate.lootAmount = 25
+                pirate.numberOfPirates = 1
+                pirate.isAnimating = true
+                pirate.isUnlocked = true
+                pirate.currentTime = 6
+                pirate.piratePrice = 50
+            case 1:
+                pirate.lootTime = 12
+                pirate.lootAmount = 100
+                pirate.numberOfPirates = 0
+                pirate.isAnimating = false
+                pirate.isUnlocked = false
+                pirate.currentTime = 12
+                pirate.piratePrice = 200
+            case 2:
+                pirate.lootTime = 18
+                pirate.lootAmount = 200
+                pirate.numberOfPirates = 0
+                pirate.isAnimating = false
+                pirate.isUnlocked = false
+                pirate.currentTime = 12
+                pirate.piratePrice = 1500
+            case 3:
+                pirate.lootTime = 27
+                pirate.lootAmount = 400
+                pirate.numberOfPirates = 0
+                pirate.isAnimating = false
+                pirate.isUnlocked = false
+                pirate.currentTime = 12
+                pirate.piratePrice = 2000
+            case 4:
+                pirate.lootTime = 36
+                pirate.lootAmount = 500
+                pirate.numberOfPirates = 0
+                pirate.isAnimating = false
+                pirate.isUnlocked = false
+                pirate.currentTime = 12
+                pirate.piratePrice = 2500
+            case 5:
+                pirate.lootTime = 45
+                pirate.lootAmount = 600
+                pirate.numberOfPirates = 0
+                pirate.isAnimating = false
+                pirate.isUnlocked = false
+                pirate.currentTime = 12
+                pirate.piratePrice = 3000
+            case 6:
+                pirate.lootTime = 54
+                pirate.lootAmount = 700
+                pirate.numberOfPirates = 0
+                pirate.isAnimating = false
+                pirate.isUnlocked = false
+                pirate.currentTime = 18
+                pirate.piratePrice = 3500
+            case 7:
+                pirate.lootTime = 63
+                pirate.lootAmount = 800
+                pirate.numberOfPirates = 0
+                pirate.isAnimating = false
+                pirate.isUnlocked = false
+                pirate.currentTime = 27
+                pirate.piratePrice = 4000
+            case 8:
+                pirate.lootTime = 72
+                pirate.lootAmount = 900
+                pirate.numberOfPirates = 0
+                pirate.isAnimating = false
+                pirate.isUnlocked = false
+                pirate.currentTime = 36
+                pirate.piratePrice = 4500
+            case 9:
+                pirate.lootTime = 81
+                pirate.lootAmount = 950
+                pirate.numberOfPirates = 0
+                pirate.isAnimating = false
+                pirate.isUnlocked = false
+                pirate.currentTime = 45
+                pirate.piratePrice = 5000
+
+            case 10:
+                pirate.lootTime = 90
+                pirate.lootAmount = 1000
+                pirate.numberOfPirates = 0
+                pirate.isAnimating = false
+                pirate.isUnlocked = false
+                pirate.currentTime = 54
+                pirate.piratePrice = 5500
+
+            case 11:
+                pirate.lootTime = 99
+                pirate.lootAmount = 1250
+                pirate.numberOfPirates = 0
+                pirate.isAnimating = false
+                pirate.isUnlocked = false
+                pirate.currentTime = 63
+                pirate.piratePrice = 6000
+            default:
+                print("default")
+            }
+            
+        }
+        
+        wallet[0].totalLootAmount = 0
+    
+
+        do {
+            try context.save()
+            print("saved")
+        } catch {
+            // process error
+        }
+        playPrestigeSoundEffect()
+        tableView.reloadData()
+        
+    }
+    func resetOtherTimers() {
+        print("other timers tester")
+        let date = NSDate().timeIntervalSince1970
+        UserDefaults.standard.set(date, forKey: "timeClosed")
+        UserDefaults.standard.set(true, forKey: "appClosed")
+        
+        ////
+         UserDefaults.standard.set(false, forKey: "appClosed")
+       
+        
+//        grabUserData()
+//        updateWalletLoot()
+//        updateGemAmount()
+        
+
+    }
+    
+//    func resetOfflineData() {
+//        for pirate in pirates {
+//            grabPirateOfflineData(pirate: pirate)
+//        }
+//    }
+    func stopTimers() {
+         timerPirate0.invalidate()
+        
+         timerPirate1.invalidate()
+        
+         timerPirate2.invalidate()
+         timerPirate3.invalidate()
+         timerPirate4.invalidate()
+         timerPirate5.invalidate()
+         timerPirate6.invalidate()
+         timerPirate7.invalidate()
+         timerPirate8.invalidate()
+         timerPirate9.invalidate()
+         timerPirate10.invalidate()
+         timerPirate11.invalidate()
+        
+        timer2Pirate0.invalidate()
+        
+        timer2Pirate1.invalidate()
+        
+        timer2Pirate2.invalidate()
+        timer2Pirate3.invalidate()
+        timer2Pirate4.invalidate()
+        timer2Pirate5.invalidate()
+        timer2Pirate6.invalidate()
+        timer2Pirate7.invalidate()
+        timer2Pirate8.invalidate()
+        timer2Pirate9.invalidate()
+        timer2Pirate10.invalidate()
+        timer2Pirate11.invalidate()
+    }
     func checkIfAllPiratesAreFilled() {
         var count = 0
         for pirate in sortedPirates {
             if pirate.numberOfPirates >= 100 {
                 count += 1
             }
-            if count >= 12 {
-               let vc = IntroOutroVC()
-                present(vc, animated: true, completion: nil)
-            }
+           
         }
+        if count >= 3 {
+            print("counting tester")
+                wallet[0].totalGemsAmount += 1
+                stopTimers()
+                resetPirates()
+                grabPirateData()
+                sortPirates()
+                resetOtherTimers()
+                startTimers()
+                updateGemAmount()
+                grabWalletData()
+            for pirate in pirates {
+                print("\(pirate.isUnlocked)unlocked\(pirate.isAnimating)\(pirate.currentTime)")
+            }
+            
+        }
+        
     }
     
     
@@ -538,6 +766,21 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         }
     }
     
+    
+    func playPrestigeSoundEffect() {
+        let path = Bundle.main.path(forResource: "prestige", ofType: "wav")
+        let soundUrl = NSURL(fileURLWithPath: path!)
+        
+        do {
+            try prestigePlayer = AVAudioPlayer(contentsOf: soundUrl as URL)
+            prestigePlayer.prepareToPlay()
+            prestigePlayer.volume = 0.7
+            prestigePlayer.play()
+        } catch let err as NSError {
+            print(err.debugDescription)
+        }
+    }
+    
     func sortPirates() {
         sortedPirates = pirates.sorted(by: { $0.id < $1.id})
     }
@@ -546,8 +789,36 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         for pirate in sortedPirates {
             if pirate.isAnimating {
                 grabPirateOfflineData(pirate: pirate)
-                var timer = Timer()
-                timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(MainVC.updateCoreDataFromTimer), userInfo: pirate, repeats: true)
+               
+                switch pirate.id {
+                case 0:
+                    timerPirate0 = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(MainVC.updateCoreDataFromTimer), userInfo: pirate, repeats: true)
+                case 1:
+                    timerPirate1 = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(MainVC.updateCoreDataFromTimer), userInfo: pirate, repeats: true)
+                case 2:
+                    timerPirate2 = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(MainVC.updateCoreDataFromTimer), userInfo: pirate, repeats: true)
+                case 3:
+                    timerPirate3 = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(MainVC.updateCoreDataFromTimer), userInfo: pirate, repeats: true)
+                case 4:
+                    timerPirate4 = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(MainVC.updateCoreDataFromTimer), userInfo: pirate, repeats: true)
+                case 5:
+                    timerPirate5 = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(MainVC.updateCoreDataFromTimer), userInfo: pirate, repeats: true)
+                case 6:
+                    timerPirate6 = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(MainVC.updateCoreDataFromTimer), userInfo: pirate, repeats: true)
+                case 7:
+                    timerPirate7 = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(MainVC.updateCoreDataFromTimer), userInfo: pirate, repeats: true)
+                case 8:
+                    timerPirate8 = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(MainVC.updateCoreDataFromTimer), userInfo: pirate, repeats: true)
+                case 9:
+                    timerPirate9 = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(MainVC.updateCoreDataFromTimer), userInfo: pirate, repeats: true)
+                case 10:
+                    timerPirate10 = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(MainVC.updateCoreDataFromTimer), userInfo: pirate, repeats: true)
+                case 11:
+                    timerPirate11 = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(MainVC.updateCoreDataFromTimer), userInfo: pirate, repeats: true)
+                default:
+                    print("default")
+                }
+//                timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(MainVC.updateCoreDataFromTimer, userInfo: pirate, repeats: true)
                 
             }
             if pirate.id == 0 {
@@ -627,6 +898,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         tableView.reloadRows(at: [indexPath], with: .none)
         
         if UserDefaults.standard.bool(forKey: "appClosed") == true {
+
             timer.invalidate()
         } 
     }
@@ -750,7 +1022,36 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
                     pirate.setValue(true, forKey: "isAnimating")
                     try context.save()
                     var timer = Timer()
-                    timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(MainVC.updateCoreDataFromTimer), userInfo: pirate, repeats: true)
+                    switch pirate.id {
+                    case 0:
+                        timer2Pirate0 = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(MainVC.updateCoreDataFromTimer), userInfo: pirate, repeats: true)
+                    case 1:
+                        timer2Pirate1 = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(MainVC.updateCoreDataFromTimer), userInfo: pirate, repeats: true)
+                        case 2:
+                        timer2Pirate2 = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(MainVC.updateCoreDataFromTimer), userInfo: pirate, repeats: true)
+                        case 3:
+                        timer2Pirate3 = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(MainVC.updateCoreDataFromTimer), userInfo: pirate, repeats: true)
+                        case 4:
+                        timer2Pirate4 = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(MainVC.updateCoreDataFromTimer), userInfo: pirate, repeats: true)
+                        case 5:
+                        timer2Pirate5 = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(MainVC.updateCoreDataFromTimer), userInfo: pirate, repeats: true)
+                        case 6:
+                        timer2Pirate6 = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(MainVC.updateCoreDataFromTimer), userInfo: pirate, repeats: true)
+                        case 7:
+                        timer2Pirate7 = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(MainVC.updateCoreDataFromTimer), userInfo: pirate, repeats: true)
+                        case 8:
+                        timer2Pirate8 = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(MainVC.updateCoreDataFromTimer), userInfo: pirate, repeats: true)
+                        case 9:
+                        timer2Pirate9 = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(MainVC.updateCoreDataFromTimer), userInfo: pirate, repeats: true)
+                        case 10:
+                        timer2Pirate10 = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(MainVC.updateCoreDataFromTimer), userInfo: pirate, repeats: true)
+                        case 11:
+                        timer2Pirate11 = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(MainVC.updateCoreDataFromTimer), userInfo: pirate, repeats: true)
+                    default:
+                        print("default")
+                    }
+                    
+                    
                     playPurchaseSoundEffect()
                     updateWalletLoot()
                     reloadTable()
@@ -775,7 +1076,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         
         let context = appDelegate.persistentContainer.viewContext
         
-        checkIfAllPiratesAreFilled()
+        
         
         let button = sender as! UIButton
         let index = button.tag
@@ -854,9 +1155,11 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         pirate.piratePrice = (pirate.piratePrice + pirate.piratePrice / 20)
         pirate.lootTime += (pirate.lootTime / 10)
         pirate.lootAmount += (pirate.lootAmount / 15)
+        checkIfAllPiratesAreFilled()
         do {
             try context.save()
             updateWalletLoot()
+            //checkIfAllPiratesAreFilled()
             reloadTable()
             
         } catch {

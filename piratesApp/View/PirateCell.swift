@@ -85,21 +85,21 @@ class PirateCell: UITableViewCell {
             self.goldPlateImage.isHidden = true
             
         } else {
-            self.plankImg.isHidden = false
-            self.pirateNameLbl.isHidden = false
-            self.upgradePlankImg.isHidden = true
-            self.lootLbl.isHidden = true
-            self.buyPlankImg.isHidden = true
-            self.buyPlankBtn.isHidden = true
-            self.pirateImgBtn.isEnabled = false
-            self.pirateLootTimeLbl.isHidden = true
-            self.buyPlankColorTin.isHidden = true
-            self.piratePriceLbl.isHidden = true
-            self.pirateNameLbl2.isHidden = true
-            self.timePlankImg.isHidden = true
-            self.lockImg.isHidden = false
-            self.piratePriceLblPlank.isHidden = false
-            self.goldPlateImage.isHidden = false
+            //self.plankImg.isHidden = false
+            //self.pirateNameLbl.isHidden = false
+//            self.upgradePlankImg.isHidden = true
+//            self.lootLbl.isHidden = true
+//            self.buyPlankImg.isHidden = true
+//            self.buyPlankBtn.isHidden = true
+//            self.pirateImgBtn.isEnabled = false
+//            self.pirateLootTimeLbl.isHidden = true
+//            self.buyPlankColorTin.isHidden = true
+//            self.piratePriceLbl.isHidden = true
+//            self.pirateNameLbl2.isHidden = true
+//            self.timePlankImg.isHidden = true
+//            self.lockImg.isHidden = false
+//            self.piratePriceLblPlank.isHidden = false
+//            self.goldPlateImage.isHidden = false
         }
     }
     //change
@@ -186,7 +186,7 @@ class PirateCell: UITableViewCell {
     }
     
     func setPirateNameLbl(pirate: Pirate) {
-        self.pirateNameLbl2.text = "\(pirate.name!)"
+        self.pirateNameLbl2.text = "\(pirate.isAnimating)"
     }
     
     func setPiratePricePlankLbl(pirate: Pirate) {

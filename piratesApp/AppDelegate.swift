@@ -64,7 +64,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             //set up wallet
             let wallet = NSEntityDescription.insertNewObject(forEntityName: "Wallet", into: context)
             
-            wallet.setValue(0, forKey: "totalLootAmount")
+            wallet.setValue(1000000000000, forKey: "totalLootAmount")
             wallet.setValue(0, forKey: "totalGemsAmount")
             
             let user = NSEntityDescription.insertNewObject(forEntityName: "User", into: context)
@@ -309,7 +309,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
 
         let foreground = UserDefaults.standard.bool(forKey: "appClosed")
-        print("enter foreground\(foreground)is app closed")
 //        _ = UserDefaults.standard.bool(forKey: "appClosed")
         
         UserDefaults.standard.set(false, forKey: "appClosed")

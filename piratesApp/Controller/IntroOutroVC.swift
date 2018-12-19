@@ -23,15 +23,15 @@ class IntroOutroVC: UIViewController, AVAudioPlayerDelegate {
     @IBOutlet weak var exitBtn: UIButton!
     
     var popPlayer: AVAudioPlayer!
+    var ahoyPlayer: AVAudioPlayer!
     
-    var imagesArray = ["TUTORIAL1","TUTORIAL2","TUTORIAL3"]
+    var imagesArray = ["TUTORIAL1","TUTORIAL2","TUTORIAL3", "TUTORIAL4"]
     var count = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         exitBtn.isUserInteractionEnabled = false
         exitBtn.alpha = 0.5
         showIfUserIsOnFirstUse()
-        print("IN VIEW CONTROLLER")
         // Do any additional setup after loading the view.
     }
     
@@ -44,6 +44,20 @@ class IntroOutroVC: UIViewController, AVAudioPlayerDelegate {
             popPlayer.prepareToPlay()
             popPlayer.volume = 0.3
             popPlayer.play()
+        } catch let err as NSError {
+            print(err.debugDescription)
+        }
+    }
+    
+    func playAhoySoundEffect() {
+        let ahoyPath = Bundle.main.path(forResource: "ahoy", ofType: "wav")
+        let ahoySoundUrl = NSURL(fileURLWithPath: ahoyPath!)
+        do {
+            try ahoyPlayer = AVAudioPlayer(contentsOf: ahoySoundUrl as URL)
+            ahoyPlayer.prepareToPlay()
+            ahoyPlayer.volume = 0.4
+            ahoyPlayer.play()
+            
         } catch let err as NSError {
             print(err.debugDescription)
         }
@@ -61,30 +75,35 @@ class IntroOutroVC: UIViewController, AVAudioPlayerDelegate {
     @IBAction func exitBtnPressed(_ sender: Any) {
         //go to main vc
         playPopSoundEffect()
-        self.dismiss(animated: true) {
-            self.gameBeatLbl.text = "CONGRATS MATE! YOU HAVE JUST BEAT THE GAME! TO REPLAY, PLEASE REDOWNLOAD THE APP! CHEERS!"
-            self.tutorialLabel.isHidden = true
-            self.gameBeatView.alpha = 0.7
-            self.tutorialImage.isHidden = true
-            self.gameBeatLbl.isHidden = false
+        playAhoySoundEffect()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.dismiss(animated: true) {
+                self.tutorialLabel.isHidden = true
+                self.gameBeatView.alpha = 0.7
+                self.tutorialImage.isHidden = true
+                self.gameBeatLbl.isHidden = false
+                
+            }
         }
+     
         
     }
     
     
     @IBAction func nextBtnPressed(_ sender: Any) {
         playPopSoundEffect()
-       
+        self.gameBeatLbl.isHidden = true
         tutorialLabel.isHidden = false
         tutorialImage.isHidden = false
         gameBeatView.alpha = 0.9
         tutorialImage.image = UIImage(named: imagesArray[count])
         count += 1
-        if count == 3 {
+        if count == 4 {
             exitBtn.isUserInteractionEnabled = true
             exitBtn.alpha = 1.0
             nextBtn.isUserInteractionEnabled = false
             nextBtn.alpha = 0
+            
         }
         
     }
