@@ -114,7 +114,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         
         
         adView.adUnitID = "ca-app-pub-3940256099942544/6300978111"
-//        adView.adUnitID = "ca-app-pub-1067425139660844/7823755834"
+        //adView.adUnitID = "ca-app-pub-1067425139660844/7823755834"
         adView.rootViewController = self
         adView.load(GADRequest())
         adView.delegate = self
@@ -148,6 +148,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         UIApplication.willEnterForegroundNotification, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(checkWhatItemsToDisplay), name: NSNotification.Name(rawValue: "checkNewItems"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateWalletLootNotification), name: NSNotification.Name(rawValue: "updateLoot"), object: nil)
 
         
         //fetching Pirate Entity from CoreData
@@ -246,6 +247,10 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         prestigeLbl.text = "\(gemAmount)"
     }
     
+    
+    @objc func updateWalletLootNotification() {
+        updateWalletLoot()
+    }
     
     func updateWalletLoot() {
         var string = ""
@@ -598,8 +603,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
             }
            
         }
-        if count >= 3 {
-            print("counting tester")
+        if count >= 12 {
                 wallet[0].totalGemsAmount += 1
                 stopTimers()
                 resetPirates()
@@ -609,9 +613,6 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
                 startTimers()
                 updateGemAmount()
                 grabWalletData()
-            for pirate in pirates {
-                print("\(pirate.isUnlocked)unlocked\(pirate.isAnimating)\(pirate.currentTime)")
-            }
             
         }
         
@@ -627,12 +628,12 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     }
     
     func showOfflineView() {
-       
-        let launchedOffline = UserDefaults.standard.bool(forKey: "launchedOffline")
-        if !launchedOffline {
-            performSegue(withIdentifier: "goToOfflineVC", sender: nil)
-            
-        }
+      performSegue(withIdentifier: "goToOfflineVC", sender: nil)
+//        let launchedOffline = UserDefaults.standard.bool(forKey: "launchedOffline")
+//        if !launchedOffline {
+//
+//
+//        }
         
     }
     
@@ -997,7 +998,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
             print(err.debugDescription)
         }
         
-        performSegue(withIdentifier: "goToStoreVC", sender: nil)
+        performSegue(withIdentifier: "goToSettingsVC", sender: nil)
     }
 
     @IBAction func unlockPiratePressed(_ sender: Any) {

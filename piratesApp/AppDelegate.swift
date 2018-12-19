@@ -30,9 +30,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UserDefaults.standard.set(false, forKey: "appClosed")
         //LOADING VIDEO AD
+        //GADRewardBasedVideoAd.sharedInstance().load(GADRequest(),
+//                                                    withAdUnitID: "ca-app-pub-1067425139660844/7589813936")
+        //
         GADRewardBasedVideoAd.sharedInstance().load(GADRequest(),
-                                                    withAdUnitID: "ca-app-pub-1067425139660844/7589813936")
-
+                                                    withAdUnitID: "ca-app-pub-3940256099942544/1712485313")
         
         if launchedBefore {
             
@@ -64,7 +66,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             //set up wallet
             let wallet = NSEntityDescription.insertNewObject(forEntityName: "Wallet", into: context)
             
-            wallet.setValue(1000000000000, forKey: "totalLootAmount")
+            wallet.setValue(0, forKey: "totalLootAmount")
             wallet.setValue(0, forKey: "totalGemsAmount")
             
             let user = NSEntityDescription.insertNewObject(forEntityName: "User", into: context)
