@@ -27,6 +27,7 @@ class OfflineBonusVC: UIViewController, GADBannerViewDelegate, GADRewardBasedVid
     var amountOfMoneyMade: Double!
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var purchasePlayer: AVAudioPlayer!
+    var lootPlayer: AVAudioPlayer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,11 +74,28 @@ class OfflineBonusVC: UIViewController, GADBannerViewDelegate, GADRewardBasedVid
         let context = appDelegate.persistentContainer.viewContext
         wallet[0].totalLootAmount += amountOfMoneyMade
         do {
+            playLootSoundEffect()
             try context.save()
+            
         } catch {
             //handle error
         }
         
+    }
+    
+    func playLootSoundEffect() {
+        let shopPath = Bundle.main.path(forResource: "loot", ofType: "wav")
+        let soundUrl = NSURL(fileURLWithPath: shopPath!)
+        
+        do {
+            try lootPlayer = AVAudioPlayer(contentsOf: soundUrl as URL)
+            lootPlayer.prepareToPlay()
+            lootPlayer.numberOfLoops = 0
+            lootPlayer.volume = 0.7
+            lootPlayer.play()
+        } catch let err as NSError {
+            print(err.debugDescription)
+        }
     }
     
     func playPurchaseSoundEffect() {

@@ -30,11 +30,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UserDefaults.standard.set(false, forKey: "appClosed")
         //LOADING VIDEO AD
-        //GADRewardBasedVideoAd.sharedInstance().load(GADRequest(),
-//                                                    withAdUnitID: "ca-app-pub-1067425139660844/7589813936")
-        //
         GADRewardBasedVideoAd.sharedInstance().load(GADRequest(),
-                                                    withAdUnitID: "ca-app-pub-3940256099942544/1712485313")
+                                                    withAdUnitID: "ca-app-pub-1067425139660844/7589813936")
+        
+
         
         if launchedBefore {
             

@@ -37,7 +37,6 @@ class SettingsVC: UIViewController, GADRewardBasedVideoAdDelegate  {
         self.exitBtn.addGestureRecognizer(tapGestureExit)
         
          GADRewardBasedVideoAd.sharedInstance().delegate = self
-        
         // fetching Wallet Entity from CoreData
         do {
             let context = appDelegate.persistentContainer.viewContext
@@ -104,11 +103,19 @@ class SettingsVC: UIViewController, GADRewardBasedVideoAdDelegate  {
         performSegue(withIdentifier: "goToStoreVC", sender: nil)
     }
     
+    func checkIfAdIsReady() {
+        freeLootBtn.alpha = 0.6
+    }
+    
+    func rewardBasedVideoAdDidReceive(_ rewardBasedVideoAd:GADRewardBasedVideoAd) {
+       freeLootBtn.alpha = 1.0
+    }
     
     func rewardBasedVideoAdDidClose(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
         // reload a video
+        checkIfAdIsReady()
         GADRewardBasedVideoAd.sharedInstance().load(GADRequest(),
-                                                    withAdUnitID: "ca-app-pub-3940256099942544/1712485313")
+                                                    withAdUnitID: "ca-app-pub-1067425139660844/7589813936")
     }
     
     func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd, didRewardUserWith reward: GADAdReward) {

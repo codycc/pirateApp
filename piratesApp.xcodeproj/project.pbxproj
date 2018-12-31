@@ -14,6 +14,7 @@
 		0B0B145E21CAA6C5000ED275 /* prestige.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0B0B145D21CAA6C4000ED275 /* prestige.wav */; };
 		0B0B146221CAFC96000ED275 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0B146121CAFC96000ED275 /* SettingsVC.swift */; };
 		0B0B146421CB0955000ED275 /* loot.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0B0B146321CB0954000ED275 /* loot.wav */; };
+		0B261A0A21CC106E00C0C1F7 /* ExploreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B261A0921CC106E00C0C1F7 /* ExploreVC.swift */; };
 		0B6A4A6A2177B6B500495663 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6A4A692177B6B500495663 /* AppDelegate.swift */; };
 		0B6A4A6C2177B6B500495663 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6A4A6B2177B6B500495663 /* MainVC.swift */; };
 		0B6A4A6F2177B6B500495663 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B6A4A6D2177B6B500495663 /* Main.storyboard */; };
@@ -62,6 +63,7 @@
 		0B0B145D21CAA6C4000ED275 /* prestige.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = prestige.wav; sourceTree = "<group>"; };
 		0B0B146121CAFC96000ED275 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		0B0B146321CB0954000ED275 /* loot.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = loot.wav; sourceTree = "<group>"; };
+		0B261A0921CC106E00C0C1F7 /* ExploreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreVC.swift; sourceTree = "<group>"; };
 		0B6A4A662177B6B400495663 /* piratesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = piratesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B6A4A692177B6B500495663 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0B6A4A6B2177B6B500495663 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				0B0883882190C059000ECEAA /* OfflineBonusVC.swift */,
 				0B08838A2190C393000ECEAA /* StatsVC.swift */,
 				0B0B146121CAFC96000ED275 /* SettingsVC.swift */,
+				0B261A0921CC106E00C0C1F7 /* ExploreVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -494,6 +497,7 @@
 			files = (
 				0B08838B2190C393000ECEAA /* StatsVC.swift in Sources */,
 				0B6A4A9E217BAF0500495663 /* PirateCell.swift in Sources */,
+				0B261A0A21CC106E00C0C1F7 /* ExploreVC.swift in Sources */,
 				0B6A4A722177B6B500495663 /* piratesApp.xcdatamodeld in Sources */,
 				0B6A4A6C2177B6B500495663 /* MainVC.swift in Sources */,
 				0B6A4A6A2177B6B500495663 /* AppDelegate.swift in Sources */,
@@ -679,6 +683,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G7CYZFGRXM;
 				INFOPLIST_FILE = piratesApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -698,6 +703,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G7CYZFGRXM;
 				INFOPLIST_FILE = piratesApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -113,8 +113,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         tableView.alwaysBounceVertical = false
         
         
+      
+//        adView.adUnitID = "ca-app-pub-1067425139660844/7823755834"
         adView.adUnitID = "ca-app-pub-3940256099942544/6300978111"
-        //adView.adUnitID = "ca-app-pub-1067425139660844/7823755834"
         adView.rootViewController = self
         adView.load(GADRequest())
         adView.delegate = self
@@ -579,11 +580,8 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
          timerPirate9.invalidate()
          timerPirate10.invalidate()
          timerPirate11.invalidate()
-        
         timer2Pirate0.invalidate()
-        
         timer2Pirate1.invalidate()
-        
         timer2Pirate2.invalidate()
         timer2Pirate3.invalidate()
         timer2Pirate4.invalidate()
@@ -613,7 +611,6 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
                 startTimers()
                 updateGemAmount()
                 grabWalletData()
-            
         }
         
     }
@@ -971,8 +968,17 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
 
     
     @IBAction func parrotImgTapped(_ sender: Any) {
-        playParrotSoundEffect()
-        addExplosionImagesForAnimation()
+        wallet[0].totalLootAmount += 2
+        let context = appDelegate.persistentContainer.viewContext
+        do {
+            try context.save()
+            updateWalletLoot()
+        } catch {
+            
+        }
+        
+        //playParrotSoundEffect()
+        //addExplosionImagesForAnimation()
         addParrotImagesForAnimation()
         
     }
