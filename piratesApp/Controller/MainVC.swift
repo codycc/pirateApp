@@ -970,9 +970,58 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     @IBAction func parrotImgTapped(_ sender: Any) {
         wallet[0].totalLootAmount += 2
         let context = appDelegate.persistentContainer.viewContext
+        let location = parrotImg.center
+        
         do {
             try context.save()
             updateWalletLoot()
+            let imageName = "singleLoot.png"
+            let image = UIImage(named: imageName)
+            let imageView = UIImageView(image: image!)
+            imageView.frame = CGRect(x: location.x , y: location.y , width: 30  , height: 30 )
+            imageView.contentMode = .scaleAspectFit
+            self.view.addSubview(imageView)
+            UIView.animate(withDuration: 1.0, animations: {
+                imageView.center.y -= 150
+            }) { (finished) in
+                let label = UILabel(frame: CGRect(x: location.x, y: location.y - 150, width: 100, height: 21))
+                label.center = CGPoint(x: location.x, y: location.y - 150)
+                label.textAlignment = .center
+                label.font = UIFont(name: "Pirates Writers", size: 25)
+                label.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+                label.text = "+ $2"
+                 let randomInt = Int.random(in: 0..<3)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    switch randomInt {
+                    case 0:
+                        UIView.animate(withDuration: 0.3, animations: {
+                            label.center.x += 10
+                            label.center.y += 10
+                        }, completion: { (finished) in
+                            label.removeFromSuperview()
+                        })
+                    case 1:
+                        UIView.animate(withDuration: 0.3, animations: {
+                            label.center.x -= 10
+                            label.center.y -= 10
+                        }, completion: { (finished) in
+                            label.removeFromSuperview()
+                        })
+                    case 2:
+                        UIView.animate(withDuration: 0.3, animations: {
+                            label.center.x += 10
+                            label.center.y -= 10
+                        }, completion: { (finished) in
+                            label.removeFromSuperview()
+                        })
+                    default:
+                        print("default")
+                    }
+                    
+                }
+                self.view.addSubview(label)
+                imageView.removeFromSuperview()
+            }
         } catch {
             
         }

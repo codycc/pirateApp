@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Iiv-lq-JcR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -873,16 +873,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xte-8d-6xj">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <rect key="frame" x="0.0" y="0.0" width="355" height="812"/>
                                 <subviews>
                                     <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vHB-nx-YuU">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="355" height="812"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="Bcg-w1-MXf">
-                                                <rect key="frame" x="15" y="506.33333333333326" width="345" height="300.66666666666674"/>
+                                                <rect key="frame" x="15" y="506.33333333333326" width="325" height="300.66666666666674"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SkollyWag" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ei-ju-9c2">
-                                                        <rect key="frame" x="0.0" y="0.0" width="345" height="59"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="325" height="59"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="59" id="zQM-SA-QbI">
                                                                 <variation key="heightClass=regular-widthClass=regular" constant="70"/>
@@ -893,16 +893,16 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="WtF-BJ-VC6">
-                                                        <rect key="frame" x="0.0" y="60.000000000000057" width="345" height="59"/>
+                                                        <rect key="frame" x="0.0" y="60.000000000000057" width="325" height="59"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pirate Total" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="RJu-ze-1yC">
-                                                                <rect key="frame" x="0.0" y="0.0" width="160" height="59"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="150" height="59"/>
                                                                 <fontDescription key="fontDescription" name="PiratesWriters" family="Pirates Writers" pointSize="32"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="28" translatesAutoresizingMaskIntoConstraints="NO" id="EJF-FE-oUc">
-                                                                <rect key="frame" x="185" y="0.0" width="160" height="59"/>
+                                                                <rect key="frame" x="175" y="0.0" width="150" height="59"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="150" id="IHk-CW-f7X">
                                                                         <variation key="heightClass=regular-widthClass=regular" constant="300"/>
@@ -920,16 +920,16 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="9Yo-0M-SE3">
-                                                        <rect key="frame" x="0.0" y="120.00000000000006" width="345" height="59"/>
+                                                        <rect key="frame" x="0.0" y="120.00000000000006" width="325" height="59"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loot/Session:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="k7Y-fn-i7s">
-                                                                <rect key="frame" x="0.0" y="0.0" width="160" height="59"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="150" height="59"/>
                                                                 <fontDescription key="fontDescription" name="PiratesWriters" family="Pirates Writers" pointSize="30"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="102" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="24" translatesAutoresizingMaskIntoConstraints="NO" id="WGN-ym-HZE">
-                                                                <rect key="frame" x="185" y="0.0" width="160" height="59"/>
+                                                                <rect key="frame" x="175" y="0.0" width="150" height="59"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="150" id="Yfd-dJ-dsH">
                                                                         <variation key="heightClass=regular-widthClass=regular" constant="300"/>
@@ -947,16 +947,16 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="QsL-QB-Zgc">
-                                                        <rect key="frame" x="0.0" y="180.00000000000006" width="345" height="59"/>
+                                                        <rect key="frame" x="0.0" y="180.00000000000006" width="325" height="59"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pirate Price" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="71o-fL-7dm">
-                                                                <rect key="frame" x="0.0" y="0.0" width="160" height="59"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="150" height="59"/>
                                                                 <fontDescription key="fontDescription" name="PiratesWriters" family="Pirates Writers" pointSize="30"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="24" translatesAutoresizingMaskIntoConstraints="NO" id="DYi-fz-l55">
-                                                                <rect key="frame" x="185" y="0.0" width="160" height="59"/>
+                                                                <rect key="frame" x="175" y="0.0" width="150" height="59"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="150" id="QpE-H0-DEG">
                                                                         <variation key="heightClass=regular-widthClass=regular" constant="300"/>
@@ -974,16 +974,16 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="qKf-DH-eay">
-                                                        <rect key="frame" x="0.0" y="240.00000000000003" width="345" height="60.666666666666657"/>
+                                                        <rect key="frame" x="0.0" y="240.00000000000003" width="325" height="60.666666666666657"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Looting Time:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="uA1-hT-3N0">
-                                                                <rect key="frame" x="0.0" y="0.0" width="160" height="60.666666666666664"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="150" height="60.666666666666664"/>
                                                                 <fontDescription key="fontDescription" name="PiratesWriters" family="Pirates Writers" pointSize="30"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="27" translatesAutoresizingMaskIntoConstraints="NO" id="kFc-fn-IEK">
-                                                                <rect key="frame" x="185" y="0.0" width="160" height="60.666666666666664"/>
+                                                                <rect key="frame" x="175" y="0.0" width="150" height="60.666666666666664"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="150" id="fCP-Kg-6rd">
                                                                         <variation key="heightClass=regular-widthClass=regular" constant="300"/>
@@ -1007,7 +1007,7 @@
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1nh-MM-eV2">
-                                                <rect key="frame" x="322" y="52" width="45" height="45"/>
+                                                <rect key="frame" x="302" y="52" width="45" height="45"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="br2-Oo-tQe"/>
                                                     <constraint firstAttribute="width" constant="45" id="ccd-1B-pLj"/>
@@ -1028,10 +1028,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SNk-1w-aLY">
-                                        <rect key="frame" x="45" y="30" width="285" height="462"/>
+                                        <rect key="frame" x="45" y="30" width="265" height="462"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="editedrope" translatesAutoresizingMaskIntoConstraints="NO" id="EK9-o5-UDN">
-                                                <rect key="frame" x="203" y="-50" width="82" height="128"/>
+                                                <rect key="frame" x="183" y="-50" width="82" height="128"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="82" id="5vf-JY-ANz"/>
                                                     <constraint firstAttribute="height" constant="128" id="e0B-3R-Dl1">
@@ -1047,13 +1047,13 @@
                                                 </constraints>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="planks2" translatesAutoresizingMaskIntoConstraints="NO" id="0c1-ye-Inl">
-                                                <rect key="frame" x="0.0" y="5" width="285" height="457"/>
+                                                <rect key="frame" x="0.0" y="5" width="265" height="457"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="paper" translatesAutoresizingMaskIntoConstraints="NO" id="wl5-h9-S1J">
-                                                <rect key="frame" x="20" y="25" width="245" height="412"/>
+                                                <rect key="frame" x="20" y="25" width="225" height="412"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pirate0idle0" translatesAutoresizingMaskIntoConstraints="NO" id="aPm-KR-g8E">
-                                                <rect key="frame" x="0.0" y="0.0" width="285" height="462"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="265" height="462"/>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1267,9 +1267,36 @@
                     <view key="view" contentMode="scaleToFill" id="V72-fc-76f">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x21-1i-dMv">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <connections>
+                                    <action selector="jumpBtnPressed:" destination="Iiv-lq-JcR" eventType="touchUpInside" id="djr-sW-wPP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ViL-7g-81e">
+                                <rect key="frame" x="164" y="638" width="47" height="30"/>
+                                <state key="normal" title="START"/>
+                                <connections>
+                                    <action selector="startBtnPressed:" destination="Iiv-lq-JcR" eventType="touchUpInside" id="VDW-CP-fjp"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="x21-1i-dMv" firstAttribute="top" secondItem="V72-fc-76f" secondAttribute="top" id="Vu8-Bn-Sap"/>
+                            <constraint firstItem="Gdu-Jp-m6Y" firstAttribute="bottom" secondItem="ViL-7g-81e" secondAttribute="bottom" constant="110" id="b9S-Ap-0dp"/>
+                            <constraint firstItem="x21-1i-dMv" firstAttribute="trailing" secondItem="Gdu-Jp-m6Y" secondAttribute="trailing" id="r1U-Oo-D62"/>
+                            <constraint firstItem="ViL-7g-81e" firstAttribute="centerX" secondItem="V72-fc-76f" secondAttribute="centerX" id="thW-Oa-ZfT"/>
+                            <constraint firstAttribute="bottom" secondItem="x21-1i-dMv" secondAttribute="bottom" id="woG-mq-iz0"/>
+                            <constraint firstItem="x21-1i-dMv" firstAttribute="leading" secondItem="Gdu-Jp-m6Y" secondAttribute="leading" id="x2s-tJ-UIY"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Gdu-Jp-m6Y"/>
                     </view>
+                    <connections>
+                        <outlet property="jumpBtn" destination="x21-1i-dMv" id="R8v-h9-2aG"/>
+                        <outlet property="startBtn" destination="ViL-7g-81e" id="5jz-oJ-1eq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="goa-Og-pWN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

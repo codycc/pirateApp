@@ -13,7 +13,9 @@ class ExploreVC: UIViewController {
     
     @IBOutlet weak var mainBackground: UIImageView!
     
-  
+    @IBOutlet weak var jumpBtn: UIButton!
+    
+    @IBOutlet weak var startBtn: UIButton!
     
     var isRunning = true
     var count = 0
@@ -23,28 +25,15 @@ class ExploreVC: UIViewController {
     var pirateWidth = 0
     var groundHeight = 0
     var pirateImgArray = [UIImage]()
+    var pirateJumpArray = [UIImage]()
+    var imageForPirate: UIImageView!
+
+    var pirateIsJumping = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        createBackLayer()
-//        createMovingBack2Layer()
-        createMovingMiddle()
-        createMiddle2Layer()
-        
-//
-        //createMiddleLayer()
-        //createMovingFront()
-        createMovingGround()
-        createPirate()
-        let timer4 = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(createMovingMiddle3), userInfo: nil, repeats: true)
-        
-        let timer3 = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(createMovingMiddle2), userInfo: nil, repeats: true)
-       
-        let timer = Timer.scheduledTimer(timeInterval: 1.4, target: self, selector: #selector(createMovingGround), userInfo: nil, repeats: true)
-        
-        let timer2 = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(createMovingMiddle), userInfo: nil, repeats: true)
-        
-        
+        createPirateJumpArray()
+        createPirateRunArray()
         // Do any additional setup after loading the view.
     }
     
@@ -56,29 +45,46 @@ class ExploreVC: UIViewController {
         if isRunning {
             let imageName = "pirate2idle0.png"
             let image = UIImage(named: imageName)
-            let imageView = UIImageView(image: image!)
-            imageView.frame = CGRect(x: 50 , y: UIScreen.main.bounds.height - CGFloat((pirateHeight)) - CGFloat(groundHeight - 5) + (CGFloat(pirateHeight / 5)) , width: (UIScreen.main.bounds.height / 3) * 0.95 , height: UIScreen.main.bounds.height / 3)
-            imageView.contentMode = .scaleToFill
+            imageForPirate = UIImageView(image: image!)
+            imageForPirate.frame = CGRect(x: 50 , y: UIScreen.main.bounds.height - CGFloat((pirateHeight)) - CGFloat(groundHeight - 5) + (CGFloat(pirateHeight / 5)) , width: (UIScreen.main.bounds.height / 3) * 0.95 , height: UIScreen.main.bounds.height / 3)
+            imageForPirate.contentMode = .scaleToFill
         
-            imageView.layer.zPosition = 2000
-            self.view.addSubview(imageView)
-            
-        
-        
-        
-            pirateImgArray = []
-            imageView.stopAnimating()
-            
-            for x in 0...15 {
-                let img = UIImage(named:"pirate\(0)run\(x)")
-                pirateImgArray.append(img!)
-            }
-            
-            imageView.animationImages = pirateImgArray
-            imageView.animationDuration = 1.0
-            imageView.animationRepeatCount = 0
-            imageView.startAnimating()
+            imageForPirate.layer.zPosition = 2000
+            self.view.addSubview(imageForPirate)
+        pirateRun()
         }
+    }
+    
+    func createLootTimer() {
+        let timerLoot = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(createLoot), userInfo: nil, repeats: true)
+        
+    }
+    
+    @objc func createLoot() {
+        let imageName = "singleLoot.png"
+        let image = UIImage(named: imageName)
+        let imageView = UIImageView(image: image!)
+        imageView.frame = CGRect(x: UIScreen.main.bounds.width , y: (UIScreen.main.bounds.height / 2)  , width: 70  , height: 70 )
+        imageView.contentMode = .scaleAspectFit
+        self.view.addSubview(imageView)
+        imageView.layer.zPosition = 10000
+        UIView.animate(withDuration: 5, delay: 0, options: UIView.AnimationOptions.curveLinear, animations: {
+            imageView.center.x -= UIScreen.main.bounds.width
+          
+          
+        }) { (finished) in
+            imageView.removeFromSuperview()
+        }
+    }
+    
+    
+    func pirateRun() {
+        imageForPirate.animationImages = []
+        imageForPirate.stopAnimating()
+        imageForPirate.animationImages = pirateImgArray
+        imageForPirate.animationDuration = 1.0
+        imageForPirate.animationRepeatCount = -1
+        imageForPirate.startAnimating()
     }
     
     
@@ -115,21 +121,21 @@ class ExploreVC: UIViewController {
     @objc func createMovingMiddle() {
         if isRunning {
         let imageName = "middlelayer.png"
-            let image = UIImage(named: imageName)
-            let imageView = UIImageView(image: image!)
-            imageView.frame = CGRect(x: UIScreen.main.bounds.width , y: 0 , width: UIScreen.main.bounds.width  , height: UIScreen.main.bounds.height )
-            imageView.contentMode = .scaleAspectFit
-            self.view.addSubview(imageView)
+        let image = UIImage(named: imageName)
+        let imageView = UIImageView(image: image!)
+        imageView.frame = CGRect(x: UIScreen.main.bounds.width , y: 0 , width: UIScreen.main.bounds.width  , height: UIScreen.main.bounds.height )
+        imageView.contentMode = .scaleAspectFit
+        self.view.addSubview(imageView)
 
-            UIView.animate(withDuration: 10, delay: 0, options: UIView.AnimationOptions.curveLinear, animations: {
-                imageView.center.x -= UIScreen.main.bounds.width * 2
-                self.count += 1
-                if self.count == 100 {
-                    self.isRunning = false
-                }
-            }) { (finished) in
-                imageView.removeFromSuperview()
+        UIView.animate(withDuration: 10, delay: 0, options: UIView.AnimationOptions.curveLinear, animations: {
+            imageView.center.x -= UIScreen.main.bounds.width * 2
+            self.count += 1
+            if self.count == 100 {
+                self.isRunning = false
             }
+        }) { (finished) in
+            imageView.removeFromSuperview()
+        }
 
 
 //            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
@@ -216,37 +222,69 @@ class ExploreVC: UIViewController {
         imageView.frame = CGRect(x: 0 , y: 0 , width: UIScreen.main.bounds.width  , height: UIScreen.main.bounds.height  )
         self.view.addSubview(imageView)
     }
-//
-
-
     
-//    func createMovingFront() {
-//        if isRunning {
-//            let imageName = "frontlayer.png"
-//            let image = UIImage(named: imageName)
-//            let imageView = UIImageView(image: image!)
+    func createPirateJumpArray() {
+        for x in 0...15 {
+            let img = UIImage(named:"pirate0jump\(x)")
+            pirateJumpArray.append(img!)
+            
+        }
+    }
+    func createPirateRunArray() {
+        for x in 0...15 {
+            let img = UIImage(named:"pirate\(0)run\(x)")
+            pirateImgArray.append(img!)
+        }
+    }
 //
-//            imageView.frame = CGRect(x: UIScreen.main.bounds.width , y: UIScreen.main.bounds.height - (UIScreen.main.bounds.height / 1.3) , width: UIScreen.main.bounds.width  , height: UIScreen.main.bounds.height / 1.3 )
-//            self.view.addSubview(imageView)
-//
-//            UIView.animate(withDuration: 8, delay: 0, options: UIView.AnimationOptions.curveLinear, animations: {
-//                imageView.center.x -= UIScreen.main.bounds.width * 2
-//                self.count += 1
-//                if self.count == 100 {
-//                    self.isRunning = false
-//                }
-//            }) { (finished) in
-//                imageView.removeFromSuperview()
-//
-//            }
-//
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
-//                self.createMovingFront()
-//            }
-//
-//        }
-//
-//    }
+
+    func movePirateAxis() {
+        UIView.animate(withDuration: 0.5, animations: {
+            self.imageForPirate.center.y -= 150
+        }) { (finished) in
+            UIView.animate(withDuration: 0.5, animations: {
+                self.imageForPirate.center.y += 150
+            }, completion: { (finished) in
+                print("test")
+            })
+        }
+    }
+    
+    @IBAction func jumpBtnPressed(_ sender: Any) {
+        movePirateAxis()
+        imageForPirate.animationImages = []
+        imageForPirate.stopAnimating()
+        imageForPirate.animationImages = pirateJumpArray
+        imageForPirate.animationDuration = 1.0
+        imageForPirate.animationRepeatCount = -1
+        imageForPirate.startAnimating()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.9) {
+            self.pirateRun()
+        }
+
+    }
+    
+    @IBAction func startBtnPressed(_ sender: Any) {
+        jumpBtn.isEnabled = true
+        jumpBtn.isHidden = false
+        startBtn.isEnabled = false
+        startBtn.isHidden = true
+        createBackLayer()
+        createMovingMiddle()
+        createMiddle2Layer()
+        createMovingGround()
+        createPirate()
+        createLoot()
+        let timer4 = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(createMovingMiddle3), userInfo: nil, repeats: true)
+        
+        let timer3 = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(createMovingMiddle2), userInfo: nil, repeats: true)
+        
+        let timer = Timer.scheduledTimer(timeInterval: 1.4, target: self, selector: #selector(createMovingGround), userInfo: nil, repeats: true)
+        
+        let timer2 = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(createMovingMiddle), userInfo: nil, repeats: true)
+        
+        
+    }
     
 
 }
