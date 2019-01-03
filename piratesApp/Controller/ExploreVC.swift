@@ -88,6 +88,21 @@ class ExploreVC: UIViewController {
     }
     
     
+    
+    func createInitialMovingGround() {
+        let imageName = "ground1.png"
+        let image = UIImage(named: imageName)
+        let imageView = UIImageView(image: image!)
+        imageView.frame = CGRect(x: 0 , y: UIScreen.main.bounds.height - CGFloat(groundHeight) , width: UIScreen.main.bounds.width   , height: UIScreen.main.bounds.height / 10)
+        imageView.contentMode = .scaleToFill
+        self.view.addSubview(imageView)
+        UIView.animate(withDuration: 3, delay: 0, options: UIView.AnimationOptions.curveLinear, animations: {
+            imageView.center.x -= UIScreen.main.bounds.width * 2
+        }) { (finished) in
+            
+            imageView.removeFromSuperview()
+        }
+    }
 //
     @objc func createMovingGround() {
         groundHeight = Int(UIScreen.main.bounds.height / 10)
@@ -117,6 +132,38 @@ class ExploreVC: UIViewController {
         }
 
     }
+    func createInitialMovingMiddle2() {
+        let imageName = "middle2layer.png"
+        let image = UIImage(named: imageName)
+        let imageView = UIImageView(image: image!)
+        imageView.frame = CGRect(x: 0 , y: (UIScreen.main.bounds.height / 3) - 50 , width: UIScreen.main.bounds.width * 2  , height: ((UIScreen.main.bounds.height / 3) * 2) - 50 )
+        imageView.contentMode = .scaleToFill
+        self.view.addSubview(imageView)
+        
+        UIView.animate(withDuration: 10, delay: 0, options: UIView.AnimationOptions.curveLinear, animations: {
+            imageView.center.x -= UIScreen.main.bounds.width * 2
+           
+        }) { (finished) in
+            imageView.removeFromSuperview()
+        }
+    }
+    
+    func createInitialMovingMiddle() {
+        let imageName = "middlelayer.png"
+        let image = UIImage(named: imageName)
+        let imageView = UIImageView(image: image!)
+        imageView.frame = CGRect(x: 0 , y: 0 , width: UIScreen.main.bounds.width   , height: UIScreen.main.bounds.height )
+        imageView.contentMode = .scaleAspectFit
+        self.view.addSubview(imageView)
+        
+        UIView.animate(withDuration: 10, delay: 0, options: UIView.AnimationOptions.curveLinear, animations: {
+            imageView.center.x -= UIScreen.main.bounds.width * 2
+            
+        }) { (finished) in
+            imageView.removeFromSuperview()
+        }
+
+    }
     
     @objc func createMovingMiddle() {
         if isRunning {
@@ -129,10 +176,7 @@ class ExploreVC: UIViewController {
 
         UIView.animate(withDuration: 10, delay: 0, options: UIView.AnimationOptions.curveLinear, animations: {
             imageView.center.x -= UIScreen.main.bounds.width * 2
-            self.count += 1
-            if self.count == 100 {
-                self.isRunning = false
-            }
+
         }) { (finished) in
             imageView.removeFromSuperview()
         }
@@ -157,10 +201,7 @@ class ExploreVC: UIViewController {
 
             UIView.animate(withDuration: 10, delay: 0, options: UIView.AnimationOptions.curveLinear, animations: {
                 imageView.center.x -= UIScreen.main.bounds.width * 2
-                self.count += 1
-                if self.count == 100 {
-                    self.isRunning = false
-                }
+           
             }) { (finished) in
                 imageView.removeFromSuperview()
             }
@@ -170,6 +211,20 @@ class ExploreVC: UIViewController {
 
     }
     
+    func createInitialMovingMountains() {
+        let imageName = "backlayer.png"
+        let image = UIImage(named: imageName)
+        let imageView = UIImageView(image: image!)
+        imageView.frame = CGRect(x: 0 , y: 0 , width: UIScreen.main.bounds.width * 2  , height: (UIScreen.main.bounds.height) - 101 )
+        imageView.contentMode = .scaleToFill
+        self.view.addSubview(imageView)
+        
+        UIView.animate(withDuration: 20, delay: 0, options: UIView.AnimationOptions.curveLinear, animations: {
+            imageView.center.x -= UIScreen.main.bounds.width * 2
+        }) { (finished) in
+            imageView.removeFromSuperview()
+        }
+    }
     
     
     @objc func createMovingMiddle3() {
@@ -269,12 +324,20 @@ class ExploreVC: UIViewController {
         jumpBtn.isHidden = false
         startBtn.isEnabled = false
         startBtn.isHidden = true
+        //initials
+        
+        
+        //functiontimers
         createBackLayer()
         createMovingMiddle()
         createMiddle2Layer()
         createMovingGround()
+        createInitialMovingMountains()
+        createInitialMovingGround()
+        createInitialMovingMiddle2()
+        createInitialMovingMiddle()
         createPirate()
-        createLoot()
+        //createLoot()
         let timer4 = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(createMovingMiddle3), userInfo: nil, repeats: true)
         
         let timer3 = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(createMovingMiddle2), userInfo: nil, repeats: true)
