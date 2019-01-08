@@ -1777,47 +1777,14 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="4dC-Zq-3Up">
                                 <rect key="frame" x="15" y="94" width="345" height="634"/>
                                 <subviews>
-                                    <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="fhN-KH-C1m">
-                                        <rect key="frame" x="0.0" y="0.0" width="345" height="102.66666666666667"/>
-                                        <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="redplank" translatesAutoresizingMaskIntoConstraints="NO" id="hrD-Xk-eXc">
-                                                <rect key="frame" x="0.0" y="0.0" width="345" height="102.66666666666667"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FREE LOOT" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YHc-Vp-UYh">
-                                                <rect key="frame" x="109" y="35.333333333333343" width="127.33333333333331" height="32"/>
-                                                <fontDescription key="fontDescription" name="PiratesWriters" family="Pirates Writers" pointSize="32"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ad_icon" translatesAutoresizingMaskIntoConstraints="NO" id="YY5-mZ-FOY">
-                                                <rect key="frame" x="74" y="36.333333333333343" width="30" height="30"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="30" id="Qvi-hg-inK"/>
-                                                    <constraint firstAttribute="height" constant="30" id="jZP-GW-GQR"/>
-                                                </constraints>
-                                            </imageView>
-                                        </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="hrD-Xk-eXc" secondAttribute="trailing" id="AwV-3d-yA0"/>
-                                            <constraint firstItem="YHc-Vp-UYh" firstAttribute="centerY" secondItem="fhN-KH-C1m" secondAttribute="centerY" id="Jwm-3N-L5d"/>
-                                            <constraint firstItem="hrD-Xk-eXc" firstAttribute="top" secondItem="fhN-KH-C1m" secondAttribute="top" id="NRV-05-Ygb"/>
-                                            <constraint firstAttribute="bottom" secondItem="hrD-Xk-eXc" secondAttribute="bottom" id="Rhs-LR-wNi"/>
-                                            <constraint firstItem="YHc-Vp-UYh" firstAttribute="centerY" secondItem="YY5-mZ-FOY" secondAttribute="centerY" id="amz-6z-jmJ"/>
-                                            <constraint firstItem="YHc-Vp-UYh" firstAttribute="centerX" secondItem="fhN-KH-C1m" secondAttribute="centerX" id="o8E-2c-5eK"/>
-                                            <constraint firstItem="hrD-Xk-eXc" firstAttribute="leading" secondItem="fhN-KH-C1m" secondAttribute="leading" id="pXz-gE-sll"/>
-                                            <constraint firstItem="YHc-Vp-UYh" firstAttribute="leading" secondItem="YY5-mZ-FOY" secondAttribute="trailing" constant="5" id="tyj-sI-gtk"/>
-                                        </constraints>
-                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IBI-aJ-Ny8">
-                                        <rect key="frame" x="0.0" y="132.66666666666666" width="345" height="103"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="345" height="136"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blueplank" translatesAutoresizingMaskIntoConstraints="NO" id="Qe5-17-RS6">
-                                                <rect key="frame" x="0.0" y="0.0" width="345" height="103"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="345" height="136"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EXPLORE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ktn-kN-U5A">
-                                                <rect key="frame" x="114" y="33.666666666666657" width="117" height="36"/>
+                                                <rect key="frame" x="114" y="50" width="117" height="36"/>
                                                 <fontDescription key="fontDescription" name="PiratesWriters" family="Pirates Writers" pointSize="36"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -1834,13 +1801,13 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L76-XS-MBT">
-                                        <rect key="frame" x="0.0" y="265.66666666666669" width="345" height="102.66666666666669"/>
+                                        <rect key="frame" x="0.0" y="166" width="345" height="136"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="orangeplank" translatesAutoresizingMaskIntoConstraints="NO" id="DuN-Nk-ou2">
-                                                <rect key="frame" x="0.0" y="0.0" width="345" height="102.66666666666667"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="345" height="136"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TREASURE WHEEL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Smw-HV-8eB">
-                                                <rect key="frame" x="55.666666666666686" y="33.333333333333314" width="234" height="36"/>
+                                                <rect key="frame" x="55.666666666666686" y="50" width="234" height="36"/>
                                                 <fontDescription key="fontDescription" name="PiratesWriters" family="Pirates Writers" pointSize="36"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -1857,13 +1824,13 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QRQ-C9-Sn3">
-                                        <rect key="frame" x="0.0" y="398.33333333333331" width="345" height="103"/>
+                                        <rect key="frame" x="0.0" y="332" width="345" height="136"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="greenplank" highlightedImage="UPGRADES" translatesAutoresizingMaskIntoConstraints="NO" id="oJA-Qe-K7V">
-                                                <rect key="frame" x="0.0" y="0.0" width="345" height="103"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="345" height="136"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UPGRADES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iRQ-VR-Eie">
-                                                <rect key="frame" x="108.33333333333333" y="34.000000000000057" width="128.66666666666669" height="35"/>
+                                                <rect key="frame" x="108.33333333333333" y="50.666666666666686" width="128.66666666666669" height="35"/>
                                                 <fontDescription key="fontDescription" name="PiratesWriters" family="Pirates Writers" pointSize="35"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -1880,13 +1847,13 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i7N-LO-l4d">
-                                        <rect key="frame" x="0.0" y="531.33333333333337" width="345" height="102.66666666666663"/>
+                                        <rect key="frame" x="0.0" y="498" width="345" height="136"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="redplank" translatesAutoresizingMaskIntoConstraints="NO" id="Jwu-Dq-dc1">
-                                                <rect key="frame" x="0.0" y="0.0" width="345" height="102.66666666666667"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="345" height="136"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EXIT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TRy-9F-ajD">
-                                                <rect key="frame" x="144.66666666666666" y="34.333333333333258" width="56" height="34"/>
+                                                <rect key="frame" x="144.66666666666666" y="51" width="56" height="34"/>
                                                 <fontDescription key="fontDescription" name="PiratesWriters" family="Pirates Writers" pointSize="34"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -1916,7 +1883,6 @@
                     </view>
                     <connections>
                         <outlet property="exitBtn" destination="i7N-LO-l4d" id="npP-Ty-s9r"/>
-                        <outlet property="freeLootBtn" destination="fhN-KH-C1m" id="Wgk-nX-Wpl"/>
                         <outlet property="shopBtn" destination="IBI-aJ-Ny8" id="L2r-AZ-5f7"/>
                         <outlet property="upgradesBtn" destination="QRQ-C9-Sn3" id="d6J-fg-sYK"/>
                         <outlet property="wheelBtn" destination="L76-XS-MBT" id="4MQ-V7-hUU"/>
@@ -1932,14 +1898,11 @@
         <!--DashboardVC-->
         <scene sceneID="GKW-Ec-pWd">
             <objects>
-                <viewController modalTransitionStyle="crossDissolve" id="r2B-sj-d2P" customClass="DashboardVC" customModule="piratesApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" id="r2B-sj-d2P" customClass="DashboardVC" customModule="piratesApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nwE-NV-5No">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tropical2" translatesAutoresizingMaskIntoConstraints="NO" id="QNX-H7-4YA">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wheelfixed" translatesAutoresizingMaskIntoConstraints="NO" id="w6N-3i-aFM">
                                 <rect key="frame" x="10" y="156" width="355" height="500"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1960,89 +1923,47 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TS2-k4-xH7">
-                                <rect key="frame" x="313" y="44" width="46" height="46"/>
+                                <rect key="frame" x="299" y="44" width="60" height="60"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="46" id="Ln7-a2-CdF"/>
-                                    <constraint firstAttribute="height" constant="46" id="ov1-8y-nmS"/>
+                                    <constraint firstAttribute="width" constant="60" id="Ln7-a2-CdF"/>
+                                    <constraint firstAttribute="height" constant="60" id="ov1-8y-nmS"/>
                                 </constraints>
                                 <state key="normal" image="exitIcon"/>
                                 <connections>
                                     <action selector="exitBtnPressed:" destination="r2B-sj-d2P" eventType="touchUpInside" id="pxe-C7-7Js"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 Million" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bf4-fQ-nBJ">
-                                <rect key="frame" x="66" y="59.666666666666657" width="247" height="29"/>
-                                <fontDescription key="fontDescription" name="PiratesWriters" family="Pirates Writers" pointSize="29"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="singleLoot" translatesAutoresizingMaskIntoConstraints="NO" id="Gwg-TG-nme">
-                                <rect key="frame" x="16" y="54" width="40" height="40"/>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shipRight4" translatesAutoresizingMaskIntoConstraints="NO" id="0ei-oY-QSK">
+                                <rect key="frame" x="0.0" y="684" width="240" height="128"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="Ccq-pw-QtL"/>
-                                    <constraint firstAttribute="height" constant="40" id="r0E-Du-Qe4"/>
-                                </constraints>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_gem" translatesAutoresizingMaskIntoConstraints="NO" id="4hB-mK-z09">
-                                <rect key="frame" x="16" y="102" width="40" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="791-Qg-X1x"/>
-                                    <constraint firstAttribute="height" constant="40" id="EV9-im-XCp"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 gem" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qvs-BM-gaQ">
-                                <rect key="frame" x="66" y="104.66666666666667" width="309" height="35.000000000000014"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="7w1-JK-XjR"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="PiratesWriters" family="Pirates Writers" pointSize="29"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="parrot0redfly0" translatesAutoresizingMaskIntoConstraints="NO" id="Q88-o0-GwJ">
-                                <rect key="frame" x="-70" y="156" width="145" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="XPa-Wl-wWY"/>
-                                    <constraint firstAttribute="width" constant="50" id="pw0-ca-0iB"/>
+                                    <constraint firstAttribute="height" constant="128" id="Po3-yz-8ft"/>
+                                    <constraint firstAttribute="width" constant="240" id="h7f-ff-c40"/>
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.7364886558219178" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="bf4-fQ-nBJ" firstAttribute="centerY" secondItem="Gwg-TG-nme" secondAttribute="centerY" id="0df-Fs-RQA"/>
                             <constraint firstItem="Bxh-ze-VIw" firstAttribute="centerY" secondItem="nwE-NV-5No" secondAttribute="centerY" id="36h-MD-DYL"/>
                             <constraint firstItem="w6N-3i-aFM" firstAttribute="centerY" secondItem="nwE-NV-5No" secondAttribute="centerY" id="3Xi-VM-Wuv"/>
                             <constraint firstItem="pLp-lH-zOw" firstAttribute="leading" secondItem="dtT-pa-Bm8" secondAttribute="leading" constant="10" id="962-uI-wjr"/>
                             <constraint firstItem="TS2-k4-xH7" firstAttribute="top" secondItem="dtT-pa-Bm8" secondAttribute="top" id="CnA-xL-yO4"/>
-                            <constraint firstItem="QNX-H7-4YA" firstAttribute="leading" secondItem="dtT-pa-Bm8" secondAttribute="leading" id="DKr-WZ-vyd"/>
-                            <constraint firstItem="QNX-H7-4YA" firstAttribute="top" secondItem="nwE-NV-5No" secondAttribute="top" id="Gkn-xK-k4e"/>
                             <constraint firstItem="dtT-pa-Bm8" firstAttribute="trailing" secondItem="w6N-3i-aFM" secondAttribute="trailing" constant="10" id="Hje-WE-Fit"/>
-                            <constraint firstItem="4hB-mK-z09" firstAttribute="top" secondItem="Gwg-TG-nme" secondAttribute="bottom" constant="8" id="IeM-If-6iZ"/>
                             <constraint firstItem="pLp-lH-zOw" firstAttribute="centerY" secondItem="nwE-NV-5No" secondAttribute="centerY" id="KnC-af-Mim"/>
                             <constraint firstItem="dtT-pa-Bm8" firstAttribute="trailing" secondItem="Bxh-ze-VIw" secondAttribute="trailing" constant="10" id="Lld-vI-p3d"/>
-                            <constraint firstItem="Gwg-TG-nme" firstAttribute="top" secondItem="dtT-pa-Bm8" secondAttribute="top" constant="10" id="ShW-q6-a5H"/>
                             <constraint firstItem="dtT-pa-Bm8" firstAttribute="trailing" secondItem="TS2-k4-xH7" secondAttribute="trailing" constant="16" id="TGw-jZ-UJM"/>
-                            <constraint firstItem="qvs-BM-gaQ" firstAttribute="centerY" secondItem="4hB-mK-z09" secondAttribute="centerY" id="UgV-Xe-wnr"/>
-                            <constraint firstItem="qvs-BM-gaQ" firstAttribute="leading" secondItem="4hB-mK-z09" secondAttribute="trailing" constant="10" id="Zz5-y6-6DH"/>
-                            <constraint firstItem="TS2-k4-xH7" firstAttribute="leading" secondItem="bf4-fQ-nBJ" secondAttribute="trailing" id="aIE-Vh-Zl8"/>
-                            <constraint firstItem="Gwg-TG-nme" firstAttribute="leading" secondItem="dtT-pa-Bm8" secondAttribute="leading" constant="16" id="cQu-yI-pYm"/>
                             <constraint firstItem="dtT-pa-Bm8" firstAttribute="trailing" secondItem="pLp-lH-zOw" secondAttribute="trailing" constant="10" id="fIU-9q-8m9"/>
-                            <constraint firstAttribute="bottom" secondItem="QNX-H7-4YA" secondAttribute="bottom" id="gOa-2T-HEa"/>
-                            <constraint firstItem="Q88-o0-GwJ" firstAttribute="top" secondItem="4hB-mK-z09" secondAttribute="bottom" constant="14" id="hY1-Aq-jhD"/>
-                            <constraint firstItem="bf4-fQ-nBJ" firstAttribute="leading" secondItem="Gwg-TG-nme" secondAttribute="trailing" constant="10" id="orj-Ty-OOc"/>
-                            <constraint firstItem="QNX-H7-4YA" firstAttribute="trailing" secondItem="dtT-pa-Bm8" secondAttribute="trailing" id="sL1-9p-gq8"/>
+                            <constraint firstAttribute="bottom" secondItem="0ei-oY-QSK" secondAttribute="bottom" id="rNl-w2-HB7"/>
                             <constraint firstItem="w6N-3i-aFM" firstAttribute="leading" secondItem="dtT-pa-Bm8" secondAttribute="leading" constant="10" id="tYd-iQ-UYb"/>
-                            <constraint firstItem="Q88-o0-GwJ" firstAttribute="leading" secondItem="dtT-pa-Bm8" secondAttribute="leading" id="tzy-di-o2O"/>
                             <constraint firstItem="Bxh-ze-VIw" firstAttribute="leading" secondItem="dtT-pa-Bm8" secondAttribute="leading" constant="10" id="vRF-tx-BFO"/>
-                            <constraint firstItem="dtT-pa-Bm8" firstAttribute="trailing" secondItem="qvs-BM-gaQ" secondAttribute="trailing" id="w5n-su-Oam"/>
-                            <constraint firstItem="4hB-mK-z09" firstAttribute="leading" secondItem="dtT-pa-Bm8" secondAttribute="leading" constant="16" id="xpM-b0-ztr"/>
+                            <constraint firstItem="0ei-oY-QSK" firstAttribute="leading" secondItem="dtT-pa-Bm8" secondAttribute="leading" id="yg5-03-BYG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dtT-pa-Bm8"/>
                     </view>
                     <connections>
                         <outlet property="exitBtn" destination="TS2-k4-xH7" id="UeI-rp-cLh"/>
-                        <outlet property="parrotImage" destination="Q88-o0-GwJ" id="Xnx-WI-8sd"/>
+                        <outlet property="pirateHeight" destination="Po3-yz-8ft" id="Yfp-JU-I2M"/>
                         <outlet property="pirateWheel" destination="w6N-3i-aFM" id="EDj-S1-NkW"/>
+                        <outlet property="pirateWidth" destination="h7f-ff-c40" id="f5q-mf-lCf"/>
                         <outlet property="planksHeight" destination="0fI-ig-OdO" id="Umj-52-QXt"/>
                         <outlet property="wheel" destination="Bxh-ze-VIw" id="EkS-J1-nuJ"/>
                         <outlet property="wheelHeight" destination="Jv0-HB-EaN" id="R29-vO-ZeL"/>
@@ -2088,7 +2009,6 @@
         <image name="orangeplank" width="1239" height="348"/>
         <image name="palmtree" width="881" height="908"/>
         <image name="paper" width="1707" height="1962"/>
-        <image name="parrot0redfly0" width="1390" height="1299"/>
         <image name="pelican0" width="894" height="713"/>
         <image name="pelicanstore" width="894" height="713"/>
         <image name="pirate0idle0" width="811" height="712"/>
@@ -2104,9 +2024,9 @@
         <image name="rsz_blueplank" width="677" height="189"/>
         <image name="seagull" width="856" height="869"/>
         <image name="shipRight0" width="1317" height="1437"/>
+        <image name="shipRight4" width="1317" height="1437"/>
         <image name="shipRightBlack0" width="1317" height="1437"/>
         <image name="singleLoot" width="122" height="118"/>
-        <image name="tropical2" width="4267" height="2133"/>
         <image name="vulcher" width="520" height="511"/>
         <image name="watchadtospintreasurewheel" width="1858" height="1990"/>
         <image name="wheelfixed" width="1000" height="989"/>

@@ -11,8 +11,8 @@ import AVFoundation
 import GoogleMobileAds
 import CoreData
 
-class SettingsVC: UIViewController, GADRewardBasedVideoAdDelegate  {
-    @IBOutlet weak var freeLootBtn: UIView!
+class SettingsVC: UIViewController {
+   
     @IBOutlet weak var upgradesBtn: UIView!
     @IBOutlet weak var exitBtn: UIView!
     
@@ -29,8 +29,6 @@ class SettingsVC: UIViewController, GADRewardBasedVideoAdDelegate  {
         super.viewDidLoad()
         
         
-        let tapGestureFreeLoot = UITapGestureRecognizer(target: self, action: #selector(SettingsVC.freeLootTapped(_:)))
-        self.freeLootBtn.addGestureRecognizer(tapGestureFreeLoot)
         
         let tapGestureUpgrades = UITapGestureRecognizer(target: self, action: #selector(SettingsVC.upgradesTapped(_:)))
         self.upgradesBtn.addGestureRecognizer(tapGestureUpgrades)
@@ -45,7 +43,6 @@ class SettingsVC: UIViewController, GADRewardBasedVideoAdDelegate  {
         self.wheelBtn.addGestureRecognizer(tapGestureWheel)
         
         
-         GADRewardBasedVideoAd.sharedInstance().delegate = self
         // fetching Wallet Entity from CoreData
         do {
             let context = appDelegate.persistentContainer.viewContext
@@ -112,44 +109,12 @@ class SettingsVC: UIViewController, GADRewardBasedVideoAdDelegate  {
         performSegue(withIdentifier: "goToStoreVC", sender: nil)
     }
     
-    func checkIfAdIsReady() {
-        freeLootBtn.alpha = 0.6
-    }
+  
     
-    func rewardBasedVideoAdDidReceive(_ rewardBasedVideoAd:GADRewardBasedVideoAd) {
-       freeLootBtn.alpha = 1.0
-    }
-    
-    func rewardBasedVideoAdDidClose(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
-        // reload a video
-        checkIfAdIsReady()
-        GADRewardBasedVideoAd.sharedInstance().load(GADRequest(),
-                                                    withAdUnitID: "ca-app-pub-1067425139660844/7589813936")
-    }
-    
-    func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd, didRewardUserWith reward: GADAdReward) {
-        let context = appDelegate.persistentContainer.viewContext
-        wallet[0].totalLootAmount += 10000
-        
-        // post notification to update wallet loot on main vc
-        do {
-            try context.save()
-            playLootSoundEffect()
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateLoot"), object: nil)
-        } catch {
-            //handle error
-        }
-        
-    }
+   
+
         
 
-    @IBAction func freeLootTapped(_ sender: Any) {
-        if GADRewardBasedVideoAd.sharedInstance().isReady == true {
-            GADRewardBasedVideoAd.sharedInstance().present(fromRootViewController: self)
-        } else {
-            print("not ready")
-        }
-    }
     
     @IBAction func upgradesTapped(_ sender: Any) {
         playStoreSound()
