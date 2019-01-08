@@ -934,7 +934,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         if(indexPath.row < 0){
             rowHeight = 0.0
         }else{
-            rowHeight = 124.0   
+            rowHeight = 160.0   
         }
         
         return rowHeight

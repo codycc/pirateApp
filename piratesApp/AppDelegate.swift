@@ -69,7 +69,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             wallet.setValue(0, forKey: "totalGemsAmount")
             
             let user = NSEntityDescription.insertNewObject(forEntityName: "User", into: context)
-            
+           
             
             user.setValue(false, forKey: "hasKoala")
             user.setValue(false, forKey: "hasSeagull")
@@ -264,6 +264,52 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             blackbeard.setValue(14, forKey: "numberOfImagesAttack")
             blackbeard.setValue(6000, forKey: "piratePrice")
 
+            let storeItem1 = NSEntityDescription.insertNewObject(forEntityName: "StoreItem", into: context)
+            let storeItem2 = NSEntityDescription.insertNewObject(forEntityName: "StoreItem", into: context)
+            let storeItem3 = NSEntityDescription.insertNewObject(forEntityName: "StoreItem", into: context)
+            let storeItem4 = NSEntityDescription.insertNewObject(forEntityName: "StoreItem", into: context)
+            let storeItem5 = NSEntityDescription.insertNewObject(forEntityName: "StoreItem", into: context)
+            let storeItem6 = NSEntityDescription.insertNewObject(forEntityName: "StoreItem", into: context)
+            
+            storeItem1.setValue(50000, forKey: "amountOfLoot")
+            storeItem1.setValue(99, forKey: "priceInCents")
+            storeItem1.setValue("coins_pack_1", forKey: "image")
+            storeItem1.setValue(1,forKey: "id")
+            storeItem1.setValue("blueboard99", forKey: "imageBlue")
+            
+            storeItem2.setValue(200000, forKey: "amountOfLoot")
+            storeItem2.setValue(299, forKey: "priceInCents")
+            storeItem2.setValue("coins_pack_2", forKey: "image")
+            storeItem2.setValue(2,forKey: "id")
+            storeItem2.setValue("blueboard299", forKey: "imageBlue")
+            
+            storeItem3.setValue(500000, forKey: "amountOfLoot")
+            storeItem3.setValue(699, forKey: "priceInCents")
+            storeItem3.setValue("coins_pack_3", forKey: "image")
+            storeItem3.setValue(3,forKey: "id")
+            storeItem3.setValue("blueboard699", forKey: "imageBlue")
+            
+            storeItem4.setValue(2500000, forKey: "amountOfLoot")
+            storeItem4.setValue(1399, forKey: "priceInCents")
+            storeItem4.setValue("coins_pack_4", forKey: "image")
+            storeItem4.setValue(4,forKey: "id")
+            storeItem4.setValue("blueboard1399", forKey: "imageBlue")
+            
+            storeItem5.setValue(10000000, forKey: "amountOfLoot")
+            storeItem5.setValue(2799, forKey: "priceInCents")
+            storeItem5.setValue("front_chest_coins", forKey: "image")
+            storeItem5.setValue(5,forKey: "id")
+            storeItem5.setValue("blueboard2799", forKey: "imageBlue")
+            
+            storeItem6.setValue(3, forKey: "amountOfPrestige")
+            storeItem6.setValue(6399, forKey: "priceInCents")
+            storeItem6.setValue("front_chest_gems", forKey: "image")
+            storeItem6.setValue(6,forKey: "id")
+            storeItem6.setValue("blueboard6399", forKey: "imageBlue")
+            
+          
+            
+            
             
             
             do {

@@ -10,6 +10,7 @@ target 'piratesApp' do
   pod 'Google-Mobile-Ads-SDK'
   pod 'Firebase/Core'
   pod 'Firebase/AdMob'
+ 
 
   target 'piratesAppTests' do
     inherit! :search_paths

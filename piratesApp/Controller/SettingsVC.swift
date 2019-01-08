@@ -16,6 +16,8 @@ class SettingsVC: UIViewController, GADRewardBasedVideoAdDelegate  {
     @IBOutlet weak var upgradesBtn: UIView!
     @IBOutlet weak var exitBtn: UIView!
     
+    @IBOutlet weak var wheelBtn: UIView!
+    @IBOutlet weak var shopBtn: UIView!
     var shopPlayer: AVAudioPlayer!
     var popPlayer: AVAudioPlayer!
     var lootPlayer: AVAudioPlayer!
@@ -35,6 +37,13 @@ class SettingsVC: UIViewController, GADRewardBasedVideoAdDelegate  {
         
         let tapGestureExit = UITapGestureRecognizer(target: self, action: #selector(SettingsVC.exitTapped(_:)))
         self.exitBtn.addGestureRecognizer(tapGestureExit)
+        
+        let tapGestureShop = UITapGestureRecognizer(target: self, action: #selector(SettingsVC.shopTapped(_:)))
+        self.shopBtn.addGestureRecognizer(tapGestureShop)
+        
+        let tapGestureWheel = UITapGestureRecognizer(target: self, action: #selector(SettingsVC.wheelTapped(_:)))
+        self.wheelBtn.addGestureRecognizer(tapGestureWheel)
+        
         
          GADRewardBasedVideoAd.sharedInstance().delegate = self
         // fetching Wallet Entity from CoreData
@@ -144,6 +153,16 @@ class SettingsVC: UIViewController, GADRewardBasedVideoAdDelegate  {
     
     @IBAction func upgradesTapped(_ sender: Any) {
         playStoreSound()
+        
+    }
+    
+    @IBAction func wheelTapped(_ sender: Any) {
+        performSegue(withIdentifier: "goToTreasureWheel", sender: nil)
+        
+    }
+    
+    @IBAction func shopTapped(_ sender: Any) {
+        performSegue(withIdentifier: "goToShopVC", sender: self)
         
     }
     

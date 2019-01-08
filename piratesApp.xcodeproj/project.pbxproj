@@ -14,7 +14,6 @@
 		0B0B145E21CAA6C5000ED275 /* prestige.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0B0B145D21CAA6C4000ED275 /* prestige.wav */; };
 		0B0B146221CAFC96000ED275 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0B146121CAFC96000ED275 /* SettingsVC.swift */; };
 		0B0B146421CB0955000ED275 /* loot.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0B0B146321CB0954000ED275 /* loot.wav */; };
-		0B261A0A21CC106E00C0C1F7 /* ExploreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B261A0921CC106E00C0C1F7 /* ExploreVC.swift */; };
 		0B6A4A6A2177B6B500495663 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6A4A692177B6B500495663 /* AppDelegate.swift */; };
 		0B6A4A6C2177B6B500495663 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6A4A6B2177B6B500495663 /* MainVC.swift */; };
 		0B6A4A6F2177B6B500495663 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B6A4A6D2177B6B500495663 /* Main.storyboard */; };
@@ -32,7 +31,13 @@
 		0B78C3E521826A8C00D628FB /* purchase.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0B78C3E421826A8B00D628FB /* purchase.wav */; };
 		0B78C3E72187A18A00D628FB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0B78C3E62187A18A00D628FB /* GoogleService-Info.plist */; };
 		0B82C7C821924F4A002FEABD /* pop.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0B82C7C721924F4A002FEABD /* pop.wav */; };
+		0B9C763321DFDC9900DF31A2 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B9C763221DFDC9900DF31A2 /* StoreKit.framework */; };
+		0B9C763521DFDECB00DF31A2 /* InAppPurchases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9C763421DFDECB00DF31A2 /* InAppPurchases.swift */; };
+		0B9C763721DFDFF700DF31A2 /* InAppPurchaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9C763621DFDFF700DF31A2 /* InAppPurchaseService.swift */; };
+		0BAD0EF021E3BB1A0078DC9E /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAD0EEF21E3BB1A0078DC9E /* DashboardVC.swift */; };
 		0BDD499A218DEEBD0022BB8E /* StoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDD4999218DEEBD0022BB8E /* StoreVC.swift */; };
+		0BF1828321DE804600D80930 /* ShopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF1828221DE804600D80930 /* ShopVC.swift */; };
+		0BF1828721DE80E500D80930 /* StoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF1828621DE80E500D80930 /* StoreCell.swift */; };
 		616D6631FECA1AE6BFB7C26D /* Pods_piratesApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 836271208CF8FCF0D8DF9160 /* Pods_piratesApp.framework */; };
 		A797B97C002785BC72F2DFD2 /* Pods_piratesAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF4F632F77AB1CE59392C73 /* Pods_piratesAppTests.framework */; };
 		C6B21E896365C1595647FCC1 /* Pods_piratesAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E44A5E8313631BD2B7262985 /* Pods_piratesAppUITests.framework */; };
@@ -63,7 +68,6 @@
 		0B0B145D21CAA6C4000ED275 /* prestige.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = prestige.wav; sourceTree = "<group>"; };
 		0B0B146121CAFC96000ED275 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		0B0B146321CB0954000ED275 /* loot.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = loot.wav; sourceTree = "<group>"; };
-		0B261A0921CC106E00C0C1F7 /* ExploreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreVC.swift; sourceTree = "<group>"; };
 		0B6A4A662177B6B400495663 /* piratesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = piratesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B6A4A692177B6B500495663 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0B6A4A6B2177B6B500495663 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
@@ -87,7 +91,13 @@
 		0B78C3E421826A8B00D628FB /* purchase.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = purchase.wav; sourceTree = "<group>"; };
 		0B78C3E62187A18A00D628FB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0B82C7C721924F4A002FEABD /* pop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pop.wav; sourceTree = "<group>"; };
+		0B9C763221DFDC9900DF31A2 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		0B9C763421DFDECB00DF31A2 /* InAppPurchases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchases.swift; sourceTree = "<group>"; };
+		0B9C763621DFDFF700DF31A2 /* InAppPurchaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchaseService.swift; sourceTree = "<group>"; };
+		0BAD0EEF21E3BB1A0078DC9E /* DashboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardVC.swift; sourceTree = "<group>"; };
 		0BDD4999218DEEBD0022BB8E /* StoreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreVC.swift; sourceTree = "<group>"; };
+		0BF1828221DE804600D80930 /* ShopVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopVC.swift; sourceTree = "<group>"; };
+		0BF1828621DE80E500D80930 /* StoreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreCell.swift; sourceTree = "<group>"; };
 		1FF4F632F77AB1CE59392C73 /* Pods_piratesAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_piratesAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C098F674FEDDB7F893D64E7 /* Pods-piratesAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-piratesAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-piratesAppTests/Pods-piratesAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5A8E74F24664786BCBFC1FF6 /* Pods-piratesApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-piratesApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-piratesApp/Pods-piratesApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -105,6 +115,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				616D6631FECA1AE6BFB7C26D /* Pods_piratesApp.framework in Frameworks */,
+				0B9C763321DFDC9900DF31A2 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -171,6 +182,8 @@
 				0B6A4A752177B6B600495663 /* LaunchScreen.storyboard */,
 				0B6A4A782177B6B600495663 /* Info.plist */,
 				0B6A4A702177B6B500495663 /* piratesApp.xcdatamodeld */,
+				0B9C763421DFDECB00DF31A2 /* InAppPurchases.swift */,
+				0B9C763621DFDFF700DF31A2 /* InAppPurchaseService.swift */,
 			);
 			path = piratesApp;
 			sourceTree = "<group>";
@@ -202,7 +215,8 @@
 				0B0883882190C059000ECEAA /* OfflineBonusVC.swift */,
 				0B08838A2190C393000ECEAA /* StatsVC.swift */,
 				0B0B146121CAFC96000ED275 /* SettingsVC.swift */,
-				0B261A0921CC106E00C0C1F7 /* ExploreVC.swift */,
+				0BF1828221DE804600D80930 /* ShopVC.swift */,
+				0BAD0EEF21E3BB1A0078DC9E /* DashboardVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -211,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				0B6A4A9D217BAF0500495663 /* PirateCell.swift */,
+				0BF1828621DE80E500D80930 /* StoreCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -247,6 +262,7 @@
 		83C34E22E5205CD7E2767B30 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0B9C763221DFDC9900DF31A2 /* StoreKit.framework */,
 				836271208CF8FCF0D8DF9160 /* Pods_piratesApp.framework */,
 				1FF4F632F77AB1CE59392C73 /* Pods_piratesAppTests.framework */,
 				E44A5E8313631BD2B7262985 /* Pods_piratesAppUITests.framework */,
@@ -326,6 +342,11 @@
 				TargetAttributes = {
 					0B6A4A652177B6B400495663 = {
 						CreatedOnToolsVersion = 10.0;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+						};
 					};
 					0B6A4A7C2177B6B600495663 = {
 						CreatedOnToolsVersion = 10.0;
@@ -496,15 +517,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B08838B2190C393000ECEAA /* StatsVC.swift in Sources */,
+				0B9C763521DFDECB00DF31A2 /* InAppPurchases.swift in Sources */,
 				0B6A4A9E217BAF0500495663 /* PirateCell.swift in Sources */,
-				0B261A0A21CC106E00C0C1F7 /* ExploreVC.swift in Sources */,
+				0B9C763721DFDFF700DF31A2 /* InAppPurchaseService.swift in Sources */,
 				0B6A4A722177B6B500495663 /* piratesApp.xcdatamodeld in Sources */,
 				0B6A4A6C2177B6B500495663 /* MainVC.swift in Sources */,
+				0BF1828321DE804600D80930 /* ShopVC.swift in Sources */,
 				0B6A4A6A2177B6B500495663 /* AppDelegate.swift in Sources */,
 				0B0883892190C059000ECEAA /* OfflineBonusVC.swift in Sources */,
+				0BAD0EF021E3BB1A0078DC9E /* DashboardVC.swift in Sources */,
 				0BDD499A218DEEBD0022BB8E /* StoreVC.swift in Sources */,
 				0B0883872190B86F000ECEAA /* IntroOutroVC.swift in Sources */,
 				0B0B146221CAFC96000ED275 /* SettingsVC.swift in Sources */,
+				0BF1828721DE80E500D80930 /* StoreCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

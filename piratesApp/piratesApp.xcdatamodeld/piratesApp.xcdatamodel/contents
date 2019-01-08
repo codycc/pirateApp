@@ -17,6 +17,14 @@
         <attribute name="piratePrice" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="plankNumber" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
+    <entity name="StoreItem" representedClassName="StoreItem" syncable="YES" codeGenerationType="class">
+        <attribute name="amountOfLoot" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="amountOfPrestige" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imageBlue" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="priceInCents" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
     <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="class">
         <attribute name="hasCampFire" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="hasKoala" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
@@ -31,6 +39,7 @@
     </entity>
     <elements>
         <element name="Pirate" positionX="-63" positionY="-18" width="128" height="270"/>
+        <element name="StoreItem" positionX="-54" positionY="99" width="128" height="135"/>
         <element name="User" positionX="-54" positionY="99" width="128" height="135"/>
         <element name="Wallet" positionX="-54" positionY="36" width="128" height="75"/>
     </elements>
