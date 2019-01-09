@@ -150,7 +150,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         
         NotificationCenter.default.addObserver(self, selector: #selector(checkWhatItemsToDisplay), name: NSNotification.Name(rawValue: "checkNewItems"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateWalletLootNotification), name: NSNotification.Name(rawValue: "updateLoot"), object: nil)
-
+        
         
         //fetching Pirate Entity from CoreData
      
@@ -251,6 +251,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     
     @objc func updateWalletLootNotification() {
         updateWalletLoot()
+        updateGemAmount()
     }
     
     func updateWalletLoot() {

@@ -44,6 +44,7 @@ class PirateCell: UITableViewCell {
     @IBOutlet weak var maxPiratesReachedLbl: UILabel!
     @IBOutlet var pirateImgConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var pirateHeightConstraint: NSLayoutConstraint!
     
     
     
@@ -106,29 +107,41 @@ class PirateCell: UITableViewCell {
     func checkHowToChangeConstraint(pirate: Pirate) {
         switch pirate.id {
         case 0:
-            self.pirateImgConstraint.constant = -15
+            self.pirateImgConstraint.constant = -20
+            self.pirateHeightConstraint.constant = 180
         case 1:
-            self.pirateImgConstraint.constant = -30
+            self.pirateImgConstraint.constant = -35
+            self.pirateHeightConstraint.constant = 180
         case 2:
             self.pirateImgConstraint.constant = -17
+            self.pirateHeightConstraint.constant = 170
         case 3:
             self.pirateImgConstraint.constant = -25
+            self.pirateHeightConstraint.constant = 180
         case 4:
-            self.pirateImgConstraint.constant = -20
+            self.pirateImgConstraint.constant = -25
+            self.pirateHeightConstraint.constant = 180
         case 5:
             self.pirateImgConstraint.constant = -20
+            self.pirateHeightConstraint.constant = 180
         case 6:
-            self.pirateImgConstraint.constant = -38
+            self.pirateImgConstraint.constant = -45
+            self.pirateHeightConstraint.constant = 160
         case 7:
             self.pirateImgConstraint.constant = -33
+            self.pirateHeightConstraint.constant = 160
         case 8:
             self.pirateImgConstraint.constant = -20
+            self.pirateHeightConstraint.constant = 180
         case 9:
-            self.pirateImgConstraint.constant = -20
+            self.pirateImgConstraint.constant = -25
+            self.pirateHeightConstraint.constant = 190
         case 10:
             self.pirateImgConstraint.constant = -20
+            self.pirateHeightConstraint.constant = 190
         case 11:
             self.pirateImgConstraint.constant = -20
+            self.pirateHeightConstraint.constant = 190
         default:
             print("default")
         }

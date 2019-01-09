@@ -28,7 +28,8 @@ class SettingsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        GADRewardBasedVideoAd.sharedInstance().load(GADRequest(),
+                                                    withAdUnitID: "ca-app-pub-3940256099942544/1712485313")
         
         let tapGestureUpgrades = UITapGestureRecognizer(target: self, action: #selector(SettingsVC.upgradesTapped(_:)))
         self.upgradesBtn.addGestureRecognizer(tapGestureUpgrades)
@@ -58,6 +59,9 @@ class SettingsVC: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+    
+    
     
     
     
