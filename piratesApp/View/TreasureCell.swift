@@ -22,17 +22,18 @@ class TreasureCell: UICollectionViewCell {
         
         if treasureItem.isUnlocked {
             questionMarkImage.isHidden = true
+            treasureImage.isHidden = false
+            categoryImage.isHidden = false
             let treasureUIImage = UIImage(named: "treasure0\(treasureItem.id)")!
             treasureImage.image = treasureUIImage
-            
             treasureName.text = "\(treasureItem.name!)"
-            
             let treasureCategoryImage = UIImage(named: "category\(treasureItem.categoryId)")!
             categoryImage.image = treasureCategoryImage
         } else {
             questionMarkImage.isHidden = false
-//            treasureName.text = "\(treasureItem.id)/78"
-            treasureName.text = ""
+            treasureImage.isHidden = true
+            categoryImage.isHidden = true
+            treasureName.text = " "
         }
        
         

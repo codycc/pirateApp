@@ -98,7 +98,6 @@ class SettingsVC: UIViewController {
             print(err.debugDescription)
         }
         
-        performSegue(withIdentifier: "goToStoreVC", sender: nil)
     }
     
     func playLootSoundEffect() {
@@ -131,16 +130,18 @@ class SettingsVC: UIViewController {
     
     @IBAction func upgradesTapped(_ sender: Any) {
         playStoreSound()
-        
+        performSegue(withIdentifier: "goToStoreVC", sender: nil)
     }
     
     @IBAction func wheelTapped(_ sender: Any) {
+         playStoreSound()
         performSegue(withIdentifier: "goToTreasureWheel", sender: nil)
         
     }
     
     @IBAction func shopTapped(_ sender: Any) {
-        performSegue(withIdentifier: "goToShopVC", sender: self)
+        playStoreSound()
+        performSegue(withIdentifier: "goToMarketVC", sender: self)
         
     }
     

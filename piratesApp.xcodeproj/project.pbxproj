@@ -38,6 +38,7 @@
 		0B9C763721DFDFF700DF31A2 /* InAppPurchaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9C763621DFDFF700DF31A2 /* InAppPurchaseService.swift */; };
 		0BAD0EF021E3BB1A0078DC9E /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAD0EEF21E3BB1A0078DC9E /* DashboardVC.swift */; };
 		0BDD499A218DEEBD0022BB8E /* StoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDD4999218DEEBD0022BB8E /* StoreVC.swift */; };
+		0BE36D6521E6A53A007A67C7 /* MarketVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE36D6421E6A53A007A67C7 /* MarketVC.swift */; };
 		0BF1828321DE804600D80930 /* ShopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF1828221DE804600D80930 /* ShopVC.swift */; };
 		0BF1828721DE80E500D80930 /* StoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF1828621DE80E500D80930 /* StoreCell.swift */; };
 		616D6631FECA1AE6BFB7C26D /* Pods_piratesApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 836271208CF8FCF0D8DF9160 /* Pods_piratesApp.framework */; };
@@ -100,6 +101,7 @@
 		0B9C763621DFDFF700DF31A2 /* InAppPurchaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchaseService.swift; sourceTree = "<group>"; };
 		0BAD0EEF21E3BB1A0078DC9E /* DashboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardVC.swift; sourceTree = "<group>"; };
 		0BDD4999218DEEBD0022BB8E /* StoreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreVC.swift; sourceTree = "<group>"; };
+		0BE36D6421E6A53A007A67C7 /* MarketVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketVC.swift; sourceTree = "<group>"; };
 		0BF1828221DE804600D80930 /* ShopVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopVC.swift; sourceTree = "<group>"; };
 		0BF1828621DE80E500D80930 /* StoreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreCell.swift; sourceTree = "<group>"; };
 		1FF4F632F77AB1CE59392C73 /* Pods_piratesAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_piratesAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -222,6 +224,7 @@
 				0BF1828221DE804600D80930 /* ShopVC.swift */,
 				0BAD0EEF21E3BB1A0078DC9E /* DashboardVC.swift */,
 				0B5DDCD121E58E140015A483 /* TreasureCollectionVC.swift */,
+				0BE36D6421E6A53A007A67C7 /* MarketVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -535,6 +538,7 @@
 				0B0883892190C059000ECEAA /* OfflineBonusVC.swift in Sources */,
 				0BAD0EF021E3BB1A0078DC9E /* DashboardVC.swift in Sources */,
 				0BDD499A218DEEBD0022BB8E /* StoreVC.swift in Sources */,
+				0BE36D6521E6A53A007A67C7 /* MarketVC.swift in Sources */,
 				0B0883872190B86F000ECEAA /* IntroOutroVC.swift in Sources */,
 				0B0B146221CAFC96000ED275 /* SettingsVC.swift in Sources */,
 				0BF1828721DE80E500D80930 /* StoreCell.swift in Sources */,
