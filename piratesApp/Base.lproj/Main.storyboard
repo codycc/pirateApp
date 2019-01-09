@@ -672,7 +672,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3tz-dy-Mz0">
-                                        <rect key="frame" x="49" y="3.3333333333333304" width="50" height="31.666666666666671"/>
+                                        <rect key="frame" x="49" y="5.6666666666666714" width="50" height="27"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="J46-Fe-QM1"/>
                                         </constraints>
@@ -1175,7 +1175,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100,000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="1VM-Qp-rzf">
-                                        <rect key="frame" x="122.66666666666669" y="235" width="130" height="30.333333333333314"/>
+                                        <rect key="frame" x="122.66666666666669" y="237" width="130" height="26"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="130" id="f0l-33-XwD"/>
                                         </constraints>
@@ -1198,7 +1198,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" alpha="0.40000000000000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="200,000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="fTa-il-94I">
-                                        <rect key="frame" x="155" y="286" width="80" height="28"/>
+                                        <rect key="frame" x="155" y="288" width="80" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="80" id="rxC-ld-VSp"/>
                                         </constraints>
@@ -1777,13 +1777,13 @@
                                 <rect key="frame" x="15" y="94" width="345" height="634"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IBI-aJ-Ny8">
-                                        <rect key="frame" x="0.0" y="0.0" width="345" height="136"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="345" height="102.66666666666667"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blueplank" translatesAutoresizingMaskIntoConstraints="NO" id="Qe5-17-RS6">
-                                                <rect key="frame" x="0.0" y="0.0" width="345" height="136"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="345" height="102.66666666666667"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EXPLORE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ktn-kN-U5A">
-                                                <rect key="frame" x="114" y="50" width="117" height="36"/>
+                                                <rect key="frame" x="114" y="33.333333333333329" width="117" height="36"/>
                                                 <fontDescription key="fontDescription" name="PiratesWriters" family="Pirates Writers" pointSize="36"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -1799,14 +1799,38 @@
                                             <constraint firstItem="Ktn-kN-U5A" firstAttribute="centerY" secondItem="IBI-aJ-Ny8" secondAttribute="centerY" id="yrn-JN-6y8"/>
                                         </constraints>
                                     </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yf2-gf-n4m">
+                                        <rect key="frame" x="0.0" y="132.66666666666666" width="345" height="103"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="redplank" translatesAutoresizingMaskIntoConstraints="NO" id="yc3-nT-Yb5">
+                                                <rect key="frame" x="0.0" y="0.0" width="345" height="103"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TREASURE COLLECTION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GX6-QE-LFL">
+                                                <rect key="frame" x="41" y="36.000000000000028" width="263" height="31"/>
+                                                <fontDescription key="fontDescription" name="PiratesWriters" family="Pirates Writers" pointSize="31"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="yc3-nT-Yb5" firstAttribute="top" secondItem="Yf2-gf-n4m" secondAttribute="top" id="3Ne-17-S8x"/>
+                                            <constraint firstItem="yc3-nT-Yb5" firstAttribute="leading" secondItem="Yf2-gf-n4m" secondAttribute="leading" id="BFH-RC-ODz"/>
+                                            <constraint firstAttribute="bottom" secondItem="yc3-nT-Yb5" secondAttribute="bottom" id="NkD-jP-i8Q"/>
+                                            <constraint firstAttribute="trailing" secondItem="yc3-nT-Yb5" secondAttribute="trailing" id="i7w-qq-YmD"/>
+                                            <constraint firstItem="GX6-QE-LFL" firstAttribute="centerY" secondItem="Yf2-gf-n4m" secondAttribute="centerY" id="tap-aU-lNx"/>
+                                            <constraint firstItem="GX6-QE-LFL" firstAttribute="centerX" secondItem="Yf2-gf-n4m" secondAttribute="centerX" id="yE3-e1-hST"/>
+                                        </constraints>
+                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L76-XS-MBT">
-                                        <rect key="frame" x="0.0" y="166" width="345" height="136"/>
+                                        <rect key="frame" x="0.0" y="265.66666666666669" width="345" height="102.66666666666669"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="orangeplank" translatesAutoresizingMaskIntoConstraints="NO" id="DuN-Nk-ou2">
-                                                <rect key="frame" x="0.0" y="0.0" width="345" height="136"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="345" height="102.66666666666667"/>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TREASURE WHEEL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Smw-HV-8eB">
-                                                <rect key="frame" x="55.666666666666686" y="50" width="234" height="36"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PIRATE'S WHEEL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Smw-HV-8eB">
+                                                <rect key="frame" x="68.000000000000014" y="33.333333333333314" width="209.33333333333337" height="36"/>
                                                 <fontDescription key="fontDescription" name="PiratesWriters" family="Pirates Writers" pointSize="36"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -1823,13 +1847,13 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QRQ-C9-Sn3">
-                                        <rect key="frame" x="0.0" y="332" width="345" height="136"/>
+                                        <rect key="frame" x="0.0" y="398.33333333333331" width="345" height="103"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="greenplank" highlightedImage="UPGRADES" translatesAutoresizingMaskIntoConstraints="NO" id="oJA-Qe-K7V">
-                                                <rect key="frame" x="0.0" y="0.0" width="345" height="136"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="345" height="103"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CUSTOMIZE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iRQ-VR-Eie">
-                                                <rect key="frame" x="103.00000000000001" y="50.666666666666686" width="139.33333333333337" height="35"/>
+                                                <rect key="frame" x="103.00000000000001" y="34.000000000000057" width="139.33333333333337" height="35"/>
                                                 <fontDescription key="fontDescription" name="PiratesWriters" family="Pirates Writers" pointSize="35"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -1846,13 +1870,13 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i7N-LO-l4d">
-                                        <rect key="frame" x="0.0" y="498" width="345" height="136"/>
+                                        <rect key="frame" x="0.0" y="531.33333333333337" width="345" height="102.66666666666663"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="redplank" translatesAutoresizingMaskIntoConstraints="NO" id="Jwu-Dq-dc1">
-                                                <rect key="frame" x="0.0" y="0.0" width="345" height="136"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="345" height="102.66666666666667"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EXIT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TRy-9F-ajD">
-                                                <rect key="frame" x="144.66666666666666" y="51" width="56" height="34"/>
+                                                <rect key="frame" x="144.66666666666666" y="34.333333333333258" width="56" height="34"/>
                                                 <fontDescription key="fontDescription" name="PiratesWriters" family="Pirates Writers" pointSize="34"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -1883,11 +1907,13 @@
                     <connections>
                         <outlet property="exitBtn" destination="i7N-LO-l4d" id="npP-Ty-s9r"/>
                         <outlet property="shopBtn" destination="IBI-aJ-Ny8" id="L2r-AZ-5f7"/>
+                        <outlet property="treasureCollectionButton" destination="Yf2-gf-n4m" id="gkm-Zo-dDi"/>
                         <outlet property="upgradesBtn" destination="QRQ-C9-Sn3" id="d6J-fg-sYK"/>
                         <outlet property="wheelBtn" destination="L76-XS-MBT" id="4MQ-V7-hUU"/>
                         <segue destination="I00-Yz-4RB" kind="show" identifier="goToStoreVC" id="mtJ-Xy-vyJ"/>
                         <segue destination="350-Xw-Mg5" kind="show" identifier="goToShopVC" id="DIV-Fa-QdL"/>
                         <segue destination="r2B-sj-d2P" kind="show" identifier="goToTreasureWheel" id="haq-zz-4bY"/>
+                        <segue destination="8Ky-1a-rUl" kind="show" identifier="goToTreasureCollectionVC" id="UQg-uv-8D5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g79-xb-rJX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1982,6 +2008,125 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="htU-Re-b5Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1636" y="377.58620689655174"/>
+        </scene>
+        <!--Treasure CollectionVC-->
+        <scene sceneID="4Op-bH-PIk">
+            <objects>
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="8Ky-1a-rUl" customClass="TreasureCollectionVC" customModule="piratesApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="y6m-SG-Tjy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tRY-AQ-syL">
+                                <rect key="frame" x="0.0" y="154" width="375" height="624"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="UIh-vO-feW">
+                                    <size key="itemSize" width="118" height="119"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TreasureCell" id="ThK-eJ-i1n" customClass="TreasureCell" customModule="piratesApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="118" height="119"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="118" height="119"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qw7-XA-gbJ">
+                                                    <rect key="frame" x="0.0" y="0.0" width="118" height="119"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FXM-EC-sMX">
+                                                    <rect key="frame" x="0.0" y="0.0" width="118" height="97"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="CBr-2I-zvZ">
+                                                    <rect key="frame" x="0.0" y="97" width="118" height="22"/>
+                                                    <fontDescription key="fontDescription" name="PiratesWriters" family="Pirates Writers" pointSize="22"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="frE-5X-PTc">
+                                                    <rect key="frame" x="49" y="28.666666666666671" width="20.333333333333329" height="62"/>
+                                                    <fontDescription key="fontDescription" name="PiratesWriters" family="Pirates Writers" pointSize="62"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="FXM-EC-sMX" firstAttribute="leading" secondItem="ThK-eJ-i1n" secondAttribute="leading" id="1jO-xe-bkj"/>
+                                            <constraint firstItem="Qw7-XA-gbJ" firstAttribute="leading" secondItem="ThK-eJ-i1n" secondAttribute="leading" id="2nR-TL-Zpf"/>
+                                            <constraint firstItem="CBr-2I-zvZ" firstAttribute="top" secondItem="FXM-EC-sMX" secondAttribute="bottom" id="4ei-uR-l4e"/>
+                                            <constraint firstAttribute="bottom" secondItem="CBr-2I-zvZ" secondAttribute="bottom" id="AVI-Ma-Myy"/>
+                                            <constraint firstAttribute="trailing" secondItem="Qw7-XA-gbJ" secondAttribute="trailing" id="F7p-63-L10"/>
+                                            <constraint firstAttribute="bottom" secondItem="Qw7-XA-gbJ" secondAttribute="bottom" id="Jyy-Gx-oYf"/>
+                                            <constraint firstItem="FXM-EC-sMX" firstAttribute="top" secondItem="ThK-eJ-i1n" secondAttribute="top" id="dTv-Ee-ifY"/>
+                                            <constraint firstItem="frE-5X-PTc" firstAttribute="centerX" secondItem="ThK-eJ-i1n" secondAttribute="centerX" id="jGQ-V7-cKU"/>
+                                            <constraint firstItem="CBr-2I-zvZ" firstAttribute="leading" secondItem="ThK-eJ-i1n" secondAttribute="leading" id="n9T-Kf-LyN"/>
+                                            <constraint firstItem="frE-5X-PTc" firstAttribute="centerY" secondItem="ThK-eJ-i1n" secondAttribute="centerY" id="oIH-gH-MCq"/>
+                                            <constraint firstItem="Qw7-XA-gbJ" firstAttribute="top" secondItem="ThK-eJ-i1n" secondAttribute="top" id="skI-hw-N1t"/>
+                                            <constraint firstAttribute="trailing" secondItem="FXM-EC-sMX" secondAttribute="trailing" id="t9R-Tn-7qG"/>
+                                            <constraint firstAttribute="trailing" secondItem="CBr-2I-zvZ" secondAttribute="trailing" id="x8l-zQ-6Te"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="categoryImage" destination="Qw7-XA-gbJ" id="BTd-Lg-ZN3"/>
+                                            <outlet property="questionMarkImage" destination="frE-5X-PTc" id="Fgz-XN-duE"/>
+                                            <outlet property="treasureImage" destination="FXM-EC-sMX" id="RIA-Rw-3WK"/>
+                                            <outlet property="treasureName" destination="CBr-2I-zvZ" id="o3L-Pd-M6L"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blueplank" translatesAutoresizingMaskIntoConstraints="NO" id="ydz-Nq-enB">
+                                <rect key="frame" x="10" y="74" width="355" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="HCz-ne-fdY"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TREASURE COLLECTION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rj0-iw-aAh">
+                                <rect key="frame" x="73" y="95.666666666666671" width="229" height="27"/>
+                                <fontDescription key="fontDescription" name="PiratesWriters" family="Pirates Writers" pointSize="27"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bTv-zt-hgs">
+                                <rect key="frame" x="319" y="44" width="46" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="KWo-yW-wcS"/>
+                                    <constraint firstAttribute="height" constant="46" id="fjM-9x-odM"/>
+                                </constraints>
+                                <state key="normal" image="exitIcon"/>
+                                <connections>
+                                    <action selector="exitBtnTapped:" destination="8Ky-1a-rUl" eventType="touchUpInside" id="B8h-aF-Dvp"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.84658604452054798" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ydz-Nq-enB" firstAttribute="leading" secondItem="yW1-8P-XwP" secondAttribute="leading" constant="10" id="0y1-aF-ND3"/>
+                            <constraint firstItem="ydz-Nq-enB" firstAttribute="centerX" secondItem="y6m-SG-Tjy" secondAttribute="centerX" id="1HC-gG-z3a"/>
+                            <constraint firstItem="yW1-8P-XwP" firstAttribute="trailing" secondItem="ydz-Nq-enB" secondAttribute="trailing" constant="10" id="7Q0-Xj-ohh"/>
+                            <constraint firstItem="tRY-AQ-syL" firstAttribute="leading" secondItem="yW1-8P-XwP" secondAttribute="leading" id="FMq-VN-0dL"/>
+                            <constraint firstItem="bTv-zt-hgs" firstAttribute="top" secondItem="yW1-8P-XwP" secondAttribute="top" id="HXf-wx-caX"/>
+                            <constraint firstItem="tRY-AQ-syL" firstAttribute="top" secondItem="ydz-Nq-enB" secondAttribute="bottom" constant="10" id="MMS-V8-D59"/>
+                            <constraint firstItem="rj0-iw-aAh" firstAttribute="centerX" secondItem="ydz-Nq-enB" secondAttribute="centerX" id="RmJ-us-fjC"/>
+                            <constraint firstItem="tRY-AQ-syL" firstAttribute="trailing" secondItem="yW1-8P-XwP" secondAttribute="trailing" id="Y3m-IM-z3g"/>
+                            <constraint firstItem="tRY-AQ-syL" firstAttribute="bottom" secondItem="yW1-8P-XwP" secondAttribute="bottom" id="cZA-3q-iqj"/>
+                            <constraint firstItem="ydz-Nq-enB" firstAttribute="top" secondItem="yW1-8P-XwP" secondAttribute="top" constant="30" id="cdM-gD-YNd"/>
+                            <constraint firstItem="yW1-8P-XwP" firstAttribute="trailing" secondItem="bTv-zt-hgs" secondAttribute="trailing" constant="10" id="qQZ-36-AVD"/>
+                            <constraint firstItem="rj0-iw-aAh" firstAttribute="centerY" secondItem="ydz-Nq-enB" secondAttribute="centerY" id="zPR-vo-Afw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="yW1-8P-XwP"/>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="tRY-AQ-syL" id="RlN-Kq-P0c"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1HV-nb-3DK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1548" y="1091"/>
         </scene>
     </scenes>
     <resources>

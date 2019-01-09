@@ -14,6 +14,8 @@
 		0B0B145E21CAA6C5000ED275 /* prestige.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0B0B145D21CAA6C4000ED275 /* prestige.wav */; };
 		0B0B146221CAFC96000ED275 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0B146121CAFC96000ED275 /* SettingsVC.swift */; };
 		0B0B146421CB0955000ED275 /* loot.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0B0B146321CB0954000ED275 /* loot.wav */; };
+		0B5DDCD221E58E140015A483 /* TreasureCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5DDCD121E58E140015A483 /* TreasureCollectionVC.swift */; };
+		0B5DDCD421E66D8C0015A483 /* TreasureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5DDCD321E66D8C0015A483 /* TreasureCell.swift */; };
 		0B6A4A6A2177B6B500495663 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6A4A692177B6B500495663 /* AppDelegate.swift */; };
 		0B6A4A6C2177B6B500495663 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6A4A6B2177B6B500495663 /* MainVC.swift */; };
 		0B6A4A6F2177B6B500495663 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B6A4A6D2177B6B500495663 /* Main.storyboard */; };
@@ -68,6 +70,8 @@
 		0B0B145D21CAA6C4000ED275 /* prestige.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = prestige.wav; sourceTree = "<group>"; };
 		0B0B146121CAFC96000ED275 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		0B0B146321CB0954000ED275 /* loot.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = loot.wav; sourceTree = "<group>"; };
+		0B5DDCD121E58E140015A483 /* TreasureCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreasureCollectionVC.swift; sourceTree = "<group>"; };
+		0B5DDCD321E66D8C0015A483 /* TreasureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreasureCell.swift; sourceTree = "<group>"; };
 		0B6A4A662177B6B400495663 /* piratesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = piratesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B6A4A692177B6B500495663 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0B6A4A6B2177B6B500495663 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
@@ -217,6 +221,7 @@
 				0B0B146121CAFC96000ED275 /* SettingsVC.swift */,
 				0BF1828221DE804600D80930 /* ShopVC.swift */,
 				0BAD0EEF21E3BB1A0078DC9E /* DashboardVC.swift */,
+				0B5DDCD121E58E140015A483 /* TreasureCollectionVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -226,6 +231,7 @@
 			children = (
 				0B6A4A9D217BAF0500495663 /* PirateCell.swift */,
 				0BF1828621DE80E500D80930 /* StoreCell.swift */,
+				0B5DDCD321E66D8C0015A483 /* TreasureCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -516,6 +522,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B5DDCD221E58E140015A483 /* TreasureCollectionVC.swift in Sources */,
 				0B08838B2190C393000ECEAA /* StatsVC.swift in Sources */,
 				0B9C763521DFDECB00DF31A2 /* InAppPurchases.swift in Sources */,
 				0B6A4A9E217BAF0500495663 /* PirateCell.swift in Sources */,
@@ -523,6 +530,7 @@
 				0B6A4A722177B6B500495663 /* piratesApp.xcdatamodeld in Sources */,
 				0B6A4A6C2177B6B500495663 /* MainVC.swift in Sources */,
 				0BF1828321DE804600D80930 /* ShopVC.swift in Sources */,
+				0B5DDCD421E66D8C0015A483 /* TreasureCell.swift in Sources */,
 				0B6A4A6A2177B6B500495663 /* AppDelegate.swift in Sources */,
 				0B0883892190C059000ECEAA /* OfflineBonusVC.swift in Sources */,
 				0BAD0EF021E3BB1A0078DC9E /* DashboardVC.swift in Sources */,

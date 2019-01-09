@@ -309,11 +309,514 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             storeItem6.setValue(6,forKey: "id")
             storeItem6.setValue("blueboard6399", forKey: "imageBlue")
             
-          
+            
+            //Treasures
+            let piratesRope = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let crate = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let whiteFlag = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let buccaneersBarrel = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let yellowCoral = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let blackJacksBronzeCoins = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let atlantisGold = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let yellowSeahorse = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let cannonBalls = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let copperGoblet = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let stoneGoblet = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let rustedAnchor = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let sharkBaitSword = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let orangeCoral = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let greenCoral = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let pinkCoral = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let commonHook = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let cutlass = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let sharkTeethCutlass = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let shiverMeSword = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let noMansKnife = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let deepSeaSword = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let jollysKnife = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let blueSeaweed = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let fishingLure = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let silverThread = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let rubyThread = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let seaDogsSilver = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let octopus = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let blackEyepatch = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let commonGrog = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let silverAncientPot = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let treasureMapCommon = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let silverCompass = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let captainsWheel = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let captainsGoldenWheel = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let ancientClamShell = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let seadogsSpyGlass = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let seadogsGoldSpyGlass = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let treasureMapRare = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let fishingLure2 = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let oldMansCutlass = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let noMansFlag = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let messageInABottle = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let purpleSkullFlag = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let redLantern = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let seaUrchantPurple = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let silverAnchor = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let deepSeaBall = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let deepSeaEmeraldBall = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let deepSeaRubyBall = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let atlantisStarfish = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let goldCompass = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let skullEyepatch = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let blueBeardsPotion = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let redBeardsPotion = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let silverGoblet = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let clam = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let seaUrchant = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let anchor = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let rareHook = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let marianasRubyTreasure = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let marianasEmeraldTreasure = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let marianasAncientTreasure = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let rareGrog = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let goldenSeaUrchant = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let waxSealedMessage = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let purpleCoral = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let aquaCoral = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let pearls = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let blackPearls = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let epicGrog = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let herculesLostItem = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let goldenGoblet = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let goldAncientPot = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let epicHook = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let rubyJewel = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            let goldenAnchor = NSEntityDescription.insertNewObject(forEntityName: "Treasure", into: context)
+            
+            
+            piratesRope.setValue("Pirate's Rope", forKey: "name")
+            piratesRope.setValue(1,forKey: "id")
+            piratesRope.setValue(1,forKey:"categoryId")
+            piratesRope.setValue(false, forKey: "isUnlocked")
+            
+            
+            crate.setValue("Crate", forKey: "name")
+            crate.setValue(2,forKey: "id")
+            crate.setValue(1,forKey:"categoryId")
+            crate.setValue(false, forKey: "isUnlocked")
+            
+            whiteFlag.setValue("Pirate's Rope", forKey: "name")
+            whiteFlag.setValue(3,forKey: "id")
+            whiteFlag.setValue(1,forKey:"categoryId")
+            whiteFlag.setValue(false, forKey: "isUnlocked")
+            
+            
+            buccaneersBarrel.setValue("Buccaneer's Barrel", forKey: "name")
+            buccaneersBarrel.setValue(4,forKey: "id")
+            buccaneersBarrel.setValue(1,forKey:"categoryId")
+            buccaneersBarrel.setValue(false, forKey: "isUnlocked")
+            
+            
+            yellowCoral.setValue("Yellow Coral", forKey: "name")
+            yellowCoral.setValue(5,forKey: "id")
+            yellowCoral.setValue(1,forKey:"categoryId")
+            yellowCoral.setValue(false, forKey: "isUnlocked")
+            
+            
+            blackJacksBronzeCoins.setValue("BlackJack's Bronze Coins", forKey: "name")
+            blackJacksBronzeCoins.setValue(6,forKey: "id")
+            blackJacksBronzeCoins.setValue(1,forKey:"categoryId")
+            blackJacksBronzeCoins.setValue(false, forKey: "isUnlocked")
+            
+            
+            atlantisGold.setValue("Atlantis Gold", forKey: "name")
+            atlantisGold.setValue(7,forKey: "id")
+            atlantisGold.setValue(1,forKey:"categoryId")
+            atlantisGold.setValue(false, forKey: "isUnlocked")
+            
+            
+            yellowSeahorse.setValue("Yellow Seahorse", forKey: "name")
+            yellowSeahorse.setValue(8,forKey: "id")
+            yellowSeahorse.setValue(1,forKey:"categoryId")
+            yellowSeahorse.setValue(false, forKey: "isUnlocked")
+            
+            
+            cannonBalls.setValue("Cannon Balls", forKey: "name")
+            cannonBalls.setValue(9,forKey: "id")
+            cannonBalls.setValue(1,forKey:"categoryId")
+            cannonBalls.setValue(false, forKey: "isUnlocked")
+            
+            stoneGoblet.setValue("Stone Goblet", forKey: "name")
+            stoneGoblet.setValue(10,forKey: "id")
+            stoneGoblet.setValue(1,forKey:"categoryId")
+            stoneGoblet.setValue(false, forKey: "isUnlocked")
+            
+            
+            copperGoblet.setValue("Copper Goblet", forKey: "name")
+            copperGoblet.setValue(11,forKey: "id")
+            copperGoblet.setValue(1,forKey:"categoryId")
+            copperGoblet.setValue(false, forKey: "isUnlocked")
+            
+            
+            rustedAnchor.setValue("Rusted Anchor", forKey: "name")
+            rustedAnchor.setValue(12,forKey: "id")
+            rustedAnchor.setValue(1,forKey:"categoryId")
+            rustedAnchor.setValue(false, forKey: "isUnlocked")
             
             
             
+            sharkBaitSword.setValue("SharkBait Sword", forKey: "name")
+            sharkBaitSword.setValue(13,forKey: "id")
+            sharkBaitSword.setValue(1,forKey:"categoryId")
+            sharkBaitSword.setValue(false, forKey: "isUnlocked")
             
+            
+            orangeCoral.setValue("Orange Coral", forKey: "name")
+            orangeCoral.setValue(14,forKey: "id")
+            orangeCoral.setValue(1,forKey:"categoryId")
+            orangeCoral.setValue(false, forKey: "isUnlocked")
+            
+            
+            greenCoral.setValue("Green Coral", forKey: "name")
+            greenCoral.setValue(15,forKey: "id")
+            greenCoral.setValue(1,forKey:"categoryId")
+            greenCoral.setValue(false, forKey: "isUnlocked")
+            
+            
+            pinkCoral.setValue("Pink Coral", forKey: "name")
+            pinkCoral.setValue(16,forKey: "id")
+            pinkCoral.setValue(1,forKey:"categoryId")
+            pinkCoral.setValue(false, forKey: "isUnlocked")
+            
+            
+            commonHook.setValue("Common Hook", forKey: "name")
+            commonHook.setValue(17,forKey: "id")
+            commonHook.setValue(1,forKey:"categoryId")
+            commonHook.setValue(false, forKey: "isUnlocked")
+            
+            cutlass.setValue("Cutlass", forKey: "name")
+            cutlass.setValue(18,forKey: "id")
+            cutlass.setValue(1,forKey:"categoryId")
+            cutlass.setValue(false, forKey: "isUnlocked")
+            
+            
+            sharkTeethCutlass.setValue("Sharkteeth Cutlass", forKey: "name")
+            sharkTeethCutlass.setValue(19,forKey: "id")
+            sharkTeethCutlass.setValue(1,forKey:"categoryId")
+            sharkTeethCutlass.setValue(false, forKey: "isUnlocked")
+            
+            shiverMeSword.setValue("Shiver Me' Sword", forKey: "name")
+            shiverMeSword.setValue(20,forKey: "id")
+            shiverMeSword.setValue(1,forKey:"categoryId")
+            shiverMeSword.setValue(false, forKey: "isUnlocked")
+            
+            
+            noMansKnife.setValue("Noman's Knife", forKey: "name")
+            noMansKnife.setValue(21,forKey: "id")
+            noMansKnife.setValue(1,forKey:"categoryId")
+            noMansKnife.setValue(false, forKey: "isUnlocked")
+            
+            
+            deepSeaSword.setValue("DeepSea Sword", forKey: "name")
+            deepSeaSword.setValue(22,forKey: "id")
+            deepSeaSword.setValue(1,forKey:"categoryId")
+            deepSeaSword.setValue(false, forKey: "isUnlocked")
+            
+            
+            jollysKnife.setValue("Jolly's Knife", forKey: "name")
+            jollysKnife.setValue(23,forKey: "id")
+            jollysKnife.setValue(1,forKey:"categoryId")
+            jollysKnife.setValue(false, forKey: "isUnlocked")
+            
+            
+            blueSeaweed.setValue("Blue Seaweed", forKey: "name")
+            blueSeaweed.setValue(24,forKey: "id")
+            blueSeaweed.setValue(1,forKey:"categoryId")
+            blueSeaweed.setValue(false, forKey: "isUnlocked")
+            
+            
+            fishingLure.setValue("Fishing Lure", forKey: "name")
+            fishingLure.setValue(25,forKey: "id")
+            fishingLure.setValue(1,forKey:"categoryId")
+            fishingLure.setValue(false, forKey: "isUnlocked")
+            
+            
+            silverThread.setValue("Silver Thread", forKey: "name")
+            silverThread.setValue(26,forKey: "id")
+            silverThread.setValue(1,forKey:"categoryId")
+            silverThread.setValue(false, forKey: "isUnlocked")
+            
+            rubyThread.setValue("Ruby Thread", forKey: "name")
+            rubyThread.setValue(27,forKey: "id")
+            rubyThread.setValue(1,forKey:"categoryId")
+            rubyThread.setValue(false, forKey: "isUnlocked")
+            
+            
+            seaDogsSilver.setValue("SeaDog's Silver", forKey: "name")
+            seaDogsSilver.setValue(28,forKey: "id")
+            seaDogsSilver.setValue(2,forKey:"categoryId")
+            seaDogsSilver.setValue(false, forKey: "isUnlocked")
+            
+            octopus.setValue("Octopus", forKey: "name")
+            octopus.setValue(29,forKey: "id")
+            octopus.setValue(2,forKey:"categoryId")
+            octopus.setValue(false, forKey: "isUnlocked")
+            
+            
+            blackEyepatch.setValue("Black Eyepatch", forKey: "name")
+            blackEyepatch.setValue(30,forKey: "id")
+            blackEyepatch.setValue(2,forKey:"categoryId")
+            blackEyepatch.setValue(false, forKey: "isUnlocked")
+            
+            
+            commonGrog.setValue("Common Grog", forKey: "name")
+            commonGrog.setValue(31,forKey: "id")
+            commonGrog.setValue(2,forKey:"categoryId")
+            commonGrog.setValue(false, forKey: "isUnlocked")
+            
+            
+            silverAncientPot.setValue("Silver Ancient Pot", forKey: "name")
+            silverAncientPot.setValue(32,forKey: "id")
+            silverAncientPot.setValue(2,forKey:"categoryId")
+            silverAncientPot.setValue(false, forKey: "isUnlocked")
+            
+            
+            treasureMapCommon.setValue("Treasure Map Common", forKey: "name")
+            treasureMapCommon.setValue(33,forKey: "id")
+            treasureMapCommon.setValue(2,forKey:"categoryId")
+            treasureMapCommon.setValue(false, forKey: "isUnlocked")
+            
+            
+            silverCompass.setValue("Silver Compass", forKey: "name")
+            silverCompass.setValue(34,forKey: "id")
+            silverCompass.setValue(2,forKey:"categoryId")
+            silverCompass.setValue(false, forKey: "isUnlocked")
+            
+            captainsWheel.setValue("Captain's Wheel", forKey: "name")
+            captainsWheel.setValue(35,forKey: "id")
+            captainsWheel.setValue(2,forKey:"categoryId")
+            captainsWheel.setValue(false, forKey: "isUnlocked")
+            
+            captainsGoldenWheel.setValue("Captain's Golden Wheel", forKey: "name")
+            captainsGoldenWheel.setValue(36,forKey: "id")
+            captainsGoldenWheel.setValue(2,forKey:"categoryId")
+            captainsGoldenWheel.setValue(false, forKey: "isUnlocked")
+            
+            ancientClamShell.setValue("Ancient Clam Shell", forKey: "name")
+            ancientClamShell.setValue(37,forKey: "id")
+            ancientClamShell.setValue(2,forKey:"categoryId")
+            ancientClamShell.setValue(false, forKey: "isUnlocked")
+            
+            messageInABottle.setValue("Message In A Bottle", forKey: "name")
+            messageInABottle.setValue(38,forKey: "id")
+            messageInABottle.setValue(2,forKey:"categoryId")
+            messageInABottle.setValue(false, forKey: "isUnlocked")
+            
+            seadogsSpyGlass.setValue("SeaDog's Spyglass", forKey: "name")
+            seadogsSpyGlass.setValue(39,forKey: "id")
+            seadogsSpyGlass.setValue(2,forKey:"categoryId")
+            seadogsSpyGlass.setValue(false, forKey: "isUnlocked")
+            
+            seadogsGoldSpyGlass.setValue("SeaDog's Gold Spyglass", forKey: "name")
+            seadogsGoldSpyGlass.setValue(40,forKey: "id")
+            seadogsGoldSpyGlass.setValue(2,forKey:"categoryId")
+            seadogsGoldSpyGlass.setValue(false, forKey: "isUnlocked")
+            
+            treasureMapRare.setValue("Treasure Map Rare", forKey: "name")
+            treasureMapRare.setValue(41,forKey: "id")
+            treasureMapRare.setValue(2,forKey:"categoryId")
+            treasureMapRare.setValue(false, forKey: "isUnlocked")
+            
+            fishingLure2.setValue("Fishing Lure Blue", forKey: "name")
+            fishingLure2.setValue(42,forKey: "id")
+            fishingLure2.setValue(2,forKey:"categoryId")
+            fishingLure2.setValue(false, forKey: "isUnlocked")
+            
+            oldMansCutlass.setValue("Old Man's Cutlass", forKey: "name")
+            oldMansCutlass.setValue(43,forKey: "id")
+            oldMansCutlass.setValue(2,forKey:"categoryId")
+            oldMansCutlass.setValue(false, forKey: "isUnlocked")
+            
+            noMansFlag.setValue("No Man's Flag", forKey: "name")
+            noMansFlag.setValue(44,forKey: "id")
+            noMansFlag.setValue(2,forKey:"categoryId")
+            noMansFlag.setValue(false, forKey: "isUnlocked")
+            
+           
+            
+            purpleSkullFlag.setValue("Purple Skull Flag", forKey: "name")
+            purpleSkullFlag.setValue(45,forKey: "id")
+            purpleSkullFlag.setValue(2,forKey:"categoryId")
+            purpleSkullFlag.setValue(false, forKey: "isUnlocked")
+            
+            redLantern.setValue("Red Lantern", forKey: "name")
+            redLantern.setValue(46,forKey: "id")
+            redLantern.setValue(2,forKey:"categoryId")
+            redLantern.setValue(false, forKey: "isUnlocked")
+            
+            seaUrchantPurple.setValue("Red Lantern", forKey: "name")
+            seaUrchantPurple.setValue(47,forKey: "id")
+            seaUrchantPurple.setValue(2,forKey:"categoryId")
+            seaUrchantPurple.setValue(false, forKey: "isUnlocked")
+            
+            silverAnchor.setValue("Silver Anchor", forKey: "name")
+            silverAnchor.setValue(48,forKey: "id")
+            silverAnchor.setValue(2,forKey:"categoryId")
+            silverAnchor.setValue(false, forKey: "isUnlocked")
+            
+            deepSeaBall.setValue("Deep Sea Ball", forKey: "name")
+            deepSeaBall.setValue(49,forKey: "id")
+            deepSeaBall.setValue(2,forKey:"categoryId")
+            deepSeaBall.setValue(false, forKey: "isUnlocked")
+            
+            deepSeaEmeraldBall.setValue("Deep Sea Emerald Ball", forKey: "name")
+            deepSeaEmeraldBall.setValue(50,forKey: "id")
+            deepSeaEmeraldBall.setValue(2,forKey:"categoryId")
+            deepSeaEmeraldBall.setValue(false, forKey: "isUnlocked")
+            
+            deepSeaRubyBall.setValue("Deep Sea Ruby Ball", forKey: "name")
+            deepSeaRubyBall.setValue(51,forKey: "id")
+            deepSeaRubyBall.setValue(2,forKey:"categoryId")
+            deepSeaRubyBall.setValue(false, forKey: "isUnlocked")
+            
+            atlantisStarfish.setValue("Atlantis Starfish", forKey: "name")
+            atlantisStarfish.setValue(52,forKey: "id")
+            atlantisStarfish.setValue(3,forKey:"categoryId")
+            atlantisStarfish.setValue(false, forKey: "isUnlocked")
+            
+            goldCompass.setValue("Gold Compass", forKey: "name")
+            goldCompass.setValue(53,forKey: "id")
+            goldCompass.setValue(3,forKey:"categoryId")
+            goldCompass.setValue(false, forKey: "isUnlocked")
+            
+            
+            skullEyepatch.setValue("Skull Eyepatch", forKey: "name")
+            skullEyepatch.setValue(54,forKey: "id")
+            skullEyepatch.setValue(3,forKey:"categoryId")
+            skullEyepatch.setValue(false, forKey: "isUnlocked")
+            
+            
+            blueBeardsPotion.setValue("BlueBeard's Potion", forKey: "name")
+            blueBeardsPotion.setValue(55,forKey: "id")
+            blueBeardsPotion.setValue(3,forKey:"categoryId")
+            blueBeardsPotion.setValue(false, forKey: "isUnlocked")
+            
+            redBeardsPotion.setValue("RedBeard's Potion", forKey: "name")
+            redBeardsPotion.setValue(56,forKey: "id")
+            redBeardsPotion.setValue(3,forKey:"categoryId")
+            redBeardsPotion.setValue(false, forKey: "isUnlocked")
+            
+            silverGoblet.setValue("Silver Goblet", forKey: "name")
+            silverGoblet.setValue(57,forKey: "id")
+            silverGoblet.setValue(3,forKey:"categoryId")
+            silverGoblet.setValue(false, forKey: "isUnlocked")
+            
+            clam.setValue("Clam", forKey: "name")
+            clam.setValue(58,forKey: "id")
+            clam.setValue(3,forKey:"categoryId")
+            clam.setValue(false, forKey: "isUnlocked")
+            
+            seaUrchant.setValue("Sea Urchant", forKey: "name")
+            seaUrchant.setValue(59,forKey: "id")
+            seaUrchant.setValue(3,forKey:"categoryId")
+            seaUrchant.setValue(false, forKey: "isUnlocked")
+            
+            anchor.setValue("Anchor", forKey: "name")
+            anchor.setValue(60,forKey: "id")
+            anchor.setValue(3,forKey:"categoryId")
+            anchor.setValue(false, forKey: "isUnlocked")
+            
+            rareHook.setValue("Rare Hook", forKey: "name")
+            rareHook.setValue(61,forKey: "id")
+            rareHook.setValue(3,forKey:"categoryId")
+            rareHook.setValue(false, forKey: "isUnlocked")
+            
+            marianasRubyTreasure.setValue("Mariana's Ruby Treasure", forKey: "name")
+            marianasRubyTreasure.setValue(62,forKey: "id")
+            marianasRubyTreasure.setValue(3,forKey:"categoryId")
+            marianasRubyTreasure.setValue(false, forKey: "isUnlocked")
+            
+            marianasEmeraldTreasure.setValue("Mariana's Emerald Treasure", forKey: "name")
+            marianasEmeraldTreasure.setValue(63,forKey: "id")
+            marianasEmeraldTreasure.setValue(3,forKey:"categoryId")
+            marianasEmeraldTreasure.setValue(false, forKey: "isUnlocked")
+            
+            marianasAncientTreasure.setValue("Mariana's Ancient Treasure", forKey: "name")
+            marianasAncientTreasure.setValue(64,forKey: "id")
+            marianasAncientTreasure.setValue(3,forKey:"categoryId")
+            marianasAncientTreasure.setValue(false, forKey: "isUnlocked")
+            
+            rareGrog.setValue("Rare Grog", forKey: "name")
+            rareGrog.setValue(65,forKey: "id")
+            rareGrog.setValue(3,forKey:"categoryId")
+            rareGrog.setValue(false, forKey: "isUnlocked")
+            
+            goldenSeaUrchant.setValue("Golden Sea Urchant", forKey: "name")
+            goldenSeaUrchant.setValue(66,forKey: "id")
+            goldenSeaUrchant.setValue(3,forKey:"categoryId")
+            goldenSeaUrchant.setValue(false, forKey: "isUnlocked")
+            
+            waxSealedMessage.setValue("Wax Sealed Message", forKey: "name")
+            waxSealedMessage.setValue(67,forKey: "id")
+            waxSealedMessage.setValue(3,forKey:"categoryId")
+            waxSealedMessage.setValue(false, forKey: "isUnlocked")
+            
+            purpleCoral.setValue("Purple Coral", forKey: "name")
+            purpleCoral.setValue(68,forKey: "id")
+            purpleCoral.setValue(3,forKey:"categoryId")
+            purpleCoral.setValue(false, forKey: "isUnlocked")
+            
+            aquaCoral.setValue("Aqu Coral", forKey: "name")
+            aquaCoral.setValue(69,forKey: "id")
+            aquaCoral.setValue(3,forKey:"categoryId")
+            aquaCoral.setValue(false, forKey: "isUnlocked")
+            
+            pearls.setValue("Pearls", forKey: "name")
+            pearls.setValue(70,forKey: "id")
+            pearls.setValue(3,forKey:"categoryId")
+            pearls.setValue(false, forKey: "isUnlocked")
+            
+            blackPearls.setValue("Pearls", forKey: "name")
+            blackPearls.setValue(71,forKey: "id")
+            blackPearls.setValue(3,forKey:"categoryId")
+            blackPearls.setValue(false, forKey: "isUnlocked")
+            
+            
+            epicGrog.setValue("Epic Grog", forKey: "name")
+            epicGrog.setValue(72,forKey: "id")
+            epicGrog.setValue(3,forKey:"categoryId")
+            epicGrog.setValue(false, forKey: "isUnlocked")
+            
+            herculesLostItem.setValue("Hercules Lost Item", forKey: "name")
+            herculesLostItem.setValue(73,forKey: "id")
+            herculesLostItem.setValue(3,forKey:"categoryId")
+            herculesLostItem.setValue(false, forKey: "isUnlocked")
+            
+            
+            goldenGoblet.setValue("Golden Goblet", forKey: "name")
+            goldenGoblet.setValue(74,forKey: "id")
+            goldenGoblet.setValue(3,forKey:"categoryId")
+            goldenGoblet.setValue(false, forKey: "isUnlocked")
+            
+            goldAncientPot.setValue("Gold Ancient Pot", forKey: "name")
+            goldAncientPot.setValue(75,forKey: "id")
+            goldAncientPot.setValue(3,forKey:"categoryId")
+            goldAncientPot.setValue(false, forKey: "isUnlocked")
+            
+            epicHook.setValue("Epic Hook", forKey: "name")
+            epicHook.setValue(76,forKey: "id")
+            epicHook.setValue(3,forKey:"categoryId")
+            epicHook.setValue(false, forKey: "isUnlocked")
+            
+            rubyJewel.setValue("Ruby Jewel", forKey: "name")
+            rubyJewel.setValue(77,forKey: "id")
+            rubyJewel.setValue(3,forKey:"categoryId")
+            rubyJewel.setValue(false, forKey: "isUnlocked")
+            
+            goldenAnchor.setValue("Epic Hook", forKey: "name")
+            goldenAnchor.setValue(78,forKey: "id")
+            goldenAnchor.setValue(3,forKey:"categoryId")
+            goldenAnchor.setValue(false, forKey: "isUnlocked")
+            
+           
+
             do {
                 try context.save()
                 print("saved")

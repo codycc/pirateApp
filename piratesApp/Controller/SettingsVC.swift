@@ -16,6 +16,7 @@ class SettingsVC: UIViewController {
     @IBOutlet weak var upgradesBtn: UIView!
     @IBOutlet weak var exitBtn: UIView!
     
+    @IBOutlet weak var treasureCollectionButton: UIView!
     @IBOutlet weak var wheelBtn: UIView!
     @IBOutlet weak var shopBtn: UIView!
     var shopPlayer: AVAudioPlayer!
@@ -33,6 +34,10 @@ class SettingsVC: UIViewController {
         
         let tapGestureUpgrades = UITapGestureRecognizer(target: self, action: #selector(SettingsVC.upgradesTapped(_:)))
         self.upgradesBtn.addGestureRecognizer(tapGestureUpgrades)
+        
+        let tapGestureTreasureCollection = UITapGestureRecognizer(target: self, action: #selector(SettingsVC.treasureCollectionTapped(_:)))
+        self.treasureCollectionButton.addGestureRecognizer(tapGestureTreasureCollection)
+        
         
         let tapGestureExit = UITapGestureRecognizer(target: self, action: #selector(SettingsVC.exitTapped(_:)))
         self.exitBtn.addGestureRecognizer(tapGestureExit)
@@ -117,7 +122,11 @@ class SettingsVC: UIViewController {
     
    
 
+    @IBAction func treasureCollectionTapped(_ sender: Any) {
+        performSegue(withIdentifier: "goToTreasureCollectionVC", sender: nil)
+        playStoreSound()
         
+    }
 
     
     @IBAction func upgradesTapped(_ sender: Any) {
