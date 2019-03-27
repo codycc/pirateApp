@@ -10,6 +10,8 @@ import UIKit
 import CoreData
 import GoogleMobileAds
 import Firebase
+import SwiftyStoreKit
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,6 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+      
+
+        
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
         
         FirebaseApp.configure()
@@ -33,6 +38,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GADRewardBasedVideoAd.sharedInstance().load(GADRequest(),
                                                     withAdUnitID: "ca-app-pub-1067425139660844/7589813936")
         
+        
+        SwiftyStoreKit.completeTransactions(atomically: true) { purchases in
+            for purchase in purchases {
+                switch purchase.transaction.transactionState {
+                case .purchased, .restored:
+                    if purchase.needsFinishTransaction {
+                        // Deliver content from server, then:
+                        SwiftyStoreKit.finishTransaction(purchase.transaction)
+                    }
+                // Unlock content
+                case .failed, .purchasing, .deferred:
+                    break // do nothing
+                }
+            }
+        }
 
         
         if launchedBefore {
@@ -49,6 +69,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let context = appDelegate.persistentContainer.viewContext
             
             let skollywag = NSEntityDescription.insertNewObject(forEntityName: "Pirate", into: context)
+            let plunderPete = NSEntityDescription.insertNewObject(forEntityName: "Pirate", into: context)
             let cutler = NSEntityDescription.insertNewObject(forEntityName: "Pirate", into: context)
             let bandit = NSEntityDescription.insertNewObject(forEntityName: "Pirate", into: context)
             let landlubber = NSEntityDescription.insertNewObject(forEntityName: "Pirate", into: context)
@@ -57,61 +78,155 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let bucaneer = NSEntityDescription.insertNewObject(forEntityName: "Pirate", into: context)
             let thief = NSEntityDescription.insertNewObject(forEntityName: "Pirate", into: context)
             let gunna = NSEntityDescription.insertNewObject(forEntityName: "Pirate", into: context)
-            let bluebeard = NSEntityDescription.insertNewObject(forEntityName: "Pirate", into: context)
+            let privateer = NSEntityDescription.insertNewObject(forEntityName: "Pirate", into: context)
+            let bayouBenny = NSEntityDescription.insertNewObject(forEntityName: "Pirate", into: context)
             let redbeard = NSEntityDescription.insertNewObject(forEntityName: "Pirate", into: context)
+            let bluebeard = NSEntityDescription.insertNewObject(forEntityName: "Pirate", into: context)
             let blackbeard = NSEntityDescription.insertNewObject(forEntityName: "Pirate", into: context)
             
             
             //set up wallet
             let wallet = NSEntityDescription.insertNewObject(forEntityName: "Wallet", into: context)
             
-            wallet.setValue(0, forKey: "totalLootAmount")
-            wallet.setValue(0, forKey: "totalGemsAmount")
+            wallet.setValue(1100000, forKey: "totalLootAmount")
+            wallet.setValue(100, forKey: "totalGemsAmount")
+            wallet.setValue(0, forKey: "totalPrestigeAmount")
             
+            // set up locations
+            let lonelyIsle  = NSEntityDescription.insertNewObject(forEntityName: "Location", into: context) //0
+            let piratesPeninsula  = NSEntityDescription.insertNewObject(forEntityName: "Location", into: context) // 45
+            let internationalWaters  = NSEntityDescription.insertNewObject(forEntityName: "Location", into: context) // 65
+            let lazyLagoon  = NSEntityDescription.insertNewObject(forEntityName: "Location", into: context) // 75
+            let murkyShallows  = NSEntityDescription.insertNewObject(forEntityName: "Location", into: context) // 100
+            let redbeardsBayou  = NSEntityDescription.insertNewObject(forEntityName: "Location", into: context) // 150
+            let theGreatReef  = NSEntityDescription.insertNewObject(forEntityName: "Location", into: context) // 200
+            
+            
+
+            lonelyIsle.setValue(0, forKey: "id")
+            lonelyIsle.setValue(true, forKey: "isUnlocked")
+            lonelyIsle.setValue(true, forKey: "isCurrent")
+            lonelyIsle.setValue(0, forKey: "amountToUnlock")
+            lonelyIsle.setValue(0, forKey: "treasureLevel")
+            lonelyIsle.setValue("gamebg9", forKey: "image")
+            lonelyIsle.setValue("Lonely Isle", forKey: "name")
+            
+            piratesPeninsula.setValue(1, forKey: "id")
+            piratesPeninsula.setValue(false, forKey: "isUnlocked")
+            piratesPeninsula.setValue(false, forKey: "isCurrent")
+            piratesPeninsula.setValue(150000, forKey: "amountToUnlock")
+            piratesPeninsula.setValue(0, forKey: "treasureLevel")
+            piratesPeninsula.setValue("tropical2", forKey: "image")
+            piratesPeninsula.setValue("Pirate's Peninsula", forKey: "name")
+            
+            internationalWaters.setValue(2, forKey: "id")
+            internationalWaters.setValue(false, forKey: "isUnlocked")
+            internationalWaters.setValue(false, forKey: "isCurrent")
+            internationalWaters.setValue(1000000, forKey: "amountToUnlock")
+            internationalWaters.setValue(1, forKey: "treasureLevel")
+            internationalWaters.setValue("gamebg12", forKey: "image")
+            internationalWaters.setValue("International Waters", forKey: "name")
+            
+            lazyLagoon.setValue(3, forKey: "id")
+            lazyLagoon.setValue(false, forKey: "isUnlocked")
+            lazyLagoon.setValue(false, forKey: "isCurrent")
+            lazyLagoon.setValue(2500000, forKey: "amountToUnlock")
+            lazyLagoon.setValue(1, forKey: "treasureLevel")
+            lazyLagoon.setValue("gamebg5", forKey: "image")
+            lazyLagoon.setValue("Lazy Lagoon", forKey: "name")
+            
+            murkyShallows.setValue(4, forKey: "id")
+            murkyShallows.setValue(false, forKey: "isUnlocked")
+            murkyShallows.setValue(false, forKey: "isCurrent")
+            murkyShallows.setValue(8000000, forKey: "amountToUnlock")
+            murkyShallows.setValue(1, forKey: "treasureLevel")
+            murkyShallows.setValue("coralbg", forKey: "image")
+            murkyShallows.setValue("Murky Shallows", forKey: "name")
+            
+            redbeardsBayou.setValue(5, forKey: "id")
+            redbeardsBayou.setValue(false, forKey: "isUnlocked")
+            redbeardsBayou.setValue(false, forKey: "isCurrent")
+            redbeardsBayou.setValue(15000000, forKey: "amountToUnlock")
+            redbeardsBayou.setValue(2, forKey: "treasureLevel")
+            redbeardsBayou.setValue("gamebg3", forKey: "image")
+            redbeardsBayou.setValue("Redbeard's Bayou", forKey: "name")
+            
+            theGreatReef.setValue(6, forKey: "id")
+            theGreatReef.setValue(false, forKey: "isUnlocked")
+            theGreatReef.setValue(false, forKey: "isCurrent")
+            theGreatReef.setValue(30000000, forKey: "amountToUnlock")
+            theGreatReef.setValue(2, forKey: "treasureLevel")
+            theGreatReef.setValue("gamebg7", forKey: "image")
+            theGreatReef.setValue("The Great Reef", forKey: "name")
+            
+            
+            
+            
+            
+            // user
             let user = NSEntityDescription.insertNewObject(forEntityName: "User", into: context)
            
             
-            user.setValue(false, forKey: "hasKoala")
-            user.setValue(false, forKey: "hasSeagull")
-            user.setValue(false, forKey: "hasVulture")
-            user.setValue(false, forKey: "hasCampFire")
-            user.setValue(false, forKey: "hasShip")
-            user.setValue(false, forKey: "hasPelican")
             user.setValue(true, forKey: "hasFreeSpin")
             user.setValue(false, forKey: "hasHadFirstFreeSpin")
+            user.setValue(0, forKey: "currentLocation")
+            user.setValue(1, forKey: "piratePoints")
+            user.setValue(1, forKey: "levelPoints")
+            user.setValue(0.01, forKey: "bonusAmount")
+            user.setValue(0, forKey: "currentHighestLocation")
             
             skollywag.setValue(0, forKey: "id")
             skollywag.setValue("Scolly", forKey: "name")
             skollywag.setValue(10, forKey: "lootTime")
             skollywag.setValue(25, forKey: "lootAmount")
             skollywag.setValue(1, forKey: "numberOfPirates")
-            skollywag.setValue(true, forKey: "isAnimating")
+            skollywag.setValue(true , forKey: "isAnimating")
             skollywag.setValue(false, forKey: "isUnlocked")
             skollywag.setValue(11, forKey: "numberOfImages")
             skollywag.setValue(1, forKey: "groundNumber")
             skollywag.setValue(1, forKey: "backgroundNumber")
             skollywag.setValue(1, forKey: "plankNumber")
-            skollywag.setValue(6, forKey: "currentTime")
+            skollywag.setValue(10, forKey: "currentTime")
             skollywag.setValue(15, forKey: "numberOfImagesAttack")
-            skollywag.setValue(50, forKey: "piratePrice")
+            skollywag.setValue(10, forKey: "piratePrice")
+            skollywag.setValue(0, forKey: "levelToUnlock")
+            skollywag.setValue(15, forKey: "levelToUnlockTreasure")
+            
+            plunderPete.setValue(1, forKey: "id")
+            plunderPete.setValue("Plunder Pete", forKey: "name")
+            plunderPete.setValue(13, forKey: "lootTime")
+            plunderPete.setValue(100, forKey: "lootAmount")
+            plunderPete.setValue(1, forKey: "numberOfPirates")
+            plunderPete.setValue(false, forKey: "isAnimating")
+            plunderPete.setValue(false, forKey: "isUnlocked")
+            plunderPete.setValue(11, forKey: "numberOfImages")
+            plunderPete.setValue(1, forKey: "groundNumber")
+            plunderPete.setValue(2, forKey: "backgroundNumber")
+            plunderPete.setValue(2, forKey: "plankNumber")
+            plunderPete.setValue(13, forKey: "currentTime")
+            plunderPete.setValue(11, forKey: "numberOfImagesAttack")
+            plunderPete.setValue(75, forKey: "piratePrice")
+            plunderPete.setValue(0, forKey: "levelToUnlock")
+            plunderPete.setValue(20, forKey: "levelToUnlockTreasure")
 
-            cutler.setValue(1, forKey: "id")
+            cutler.setValue(2, forKey: "id")
             cutler.setValue("Cutler", forKey: "name")
-            cutler.setValue(12, forKey: "lootTime")
-            cutler.setValue(100, forKey: "lootAmount")
+            cutler.setValue(15, forKey: "lootTime")
+            cutler.setValue(120, forKey: "lootAmount")
             cutler.setValue(0, forKey: "numberOfPirates")
             cutler.setValue(false , forKey: "isAnimating")
             cutler.setValue(false, forKey: "isUnlocked")
             cutler.setValue(15, forKey: "numberOfImages")
             cutler.setValue(1, forKey: "groundNumber")
-            cutler.setValue(2, forKey: "backgroundNumber")
-            cutler.setValue(2, forKey: "plankNumber")
-            cutler.setValue(12, forKey: "currentTime")
+            cutler.setValue(1, forKey: "backgroundNumber")
+            cutler.setValue(3, forKey: "plankNumber")
+            cutler.setValue(15, forKey: "currentTime")
             cutler.setValue(15, forKey: "numberOfImagesAttack")
             cutler.setValue(200, forKey: "piratePrice")
+            cutler.setValue(1, forKey: "levelToUnlock")
+            cutler.setValue(23, forKey: "levelToUnlockTreasure")
             
-            
-            bandit.setValue(2, forKey: "id")
+            bandit.setValue(3, forKey: "id")
             bandit.setValue("Bandit", forKey: "name")
             bandit.setValue(18, forKey: "lootTime")
             bandit.setValue(200, forKey: "lootAmount")
@@ -120,13 +235,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             bandit.setValue(false, forKey: "isUnlocked")
             bandit.setValue(15, forKey: "numberOfImages")
             bandit.setValue(1, forKey: "groundNumber")
-            bandit.setValue(1, forKey: "backgroundNumber")
-            bandit.setValue(3, forKey: "plankNumber")
-            bandit.setValue(12, forKey: "currentTime")
+            bandit.setValue(2, forKey: "backgroundNumber")
+            bandit.setValue(4, forKey: "plankNumber")
+            bandit.setValue(18, forKey: "currentTime")
             bandit.setValue(15, forKey: "numberOfImagesAttack")
             bandit.setValue(1500, forKey: "piratePrice")
+            bandit.setValue(1, forKey: "levelToUnlock")
+            bandit.setValue(25, forKey: "levelToUnlockTreasure")
             
-            landlubber.setValue(3, forKey: "id")
+            landlubber.setValue(4, forKey: "id")
             landlubber.setValue("Landlubber", forKey: "name")
             landlubber.setValue(27, forKey: "lootTime")
             landlubber.setValue(400, forKey: "lootAmount")
@@ -135,13 +252,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             landlubber.setValue(false, forKey: "isUnlocked")
             landlubber.setValue(15, forKey: "numberOfImages")
             landlubber.setValue(1, forKey: "groundNumber")
-            landlubber.setValue(2, forKey: "backgroundNumber")
-            landlubber.setValue(4, forKey: "plankNumber")
-            landlubber.setValue(12, forKey: "currentTime")
+            landlubber.setValue(1, forKey: "backgroundNumber")
+            landlubber.setValue(5, forKey: "plankNumber")
+            landlubber.setValue(27, forKey: "currentTime")
             landlubber.setValue(15, forKey: "numberOfImagesAttack")
             landlubber.setValue(2000, forKey: "piratePrice")
+            landlubber.setValue(2, forKey: "levelToUnlock")
+            landlubber.setValue(27, forKey: "levelToUnlockTreasure")
             
-            roger.setValue(4, forKey: "id")
+            roger.setValue(5, forKey: "id")
             roger.setValue("Roger", forKey: "name")
             roger.setValue(36, forKey: "lootTime")
             roger.setValue(500, forKey: "lootAmount")
@@ -150,13 +269,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             roger.setValue(false, forKey: "isUnlocked")
             roger.setValue(15, forKey: "numberOfImages")
             roger.setValue(2, forKey: "groundNumber")
-            roger.setValue(1, forKey: "backgroundNumber")
-            roger.setValue(5, forKey: "plankNumber")
-            roger.setValue(12, forKey: "currentTime")
+            roger.setValue(2, forKey: "backgroundNumber")
+            roger.setValue(1, forKey: "plankNumber")
+            roger.setValue(36, forKey: "currentTime")
             roger.setValue(11, forKey: "numberOfImagesAttack")
             roger.setValue(2500, forKey: "piratePrice")
+            roger.setValue(2, forKey: "levelToUnlock")
+            roger.setValue(29, forKey: "levelToUnlockTreasure")
             
-            crook.setValue(5, forKey: "id")
+            crook.setValue(6, forKey: "id")
             crook.setValue("Crook", forKey: "name")
             crook.setValue(45, forKey: "lootTime")
             crook.setValue(600, forKey: "lootAmount")
@@ -165,13 +286,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             crook.setValue(false, forKey: "isUnlocked")
             crook.setValue(15, forKey: "numberOfImages")
             crook.setValue(2, forKey: "groundNumber")
-            crook.setValue(2, forKey: "backgroundNumber")
-            crook.setValue(1, forKey: "plankNumber")
-            crook.setValue(12, forKey: "currentTime")
+            crook.setValue(1, forKey: "backgroundNumber")
+            crook.setValue(2, forKey: "plankNumber")
+            crook.setValue(45, forKey: "currentTime")
             crook.setValue(11, forKey: "numberOfImagesAttack")
             crook.setValue(3000, forKey: "piratePrice")
+            crook.setValue(3, forKey: "levelToUnlock")
+            crook.setValue(30, forKey: "levelToUnlockTreasure")
 
-            bucaneer.setValue(6, forKey: "id")
+            bucaneer.setValue(7, forKey: "id")
             bucaneer.setValue("Buccaneer", forKey: "name")
             bucaneer.setValue(54, forKey: "lootTime")
             bucaneer.setValue(700, forKey: "lootAmount")
@@ -181,13 +304,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             bucaneer.setValue(11, forKey: "numberOfImages")
             bucaneer.setValue(2, forKey: "groundNumber")
             bucaneer.setValue(1, forKey: "backgroundNumber")
-            bucaneer.setValue(2, forKey: "plankNumber")
-            bucaneer.setValue(18, forKey: "currentTime")
+            bucaneer.setValue(3, forKey: "plankNumber")
+            bucaneer.setValue(54, forKey: "currentTime")
             bucaneer.setValue(15, forKey: "numberOfImagesAttack")
             bucaneer.setValue(3500, forKey: "piratePrice")
-
+            bucaneer.setValue(3, forKey: "levelToUnlock")
+            bucaneer.setValue(20, forKey: "levelToUnlockTreasure")
             
-            thief.setValue(7, forKey: "id")
+            thief.setValue(8, forKey: "id")
             thief.setValue("Thief", forKey: "name")
             thief.setValue(63, forKey: "lootTime")
             thief.setValue(800, forKey: "lootAmount")
@@ -197,13 +321,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             thief.setValue(11, forKey: "numberOfImages")
             thief.setValue(2, forKey: "groundNumber")
             thief.setValue(2, forKey: "backgroundNumber")
-            thief.setValue(3, forKey: "plankNumber")
-            thief.setValue(27, forKey: "currentTime")
+            thief.setValue(4, forKey: "plankNumber")
+            thief.setValue(63, forKey: "currentTime")
             thief.setValue(15, forKey: "numberOfImagesAttack")
             thief.setValue(4000, forKey: "piratePrice")
-
+            thief.setValue(4, forKey: "levelToUnlock")
+            thief.setValue(21, forKey: "levelToUnlockTreasure")
             
-            gunna.setValue(8, forKey: "id")
+            gunna.setValue(9, forKey: "id")
             gunna.setValue("Gunna", forKey: "name")
             gunna.setValue(72, forKey: "lootTime")
             gunna.setValue(900, forKey: "lootAmount")
@@ -213,45 +338,84 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             gunna.setValue(11, forKey: "numberOfImages")
             gunna.setValue(3, forKey: "groundNumber")
             gunna.setValue(1, forKey: "backgroundNumber")
-            gunna.setValue(4, forKey: "plankNumber")
-            gunna.setValue(36, forKey: "currentTime")
+            gunna.setValue(5, forKey: "plankNumber")
+            gunna.setValue(72, forKey: "currentTime")
             gunna.setValue(15, forKey: "numberOfImagesAttack")
             gunna.setValue(4500, forKey: "piratePrice")
-
+            gunna.setValue(4, forKey: "levelToUnlock")
+            gunna.setValue(64, forKey: "levelToUnlockTreasure")
             
-            bluebeard.setValue(9, forKey: "id")
-            bluebeard.setValue("Bluebeard", forKey: "name")
-            bluebeard.setValue(81, forKey: "lootTime")
-            bluebeard.setValue(950, forKey: "lootAmount")
-            bluebeard.setValue(0, forKey: "numberOfPirates")
-            bluebeard.setValue(false, forKey: "isAnimating")
-            bluebeard.setValue(false, forKey: "isUnlocked")
-            bluebeard.setValue(24, forKey: "numberOfImages")
-            bluebeard.setValue(3, forKey: "groundNumber")
-            bluebeard.setValue(2, forKey: "backgroundNumber")
-            bluebeard.setValue(5, forKey: "plankNumber")
-            bluebeard.setValue(45, forKey: "currentTime")
-            bluebeard.setValue(14, forKey: "numberOfImagesAttack")
-            bluebeard.setValue(5000, forKey: "piratePrice")
 
+            bayouBenny.setValue(10, forKey: "id")
+            bayouBenny.setValue("Bayou Benny", forKey: "name")
+            bayouBenny.setValue(84, forKey: "lootTime")
+            bayouBenny.setValue(1000, forKey: "lootAmount")
+            bayouBenny.setValue(0, forKey: "numberOfPirates")
+            bayouBenny.setValue(false, forKey: "isAnimating")
+            bayouBenny.setValue(false, forKey: "isUnlocked")
+            bayouBenny.setValue(11, forKey: "numberOfImages")
+            bayouBenny.setValue(2, forKey: "groundNumber")
+            bayouBenny.setValue(2, forKey: "backgroundNumber")
+            bayouBenny.setValue(1, forKey: "plankNumber")
+            bayouBenny.setValue(84, forKey: "currentTime")
+            bayouBenny.setValue(15, forKey: "numberOfImagesAttack")
+            bayouBenny.setValue(5000, forKey: "piratePrice")
+            bayouBenny.setValue(5, forKey: "levelToUnlock")
+            bayouBenny.setValue(30, forKey: "levelToUnlockTreasure")
             
-            redbeard.setValue(10, forKey: "id")
+            privateer.setValue(11, forKey: "id")
+            privateer.setValue("Privateer", forKey: "name")
+            privateer.setValue(86, forKey: "lootTime")
+            privateer.setValue(1100, forKey: "lootAmount")
+            privateer.setValue(0, forKey: "numberOfPirates")
+            privateer.setValue(false, forKey: "isAnimating")
+            privateer.setValue(false, forKey: "isUnlocked")
+            privateer.setValue(11, forKey: "numberOfImages")
+            privateer.setValue(2, forKey: "groundNumber")
+            privateer.setValue(1, forKey: "backgroundNumber")
+            privateer.setValue(2, forKey: "plankNumber")
+            privateer.setValue(86, forKey: "currentTime")
+            privateer.setValue(15, forKey: "numberOfImagesAttack")
+            privateer.setValue(5500, forKey: "piratePrice")
+            privateer.setValue(5, forKey: "levelToUnlock")
+            privateer.setValue(29, forKey: "levelToUnlockTreasure")
+            
+            redbeard.setValue(12, forKey: "id")
             redbeard.setValue("Redbeard", forKey: "name")
-            redbeard.setValue(90, forKey: "lootTime")
-            redbeard.setValue(1000, forKey: "lootAmount")
+            redbeard.setValue(94, forKey: "lootTime")
+            redbeard.setValue(1150, forKey: "lootAmount")
             redbeard.setValue(0, forKey: "numberOfPirates")
             redbeard.setValue(false, forKey: "isAnimating")
             redbeard.setValue(false, forKey: "isUnlocked")
             redbeard.setValue(24, forKey: "numberOfImages")
             redbeard.setValue(3, forKey: "groundNumber")
-            redbeard.setValue(1, forKey: "backgroundNumber")
-            redbeard.setValue(1, forKey: "plankNumber")
-            redbeard.setValue(54, forKey: "currentTime")
+            redbeard.setValue(2, forKey: "backgroundNumber")
+            redbeard.setValue(3, forKey: "plankNumber")
+            redbeard.setValue(94, forKey: "currentTime")
             redbeard.setValue(14, forKey: "numberOfImagesAttack")
-            redbeard.setValue(5500, forKey: "piratePrice")
+            redbeard.setValue(6000, forKey: "piratePrice")
+            redbeard.setValue(5, forKey: "levelToUnlock")
+            redbeard.setValue(34, forKey: "levelToUnlockTreasure")
+    
+            bluebeard.setValue(13, forKey: "id")
+            bluebeard.setValue("Bluebeard", forKey: "name")
+            bluebeard.setValue(97, forKey: "lootTime")
+            bluebeard.setValue(1200, forKey: "lootAmount")
+            bluebeard.setValue(0, forKey: "numberOfPirates")
+            bluebeard.setValue(false, forKey: "isAnimating")
+            bluebeard.setValue(false, forKey: "isUnlocked")
+            bluebeard.setValue(24, forKey: "numberOfImages")
+            bluebeard.setValue(3, forKey: "groundNumber")
+            bluebeard.setValue(1, forKey: "backgroundNumber")
+            bluebeard.setValue(4, forKey: "plankNumber")
+            bluebeard.setValue(97, forKey: "currentTime")
+            bluebeard.setValue(14, forKey: "numberOfImagesAttack")
+            bluebeard.setValue(6500, forKey: "piratePrice")
+            bluebeard.setValue(6, forKey: "levelToUnlock")
+            bluebeard.setValue(45, forKey: "levelToUnlockTreasure")
 
             
-            blackbeard.setValue(11, forKey: "id")
+            blackbeard.setValue(14, forKey: "id")
             blackbeard.setValue("Blackbeard", forKey: "name")
             blackbeard.setValue(99, forKey: "lootTime")
             blackbeard.setValue(1250, forKey: "lootAmount")
@@ -261,10 +425,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             blackbeard.setValue(24, forKey: "numberOfImages")
             blackbeard.setValue(3, forKey: "groundNumber")
             blackbeard.setValue(2, forKey: "backgroundNumber")
-            blackbeard.setValue(1, forKey: "plankNumber")
-            blackbeard.setValue(63, forKey: "currentTime")
+            blackbeard.setValue(5, forKey: "plankNumber")
+            blackbeard.setValue(99, forKey: "currentTime")
             blackbeard.setValue(14, forKey: "numberOfImagesAttack")
-            blackbeard.setValue(6000, forKey: "piratePrice")
+            blackbeard.setValue(6750, forKey: "piratePrice")
+            blackbeard.setValue(6, forKey: "levelToUnlock")
+            blackbeard.setValue(40, forKey: "levelToUnlockTreasure")
 
             let storeItem1 = NSEntityDescription.insertNewObject(forEntityName: "StoreItem", into: context)
             let storeItem2 = NSEntityDescription.insertNewObject(forEntityName: "StoreItem", into: context)
@@ -840,8 +1006,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _ = UserDefaults.standard.bool(forKey: "appClosed")
         UserDefaults.standard.set(true, forKey: "appClosed")
         let appClosed = UserDefaults.standard.bool(forKey: "appClosed")
-        print("WILL RESIGN ACTIVE\(appClosed) is app closes?")
-    
+        
 }
 
     func applicationDidEnterBackground(_ application: UIApplication) {

@@ -10,5 +10,8 @@ import Foundation
 
 
 enum InAppPurchase: String {
-    case consumable = "com.codycondon.piratesApp.50thousandLoot"
+    
+    case fortyGems = "com.codycondon.piratesApp.fortyGems"
+    case threeHundredGems = "com.codycondon.piratesApp.threeHundredGems"
+    case eightHundredGems = "com.codycondon.piratesApp.EightHundredGems"
 }

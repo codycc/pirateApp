@@ -30,10 +30,9 @@ class SettingsVC: UIViewController {
         super.viewDidLoad()
         
         GADRewardBasedVideoAd.sharedInstance().load(GADRequest(),
-                                                    withAdUnitID: "ca-app-pub-3940256099942544/1712485313")
+                                                    withAdUnitID: "ca-app-pub-1067425139660844/7589813936")
         
-        let tapGestureUpgrades = UITapGestureRecognizer(target: self, action: #selector(SettingsVC.upgradesTapped(_:)))
-        self.upgradesBtn.addGestureRecognizer(tapGestureUpgrades)
+    
         
         let tapGestureTreasureCollection = UITapGestureRecognizer(target: self, action: #selector(SettingsVC.treasureCollectionTapped(_:)))
         self.treasureCollectionButton.addGestureRecognizer(tapGestureTreasureCollection)
@@ -128,10 +127,7 @@ class SettingsVC: UIViewController {
     }
 
     
-    @IBAction func upgradesTapped(_ sender: Any) {
-        playStoreSound()
-        performSegue(withIdentifier: "goToStoreVC", sender: nil)
-    }
+  
     
     @IBAction func wheelTapped(_ sender: Any) {
          playStoreSound()
@@ -146,6 +142,7 @@ class SettingsVC: UIViewController {
     }
     
     @IBAction func exitTapped(_ sender: Any) {
+         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "turnOnView"), object: nil, userInfo: nil)
         playPopSoundEffect()
         self.dismiss(animated: true, completion: nil)
     }

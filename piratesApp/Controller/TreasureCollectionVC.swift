@@ -8,17 +8,19 @@
 
 import UIKit
 import CoreData
+import AVFoundation
 
-class TreasureCollectionVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSource {
+class TreasureCollectionVC: UIViewController,UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
  
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+  
     var treasureItemsArray = [Treasure]()
     var sortedTreasureArray = [Treasure]()
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     let requestTreasureItems = NSFetchRequest<NSFetchRequestResult>(entityName: "Treasure")
-    
+    var exitPlayer: AVAudioPlayer!
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.delegate = self
@@ -26,7 +28,23 @@ class TreasureCollectionVC: UIViewController,UICollectionViewDelegate, UICollect
         
         grabTreasureItems()
         sortTreasureItemData()
+        
+      
+     
         // Do any additional setup after loading the view.
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let width = (self.collectionView.frame.size.width / 3) - 20 ;
+        
+        
+        return CGSize(width: width, height: width)
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 10, left: 15, bottom: 10, right: 15)
     }
     
     func grabTreasureItems() {
@@ -54,9 +72,23 @@ class TreasureCollectionVC: UIViewController,UICollectionViewDelegate, UICollect
         return sortedTreasureArray.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
-    {
-        return CGSize(width: UIScreen.main.bounds.width / 3 - 10, height: UIScreen.main.bounds.width / 3 - 10)
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
+//    {
+////        return CGSize(width: UIScreen.main.bounds.width / 3 - 15, height: UIScreen.main.bounds.width / 3 - 15)
+//    }
+    
+    func playExitSoundEffect() {
+        let path = Bundle.main.path(forResource: "pop", ofType: "wav")
+        let soundUrl = NSURL(fileURLWithPath: path!)
+        
+        do {
+            try exitPlayer = AVAudioPlayer(contentsOf: soundUrl as URL)
+            exitPlayer.prepareToPlay()
+            exitPlayer.volume = 0.3
+            exitPlayer.play()
+        } catch let err as NSError {
+            print(err.debugDescription)
+        }
     }
     
     
@@ -74,6 +106,7 @@ class TreasureCollectionVC: UIViewController,UICollectionViewDelegate, UICollect
     }
     
     @IBAction func exitBtnTapped(_ sender: Any) {
+        playExitSoundEffect()
         self.dismiss(animated: true, completion: nil)
     }
     

@@ -18,11 +18,23 @@ class InAppPurchaseService: NSObject {
     let paymentQueue = SKPaymentQueue.default()
     
     func getProducts() {
-        let products: Set = [InAppPurchase.consumable.rawValue]
+        let product40Gems: Set = [InAppPurchase.fortyGems.rawValue]
+        let product300Gems: Set = [InAppPurchase.fortyGems.rawValue]
+        let product800Gems: Set = [InAppPurchase.fortyGems.rawValue]
         
-        let request = SKProductsRequest(productIdentifiers: products)
-        request.delegate = self
-        request.start()
+        let request40 = SKProductsRequest(productIdentifiers: product40Gems)
+        let request300 = SKProductsRequest(productIdentifiers: product300Gems)
+        let request800 = SKProductsRequest(productIdentifiers: product800Gems)
+        
+        request40.delegate = self
+        request300.delegate = self
+        request800.delegate = self
+        
+        request40.start()
+        request300.start()
+        request800.start()
+        
+ 
         paymentQueue.add(self)
     }
     

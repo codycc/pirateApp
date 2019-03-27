@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 import AVFoundation
 import GoogleMobileAds
+import StoreKit
 
 class DashboardVC: UIViewController, GADBannerViewDelegate, GADRewardBasedVideoAdDelegate  {
     
@@ -36,12 +37,15 @@ class DashboardVC: UIViewController, GADBannerViewDelegate, GADRewardBasedVideoA
     var totalDegree = 0
     var walletArray = [Wallet]()
     var userArray = [User]()
+    var treasureItems = [Treasure]()
     var userFinishedWatchingAd = false
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     let requestWallet = NSFetchRequest<NSFetchRequestResult>(entityName: "Wallet")
     let requestUser = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+    let requestTreasure = NSFetchRequest<NSFetchRequestResult>(entityName: "Treasure")
     var lootPlayer: AVAudioPlayer!
     var exitPlayer: AVAudioPlayer!
+    var wheelPlayer: AVAudioPlayer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,13 +55,14 @@ class DashboardVC: UIViewController, GADBannerViewDelegate, GADRewardBasedVideoA
         
         GADRewardBasedVideoAd.sharedInstance().delegate = self
         GADRewardBasedVideoAd.sharedInstance().load(GADRequest(),
-                                                    withAdUnitID: "ca-app-pub-3940256099942544/1712485313")
+                                                    withAdUnitID: "ca-app-pub-1067425139660844/7589813936")
         
         self.wheelHeight.constant = self.view.frame.height / 2 - 50
         self.wheelSpinnerHeight.constant = self.view.frame.height / 2 - 50
        
         grabWalletData()
         grabUserData()
+        grabTreasureItems()
         pirateWidth.constant = UIScreen.main.bounds.width / 2
         pirateHeight.constant = UIScreen.main.bounds.height / 3
       
@@ -116,10 +121,24 @@ class DashboardVC: UIViewController, GADBannerViewDelegate, GADRewardBasedVideoA
         UIView.animate(withDuration: 2.0, animations: {
             self.amountRewardedLbl.center.y -= UIScreen.main.bounds.height / 10
         }) { (finished) in
-            self.amountRewardedLbl.isHidden = true
-             self.amountRewardedLbl.center.y += UIScreen.main.bounds.height / 10
+            
+            
         }
         
+    }
+    
+    func playWheelSoundEffect() {
+        let path = Bundle.main.path(forResource: "soundeffect", ofType: "mp3")
+        let soundUrl = NSURL(fileURLWithPath: path!)
+        
+        do {
+        try wheelPlayer = AVAudioPlayer(contentsOf: soundUrl as URL)
+        wheelPlayer.prepareToPlay()
+        wheelPlayer.volume = 0.3
+        wheelPlayer.play()
+        } catch let err as NSError {
+        print(err.debugDescription)
+        }
     }
     
     func playExitSoundEffect() {
@@ -158,24 +177,46 @@ class DashboardVC: UIViewController, GADBannerViewDelegate, GADRewardBasedVideoA
     
     func rewardBasedVideoAdDidClose(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
         GADRewardBasedVideoAd.sharedInstance().load(GADRequest(),
-                                                    withAdUnitID: "ca-app-pub-3940256099942544/1712485313")
+                                                    withAdUnitID: "ca-app-pub-1067425139660844/7589813936")
+    }
+    
+    
+    func grabTreasureItems() {
+        let context = appDelegate.persistentContainer.viewContext
+        treasureItems = []
+        // fetching Wallet Entity from CoreData
+        do {
+            let results = try context.fetch(requestTreasure)
+            if results.count > 0 {
+                for result in results {
+                    treasureItems.append(result as! Treasure)
+                }
+            }
+        } catch {
+            // handle error
+        }
     }
     
     func doWheelSpin() {
+        self.amountRewardedLbl.isHidden = true
+        self.amountRewardedLbl.center.y += UIScreen.main.bounds.height / 10
         let timeInterval = NSDate().timeIntervalSince1970
         if Int32(timeInterval - 86400) > userArray[0].lastFreeSpin || !userArray[0].hasHadFirstFreeSpin || userFinishedWatchingAd  {
             if wheel.isUserInteractionEnabled {
-                
+                playWheelSoundEffect()
                 userArray[0].lastFreeSpin = Int32(timeInterval)
+                //change back eventually
                 if userArray[0].hasHadFirstFreeSpin == false {
                     userArray[0].hasHadFirstFreeSpin = true
                 }
                 
                 let rotateView = CABasicAnimation()
-                let randonAngle = arc4random_uniform(361) + 1440
+                let randonAngle = arc4random_uniform(361) + 1550
+
                 rotateView.fromValue = 1
-                rotateView.toValue = Float(randonAngle) * Float(Double.pi) / 100//180.0
-                let randomSpeed = 7.0
+        
+                rotateView.toValue = Int((Float(randonAngle) * 3.14) / 100)
+                let randomSpeed = 6
                 rotateView.duration = CFTimeInterval(randomSpeed)
                 rotateView.repeatCount = 0
                 rotateView.isRemovedOnCompletion = false
@@ -186,7 +227,7 @@ class DashboardVC: UIViewController, GADBannerViewDelegate, GADRewardBasedVideoA
                 
                 var testAngle = CGFloat(0)
                 
-                DispatchQueue.main.asyncAfter(deadline: .now() + 7.2) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 6.2) {
                     let transform:CATransform3D = self.pirateWheel.layer.presentation()!.transform
                     let angle: CGFloat = atan2(transform.m12, transform.m11)
                     testAngle = self.radiansToDegress(radians: angle)
@@ -197,11 +238,48 @@ class DashboardVC: UIViewController, GADBannerViewDelegate, GADRewardBasedVideoA
                     self.wheel.isUserInteractionEnabled = true
                     print("\(testAngle)")
                     switch testAngle {
-                    case 0...36:
-                        print("youve won 1 gem")
+                    case 0...20:
+                        print("youve won common")
                         self.playLootSoundEffect()
-                        self.walletArray[0].totalGemsAmount += 1
-                        self.amountRewardedLbl.text = "+1 GEM"
+                        self.amountRewardedLbl.text = "+1 Common Treasure"
+                        let randomTreasure = Int.random(in: 1...27)
+                        for treasure in self.treasureItems {
+                            if treasure.id == randomTreasure {
+                                treasure.isUnlocked = true
+                                treasure.numberOfTreasures += 1
+                                treasure.timeUnlocked = Int32(NSDate().timeIntervalSince1970)
+                                print("\(treasure.name!)common")
+                            }
+                        }
+                        
+                    case 21...24:
+                        print("youve won epic")
+                        self.playLootSoundEffect()
+
+                        self.amountRewardedLbl.text = "+1 Epic Treasure"
+                        let randomTreasure = Int.random(in: 52...78)
+                        for treasure in self.treasureItems {
+                            if treasure.id == randomTreasure {
+                                treasure.isUnlocked = true
+                                treasure.numberOfTreasures += 1
+                                treasure.timeUnlocked = Int32(NSDate().timeIntervalSince1970)
+                                print("\(treasure.name!)common")
+                            }
+                        }
+                        
+                    case 25...36:
+                        print("youve won rare")
+                        self.playLootSoundEffect()
+                        self.amountRewardedLbl.text = "+1 Rare Treasure"
+                        let randomTreasure = Int.random(in: 28...51)
+                        for treasure in self.treasureItems {
+                            if treasure.id == randomTreasure {
+                                treasure.isUnlocked = true
+                                treasure.numberOfTreasures += 1
+                                treasure.timeUnlocked = Int32(NSDate().timeIntervalSince1970)
+                                print("\(treasure.name!)common")
+                            }
+                        }
                     case 37...72:
                         print("youve won 25k loot")
                         self.playLootSoundEffect()
@@ -256,13 +334,19 @@ class DashboardVC: UIViewController, GADBannerViewDelegate, GADRewardBasedVideoA
                         self.checkIfSpinNowImageIsDisplayed()
                         self.userFinishedWatchingAd = false
                         self.animateRewardLbl()
-                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateLoot"), object: nil, userInfo: nil) 
+                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateLoot"), object: nil, userInfo: nil)
+                        if #available(iOS 10.3, *) {
+                            SKStoreReviewController.requestReview()
+                        } else {
+                            
+                        }
                     } catch {
                         
                     }
                 }
             }
         } else {
+            //change back eventually
             if GADRewardBasedVideoAd.sharedInstance().isReady == true {
                 GADRewardBasedVideoAd.sharedInstance().present(fromRootViewController: self)
             }

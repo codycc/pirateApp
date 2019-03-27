@@ -8,7 +8,7 @@
 
 import UIKit
 import AVFoundation
-
+import UserNotifications
 
 
 class IntroOutroVC: UIViewController, AVAudioPlayerDelegate {
@@ -25,7 +25,7 @@ class IntroOutroVC: UIViewController, AVAudioPlayerDelegate {
     var popPlayer: AVAudioPlayer!
     var ahoyPlayer: AVAudioPlayer!
     
-    var imagesArray = ["TUTORIAL1","TUTORIAL2","TUTORIAL3", "TUTORIAL4"]
+    var imagesArray = ["TUTORIAL1","TUTORIAL2","TUTORIAL3", "TUTORIAL4", "TUTORIAL5"]
     var count = 0
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,6 +74,10 @@ class IntroOutroVC: UIViewController, AVAudioPlayerDelegate {
     
     @IBAction func exitBtnPressed(_ sender: Any) {
         //go to main vc
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateTable"), object: nil, userInfo: nil)
+            
+        }
         playPopSoundEffect()
         playAhoySoundEffect()
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
@@ -98,7 +102,7 @@ class IntroOutroVC: UIViewController, AVAudioPlayerDelegate {
         gameBeatView.alpha = 0.9
         tutorialImage.image = UIImage(named: imagesArray[count])
         count += 1
-        if count == 4 {
+        if count == 5 {
             exitBtn.isUserInteractionEnabled = true
             exitBtn.alpha = 1.0
             nextBtn.isUserInteractionEnabled = false

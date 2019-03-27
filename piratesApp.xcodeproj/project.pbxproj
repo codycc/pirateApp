@@ -14,6 +14,12 @@
 		0B0B145E21CAA6C5000ED275 /* prestige.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0B0B145D21CAA6C4000ED275 /* prestige.wav */; };
 		0B0B146221CAFC96000ED275 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0B146121CAFC96000ED275 /* SettingsVC.swift */; };
 		0B0B146421CB0955000ED275 /* loot.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0B0B146321CB0954000ED275 /* loot.wav */; };
+		0B0C272B21E7CAC90080164A /* soundeffect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0B0C272A21E7CAC90080164A /* soundeffect.mp3 */; };
+		0B3251CF22298DE500E9F781 /* piratesmusic.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0B3251CE22298DE500E9F781 /* piratesmusic.wav */; };
+		0B3251D3222EEB6C00E9F781 /* ContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3251D2222EEB6C00E9F781 /* ContainerVC.swift */; };
+		0B38C1862231AB9F00F76ABC /* LocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B38C1852231AB9F00F76ABC /* LocationVC.swift */; };
+		0B38C1882231ABD200F76ABC /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B38C1872231ABD200F76ABC /* LocationCell.swift */; };
+		0B38C18E2237044C00F76ABC /* NewPirateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B38C18D2237044C00F76ABC /* NewPirateCell.swift */; };
 		0B5DDCD221E58E140015A483 /* TreasureCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5DDCD121E58E140015A483 /* TreasureCollectionVC.swift */; };
 		0B5DDCD421E66D8C0015A483 /* TreasureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5DDCD321E66D8C0015A483 /* TreasureCell.swift */; };
 		0B6A4A6A2177B6B500495663 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6A4A692177B6B500495663 /* AppDelegate.swift */; };
@@ -25,7 +31,6 @@
 		0B6A4A822177B6B600495663 /* piratesAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6A4A812177B6B600495663 /* piratesAppTests.swift */; };
 		0B6A4A8D2177B6B700495663 /* piratesAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6A4A8C2177B6B700495663 /* piratesAppUITests.swift */; };
 		0B6A4A9E217BAF0500495663 /* PirateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6A4A9D217BAF0500495663 /* PirateCell.swift */; };
-		0B6A4AA0217BEB5700495663 /* piratesmusic.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0B6A4A9F217BEB5700495663 /* piratesmusic.wav */; };
 		0B78C3DB2180F2AC00D628FB /* JOLLR___.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 0B78C3DA2180F29100D628FB /* JOLLR___.TTF */; };
 		0B78C3DD2180F51C00D628FB /* PiratesWriters.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0B78C3DC2180F51800D628FB /* PiratesWriters.ttf */; };
 		0B78C3E12181365300D628FB /* pr3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0B78C3E02181365300D628FB /* pr3.wav */; };
@@ -37,9 +42,7 @@
 		0B9C763521DFDECB00DF31A2 /* InAppPurchases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9C763421DFDECB00DF31A2 /* InAppPurchases.swift */; };
 		0B9C763721DFDFF700DF31A2 /* InAppPurchaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9C763621DFDFF700DF31A2 /* InAppPurchaseService.swift */; };
 		0BAD0EF021E3BB1A0078DC9E /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAD0EEF21E3BB1A0078DC9E /* DashboardVC.swift */; };
-		0BDD499A218DEEBD0022BB8E /* StoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDD4999218DEEBD0022BB8E /* StoreVC.swift */; };
 		0BE36D6521E6A53A007A67C7 /* MarketVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE36D6421E6A53A007A67C7 /* MarketVC.swift */; };
-		0BF1828321DE804600D80930 /* ShopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF1828221DE804600D80930 /* ShopVC.swift */; };
 		0BF1828721DE80E500D80930 /* StoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF1828621DE80E500D80930 /* StoreCell.swift */; };
 		616D6631FECA1AE6BFB7C26D /* Pods_piratesApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 836271208CF8FCF0D8DF9160 /* Pods_piratesApp.framework */; };
 		A797B97C002785BC72F2DFD2 /* Pods_piratesAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF4F632F77AB1CE59392C73 /* Pods_piratesAppTests.framework */; };
@@ -71,6 +74,12 @@
 		0B0B145D21CAA6C4000ED275 /* prestige.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = prestige.wav; sourceTree = "<group>"; };
 		0B0B146121CAFC96000ED275 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		0B0B146321CB0954000ED275 /* loot.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = loot.wav; sourceTree = "<group>"; };
+		0B0C272A21E7CAC90080164A /* soundeffect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = soundeffect.mp3; sourceTree = "<group>"; };
+		0B3251CE22298DE500E9F781 /* piratesmusic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = piratesmusic.wav; sourceTree = "<group>"; };
+		0B3251D2222EEB6C00E9F781 /* ContainerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerVC.swift; sourceTree = "<group>"; };
+		0B38C1852231AB9F00F76ABC /* LocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationVC.swift; sourceTree = "<group>"; };
+		0B38C1872231ABD200F76ABC /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
+		0B38C18D2237044C00F76ABC /* NewPirateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPirateCell.swift; sourceTree = "<group>"; };
 		0B5DDCD121E58E140015A483 /* TreasureCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreasureCollectionVC.swift; sourceTree = "<group>"; };
 		0B5DDCD321E66D8C0015A483 /* TreasureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreasureCell.swift; sourceTree = "<group>"; };
 		0B6A4A662177B6B400495663 /* piratesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = piratesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,7 +97,6 @@
 		0B6A4A8C2177B6B700495663 /* piratesAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = piratesAppUITests.swift; sourceTree = "<group>"; };
 		0B6A4A8E2177B6B700495663 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0B6A4A9D217BAF0500495663 /* PirateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PirateCell.swift; sourceTree = "<group>"; };
-		0B6A4A9F217BEB5700495663 /* piratesmusic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = piratesmusic.wav; path = ../../../Downloads/bb57e4dbbb1e64d7a4bd71a515f64e6cca4ec5bb/piratesmusic.wav; sourceTree = "<group>"; };
 		0B78C3DA2180F29100D628FB /* JOLLR___.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JOLLR___.TTF"; sourceTree = "<group>"; };
 		0B78C3DC2180F51800D628FB /* PiratesWriters.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PiratesWriters.ttf; sourceTree = "<group>"; };
 		0B78C3E02181365300D628FB /* pr3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pr3.wav; sourceTree = "<group>"; };
@@ -100,9 +108,7 @@
 		0B9C763421DFDECB00DF31A2 /* InAppPurchases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchases.swift; sourceTree = "<group>"; };
 		0B9C763621DFDFF700DF31A2 /* InAppPurchaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchaseService.swift; sourceTree = "<group>"; };
 		0BAD0EEF21E3BB1A0078DC9E /* DashboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardVC.swift; sourceTree = "<group>"; };
-		0BDD4999218DEEBD0022BB8E /* StoreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreVC.swift; sourceTree = "<group>"; };
 		0BE36D6421E6A53A007A67C7 /* MarketVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketVC.swift; sourceTree = "<group>"; };
-		0BF1828221DE804600D80930 /* ShopVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopVC.swift; sourceTree = "<group>"; };
 		0BF1828621DE80E500D80930 /* StoreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreCell.swift; sourceTree = "<group>"; };
 		1FF4F632F77AB1CE59392C73 /* Pods_piratesAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_piratesAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C098F674FEDDB7F893D64E7 /* Pods-piratesAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-piratesAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-piratesAppTests/Pods-piratesAppTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -172,13 +178,14 @@
 				0B78C3E62187A18A00D628FB /* GoogleService-Info.plist */,
 				0B08838C219138BA000ECEAA /* shopNoise.wav */,
 				0B78C3E421826A8B00D628FB /* purchase.wav */,
+				0B0C272A21E7CAC90080164A /* soundeffect.mp3 */,
 				0B0B145D21CAA6C4000ED275 /* prestige.wav */,
 				0B0B146321CB0954000ED275 /* loot.wav */,
 				0B78C3E221820B7300D628FB /* ahoy.wav */,
 				0B82C7C721924F4A002FEABD /* pop.wav */,
 				0B78C3E02181365300D628FB /* pr3.wav */,
+				0B3251CE22298DE500E9F781 /* piratesmusic.wav */,
 				0B78C3D92180F27300D628FB /* Fonts */,
-				0B6A4A9F217BEB5700495663 /* piratesmusic.wav */,
 				0B6A4A9C2177B7D800495663 /* Model */,
 				0B6A4A9B2177B7CC00495663 /* View */,
 				0B6A4A9A2177B7C300495663 /* Controller */,
@@ -216,15 +223,15 @@
 			isa = PBXGroup;
 			children = (
 				0B6A4A6B2177B6B500495663 /* MainVC.swift */,
-				0BDD4999218DEEBD0022BB8E /* StoreVC.swift */,
 				0B0883862190B86F000ECEAA /* IntroOutroVC.swift */,
 				0B0883882190C059000ECEAA /* OfflineBonusVC.swift */,
 				0B08838A2190C393000ECEAA /* StatsVC.swift */,
 				0B0B146121CAFC96000ED275 /* SettingsVC.swift */,
-				0BF1828221DE804600D80930 /* ShopVC.swift */,
 				0BAD0EEF21E3BB1A0078DC9E /* DashboardVC.swift */,
 				0B5DDCD121E58E140015A483 /* TreasureCollectionVC.swift */,
 				0BE36D6421E6A53A007A67C7 /* MarketVC.swift */,
+				0B3251D2222EEB6C00E9F781 /* ContainerVC.swift */,
+				0B38C1852231AB9F00F76ABC /* LocationVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -235,6 +242,8 @@
 				0B6A4A9D217BAF0500495663 /* PirateCell.swift */,
 				0BF1828621DE80E500D80930 /* StoreCell.swift */,
 				0B5DDCD321E66D8C0015A483 /* TreasureCell.swift */,
+				0B38C1872231ABD200F76ABC /* LocationCell.swift */,
+				0B38C18D2237044C00F76ABC /* NewPirateCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -397,8 +406,9 @@
 				0B78C3DD2180F51C00D628FB /* PiratesWriters.ttf in Resources */,
 				0B78C3E521826A8C00D628FB /* purchase.wav in Resources */,
 				0B0B146421CB0955000ED275 /* loot.wav in Resources */,
+				0B3251CF22298DE500E9F781 /* piratesmusic.wav in Resources */,
 				0B6A4A772177B6B600495663 /* LaunchScreen.storyboard in Resources */,
-				0B6A4AA0217BEB5700495663 /* piratesmusic.wav in Resources */,
+				0B0C272B21E7CAC90080164A /* soundeffect.mp3 in Resources */,
 				0B6A4A742177B6B600495663 /* Assets.xcassets in Resources */,
 				0B82C7C821924F4A002FEABD /* pop.wav in Resources */,
 				0B78C3E321820B7300D628FB /* ahoy.wav in Resources */,
@@ -435,16 +445,22 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-piratesApp/Pods-piratesApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Spring/Spring.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyStoreKit/SwiftyStoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Spring.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyStoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -532,14 +548,16 @@
 				0B9C763721DFDFF700DF31A2 /* InAppPurchaseService.swift in Sources */,
 				0B6A4A722177B6B500495663 /* piratesApp.xcdatamodeld in Sources */,
 				0B6A4A6C2177B6B500495663 /* MainVC.swift in Sources */,
-				0BF1828321DE804600D80930 /* ShopVC.swift in Sources */,
 				0B5DDCD421E66D8C0015A483 /* TreasureCell.swift in Sources */,
 				0B6A4A6A2177B6B500495663 /* AppDelegate.swift in Sources */,
 				0B0883892190C059000ECEAA /* OfflineBonusVC.swift in Sources */,
 				0BAD0EF021E3BB1A0078DC9E /* DashboardVC.swift in Sources */,
-				0BDD499A218DEEBD0022BB8E /* StoreVC.swift in Sources */,
+				0B38C1862231AB9F00F76ABC /* LocationVC.swift in Sources */,
+				0B3251D3222EEB6C00E9F781 /* ContainerVC.swift in Sources */,
 				0BE36D6521E6A53A007A67C7 /* MarketVC.swift in Sources */,
+				0B38C1882231ABD200F76ABC /* LocationCell.swift in Sources */,
 				0B0883872190B86F000ECEAA /* IntroOutroVC.swift in Sources */,
+				0B38C18E2237044C00F76ABC /* NewPirateCell.swift in Sources */,
 				0B0B146221CAFC96000ED275 /* SettingsVC.swift in Sources */,
 				0BF1828721DE80E500D80930 /* StoreCell.swift in Sources */,
 			);
@@ -717,6 +735,7 @@
 			baseConfigurationReference = 5A8E74F24664786BCBFC1FF6 /* Pods-piratesApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G7CYZFGRXM;
 				INFOPLIST_FILE = piratesApp/Info.plist;
@@ -727,6 +746,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.codycondon.piratesApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -737,6 +757,7 @@
 			baseConfigurationReference = 6844F7D98D4EBD60E4E48A14 /* Pods-piratesApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G7CYZFGRXM;
 				INFOPLIST_FILE = piratesApp/Info.plist;
@@ -747,6 +768,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.codycondon.piratesApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

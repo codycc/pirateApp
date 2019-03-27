@@ -92,26 +92,31 @@ class StatsVC: UIViewController {
         case 1:
             self.piratePanDownViewImage.constant = -60
         case 2:
-            self.piratePanDownViewImage.constant = -30
+            self.piratePanDownViewImage.constant = -37
         case 3:
-            self.piratePanDownViewImage.constant = -70
+            self.piratePanDownViewImage.constant = -35
         case 4:
             self.piratePanDownViewImage.constant = -15
         case 5:
-            self.piratePanDownViewImage.constant = -10
+            self.piratePanDownViewImage.constant = -15
         case 6:
-            self.piratePanDownViewImage.constant = -100
+            self.piratePanDownViewImage.constant = -68
         case 7:
-            self.piratePanDownViewImage.constant = -80
+            self.piratePanDownViewImage.constant = -113
         case 8:
-            self.piratePanDownViewImage.constant = -10
+            self.piratePanDownViewImage.constant = -58
         case 9:
-            self.piratePanDownViewImage.constant = -10
+            self.piratePanDownViewImage.constant = -20
         case 10:
-            self.piratePanDownViewImage.constant = -10
+            self.piratePanDownViewImage.constant = 0
         case 11:
             self.piratePanDownViewImage.constant = -10
-            
+        case 12:
+            self.piratePanDownViewImage.constant = -10
+        case 13:
+            self.piratePanDownViewImage.constant = -10
+        case 14:
+            self.piratePanDownViewImage.constant = -10
             
         default:
             print("hello")

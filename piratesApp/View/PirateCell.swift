@@ -9,6 +9,7 @@
 import UIKit
 import Spring
 
+
 class PirateCell: UITableViewCell {
 
     @IBOutlet weak var pirateNameLbl: UILabel!
@@ -21,6 +22,7 @@ class PirateCell: UITableViewCell {
 
     @IBOutlet weak var buyPlankColorTin: SpringImageView!
     
+    @IBOutlet weak var backImgTwo: UIImageView!
     @IBOutlet weak var lockImg: SpringImageView!
     
     @IBOutlet weak var plankBtn: UIButton!
@@ -41,14 +43,30 @@ class PirateCell: UITableViewCell {
     @IBOutlet weak var goldPlateImage: UIImageView!
     @IBOutlet weak var maxPiratesReachedView: UIView!
     
+    @IBOutlet weak var resetPirateBtn: UIButton!
+    
+    @IBOutlet weak var subTitleLbl: UILabel!
+    
+    @IBOutlet weak var secondSubTitleLbl: UILabel!
     @IBOutlet weak var maxPiratesReachedLbl: UILabel!
     @IBOutlet var pirateImgConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var pirateHeightConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var backgroundHeight: NSLayoutConstraint!
+    @IBOutlet weak var backgroundTop: NSLayoutConstraint!
     
+    @IBOutlet weak var labelLeadingConstraint: NSLayoutConstraint!
     
     var imgArray = [UIImage]()
+    var pirateImgArray = [UIImage]()
+     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        backImgTwo.clipsToBounds = true 
+    }
     
     func configureCell(pirate: Pirate, wallet: Wallet) {
         self.pirateNameLbl.text =  String(describing: pirate.name!)
@@ -65,6 +83,9 @@ class PirateCell: UITableViewCell {
         setPiratePricePlankLbl(pirate: pirate)
         checkIfMaxPiratesReached(pirate: pirate)
         checkHowToChangeConstraint(pirate: pirate)
+        
+      
+     
     }
     
     func setPlankUnlock(pirate: Pirate) {
@@ -107,40 +128,49 @@ class PirateCell: UITableViewCell {
     func checkHowToChangeConstraint(pirate: Pirate) {
         switch pirate.id {
         case 0:
-            self.pirateImgConstraint.constant = -20
+            self.pirateImgConstraint.constant = -22
             self.pirateHeightConstraint.constant = 180
         case 1:
-            self.pirateImgConstraint.constant = -35
+            self.pirateImgConstraint.constant = -30
             self.pirateHeightConstraint.constant = 180
         case 2:
-            self.pirateImgConstraint.constant = -17
+            self.pirateImgConstraint.constant = -35
             self.pirateHeightConstraint.constant = 170
         case 3:
-            self.pirateImgConstraint.constant = -25
+            self.pirateImgConstraint.constant = -23
             self.pirateHeightConstraint.constant = 180
         case 4:
-            self.pirateImgConstraint.constant = -25
+            self.pirateImgConstraint.constant = -27
             self.pirateHeightConstraint.constant = 180
         case 5:
-            self.pirateImgConstraint.constant = -20
+            self.pirateImgConstraint.constant = -27
             self.pirateHeightConstraint.constant = 180
         case 6:
-            self.pirateImgConstraint.constant = -45
+            self.pirateImgConstraint.constant = -26
             self.pirateHeightConstraint.constant = 160
         case 7:
-            self.pirateImgConstraint.constant = -33
+            self.pirateImgConstraint.constant = -43
             self.pirateHeightConstraint.constant = 160
         case 8:
-            self.pirateImgConstraint.constant = -20
+            self.pirateImgConstraint.constant = -36
             self.pirateHeightConstraint.constant = 180
         case 9:
-            self.pirateImgConstraint.constant = -25
+            self.pirateImgConstraint.constant = -30
             self.pirateHeightConstraint.constant = 190
         case 10:
-            self.pirateImgConstraint.constant = -20
+            self.pirateImgConstraint.constant = -16
             self.pirateHeightConstraint.constant = 190
         case 11:
             self.pirateImgConstraint.constant = -20
+            self.pirateHeightConstraint.constant = 190
+        case 12:
+            self.pirateImgConstraint.constant = -22
+            self.pirateHeightConstraint.constant = 190
+        case 13:
+            self.pirateImgConstraint.constant = -22
+            self.pirateHeightConstraint.constant = 190
+        case 14:
+            self.pirateImgConstraint.constant = -22
             self.pirateHeightConstraint.constant = 190
         default:
             print("default")
@@ -151,11 +181,19 @@ class PirateCell: UITableViewCell {
         if pirate.numberOfPirates >= 100 {
             self.maxPiratesReachedLbl.isHidden = false
             self.maxPiratesReachedView.isHidden = false
+            self.resetPirateBtn.isHidden = false
+            self.subTitleLbl.isHidden = false
+            self.secondSubTitleLbl.isHidden = false
         } else {
             self.maxPiratesReachedLbl.isHidden = true
-            self.maxPiratesReachedView.isHidden = true 
+            self.maxPiratesReachedView.isHidden = true
+            self.resetPirateBtn.isHidden = true
+            self.subTitleLbl.isHidden = true
+            self.secondSubTitleLbl.isHidden = true
         }
     }
+    
+   
     
     func checkIfPiratesAffordable(pirate: Pirate, wallet: Wallet) {
         if pirate.isUnlocked && pirate.piratePrice <= wallet.totalLootAmount {
@@ -224,28 +262,62 @@ class PirateCell: UITableViewCell {
     }
     
     func setUpDynamicBackgrounds(pirate: Pirate) {
-        let groundImage: UIImage = UIImage(named: "ground\(pirate.groundNumber)")!
+        var groundImage: UIImage = UIImage(named: "ground\(pirate.groundNumber)")!
         groundImg.image = groundImage
-       let backgroundImage: UIImage = UIImage(named: "background2")!
-        backgroundImg.image = backgroundImage
+        var  backgroundImage: UIImage!
+        switch pirate.id {
+        case 0...1:
+            backgroundImage = UIImage(named: "gamebg9")!
+            groundImg.isHidden = false
+        case 2...3:
+            backgroundImage = UIImage(named: "tropical2")!
+            groundImage = UIImage(named: "ground2")!
+            groundImg.isHidden = false
+        case 4...5:
+            backgroundImage = UIImage(named: "gamebg12")!
+            groundImg.isHidden = true
+        case 6...7:
+            backgroundImage = UIImage(named: "gamebg5")!
+            groundImage = UIImage(named: "ocean-beach-fg")!
+              groundImg.isHidden = false
+        case 8...9:
+            backgroundImage = UIImage(named: "coralbg")!
+              groundImg.isHidden = false
+        case 10...12:
+            backgroundImage = UIImage(named: "gamebg3")!
+              groundImg.isHidden = false
+        case 13...14:
+             backgroundImage = UIImage(named: "gamebg7")!
+              groundImg.isHidden = false
+        default:
+            print("default")
+        }
+        
+       
+        backImgTwo.image = backgroundImage
         
     }
     
-
-
+    func movePlankDown() {
+        UIView.animate(withDuration: 2.0, animations: {
+            self.plankImg.frame.origin.y += 1000
+        }) { (finished) in
+            self.plankImg.isHidden = true
+        }
+        
+    }
+    
     func addImagesForAnimation(pirate: Pirate) {
-        let img = UIImage(named:"pirate\(pirate.id)idle\(0)")
+        let img = UIImage(named:"pirate\(pirate.id)attack\(0)")
         pirateImg.image = img
     }
     
-
-    
-    func setPirateImages(imgArray: Array<UIImage>) {
-//        pirateImg.stopAnimating()
-//        pirateImg.animationImages = imgArray
-//        pirateImg.animationDuration = 0.8
-//        pirateImg.animationRepeatCount = 0
-//        pirateImg.startAnimating()
+    func setPirateImages() {
+        pirateImg.stopAnimating()
+        pirateImg.animationImages = pirateImgArray
+        pirateImg.animationDuration = 0.8
+        pirateImg.animationRepeatCount = 1
+        pirateImg.startAnimating()
     }
 
 }
