@@ -24,6 +24,8 @@ class IntroOutroVC: UIViewController, AVAudioPlayerDelegate {
     
     var popPlayer: AVAudioPlayer!
     var ahoyPlayer: AVAudioPlayer!
+ 
+    
     
     var imagesArray = ["TUTORIAL1","TUTORIAL2","TUTORIAL3", "TUTORIAL4", "TUTORIAL5"]
     var count = 0
@@ -32,6 +34,7 @@ class IntroOutroVC: UIViewController, AVAudioPlayerDelegate {
         exitBtn.isUserInteractionEnabled = false
         exitBtn.alpha = 0.5
         showIfUserIsOnFirstUse()
+       
         // Do any additional setup after loading the view.
     }
     
@@ -62,12 +65,14 @@ class IntroOutroVC: UIViewController, AVAudioPlayerDelegate {
             print(err.debugDescription)
         }
     }
+    
 
     func showIfUserIsOnFirstUse() {
         let isFirstUse = UserDefaults.standard.bool(forKey: "isFirstUse")
         if isFirstUse {
-            self.gameBeatLbl.text = "AHOY MATEY! WELCOME TO PIRATE LOOTER. THE IDLE GAME THAT ALLOWS YOU TO LOOT THE SEAS. THE GOAL IS TO GET 100 OF EACH PIRATE! CHEERS!"
+            self.gameBeatLbl.text = "AHOY MATEY! WELCOME TO PIRATE LOOTER. THE IDLE GAME THAT ALLOWS YOU TO LOOT THE SEAS. WE HOPE YOU ENJOY!"
             UserDefaults.standard.set(false, forKey: "isFirstUse")
+            
         }
     }
     

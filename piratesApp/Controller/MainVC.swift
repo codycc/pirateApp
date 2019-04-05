@@ -226,7 +226,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
         
         //adView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
-        //adView.adUnitID = "ca-app-pub-1067425139660844/7823755834"
+        adView.adUnitID = "ca-app-pub-1067425139660844/7823755834"
         
         
         adView.rootViewController = self
@@ -356,7 +356,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
     }
     
     func createAndLoadInterstitial() -> GADInterstitial {
-        var interstitial = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/4411468910")
+        var interstitial = GADInterstitial(adUnitID: "ca-app-pub-1067425139660844/5758881262")
+        
+        
         interstitial.delegate = self
         interstitial.load(GADRequest())
         return interstitial

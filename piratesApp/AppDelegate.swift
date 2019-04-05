@@ -12,6 +12,7 @@ import GoogleMobileAds
 import Firebase
 import SwiftyStoreKit
 import UserNotifications
+import AppLovinSDK
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -25,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
       
-
+      
         
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
         
@@ -88,8 +89,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             //set up wallet
             let wallet = NSEntityDescription.insertNewObject(forEntityName: "Wallet", into: context)
             
-            wallet.setValue(1100000, forKey: "totalLootAmount")
-            wallet.setValue(100, forKey: "totalGemsAmount")
+            wallet.setValue(0, forKey: "totalLootAmount")
+            wallet.setValue(0, forKey: "totalGemsAmount")
             wallet.setValue(0, forKey: "totalPrestigeAmount")
             
             // set up locations
@@ -241,7 +242,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             bandit.setValue(15, forKey: "numberOfImagesAttack")
             bandit.setValue(1500, forKey: "piratePrice")
             bandit.setValue(1, forKey: "levelToUnlock")
-            bandit.setValue(25, forKey: "levelToUnlockTreasure")
+            bandit.setValue(32, forKey: "levelToUnlockTreasure")
             
             landlubber.setValue(4, forKey: "id")
             landlubber.setValue("Landlubber", forKey: "name")
@@ -258,7 +259,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             landlubber.setValue(15, forKey: "numberOfImagesAttack")
             landlubber.setValue(2000, forKey: "piratePrice")
             landlubber.setValue(2, forKey: "levelToUnlock")
-            landlubber.setValue(27, forKey: "levelToUnlockTreasure")
+            landlubber.setValue(32, forKey: "levelToUnlockTreasure")
             
             roger.setValue(5, forKey: "id")
             roger.setValue("Roger", forKey: "name")
@@ -275,7 +276,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             roger.setValue(11, forKey: "numberOfImagesAttack")
             roger.setValue(2500, forKey: "piratePrice")
             roger.setValue(2, forKey: "levelToUnlock")
-            roger.setValue(29, forKey: "levelToUnlockTreasure")
+            roger.setValue(35, forKey: "levelToUnlockTreasure")
             
             crook.setValue(6, forKey: "id")
             crook.setValue("Crook", forKey: "name")
@@ -292,7 +293,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             crook.setValue(11, forKey: "numberOfImagesAttack")
             crook.setValue(3000, forKey: "piratePrice")
             crook.setValue(3, forKey: "levelToUnlock")
-            crook.setValue(30, forKey: "levelToUnlockTreasure")
+            crook.setValue(35, forKey: "levelToUnlockTreasure")
 
             bucaneer.setValue(7, forKey: "id")
             bucaneer.setValue("Buccaneer", forKey: "name")
@@ -361,7 +362,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             bayouBenny.setValue(15, forKey: "numberOfImagesAttack")
             bayouBenny.setValue(5000, forKey: "piratePrice")
             bayouBenny.setValue(5, forKey: "levelToUnlock")
-            bayouBenny.setValue(30, forKey: "levelToUnlockTreasure")
+            bayouBenny.setValue(21, forKey: "levelToUnlockTreasure")
             
             privateer.setValue(11, forKey: "id")
             privateer.setValue("Privateer", forKey: "name")
@@ -378,7 +379,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             privateer.setValue(15, forKey: "numberOfImagesAttack")
             privateer.setValue(5500, forKey: "piratePrice")
             privateer.setValue(5, forKey: "levelToUnlock")
-            privateer.setValue(29, forKey: "levelToUnlockTreasure")
+            privateer.setValue(32, forKey: "levelToUnlockTreasure")
             
             redbeard.setValue(12, forKey: "id")
             redbeard.setValue("Redbeard", forKey: "name")

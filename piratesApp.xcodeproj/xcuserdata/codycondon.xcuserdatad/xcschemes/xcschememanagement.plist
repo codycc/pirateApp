@@ -6,6 +6,8 @@
 	<dict>
 		<key>piratesApp 2.xcscheme_^#shared#^_</key>
 		<dict>
+			<key>isShown</key>
+			<true/>
 			<key>orderHint</key>
 			<integer>12</integer>
 		</dict>
@@ -23,6 +25,8 @@
 		</dict>
 		<key>piratesAppRemake.xcscheme_^#shared#^_</key>
 		<dict>
+			<key>isShown</key>
+			<true/>
 			<key>orderHint</key>
 			<integer>11</integer>
 		</dict>

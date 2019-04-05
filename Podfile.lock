@@ -1,10 +1,12 @@
 PODS:
+  - AppLovinSDK (6.2.0)
   - Bolts (1.9.0):
     - Bolts/AppLinks (= 1.9.0)
     - Bolts/Tasks (= 1.9.0)
   - Bolts/AppLinks (1.9.0):
     - Bolts/Tasks
   - Bolts/Tasks (1.9.0)
+  - ChartboostSDK (7.3.0)
   - FacebookSDK (4.38.0):
     - Bolts (~> 1.9)
     - FacebookSDK/CoreKit (= 4.38.0)
@@ -16,6 +18,7 @@ PODS:
     - Bolts (~> 1.9)
     - FacebookSDK/CoreKit
     - FBSDKMarketingKit
+  - FBAudienceNetwork (5.2.0)
   - FBSDKCoreKit (4.39.1):
     - Bolts (~> 1.9)
   - FBSDKMarketingKit (4.38.0):
@@ -50,6 +53,18 @@ PODS:
     - GoogleUtilities/Network (~> 5.2)
     - "GoogleUtilities/NSData+zlib (~> 5.2)"
     - nanopb (~> 0.3)
+  - GoogleMobileAdsMediationAppLovin (6.2.0.0):
+    - AppLovinSDK (= 6.2.0)
+    - Google-Mobile-Ads-SDK (>= 7.14.0)
+  - GoogleMobileAdsMediationChartboost (7.3.0.0):
+    - ChartboostSDK (= 7.3.0)
+    - Google-Mobile-Ads-SDK (>= 7.10.1)
+  - GoogleMobileAdsMediationFacebook (5.2.0.0):
+    - FBAudienceNetwork (= 5.2.0)
+    - Google-Mobile-Ads-SDK (>= 7.12.0)
+  - GoogleMobileAdsMediationIronSource (6.8.0.0):
+    - Google-Mobile-Ads-SDK (>= 7.14.0)
+    - IronSourceSDK (= 6.8.0)
   - GoogleUtilities/AppDelegateSwizzler (5.3.4):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
@@ -68,6 +83,7 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (5.3.4):
     - GoogleUtilities/Logger
+  - IronSourceSDK (6.8.0.0)
   - nanopb (0.3.901):
     - nanopb/decode (= 0.3.901)
     - nanopb/encode (= 0.3.901)
@@ -78,16 +94,24 @@ PODS:
 
 DEPENDENCIES:
   - FacebookSDK
+  - FBAudienceNetwork
   - Firebase/AdMob
   - Firebase/Core
   - Google-Mobile-Ads-SDK
+  - GoogleMobileAdsMediationAppLovin
+  - GoogleMobileAdsMediationChartboost
+  - GoogleMobileAdsMediationFacebook
+  - GoogleMobileAdsMediationIronSource
   - Spring (from `https://github.com/MengTo/Spring.git`)
   - SwiftyStoreKit
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - AppLovinSDK
     - Bolts
+    - ChartboostSDK
     - FacebookSDK
+    - FBAudienceNetwork
     - FBSDKCoreKit
     - FBSDKMarketingKit
     - Firebase
@@ -96,7 +120,12 @@ SPEC REPOS:
     - FirebaseInstanceID
     - Google-Mobile-Ads-SDK
     - GoogleAppMeasurement
+    - GoogleMobileAdsMediationAppLovin
+    - GoogleMobileAdsMediationChartboost
+    - GoogleMobileAdsMediationFacebook
+    - GoogleMobileAdsMediationIronSource
     - GoogleUtilities
+    - IronSourceSDK
     - nanopb
     - SwiftyStoreKit
 
@@ -110,8 +139,11 @@ CHECKOUT OPTIONS:
     :git: https://github.com/MengTo/Spring.git
 
 SPEC CHECKSUMS:
+  AppLovinSDK: b960ee5305e0cd8437bb0e97c9fe0be7d5cca57c
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
+  ChartboostSDK: 63bbdcad37dd78012acaba1f904e82ddb0eb921d
   FacebookSDK: 73f54b8b94e09b05647cdef0af147f470cd3edc6
+  FBAudienceNetwork: 43eadf7ab00fe58a66ca52171de324e25a0a4a1c
   FBSDKCoreKit: f442aa96179cc9b382bb4abeb7e340a47cca8f91
   FBSDKMarketingKit: e609f39d74ab273cf52e2f8b7e8829ed412b2827
   Firebase: b48f9e653da971ecce5b8c749684bc8bb2d26bd3
@@ -120,11 +152,16 @@ SPEC CHECKSUMS:
   FirebaseInstanceID: e2fa4cb35ef5558c200f7f0ad8a53e212215f93e
   Google-Mobile-Ads-SDK: 151d5e87b4a0ae6d7d07e2cd8d55d1b41ea2e61e
   GoogleAppMeasurement: 5029d78f2b438bd30ffb44e6c558b57c21622727
+  GoogleMobileAdsMediationAppLovin: cf87189e01f0e670b8e30088cf20410675749b85
+  GoogleMobileAdsMediationChartboost: 600428dad950e3d989cdf380d27f0b14463a73cd
+  GoogleMobileAdsMediationFacebook: d25bddbf68ec7d08af5f1763807457e50a598335
+  GoogleMobileAdsMediationIronSource: abcc8998d95c5eb1ffed838d5016e0e14c53cbf6
   GoogleUtilities: abb092d2c12e817fa3e0e7b274987dd72fb86ec3
+  IronSourceSDK: 1eef343a0d2468889f1befb8506cc9560a10e8af
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Spring: 3d113f14575ef79aec9c5f906dfa4f5001c03254
   SwiftyStoreKit: 9ebd15971e28aa2989825fe8bc092eb5f75dd0b2
 
-PODFILE CHECKSUM: a9b49fa43860a931bf11661496c1b350f5812525
+PODFILE CHECKSUM: c34710366a36a989898aa3fcdad21e580ab2df49
 
 COCOAPODS: 1.5.3

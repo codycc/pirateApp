@@ -117,7 +117,7 @@ class LocationVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     }
     
     func createAndLoadInterstitial() -> GADInterstitial {
-        var interstitial = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/4411468910")
+        var interstitial = GADInterstitial(adUnitID: "ca-app-pub-1067425139660844/5758881262")
         interstitial.delegate = self
         interstitial.load(GADRequest())
         return interstitial
@@ -376,6 +376,7 @@ class LocationVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
                 updateCollectBonusLbl()
                 grabLocationData()
                 sortLocationData()
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateLoot"), object: nil, userInfo: nil)
                 tableView.reloadData()
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "changeLocationImage"), object: nil, userInfo: nil)
                
