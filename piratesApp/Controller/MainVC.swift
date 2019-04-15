@@ -2221,14 +2221,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GADB
         } else {
              imageName = "singleLoot.png"
         }
-        
-        if pirate.numberOfPirates == 30 {
-            if interstitial.isReady {
-                interstitial.present(fromRootViewController: self)
-            } else {
-                print("Ad wasn't ready")
-            }
-        }
+    
         
         
         let image = UIImage(named: imageName)
